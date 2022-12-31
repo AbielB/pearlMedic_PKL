@@ -1,0 +1,85 @@
+.right{
+    margin-top: 1.4rem;
+    .top{
+        display: flex;
+        justify-content: end;
+        gap: 2rem;
+        // background: gray;
+        button{
+            display: none;
+        }
+        .theme-toggler{
+            background: $warna-dark;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 1.6rem;
+            width: 4.2rem;
+            cursor: pointer;
+            border-radius: $border-radius-1;
+            i{
+                font-size: 1.2rem;
+                width: 50%;
+                color: $warna-light;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .active{
+                background-color: $warna-pendukung1;
+                color: $warna-dark;
+                border-radius: $border-radius-1;
+            }
+        }
+        .profile{
+            display: flex;
+            gap: 2rem;
+            text-align: right;
+        }
+    }
+   
+}
+
+@media screen and (max-width: 768px){
+    .right{
+        width: 94%;
+        margin: 0 auto 4rem;
+        .top{
+            position: fixed;
+            top: 0;
+            left: 0;
+            align-items: center;
+            padding: 0 0.8rem;
+            padding-bottom: .8rem;
+            background-color: $warna-pendukung;
+            width: 100%;
+            margin: 0;
+            z-index: 2;
+            box-shadow: 0.1rem .2rem rgba($warna-hitam, 0.15);
+            .theme-toggler{
+                margin-top: 10px;
+                width: 4.4rem;
+                position: absolute;
+                left: 66%;
+            }
+            .profile{
+                margin-top: 10px;
+                .info{
+                    display: none;
+                }
+            }
+            button{
+                display: inline-block;
+                background-color: transparent;
+                cursor: pointer;
+                color: $warna-dark;
+                position: absolute;
+                left: 1rem;
+                font-size: 2rem;
+                margin-top: 10px;
+            }
+            }
+        }
+    
+}

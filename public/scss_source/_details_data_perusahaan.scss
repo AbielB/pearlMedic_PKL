@@ -1,0 +1,121 @@
+#mainmenu {
+    .path{
+        margin-top: 20px;
+        margin-left: 2px;
+        color: $warna-pendukung2;
+        span{
+            text-decoration: underline;
+        }
+        a{
+            color: $warna-pendukung2;
+            font-size: 14px;
+            &:hover{
+                color: $warna-pendukung1;
+                text-decoration: underline;
+            }
+        }
+    }
+    .profilperusahaan{
+        h2{
+            font-size: 22px;
+            color: $warna-pendukung1;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .wrapper{
+            background-color: $warna-light;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            // text-align: center;
+            .img_perusahaan{
+                font-size: 50px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                border: 1px solid $warna-dark;
+                padding: 25px 30px;
+                border-radius: 50%;
+                color: $warna-dark;
+            }
+            .profilperusahaan_info{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                margin-top: 20px;
+                gap: 20px;
+                .profilperusahaan_info_text{
+                    h3{
+                        font-size: 15px;
+                        color: $warna-pendukung1;
+                        margin-bottom: 10px;
+                    }
+                    p{
+                        font-size: 13px;
+                        color: $warna-dark;
+                        font-weight: 500;
+                    }
+                }
+            }
+            .editdelete_profil{
+                margin-top: 30px;
+                margin-bottom: 20px;
+                display: flex;
+                gap: 30px;
+                .edit{
+                    margin-bottom: 5px;
+                    color: $warna-pendukung8;
+                    background-color: $warna-pendukung;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    i{
+                        margin-right: 5px;
+                    }
+                    &:hover{
+                        background-color: transparent;
+                        border: 1px solid $warna-pendukung;
+                        transition: all .3s ease-in-out;
+                    }
+                }
+                .hapus{
+                    margin-bottom: 5px;
+                    color: $warna-pendukung6;
+                    background-color: $warna-pendukung;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    gap: .5px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    i{
+                        margin-right: 5px;
+                    }
+                    &:hover{
+                        background-color: transparent;
+                        border: 1px solid $warna-pendukung;
+                        transition: all .3s ease-in-out;
+                    }
+                }
+            }
+            .grid{
+                width: 100%;
+                margin-top: 30px;
+                h3{
+                    font-size: 15px;
+                    color: $warna-pendukung1;
+                    margin-bottom: 10px;
+                }
+                p{
+                    font-size: 13px;
+                    color: $warna-dark;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

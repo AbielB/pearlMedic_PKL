@@ -1,0 +1,132 @@
+#mainmenu {
+    .orderterbaru 
+    {
+        .search{
+            display: flex;
+            width: 100%;
+            margin-bottom: 20px;
+            input{
+                padding: 10px 20px;
+                width: 100%;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+            input::placeholder{
+                color: $warna-dark;
+                font-size: 13px;
+                font-weight: 500;
+            }
+            button{
+                padding: 5px 15px;
+                width: 100px;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                cursor: pointer;
+                &:hover{
+                    background-color: $warna-pendukung1;
+                    color: $warna-putih;
+                    transition: all .3s ease;
+                }
+            }
+        }
+    }
+    .tambahdata{
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    border: 1px dashed $warna-dark;
+    color: $warna-dark;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 20px;
+    i{
+        margin-left: 5px;
+        font-size: 18px;
+        color: $warna-dark;
+        // margin-top: -5px;
+    }
+    &:hover{
+        border: 1px dashed $warna-pendukung6;
+        color: $warna-pendukung6;
+        i{
+            color: $warna-pendukung6;
+        }
+    }
+}
+}
+
+
+// tambah data perusahaan
+.bottom{
+    .form_akun_perusahaan{
+        .form-group{
+            display: grid;
+            // background-color: aqua;
+            padding: 10px 30px;
+            label{
+                font-size: 16px;
+                font-weight: 500;
+                color: $warna-pendukung1;
+                margin-bottom: 5px;
+            }
+            .form-group-logo{
+                background-color: $warna-light;
+                border: 1px solid $warna-pendukung1;
+                padding: 10px 20px;
+                border-radius: 50px;
+                i{
+                    font-size: 18px;
+                    color: $warna-pendukung1;
+                    margin-right: 10px;
+                }
+                input{
+                    background-color: transparent;
+                }
+                input::placeholder{
+                    color: $warna-pendukung1;
+                    font-size: 12px;
+                }
+                select{
+                    color: $warna-pendukung1;
+                    font-size: 12px;
+                    cursor: pointer;
+                    background-color: transparent;
+                }
+                &:hover{
+                    border: 1px solid $warna-dark;
+                    i{
+                        color: $warna-dark;
+                    }
+                }
+            }
+            #form-group-logo{
+                // border: none;
+                border-radius: 10px;
+                textarea{
+                    font-size: 12px;
+                    font-family: 'Montserrat', sans-serif;
+                    resize: vertical;
+                    background-color: transparent;
+                    &::placeholder{
+                        color: $warna-pendukung1;
+                    }
+                }
+            }
+            button[type=submit]{
+                background-color: $warna-pendukung1;
+                padding: 15px 15px;
+                border-radius: 50px;
+                color: $warna-dark;
+                cursor: pointer;
+                &:hover{
+                    background-color: transparent;
+                    border: 1px solid $warna-pendukung1;
+                    transition: all .3s ease;
+                }
+            }
+        }
+    }
+}

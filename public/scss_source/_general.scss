@@ -1,0 +1,103 @@
+
+// GLOBAL CSS
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    appearance: none;
+    list-style-type: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+html::-webkit-scrollbar{
+    width: .5rem;
+    background: $warna-light;
+}
+html::-webkit-scrollbar-thumb{
+    background: $warna-pendukung1;
+    border-radius: 5rem;
+}
+
+
+body{
+    line-height: 1.5;
+    user-select: none;
+    font-family: 'Questrial', sans-serif;
+    user-select: none;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: $warna-pendukung;
+    // display: flex;
+}
+main{
+    margin-top: 1.4rem;
+}
+.container{
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    // background: $warna-pendukung1;
+    grid-template-columns: 14rem auto 23rem;
+}
+img{
+    display: block;
+    width: 100%;
+}
+a{
+    color: $warna-dark;
+}
+h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+h2{
+    font-size: 1.4rem;
+}
+h3{
+    font-size: .8rem;
+}
+h4{
+    font-size: .77rem;
+}
+.profile-photo{
+    width: 3rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.text-muted{
+    color: $warna-dark;
+}
+
+h1,h2,h3,h4,h5{
+    line-height: 1.2;
+    font-family: 'Montserrat', sans-serif;
+}
+section{
+    // margin-top: 6rem;
+    // & > h2{
+    //     // text-align: center;
+    // }
+    & > p{
+        // text-align: center;
+        // width: 45%;
+        // margin: 0.6rem auto 2.5rem;
+        font-family: 'Lora', serif;
+    }
+}
+
+.red{
+    color: $warna-pendukung6;
+}
+.yellow{
+    color: $warna-pendukung4;
+}
+.green{
+    color: $warna-pendukung3;
+}

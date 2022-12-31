@@ -1,0 +1,146 @@
+.bottom{
+    margin-left: 30px;
+    margin-top: 20px;
+    h2{
+        margin-bottom: 20px;
+        color: $warna-pendukung2;
+    }
+    .item{
+        background: $warna-light;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: .7rem;
+        padding: 1.4rem 2rem;
+        border-radius: $border-radius-1;
+        transition: all .3s ease;
+        &:hover{
+            .icon i{
+                color: $warna-light;
+                background-color: $warna-pendukung2;
+                transition: all .3s ease;
+            }
+        }
+        .icon{
+            i{
+                color: $warna-dark;
+                background-color: $warna-pendukung1;
+                padding: 1rem;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 18px;
+            }
+        }
+        .right{
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin: 5px;
+            width: 100%;
+            .info{
+                h3{
+                    color: $warna-dark;
+                    font-size: 12px;
+                }
+                p{
+                    color: $warna-pendukung3;
+                    font-size: 12px;
+                }
+            }
+            a{
+                font-size: 14px;
+                margin-top: 10px;
+                &:hover{
+                    color: $warna-pendukung1;
+                    transition: all .3s ease;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    .selengkapnya{
+        background: transparent;
+        border: 2px dashed $warna-dark;
+        color: $warna-dark;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover{
+            border: 2px dashed $warna-pendukung6;
+            color: $warna-pendukung6;
+            a{
+                color: $warna-pendukung6;
+                transition: all .3s ease;
+                text-decoration: underline;
+            }
+        }
+        .selengkapnya1{
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            i{
+                font-size: 18px;
+            }
+        }
+    }
+    
+}
+
+.akunperusahaan{
+    .grid{
+        display: flex;
+        flex-direction: column;
+        .flex-dir{
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            .icon i{
+                margin-left: -10px;
+            }
+            .right{
+                .info{
+                    p{
+                        color: $warna-pendukung3;
+                        span{
+                            font-size: 12px;
+                            color: $warna-dark;
+                        }
+                    }
+                }
+            }
+            &:hover{
+                .icon i{
+                    color: $warna-light;
+                    background-color: $warna-pendukung2;
+                    transition: all .3s ease;
+                }
+            }
+            .selengkapnya2{
+                margin-top: 10px;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                font-size: 12px;
+                i{
+                    color: $warna-dark;
+                    font-size: 18px;
+                }
+                a{
+                    color: $warna-dark;
+                    font-size: 14px;
+            }
+            &:hover{
+                i,
+                a{
+                    color: $warna-pendukung6;
+                    transition: all .3s ease;
+                    // text-decoration: underline;
+                }
+            }
+        }
+    }  
+}
+}

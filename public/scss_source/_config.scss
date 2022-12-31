@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@200;300;400;500;600;700&family=Questrial&display=swap'); 
+
+// font-family: 'Lora', serif;
+// font-family: 'Montserrat', sans-serif;
+// font-family: 'Poppins', sans-serif;
+// font-family: 'Questrial', sans-serif;
+// Variabel yang akan digunakan
+$warna-utama: #C8DBBE;
+$warna-pendukung: #D8D9CF;
+$warna-pendukung1: #9F8772;
+$warna-pendukung2: #665A48;
+$warna-pendukung3: green;
+$warna-pendukung4: #FFE455;
+$warna-pendukung5: #FFE9B1;
+$warna-pendukung6: crimson;
+$warna-pendukung7: #282A3A;
+$warna-pendukung8: #C69749;
+$warna-putih: #ffffff;
+$warna-hitam: #0c031b;
+$warna-light: rgba(#fff, 0.7);
+$warna-dark: rgba($warna-hitam, 0.7);
+$card-border-radius: 2rem;
+$border-radius-1: .4rem;
+$border-radius-2: .8rem;
+$border-radius-3: 1.2rem;
+$card-padding: 1.8rem;
+$padding: 1.2rem;
+$box-shadow: 0 2rem 3rem $warna-light;
+

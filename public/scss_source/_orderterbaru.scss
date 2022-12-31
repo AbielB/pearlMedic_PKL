@@ -1,0 +1,57 @@
+main{
+    .orderterbaru{
+        margin-top: 2rem;
+        h2{
+            margin-bottom: 20px;
+            color: $warna-pendukung2;
+            span{
+                color: $warna-pendukung6
+            }
+        }
+        table{
+            background: $warna-light;
+            width: 100%;
+            border-radius: $border-radius-1;
+            padding: $padding;
+            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
+            transition: all .3s ease;
+            thead{
+                th{
+                    color: $warna-dark;
+                }
+            }
+            tbody{
+                tr{
+                    td{
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+                        height: 2.8rem;
+                        border-bottom: .3px solid $warna-pendukung;
+                        color: $warna-dark;
+                        font-size: 14px;
+                    }
+                    .red{
+                        color: $warna-pendukung6;
+                    }
+                    .yellow{
+                        color: $warna-pendukung8;
+                    }
+                    .green{
+                        color: $warna-pendukung3;
+                    }
+                }
+                &:last-child {
+                    border: none;
+                }
+                td a:hover{
+                    color: $warna-pendukung6;
+                    transition: all .3s ease;
+                    text-decoration: underline;
+                    
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+#mainmenu{
+    .profilperusahaan{
+        .wrapper{
+            .profilperusahaan_info{
+                .profilperusahaan_info_text{
+                    .input_wrapper{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+                        background-color: $warna-putih;
+                        border: 1px solid $warna-pendukung1;
+                        color: $warna-pendukung1;
+                        padding: 5px 20px;
+                        gap: 20px;
+                        width: 100%;
+                        border-radius: 5px;
+                        input{
+                            color: $warna-pendukung1;
+                            width:200px;
+                            // background-color: aqua;
+                            &::placeholder{
+                                color: $warna-pendukung1;
+                            }
+                        }
+                    
+                    }
+                }
+            }
+            .input_wrapper1{
+                width: 100%;
+                // background-color: aqua;
+                textarea{
+                    width: 100%;
+                    border: 1px solid $warna-pendukung1;
+                    border-radius: 5px;
+                    padding: 5px 10px;
+                    color: $warna-pendukung1;
+                    &::placeholder{
+                        color: $warna-pendukung1;
+                        font-style: 'Lora' serif;
+                    }
+                    resize: vertical;
+                }
+            }
+        }
+    }
+}
