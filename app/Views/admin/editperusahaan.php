@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Link Favicon -->
-    <link rel="shortcut icon" href="./img/logo/pearlmedic.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo base_url("img/logo/pearlmedic.png"); ?>" type="image/x-icon">
     <!-- END Link Favicon -->
-    <!-- Link CSS -->
-    <link rel="stylesheet" href="./css/style.min.css?v=<?php echo time(); ?>">
+    <!-- CSS Links -->
+    <link rel="stylesheet" href=" <?php echo base_url("css/style.min.css?v=" . time()); ?>">
     <!-- END Link CSS -->
     <!-- Box Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
@@ -26,7 +26,7 @@
         <div class="adminmenu">
             <div class="top">
                 <div class="logo">
-                    <img src="./img/logo/pearlmedic2.png" alt="" width="10%">
+                    <img src="img/logo/pearlmedic2.png" alt="" width="10%">
                     <h2><span>Pearl</span> Medic</h2>
                 </div>
                 <div class="close" id="close-btn">

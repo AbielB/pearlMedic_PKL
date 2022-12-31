@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Link Favicon -->
-    <link rel="shortcut icon" href="./img/logo/pearlmedic.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo base_url("img/logo/pearlmedic.png"); ?>" type="image/x-icon">
     <!-- END Link Favicon -->
-    <!-- Link CSS -->
-    <link rel="stylesheet" href="./css/style.min.css?v=<?php echo time(); ?>">
+    <!-- CSS Links -->
+    <link rel="stylesheet" href=" <?php echo base_url("css/style.min.css?v=" . time()); ?>">
     <!-- END Link CSS -->
     <!-- Box Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
@@ -38,32 +38,27 @@
                     <i class="fa-solid fa-house" id="span"></i>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="medical.php">
+                <a href="/admin/LayananMedical">
                     <i class="fa-solid fa-notes-medical"></i>
                     <h3>Layanan Medical</h3>
                 </a>
-                <a href="obat.php" id="paragraph-change">
+                <a href="/admin/LayananObat" id="paragraph-change">
                     <i class="fa-solid fa-capsules"></i>
                     <h3>Layanan Obat</h3>
                 </a>
-                <a href="darurat.php">
+                <a href="/admin/LayananDarurat">
                     <i class="fa-solid fa-truck-medical"></i>
                     <h3>Layanan Darurat</h3>
                 </a>
-                <a href="vaksin.php">
+                <a href="/admin/LayananVaksin">
                     <i class="fa-solid fa-syringe"></i>
                     <h3>Layanan Vaksin</h3>
                 </a>
-                <a href="dataperusahaan.php">
+                <a href="/admin/DataPerusahaan">
                     <i class="fa-solid fa-city"></i>
                     <h3>Data Perusahaan</h3>
                 </a>
-                <a href="pesan.php">
-                    <i class="fa-solid fa-envelope"></i>
-                    <h3>Pesan</h3>
-                    <p class="message-count">12</p>
-                </a>
-                <a href="login.php">
+                <a href="/admin/Logout">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <h3>Logout</h3>
                 </a>
@@ -76,7 +71,14 @@
         <main id="mainmenu">
             <h1 id="color-change2"><span>Admin </span> Dashboard</h1>
             <div class="date">
-                <input type="date" name="date" id="date">
+                <h2><?php
+                    //seperate the date into year, month, and day
+                    $date = explode('-', $date);
+                    //change the month number into month name
+                    $month = date('F', mktime(0, 0, 0, $date[1], 10));
+                    //combine the date into a string
+                    $date = $date[2] . ' ' . $month . ' ' . $date[0];
+                    echo $date; ?></h2>
             </div>
             <!-- END Title Menu -->
             <!-- Layanan Terbaru -->
