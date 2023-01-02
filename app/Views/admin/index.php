@@ -194,95 +194,35 @@
                 </div>
             </div>
             <div class="bottom">
-                <div class="akunperusahaan">
-                    <h2>Feedback Pelanggan</h2>
-                    <div class="item online grid">
-                        <div class="flex-dir">
-                            <div class="icon">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-                            <div class="right">
-                                <div class="info">
-                                    <h3>Petronas Nasional Berhad</h3>
-                                    <p class="text-muted">Subject : <span>Saran Terhadap layanan vaksin</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex-dir">
-                            <div class="icon">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-                            <div class="right">
-                                <div class="info">
-                                    <h3>Petronas Nasional Berhad</h3>
-                                    <p class="text-muted">Subject : <span>Kritik Tentang Keterlambatan Pengantaran
-                                            Obat</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex-dir">
-                            <div class="selengkapnya2">
-                                <i class="fa-solid fa-comments"></i>
-                                <a href="pesan.php">Lihat Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="akunperusahaan">
                     <h2>Akun Perusahaan Aktif</h2>
-                    <div class="item online">
+                    <?php
+                    //get rowPerusahaan
+                    $i = 0;
+                    foreach ($rowPerusahaan as $row) {
+                        if ($i == 3) {
+                            break;
+                        }
+                        $i++;
+                        $namaPerusahaan = $row->nama_perusahaan;
+                        $id = $row->id;
+                        echo '<div class="item online">
                         <div class="icon">
                             <i class="fa-solid fa-building-user"></i>
                         </div>
                         <div class="right">
                             <div class="info">
-                                <h3>Petronas Nasional Berhad</h3>
-                                <p class="text-muted">Status : Aktif </p>
+                                <h3>' . $namaPerusahaan . '</h3>
                             </div>
-                            <a href="#" class="red">Details</a>
+                            <a href="/admin/DetailsDataPerusahaan/' . $id . '" class="red">Details</a>
                         </div>
-                    </div>
-                    <div class="item online">
-                        <div class="icon">
-                            <i class="fa-solid fa-building-user"></i>
-                        </div>
-                        <div class="right">
-                            <div class="info">
-                                <h3>Petronas Nasional Berhad</h3>
-                                <p class="text-muted">Status : Aktif </p>
-                            </div>
-                            <a href="#" class="red">Details</a>
-                        </div>
-                    </div>
-                    <div class="item online">
-                        <div class="icon">
-                            <i class="fa-solid fa-building-user"></i>
-                        </div>
-                        <div class="right">
-                            <div class="info">
-                                <h3>Petronas Nasional Berhad</h3>
-                                <p class="text-muted">Status : Aktif </p>
-                            </div>
-                            <a href="#" class="red">Details</a>
-                        </div>
-                    </div>
-                    <div class="item online">
-                        <div class="icon">
-                            <i class="fa-solid fa-building-user"></i>
-                        </div>
-                        <div class="right">
-                            <div class="info">
-                                <h3>Petronas Nasional Berhad</h3>
-                                <p class="text-muted">Status : Aktif </p>
-                            </div>
-                            <a href="#" class="red">Details</a>
-                        </div>
-                    </div>
+                    </div>';
+                    } ?>
                     <div class="item selengkapnya">
                         <div class="selengkapnya1">
                             <i class="fa-solid fa-building-circle-arrow-right"></i>
-                            <h3><a href="dataperusahaan.php">Lihat Selengkapnya</a></h3>
+                            <h3><a href="/admin/DataPerusahaan">Lihat Selengkapnya</a></h3>
                         </div>
                     </div>
                 </div>

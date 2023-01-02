@@ -75,7 +75,6 @@
                         </div>
                     </form>
                 </li>
-                <a href="register.php">Belum Punya Akun? Buat Disini</a>
             </ul>
         </div>
     </div>

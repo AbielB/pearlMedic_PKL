@@ -71,7 +71,7 @@
         <!-- MAIN MENU SECTION -->
         <main id="mainmenu" class="full">
             <h1><span>Data Akun </span>Perusahaan</h1>
-            <h3 class="path"><a href="dataperusahaan.php">Data Perusahaan</a> / <span>Detail Akun</span> </h3>
+            <h3 class="path"><a href="/admin/DataPerusahaan">Data Perusahaan</a> / <span>Detail Akun</span> </h3>
             <div class="date">
                 <input type="date" name="date" id="date">
             </div>
@@ -82,48 +82,37 @@
                         <!-- <img src="img/assets/profilperusahaan1.png" alt="photo"> -->
                         <i class="fa-solid fa-user-group"></i>
                     </div>
-                    <div class="profilperusahaan_info">
-                        <div class="profilperusahaan_info_text">
-                            <h3>Nama Perusahaan</h3>
-                            <p>Petronas Nasional Berhad</p>
-                        </div>
-                        <div class="profilperusahaan_info_text">
-                            <h3>Username Akun</h3>
-                            <p>Petronas3008</p>
-                        </div>
-                        <div class="profilperusahaan_info_text">
-                            <h3>Bidang</h3>
-                            <p>Perusahaan minyak dan gas</p>
-                        </div>
-                        <div class="profilperusahaan_info_text">
-                            <h3>Provinsi</h3>
-                            <p>Jawa Timur</p>
-                        </div>
-                        <div class="profilperusahaan_info_text">
-                            <h3>Kota</h3>
-                            <p>Madura</p>
-                        </div>
-                        <div class="profilperusahaan_info_text">
-                            <h3>Alamat Lengkap</h3>
-                            <p>Jalan Sultan Ismail, Kota Madura, Jawa Timur, Indonesia</p>
-                        </div>
-                        <div class="profilperusahaan_info_text">
-                            <h3>Nomor Telepon</h3>
-                            <p>081234567890</p>
-                        </div>
-                        <div class="profilperusahaan_info_text">
-                            <h3>Email</h3>
-                            <p>Petronas3008@gmail.com</p>
-                        </div>
+                    <?php
+                    $namaPerusahaan = $rowDetails[0]->nama_perusahaan;
+                    $email = $rowDetails[0]->email;
+                    $bidang = $rowDetails[0]->bidang;
+                    $alamat = $rowDetails[0]->alamat;
+                    $deskripsi = $rowDetails[0]->deskripsi;
+                    echo '<div class="profilperusahaan_info">
+                    <div class="profilperusahaan_info_text">
+                        <h3>Nama Perusahaan</h3>
+                        <p>' . $namaPerusahaan . '</p>
                     </div>
-                    <div class="profilperusahaan_info_text grid">
-                        <h3>Deskripsi Perusahaan</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique harum sunt qui facere
-                            recusandae nisi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi officiis
-                            unde magni saepe amet voluptatibus tempora quo esse! Adipisci, dolores.</p>
+                    <div class="profilperusahaan_info_text">
+                        <h3>Bidang</h3>
+                        <p>' . $bidang . '</p>
                     </div>
+                    <div class="profilperusahaan_info_text">
+                        <h3>Alamat Lengkap</h3>
+                        <p>' . $alamat . '</p>
+                    </div>
+                    <div class="profilperusahaan_info_text">
+                        <h3>Email</h3>
+                        <p>' . $email . '</p>
+                    </div>
+                </div>
+                <div class="profilperusahaan_info_text grid">
+                    <h3>Deskripsi Perusahaan</h3>
+                    <p>' . $deskripsi . '</p>
+                </div>'; ?>
+
                     <div class="editdelete_profil">
-                        <a href="editperusahaan.php" class="btn btn-primary edit"><i
+                        <a href="/admin/EditDataPerusahaan?id=<?php echo $id ?>" class="btn btn-primary edit"><i
                                 class="fa-solid fa-user-pen"></i>Edit
                             Profil</a>
                         <a href="#" class="btn btn-danger hapus"><i class="fa-solid fa-trash"></i>Hapus Akun</a>

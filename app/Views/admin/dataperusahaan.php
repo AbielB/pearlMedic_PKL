@@ -35,7 +35,7 @@
             </div>
             <div class="sidebar">
                 <div class="sidebar">
-                    <a href="/admin" class="active">
+                    <a href="/admin">
                         <i class="fa-solid fa-house" id="span"></i>
                         <h3>Dashboard</h3>
                     </a>
@@ -87,60 +87,29 @@
                             <th>No</th>
                             <th>Nama Perusahaan</th>
                             <th>Bidang</th>
-                            <th>Kota</th>
                             <th>Email</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Oil and Gas Company</td>
-                            <td>Bandung</td>
-                            <td>Petronas@gmail.com</td>
-                            <td><a href="details_data_perusahaan.php" class="yellow">Detail Akun</a></td>
+                            <?php
+                            $i = 0;
+                            foreach ($rowPerusahaan as $row) {
+                                $i++;
+                                $namaPerusahaan = $row->nama_perusahaan;
+                                $id = $row->id;
+                                $bidang = $row->bidang;
+                                $email = $row->email;
+                                echo '<tr>
+                            <td>' . $i . '</td>
+                            <td>' . $namaPerusahaan . '</td>
+                            <td>' . $bidang . '</td>
+                            <td>' . $email . '</td>
+                            <td><a href="/admin/DetailsDataPerusahaan?id=' . $id . '" class="yellow">Detail Akun</a></td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Oil and Gas Company</td>
-                            <td>Bandung</td>
-                            <td>Petronas@gmail.com</td>
-                            <td><a href="details_data_perusahaan.php" class="yellow">Detail Akun</a></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Oil and Gas Company</td>
-                            <td>Bandung</td>
-                            <td>Petronas@gmail.com</td>
-                            <td><a href="details_data_perusahaan.php" class="yellow">Detail Akun</a></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Oil and Gas Company</td>
-                            <td>Bandung</td>
-                            <td>Petronas@gmail.com</td>
-                            <td><a href="details_data_perusahaan.php" class="yellow">Detail Akun</a></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Oil and Gas Company</td>
-                            <td>Bandung</td>
-                            <td>Petronas@gmail.com</td>
-                            <td><a href="details_data_perusahaan.php" class="yellow">Detail Akun</a></td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Oil and Gas Company</td>
-                            <td>Bandung</td>
-                            <td>Petronas@gmail.com</td>
-                            <td><a href="details_data_perusahaan.php" class="yellow">Detail Akun</a></td>
-                        </tr>
+                        ';
+                            } ?>
                     </tbody>
                 </table>
             </div>
@@ -194,67 +163,7 @@
                                         required>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="provinsi">Provinsi</label>
-                                <div class="form-group-logo">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    <!-- input provinsi di indonesia -->
-                                    <select name="provinsi" id="provinsi" required>
-                                        <option disabled selected>----- Pilih Provinsi ----- </option>
-                                        <option value="Aceh">Aceh</option>
-                                        <option value="Sumatera Utara">Sumatera Utara</option>
-                                        <option value="Sumatera Barat">Sumatera Barat</option>
-                                        <option value="Riau">Riau</option>
-                                        <option value="Kepulauan Riau">Kepulauan Riau</option>
-                                        <option value="Jambi">Jambi</option>
-                                        <option value="Bengkulu">Bengkulu</option>
-                                        <option value="Sumatera Selatan">Sumatera Selatan</option>
-                                        <option value="Lampung">Lampung</option>
-                                        <option value="Bangka Belitung">Bangka Belitung</option>
-                                        <option value="Banten">Banten</option>
-                                        <option value="DKI Jakarta">DKI Jakarta</option>
-                                        <option value="Jawa Barat">Jawa Barat</option>
-                                        <option value="Jawa Tengah">Jawa Tengah</option>
-                                        <option value="DI Yogyakarta">DI Yogyakarta</option>
-                                        <option value="Jawa Timur">Jawa Timur</option>
-                                        <option value="Bali">Bali</option>
-                                        <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
-                                        <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
-                                        <option value="Kalimantan Barat">Kalimantan Barat</option>
-                                        <option value="Kalimantan Tengah">Kalimantan Tengah</option>
-                                        <option value="Kalimantan Selatan">Kalimantan Selatan</option>
-                                        <option value="Kalimantan Timur">Kalimantan Timur</option>
-                                        <option value="Kalimantan Utara">Kalimantan Utara</option>
-                                        <option value="Sulawesi Utara">Sulawesi Utara</option>
-                                        <option value="Sulawesi Tengah">Sulawesi Tengah</option>
-                                        <option value="Sulawesi Selatan">Sulawesi Selatan</option>
-                                        <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
-                                        <option value="Gorontalo">Gorontalo</option>
-                                        <option value="Sulawesi Barat">Sulawesi Barat</option>
-                                        <option value="Maluku">Maluku</option>
-                                        <option value="Maluku Utara">Maluku Utara</option>
-                                        <option value="Papua Barat">Papua Barat</option>
-                                        <option value="Papua">Papua</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="kota">Kota</label>
-                                <div class="form-group-logo">
-                                    <i class="fa-solid fa-city"></i>
-                                    <!-- input kota di indonesia -->
-                                    <select name="kota" id="kota" required>
-                                        <option disabled selected>----- Pilih Kota -----</option>
-                                        <option value="jakarta">jakarta</option>
-                                        <option value="bandung">bandung</option>
-                                        <option value="surabaya">surabaya</option>
-                                        <option value="medan">medan</option>
-                                        <option value="semarang">semarang</option>
-                                        <option value="makassar">makassar</option>
-                                        <option value="yogyakarta">yogyakarta</option>
-                                    </select>
-                                </div>
-                            </div>
+
                             <div class="form-group">
                                 <label for="deskripsi_alamat">Alamat Lengkap Perusahaan</label>
                                 <div class="form-group-logo" id="form-group-logo">

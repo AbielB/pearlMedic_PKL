@@ -42,6 +42,8 @@ $routes->get('/admin/LayananObat', 'AdminControl::LayananObat');
 $routes->get('/admin/LayananDarurat', 'AdminControl::LayananDarurat');
 $routes->get('/admin/LayananVaksin', 'AdminControl::LayananVaksin');
 $routes->get('/admin/DataPerusahaan', 'AdminControl::DataPerusahaan');
+$routes->get('/admin/DetailsDataPerusahaan', 'AdminControl::DetailsDataPerusahaan');
+$routes->get('/admin/EditDataPerusahaan', 'AdminControl::EditDataPerusahaan');
 $routes->get('/admin/Logout', 'AdminControl::Logout');
 $routes->post('/login', 'Home::login');
 $routes->get('/pages', 'Pages::index');
