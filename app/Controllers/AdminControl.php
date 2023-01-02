@@ -4,11 +4,13 @@ namespace App\Controllers;
 
 class AdminControl extends BaseController
 {
+
     public function index()
     {
         //get session role
         $session = session();
         $role = $session->get('role');
+        $name = $session->get('nama');
         //if role is not admin then redirect to login page
         if ($role != 'admin') {
             return redirect()->to('/');
@@ -18,8 +20,10 @@ class AdminControl extends BaseController
         $date = date('Y-m-d');
 
         $data = [
-            'date' => $date
+            'date' => $date,
+            'name' => $name,
         ];
+
         return view('admin/index', $data);
     }
 
@@ -38,7 +42,11 @@ class AdminControl extends BaseController
         if ($role != 'admin') {
             return redirect()->to('/');
         }
-        return view('admin/medical');
+        $name = $session->get('nama');
+        $data = [
+            'name' => $name,
+        ];
+        return view('admin/medical', $data);
     }
 
     public function LayananObat()
@@ -49,7 +57,11 @@ class AdminControl extends BaseController
         if ($role != 'admin') {
             return redirect()->to('/');
         }
-        return view('admin/obat');
+        $name = $session->get('nama');
+        $data = [
+            'name' => $name,
+        ];
+        return view('admin/obat', $data);
     }
     public function LayananDarurat()
     {
@@ -59,7 +71,11 @@ class AdminControl extends BaseController
         if ($role != 'admin') {
             return redirect()->to('/');
         }
-        return view('admin/darurat');
+        $name = $session->get('nama');
+        $data = [
+            'name' => $name,
+        ];
+        return view('admin/darurat', $data);
     }
     public function LayananVaksin()
     {
@@ -69,7 +85,11 @@ class AdminControl extends BaseController
         if ($role != 'admin') {
             return redirect()->to('/');
         }
-        return view('admin/vaksin');
+        $name = $session->get('nama');
+        $data = [
+            'name' => $name,
+        ];
+        return view('admin/vaksin', $data);
     }
     public function DataPerusahaan()
     {
@@ -79,6 +99,10 @@ class AdminControl extends BaseController
         if ($role != 'admin') {
             return redirect()->to('/');
         }
-        return view('admin/dataperusahaan');
+        $name = $session->get('nama');
+        $data = [
+            'name' => $name,
+        ];
+        return view('admin/dataperusahaan', $data);
     }
 }

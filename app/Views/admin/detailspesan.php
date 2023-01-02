@@ -26,47 +26,44 @@
         <div class="adminmenu">
             <div class="top">
                 <div class="logo">
-                    <img src="./img/logo/pearlmedic2.png" alt="" width="10%">
-                    <h2><span>Pearl</span> Medic</h2>
+                    <img src="../img/logo/pearlmedic2.png" alt="" width="10%">
+                    <h2 id="color-change"><span>Pearl</span> Medic</h2>
                 </div>
                 <div class="close" id="close-btn">
                     <i class="fa-solid fa-xmark"></i>
                 </div>
             </div>
             <div class="sidebar">
-                <a href="index.php">
-                    <i class="fa-solid fa-house"></i>
-                    <h3>Dashboard</h3>
-                </a>
-                <a href="medical.php">
-                    <i class="fa-solid fa-notes-medical"></i>
-                    <h3>Layanan Medical</h3>
-                </a>
-                <a href="obat.php">
-                    <i class="fa-solid fa-capsules"></i>
-                    <h3>Layanan Obat</h3>
-                </a>
-                <a href="darurat.php">
-                    <i class="fa-solid fa-truck-medical"></i>
-                    <h3>Layanan Darurat</h3>
-                </a>
-                <a href="vaksin.php">
-                    <i class="fa-solid fa-syringe"></i>
-                    <h3>Layanan Vaksin</h3>
-                </a>
-                <a href="dataperusahaan.php" class="active">
-                    <i class="fa-solid fa-city" id="span"></i>
-                    <h3>Data Perusahaan</h3>
-                </a>
-                <a href="pesan.php">
-                    <i class="fa-solid fa-envelope"></i>
-                    <h3>Pesan</h3>
-                    <p class="message-count">12</p>
-                </a>
-                <a href="login.php">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <h3>Logout</h3>
-                </a>
+                <div class="sidebar">
+                    <a href="/admin" class="active">
+                        <i class="fa-solid fa-house" id="span"></i>
+                        <h3>Dashboard</h3>
+                    </a>
+                    <a href="/admin/LayananMedical">
+                        <i class="fa-solid fa-notes-medical"></i>
+                        <h3>Layanan Medical</h3>
+                    </a>
+                    <a href="/admin/LayananObat" id="paragraph-change">
+                        <i class="fa-solid fa-capsules"></i>
+                        <h3>Layanan Obat</h3>
+                    </a>
+                    <a href="/admin/LayananDarurat">
+                        <i class="fa-solid fa-truck-medical"></i>
+                        <h3>Layanan Darurat</h3>
+                    </a>
+                    <a href="/admin/LayananVaksin">
+                        <i class="fa-solid fa-syringe"></i>
+                        <h3>Layanan Vaksin</h3>
+                    </a>
+                    <a href="/admin/DataPerusahaan">
+                        <i class="fa-solid fa-city"></i>
+                        <h3>Data Perusahaan</h3>
+                    </a>
+                    <a href="/admin/Logout">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <h3>Logout</h3>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -149,11 +146,8 @@
                 </div> -->
                 <div class="profile">
                     <div class="info">
-                        <p>Hallo, <span>Hanif</span> </p>
+                        <p>Hallo, <span><?php echo $name ?></span> </p>
                         <p class="text-muted">Admin</p>
-                    </div>
-                    <div class="profile-photo">
-                        <img src="./img/assets/fotocandid3.png" alt="">
                     </div>
                 </div>
             </div>

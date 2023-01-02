@@ -28,6 +28,7 @@ class Home extends BaseController
             $session = session();
             $session->set('username', $row->username);
             $session->set('password', $row->password);
+            $session->set('nama', $row->nama);
             //set session role to admin
             $session->set('role', 'admin');
             //move to admin page
