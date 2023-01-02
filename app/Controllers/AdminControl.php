@@ -186,4 +186,29 @@ class AdminControl extends BaseController
         ];
         return view('admin/editperusahaan', $data);
     }
+
+    public function PostEdit()
+    {
+        $namaPerusahaan = $this->request->getVar('nama_perusahaan');
+        $alamat = $this->request->getVar('alamat');
+        $bidang = $this->request->getVar('bidang');
+        $email = $this->request->getVar('email');
+        $deskripsi = $this->request->getVar('deskripsi');
+        $id = $this->request->getVar('id');
+
+        //update data in tb_perusahaan where id = $id
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_perusahaan');
+        $builder->where('id', $id);
+        $data = [
+            'nama_perusahaan' => $namaPerusahaan,
+            'alamat' => $alamat,
+            'bidang' => $bidang,
+            'email' => $email,
+            'deskripsi' => $deskripsi
+        ];
+        //redirect to data perusahaan page id = $id
+        $builder->update($data);
+        return redirect()->to('/admin/DetailsDataPerusahaan?id=' . $id);
+    }
 }

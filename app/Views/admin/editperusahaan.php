@@ -84,85 +84,64 @@
                         <!-- <img src="img/assets/profilperusahaan1.png" alt="photo"> -->
                         <i class="fa-solid fa-user-group"></i>
                     </div>
-                    <div class="profilperusahaan_info">
-                        <div class="profilperusahaan_info_text">
-                            <h3>Nama Perusahaan</h3>
-                            <div class="input_wrapper">
-                                <input type="text" name="nama_perusahaan" id="nama_perusahaan" required
-                                    value="Petronas Nasional Berhad" placeholder="Masukan Nama...">
-                                <i class="fa-solid fa-user-pen"></i>
-                            </div>
-                        </div>
-                        <div class="profilperusahaan_info_text">
-                            <h3>Username Akun</h3>
-                            <div class="input_wrapper">
-                                <input type="text" name="username" id="username" required value="Petronas"
-                                    placeholder="Masukan Username...">
-                                <i class="fa-solid fa-user-pen"></i>
-                            </div>
-                        </div>
-                        <div class="profilperusahaan_info_text">
-                            <h3>Bidang</h3>
-                            <div class="input_wrapper">
-                                <input type="text" name="bidang" id="bidang" required
-                                    value="Pertambangan Minyak dan Gas" placeholder="Masukan Bidang...">
-                                <i class="fa-solid fa-user-pen"></i>
-                            </div>
-                        </div>
-                        <div class="profilperusahaan_info_text">
-                            <h3>Provinsi</h3>
-                            <div class="input_wrapper">
-                                <input type="text" name="provinsi" id="provinsi" required value="Jawa Timur"
-                                    placeholder="Masukan Provinsi...">
-                                <i class="fa-solid fa-user-pen"></i>
-                            </div>
-                        </div>
-                        <div class="profilperusahaan_info_text">
-                            <h3>Kota</h3>
-                            <div class="input_wrapper">
-                                <input type="text" name="provinsi" id="provinsi" required value="Jawa Timur"
-                                    placeholder="Masukan Provinsi...">
-                                <i class="fa-solid fa-user-pen"></i>
-                            </div>
-                        </div>
-                        <div class="profilperusahaan_info_text">
-                            <h3>Alamat Lengkap</h3>
-                            <div class="input_wrapper">
-                                <input type="text" name="alamat" id="alamat" required
-                                    value="Jl. Raya Kedungmundu No. 3008, Kedungmundu, Kec. Kedungmundu, Kabupaten Malang, Jawa Timur 65152"
-                                    placeholder="Masukan Alamat...">
-                                <i class="fa-solid fa-user-pen"></i>
-                            </div>
-                        </div>
-                        <div class="profilperusahaan_info_text">
-                            <h3>Nomor Telepon</h3>
-                            <div class="input_wrapper">
-                                <input type="text" name="nomor_telepon" id="nomor_telepon" required value="081234567890"
-                                    placeholder="Masukan Nomor Telepon...">
-                                <i class="fa-solid fa-user-pen"></i>
-                            </div>
-                        </div>
-                        <div class="profilperusahaan_info_text">
-                            <h3>Email</h3>
-                            <div class="input_wrapper">
-                                <input type="text" name="email" id="email" required value="Petronas@gmail.com"
-                                    placeholder="Masukan Email...">
-                                <i class="fa-solid fa-user-pen"></i>
-                            </div>
+                    <form action="/admin/PostEdit" method="post">
+                        <div class="profilperusahaan_info">
+                            <?php
+                            $namaPerusahaan = $rowDetails[0]->nama_perusahaan;
+                            $email = $rowDetails[0]->email;
+                            $bidang = $rowDetails[0]->bidang;
+                            $alamat = $rowDetails[0]->alamat;
+                            $deskripsi = $rowDetails[0]->deskripsi;
+                            echo '<div class="profilperusahaan_info_text">
+                        <h3>Nama Perusahaan</h3>
+                        <div class="input_wrapper">
+                            <input type="text" name="nama_perusahaan" id="nama_perusahaan" required
+                                value="' . $namaPerusahaan . '" placeholder="Masukan Nama...">
+                            <i class="fa-solid fa-user-pen"></i>
                         </div>
                     </div>
-                    <div class="profilperusahaan_info_text grid">
-                        <h3>Deskripsi Perusahaan</h3>
-                        <div class="input_wrapper1">
-                            <textarea name="deskripsi" id="deskripsi textarea_perusahaan" cols="30" rows="10" required
-                                placeholder="Isi Deskripsi Perusahaan..."></textarea>
+                    
+                    <div class="profilperusahaan_info_text">
+                        <h3>Bidang</h3>
+                        <div class="input_wrapper">
+                            <input type="text" name="bidang" id="bidang" required
+                                value="' . $bidang . '" placeholder="Masukan Bidang...">
+                            <i class="fa-solid fa-user-pen"></i>
                         </div>
                     </div>
-                    <div class="editdelete_profil">
-                        <a href="details_data_perusahaan.php" class="btn btn-primary edit"><i
-                                class="fa-solid fa-user-pen"></i>Edit
-                            Profil</a>
+                  
+                    <div class="profilperusahaan_info_text">
+                        <h3>Alamat Lengkap</h3>
+                        <div class="input_wrapper">
+                            <input type="text" name="alamat" id="alamat" required
+                                value="' . $alamat . '"
+                                placeholder="Masukan Alamat...">
+                            <i class="fa-solid fa-user-pen"></i>
+                        </div>
                     </div>
+                    <div class="profilperusahaan_info_text">
+                        <h3>Email</h3>
+                        <div class="input_wrapper">
+                            <input type="text" name="email" id="email" required value="' . $email . '"
+                                placeholder="Masukan Email...">
+                            <i class="fa-solid fa-user-pen"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="profilperusahaan_info_text grid">
+                    <h3>Deskripsi Perusahaan</h3>
+                    <div class="input_wrapper1">
+                        <textarea name="deskripsi" id="deskripsi textarea_perusahaan" cols="30" rows="10" required
+                            placeholder="Isi Deskripsi Perusahaan...">' . $deskripsi . '</textarea>
+                    </div>
+                </div>'; ?>
+
+                            <!--hidden input id-->
+                            <input type="hidden" name="id" value="<?php echo $rowDetails[0]->id; ?>" />
+                            <div class="editdelete_profil">
+                                <input type="submit" class="btn btn-primary edit" value="Edit Profil" />
+                            </div>
+                    </form>
                 </div>
             </div>
         </main>
@@ -254,8 +233,7 @@
     // isi value di textarea
     var textarea = document.getElementById('deskripsi textarea_perusahaan');
 
-    textarea.value =
-        `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique harum sunt qui facere recusandae nisi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi officiis unde magni saepe amet voluptatibus tempora quo esse! Adipisci, dolores.`;
+
     // textarea color and font
     textarea.style.color = '#9F8772';
     textarea.style.fontFamily = 'Lora', 'serif';
