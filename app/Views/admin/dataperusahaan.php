@@ -154,8 +154,14 @@
                                 <label for="bidang">Bidang Perusahaan</label>
                                 <div class="form-group-logo">
                                     <i class="fa-solid fa-address-card"></i>
-                                    <input type="text" name="bidang" id="bidang" placeholder="Masukkan Bidang...."
-                                        required>
+                                    <select name="bidang" id="bidang">
+                                        <option value="">--Pilih Bidang--</option>
+                                        <option value="Tambang/Minyak">Tambang/Minyak</option>
+                                        <option value="Energi">Energi</option>
+                                        <option value="Kesehatan">Kesehatan</option>
+                                        <option value="Transportasi">Transportasi</option>
+                                        <option value="Lainnya">Lainnya</option>
+                                    </select>
                                 </div>
                                 <p class="text-danger"><?php echo $error_bidang ?></p>
                             </div>

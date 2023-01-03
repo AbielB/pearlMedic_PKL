@@ -215,7 +215,7 @@
                             <div class="info">
                                 <h3>' . $namaPerusahaan . '</h3>
                             </div>
-                            <a href="/admin/DetailsDataPerusahaan/' . $id . '" class="red">Details</a>
+                            <a href="/admin/DetailsDataPerusahaan?id=' . $id . '" class="red">Details</a>
                         </div>
                     </div>';
                     } ?>
