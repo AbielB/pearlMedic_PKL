@@ -100,18 +100,31 @@ class AdminControl extends BaseController
     }
     public function DataPerusahaan()
     {
+
         $session = session();
         $role = $session->get('role');
         //if role is not admin then redirect to login page
         if ($role != 'admin') {
             return redirect()->to('/');
         }
-        $name = $session->get('nama');
-        $db = \Config\Database::connect();
-        $builder = $db->table('tb_perusahaan');
-        $query = $builder->get();
-        $rowPerusahaan = $query->getResult();
 
+        //get search
+        $search = $this->request->getVar('search');
+        //if search not empty then query select all from tb_perusahaan where nama_perusahaan like %search%
+        if (!empty($search)) {
+            $db = \Config\Database::connect();
+            $builder = $db->table('tb_perusahaan');
+            $builder->like('nama_perusahaan', $search);
+            $query = $builder->get();
+            $rowPerusahaan = $query->getResult();
+        } else {
+            //query select all from tb_perusahaan
+            $db = \Config\Database::connect();
+            $builder = $db->table('tb_perusahaan');
+            $query = $builder->get();
+            $rowPerusahaan = $query->getResult();
+        }
+        $name = $session->get('nama');
         $data = [
             'name' => $name,
             'rowPerusahaan' => $rowPerusahaan,
