@@ -46,6 +46,7 @@ $routes->get('/admin/DetailsDataPerusahaan', 'AdminControl::DetailsDataPerusahaa
 $routes->get('/admin/EditDataPerusahaan', 'AdminControl::EditDataPerusahaan');
 $routes->get('/admin/Logout', 'AdminControl::Logout');
 $routes->post('/admin/PostEdit', 'AdminControl::PostEdit');
+$routes->post('/admin/BuatPerusahaan', 'AdminControl::BuatPerusahaan');
 
 $routes->post('/login', 'Home::login');
 $routes->get('/pages', 'Pages::index');

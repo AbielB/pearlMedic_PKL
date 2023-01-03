@@ -85,11 +85,26 @@
                         <i class="fa-solid fa-user-group"></i>
                     </div>
                     <form action="/admin/PostEdit" method="post">
+                        <?= csrf_field(); ?>
                         <div class="profilperusahaan_info">
                             <?php
                             $namaPerusahaan = $rowDetails[0]->nama_perusahaan;
                             $email = $rowDetails[0]->email;
-                            $bidang = $rowDetails[0]->bidang;
+                            $tambang = '';
+                            $energi = '';
+                            $kesehatan = '';
+                            $transportasi = '';
+                            $lainnya = '';
+                            if ($rowDetails[0]->bidang == 'Tambang/Minyak')
+                                $tambang = "selected";
+                            else if ($rowDetails[0]->bidang == 'Energi')
+                                $energi = "selected";
+                            else if ($rowDetails[0]->bidang == 'Kesehatan')
+                                $kesehatan = "selected";
+                            else if ($rowDetails[0]->bidang == 'Transportasi')
+                                $transportasi = "selected";
+                            else
+                                $lainnya = "selected";
                             $alamat = $rowDetails[0]->alamat;
                             $deskripsi = $rowDetails[0]->deskripsi;
                             echo '<div class="profilperusahaan_info_text">
@@ -104,8 +119,13 @@
                     <div class="profilperusahaan_info_text">
                         <h3>Bidang</h3>
                         <div class="input_wrapper">
-                            <input type="text" name="bidang" id="bidang" required
-                                value="' . $bidang . '" placeholder="Masukan Bidang...">
+                        <select name="bidang" id="bidang">
+                        <option value="Tambang/Minyak" ' . $tambang . '>Tambang/Minyak</option>
+                        <option value="Energi" ' . $energi . '>Energi</option>
+                        <option value="Kesehatan" ' . $kesehatan . '>Kesehatan</option>
+                        <option value="Transportasi" ' . $transportasi . '>Transportasi</option>
+                        <option value="Lainnya" ' . $lainnya . '>Lainnya</option>
+                      </select>
                             <i class="fa-solid fa-user-pen"></i>
                         </div>
                     </div>

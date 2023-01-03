@@ -138,7 +138,8 @@
                 <div class="akunperusahaan">
                     <h2>Tambah Akun Perusahaan</h2>
                     <div class="item online grid">
-                        <form action="" method="post" class="form_akun_perusahaan">
+                        <form action="/admin/BuatPerusahaan" method="post" class="form_akun_perusahaan">
+                            <?= csrf_field(); ?>
                             <div class="form-group">
                                 <label for="nama_perusahaan">Nama Perusahaan</label>
                                 <div class="form-group-logo">
@@ -146,15 +147,9 @@
                                     <input type="text" name="nama_perusahaan" id="nama_perusahaan"
                                         placeholder="Masukkan Nama Perusahaan..." required>
                                 </div>
+                                <p class="text-danger"><?php echo $error_namaPerusahaan ?></p>
                             </div>
-                            <div class="form-group">
-                                <label for="username_perusahaan">Username</label>
-                                <div class="form-group-logo">
-                                    <i class="fa-solid fa-user-tie"></i>
-                                    <input type="text" name="username_perusahaan" id="username_perusahaan"
-                                        placeholder="Masukkan Username..." required>
-                                </div>
-                            </div>
+
                             <div class="form-group">
                                 <label for="bidang">Bidang Perusahaan</label>
                                 <div class="form-group-logo">
@@ -162,23 +157,18 @@
                                     <input type="text" name="bidang" id="bidang" placeholder="Masukkan Bidang...."
                                         required>
                                 </div>
+                                <p class="text-danger"><?php echo $error_bidang ?></p>
                             </div>
 
                             <div class="form-group">
                                 <label for="deskripsi_alamat">Alamat Lengkap Perusahaan</label>
                                 <div class="form-group-logo" id="form-group-logo">
-                                    <textarea name="deskripsi_alamat" id="deskripsi_alamat" cols="30" rows="10"
+                                    <textarea name="alamat" id="deskripsi_alamat" cols="30" rows="10"
                                         placeholder="Deskripsikan alamat...." required></textarea>
                                 </div>
+                                <p class="text-danger"><?php echo $error_alamat ?></p>
                             </div>
-                            <div class="form-group">
-                                <label for="no_telp">Nomor Telephon</label>
-                                <div class="form-group-logo">
-                                    <i class="fa-solid fa-phone-volume"></i>
-                                    <input type="text" name="no_telp" id="no_telp" placeholder="Masukkan Nomor...."
-                                        required>
-                                </div>
-                            </div>
+
                             <div class="form-group">
                                 <label for="email">Email Perusahaan</label>
                                 <div class="form-group-logo">
@@ -186,13 +176,15 @@
                                     <input type="text" name="email" id="email" placeholder="Masukkan Email...."
                                         required>
                                 </div>
+                                <p class="text-danger"><?php echo $error_email ?></p>
                             </div>
                             <div class="form-group">
                                 <label for="deskripsi_perusahaan">Deskripsi Perusahaan</label>
                                 <div class="form-group-logo" id="form-group-logo">
-                                    <textarea name="deskripsi_perusahaan" id="deskripsi_perusahaan" cols="30" rows="10"
+                                    <textarea name="deskripsi" id="deskripsi_perusahaan" cols="30" rows="10"
                                         placeholder="Deskripsikan Perusahaan terkait ...." required></textarea>
                                 </div>
+                                <p class="text-danger"><?php echo $error_deskripsi ?></p>
                             </div>
                             <div class="form-group">
                                 <button type="submit">
