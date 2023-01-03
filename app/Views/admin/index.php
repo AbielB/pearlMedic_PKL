@@ -165,7 +165,6 @@
                             <th>Nama Perusahaan</th>
                             <th>Tanggal Pelaporan</th>
                             <th>Status</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -187,7 +186,6 @@
                             echo "<td>" . $row->nama_perusahaan . "</td>";
                             echo "<td>" . $row->tanggal_pelaporan . "</td>";
                             echo "<td class='" . $color . "'>" . $status . "</td>";
-                            echo "<td><a href='/admin/DetailLayananDarurat/" . $row->id_darurat . "'>Details</a></td>";
                             echo "</tr>";
                         }; ?>
                     </tbody>
