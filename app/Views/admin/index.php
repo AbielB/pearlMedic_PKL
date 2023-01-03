@@ -148,28 +148,33 @@
                     <thead>
                         <tr>
                             <th>Nama Perusahaan</th>
-                            <th>Jenis Pelayanan</th>
-                            <th>Lokasi</th>
+                            <th>Tanggal Pelaporan</th>
                             <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Pelayanan Darurat</td>
-                            <td>Bandung</td>
-                            <td class="red">Belum Dilayani</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Pelayanan Darurat</td>
-                            <td>Bandung</td>
-                            <td class="red">Belum Dilayani</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
-
+                        <?php
+                        foreach ($rowDarurat as $row) {
+                            if ($row->status == 1) {
+                                $status = "Belum Dilayani";
+                                $color = "red";
+                            }
+                            if ($row->status == 2) {
+                                $status = "Dalam Proses";
+                                $color = "yellow";
+                            }
+                            if ($row->status == 3) {
+                                $status = "Sudah Dilayani";
+                                $color = "green";
+                            }
+                            echo "<tr>";
+                            echo "<td>" . $row->nama_perusahaan . "</td>";
+                            echo "<td>" . $row->tanggal_pelaporan . "</td>";
+                            echo "<td class='" . $color . "'>" . $status . "</td>";
+                            echo "<td><a href='/admin/DetailLayananDarurat/" . $row->id_darurat . "'>Details</a></td>";
+                            echo "</tr>";
+                        }; ?>
                     </tbody>
                 </table>
             </div>

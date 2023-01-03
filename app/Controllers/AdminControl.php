@@ -24,10 +24,20 @@ class AdminControl extends BaseController
         $query = $builder->get();
         $rowPerusahaan = $query->getResult();
 
+        //seelct all from tb_darurat join tb_perusahaan where id = id
+        $builder = $db->table('tb_darurat');
+        $builder->select('tb_darurat.id_darurat, tb_darurat.lokasi, tb_darurat.deskripsi, tb_darurat.tanggal_pelaporan, tb_darurat.status, tb_perusahaan.nama_perusahaan');
+        $builder->join('tb_perusahaan', 'tb_darurat.id= tb_perusahaan.id');
+        //sort by status
+        $builder->orderBy('tb_darurat.status', 'ASC');
+        $query = $builder->get();
+        $rowDarurat = $query->getResult();
+
         $data = [
             'date' => $date,
             'name' => $name,
-            'rowPerusahaan' => $rowPerusahaan
+            'rowPerusahaan' => $rowPerusahaan,
+            'rowDarurat' => $rowDarurat
         ];
 
         return view('admin/index', $data);
