@@ -18,6 +18,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <!-- END LINK FONT AWESOME -->
     <title>Admin || Pearl Medic</title>
+    <style>
+    /*id pelayananDarurat onHover size 110%*/
+    #pelayananDarurat {
+        /*transition 0.5s all*/
+        transition: 0.5s all;
+    }
+
+    #pelayananDarurat:hover {
+        font-size: 150%;
+        /*underline*/
+        text-decoration: underline;
+    }
+    </style>
 </head>
 
 <body>
@@ -143,7 +156,9 @@
             <!-- END Layanan Terbaru -->
             <!-- Layanan Terbaru -->
             <div class="orderterbaru">
-                <h2><span>Pelayanan Darurat</span></h2>
+
+                <h2 id="pelayananDarurat"><a href="/admin/LayananDarurat"><span>Pelayanan Darurat </span></a></h2>
+
                 <table>
                     <thead>
                         <tr>
