@@ -1,0 +1,68 @@
+#mainmenu{
+    .profilperusahaan{
+        .wrapper{
+            .pembungkus{
+                    // background-color: crimson;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                .grid-flex{
+                    // background-color: aqua;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 5rem;
+                    text-align: center;
+                    margin-top: 20px;
+                    h3{
+                        font-size: 18px;
+                        font-weight: 600;
+                        color: $warna-pendukung1;
+                    }
+                    p{
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: $warna-dark;
+                    }
+                }
+                .isikeranjang{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 20px;
+                    // background-color: aqua;
+                    table{
+                        border: 1px solid $warna-light;
+                        border-radius: 20px;
+                        border-collapse: collapse;
+                        background-color: $warna-pendukung4;
+                        tr{
+                            th{
+                                // border: 1px solid $warna-pendukung1;
+                                padding-left: 50px;
+                                padding-right: 50px;
+                                padding-top: 5px;
+                                padding-bottom: 5px;
+                                font-family: 'Lora' serif;
+                                font-weight: 500;
+                                color: $warna-dark;
+                            }    
+                            td{
+                                color: $warna-dark;
+                                justify-content: center;
+                                align-items: center;
+                                padding-left: 50px;
+                                padding-right: 50px;
+                                padding-top: 5px;
+                                padding-bottom: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
