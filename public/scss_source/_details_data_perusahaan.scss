@@ -119,3 +119,54 @@
         }
     }
 }
+
+main .deleteakun{
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    background-color: $warna-light;
+    position: absolute;
+    margin-left: 250px;
+    margin-top: 60px;
+    // padding: 20px;
+    border-radius: 20px;
+    h1{
+        font-size: 20px;
+        color: $warna-pendukung1;
+    }
+    p{
+        font-size: 14px;
+        color: $warna-dark;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    a{
+        color: $warna-putih;
+        background-color: $warna-pendukung1;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        text-align: center;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        &:hover{
+            color: $warna-dark;
+            transition: all .3s ease-in-out;
+            border: 1px solid $warna-pendukung1;
+            background-color: transparent;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+    }
+    i{
+        font-size: 150px;
+        color: $warna-pendukung1;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}

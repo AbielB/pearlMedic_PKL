@@ -23,6 +23,26 @@ class AdminControl extends BaseController
         $builder = $db->table('tb_perusahaan');
         $query = $builder->get();
         $rowPerusahaan = $query->getResult();
+        //for ecah row in tb_perusahaan, if bidang = "Tambang/Minyak" set $tambang =+ 1
+        $tambang = 0;
+        $energi = 0;
+        $kesehatan = 0;
+        $transportasi = 0;
+        $lainnya = 0;
+
+        foreach ($rowPerusahaan as $row) {
+            if ($row->bidang == "Tambang/Minyak") {
+                $tambang++;
+            } elseif ($row->bidang == "Energi") {
+                $energi++;
+            } elseif ($row->bidang == "Kesehatan") {
+                $kesehatan++;
+            } elseif ($row->bidang == "Transportasi") {
+                $transportasi++;
+            } else {
+                $lainnya++;
+            }
+        }
 
         //seelct all from tb_darurat join tb_perusahaan where id = id
         $builder = $db->table('tb_darurat');
@@ -33,11 +53,34 @@ class AdminControl extends BaseController
         $query = $builder->get();
         $rowDarurat = $query->getResult();
 
+        //get number of row from tb_darurat where status = 1
+        $builder = $db->table('tb_darurat');
+        $builder->where('status', 1);
+        $query = $builder->get();
+        $rowDarurat1 = $query->getResult();
+        //get number of rowDarurat1
+        $jumlahDarurat = count($rowDarurat1);
+
+        //gte number of row from tb_medical where status = 1
+        $builder = $db->table('tb_medical');
+        $builder->where('status', 1);
+        $query = $builder->get();
+        $rowMedical = $query->getResult();
+        //get number of rowMedical
+        $jumlahMedical = count($rowMedical);
+
         $data = [
             'date' => $date,
             'name' => $name,
             'rowPerusahaan' => $rowPerusahaan,
-            'rowDarurat' => $rowDarurat
+            'rowDarurat' => $rowDarurat,
+            'jumlahDarurat' => $jumlahDarurat,
+            'jumlahMedical' => $jumlahMedical,
+            'tambang' => $tambang,
+            'energi' => $energi,
+            'kesehatan' => $kesehatan,
+            'transportasi' => $transportasi,
+            'lainnya' => $lainnya
         ];
 
         return view('admin/index', $data);

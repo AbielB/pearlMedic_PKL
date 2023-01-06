@@ -45,6 +45,13 @@ main{
     // background: $warna-pendukung1;
     grid-template-columns: 14rem auto 23rem;
 }
+.container-2{
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    // background: $warna-pendukung1;
+    grid-template-columns: 14rem auto 12rem;
+}
 img{
     display: block;
     width: 100%;
@@ -93,11 +100,11 @@ section{
 }
 
 .red{
-    color: $warna-pendukung6;
+    color: $warna-pendukung6 !important;
 }
 .yellow{
-    color: $warna-pendukung4;
+    color: $warna-pendukung8 !important;
 }
 .green{
-    color: $warna-pendukung3;
+    color: $warna-pendukung3 !important;
 }

@@ -1,0 +1,41 @@
+.kategoriobat_wrapper{
+    // background-color: aqua;
+    border-bottom: 1px solid $warna-pendukung1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    gap: 1rem;
+    position: relative;
+    width: 100%;
+    .obatinfo{
+        a{
+        color: $warna-pendukung1;
+        font-size: 14px;
+        }
+    }
+    .obaticon{
+        color: $warna-pendukung1;
+        font-size: 18px;
+    }
+    &:hover{
+        border-bottom: 1px solid $warna-pendukung2;
+        .obatinfo{
+            a{
+                color: $warna-pendukung2;
+            }
+        }
+        .obaticon{
+            color: $warna-pendukung2;
+        }
+    }
+}
+.obat_item{
+    h1{
+        font-size: 16px;
+        font-weight: 600;
+        color: $warna-pendukung1;
+    }
+}

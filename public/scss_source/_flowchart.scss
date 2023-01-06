@@ -1,0 +1,27 @@
+.gridchart{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+
+.charts{
+    width: 350px;
+    height: 250px;
+    background-color: $warna-light;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.flowchart{
+    h2{
+        font-size: 22px;
+        font-weight: 800;
+        color: $warna-pendukung2;
+        margin-bottom: 20px;
+        margin-top: 30px;
+    }
+}

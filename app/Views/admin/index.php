@@ -96,102 +96,57 @@
             <!-- END Title Menu -->
             <!-- Layanan Terbaru -->
             <div class="orderterbaru">
-                <h2>Pesanan Layanan Terbaru </h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nama Perusahaan</th>
-                            <th>Jenis Pelayanan</th>
-                            <th>Lokasi</th>
-                            <th>Status</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Medical Check Up</td>
-                            <td>Bandung</td>
-                            <td class="red">Belum Dilayani</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Medical Check Up</td>
-                            <td>Bandung</td>
-                            <td class="yellow">Dalam Proses</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Medical Check Up</td>
-                            <td>Bandung</td>
-                            <td class="green">Sudah Dilayani</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Medical Check Up</td>
-                            <td>Bandung</td>
-                            <td class="red">Belum Dilayani</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Medical Check Up</td>
-                            <td>Bandung</td>
-                            <td class="yellow">Dalam Proses</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Medical Check Up</td>
-                            <td>Bandung</td>
-                            <td class="green">Sudah Dilayani</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!-- END Layanan Terbaru -->
-            <!-- Layanan Terbaru -->
-            <div class="orderterbaru">
+                <!-- Flow Chart Section -->
+                <div class="gridchart">
+                    <div class="flowchart">
+                        <h2>Client Perusahaan</h3>
+                            <div id="piechart" class="charts"></div>
+                    </div>
+                    <div class="flowchart">
+                        <h2>Pesanan Layanan Belum Dilayani</h3>
+                            <div id="donutchart" class="charts"></div>
+                    </div>
+                </div>
+                <!-- END Flow Chart Section -->
+                <!-- END Layanan Terbaru -->
+                <!-- Layanan Terbaru -->
+                <div class="orderterbaru">
 
-                <h2 id="pelayananDarurat"><a href="/admin/LayananDarurat"><span>Pelayanan Darurat </span></a></h2>
+                    <h2 id="pelayananDarurat"><a href="/admin/LayananDarurat"><span>Pelayanan Darurat </span></a></h2>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nama Perusahaan</th>
-                            <th>Tanggal Pelaporan</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($rowDarurat as $row) {
-                            if ($row->status == 1) {
-                                $status = "Belum Dilayani";
-                                $color = "red";
-                            }
-                            if ($row->status == 2) {
-                                $status = "Dalam Proses";
-                                $color = "yellow";
-                            }
-                            if ($row->status == 3) {
-                                $status = "Sudah Dilayani";
-                                $color = "green";
-                            }
-                            echo "<tr>";
-                            echo "<td>" . $row->nama_perusahaan . "</td>";
-                            echo "<td>" . $row->tanggal_pelaporan . "</td>";
-                            echo "<td class='" . $color . "'>" . $status . "</td>";
-                            echo "</tr>";
-                        }; ?>
-                    </tbody>
-                </table>
-            </div>
-            <!-- END Layanan Terbaru -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama Perusahaan</th>
+                                <th>Tanggal Pelaporan</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach ($rowDarurat as $row) {
+                                if ($row->status == 1) {
+                                    $status = "Belum Dilayani";
+                                    $color = "red";
+                                }
+                                if ($row->status == 2) {
+                                    $status = "Dalam Proses";
+                                    $color = "yellow";
+                                }
+                                if ($row->status == 3) {
+                                    $status = "Sudah Dilayani";
+                                    $color = "green";
+                                }
+                                echo "<tr>";
+                                echo "<td>" . $row->nama_perusahaan . "</td>";
+                                echo "<td>" . $row->tanggal_pelaporan . "</td>";
+                                echo "<td class='" . $color . "'>" . $status . "</td>";
+                                echo "</tr>";
+                            }; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- END Layanan Terbaru -->
         </main>
         <!-- END MAIN MENU SECTION -->
         <!-- BAGIAN KANAN MAIN MENU / DETAILS MENU -->
@@ -250,6 +205,112 @@
     <!-- BAGIAN KANAN MAIN MENU / DETAILS MENU -->
 
     <script src="./data.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+            ['Bidang', 'Jumlah Perusahaan'],
+            ['Minyak/Tambang', <?php echo $tambang ?>],
+            ['Energi', <?php echo $energi ?>],
+            ['Kesehatan', <?php echo $kesehatan ?>],
+            ['Transportasi', <?php echo $transportasi ?>],
+            ['Lainnya', <?php echo $lainnya ?>]
+        ]);
+
+        var options = {
+            backgroundColor: 'transparent',
+            // margin-left -20px
+            chartArea: {
+                left: 20,
+                top: 20,
+                width: '75%',
+                height: '80%'
+            },
+            colors: ['#f1c40f', '#e67e22', '#e74c3c', '#3498db', '#2ecc71'],
+            fontSize: 12,
+            fontColor: '#fff',
+            fontName: 'Poppins',
+            fontWeight: 'bold',
+            fontStyle: 'normal',
+            // array to data table width 100%
+            legend: {
+                width: '100%',
+                position: 'right',
+                alignment: 'center',
+                textStyle: {
+                    color: '#222',
+                    fontSize: 12,
+                    fontName: 'Poppins',
+                    fontWeight: 'bold',
+                    fontStyle: 'normal'
+                }
+            },
+
+
+
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+    }
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load("current", {
+        packages: ["corechart"]
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Pelayanan', 'Jumlah Pesanan'],
+            ['Medical', <?php echo $jumlahMedical ?>],
+            ['Obat', 2],
+            ['Darurat', <?php echo $jumlahDarurat ?>],
+            ['Vaksin', 2],
+        ]);
+
+        var options = {
+            // title: 'My Daily Activities',
+            pieHole: 0.4,
+            backgroundColor: 'transparent',
+            chartArea: {
+                left: 20,
+                top: 20,
+                width: '75%',
+                height: '80%'
+            },
+            colors: ['#f1c40f', '#e67e22', '#e74c3c', '#3498db', '#2ecc71'],
+            fontSize: 12,
+            fontColor: '#fff',
+            fontName: 'Poppins',
+            fontWeight: 'bold',
+            fontStyle: 'normal',
+            legend: {
+                width: '100%',
+                position: 'right',
+                alignment: 'center',
+                textStyle: {
+                    color: '#222',
+                    fontSize: 12,
+                    fontName: 'Poppins',
+                    fontWeight: 'bold',
+                    fontStyle: 'normal'
+                }
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+    }
+    </script>
 </body>
 
 </html>

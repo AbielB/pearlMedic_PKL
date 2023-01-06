@@ -5,7 +5,14 @@ main{
             margin-bottom: 20px;
             color: $warna-pendukung2;
             span{
-                color: $warna-pendukung6
+                color: $warna-pendukung6;
+                font-size: 14px;
+            }
+            .yellow{
+                color: $warna-pendukung8;
+            }
+            .green{
+                color: $warna-pendukung3;
             }
         }
         table{
@@ -30,7 +37,7 @@ main{
                         height: 2.8rem;
                         border-bottom: .3px solid $warna-pendukung;
                         color: $warna-dark;
-                        font-size: 14px;
+                        font-size: 12px;
                     }
                     .red{
                         color: $warna-pendukung6;
@@ -55,3 +62,75 @@ main{
         }
     }
 }
+
+#mainmenu{
+    .orderterbaru{
+        table{
+            tbody{
+                tr{
+                    td{
+                        .status{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: flex-start;
+                            background-color: $warna-pendukung;
+                            border-radius: $border-radius-1;
+                            padding-top: 10px;
+                            padding-bottom: 10px;
+                            padding-left: 10px;
+                            padding-right: 10px;
+                            select{
+                                margin-right: 5px;
+                                background-color: transparent;
+                                width: 100%;
+                                color: $warna-pendukung6;
+                                cursor: pointer;
+                                font-size: 12px;
+                            }
+                            .dalamproses{
+                                margin-right: 5px;
+                                background-color: transparent;
+                                width: 100%;
+                                color: $warna-pendukung8;
+                                cursor: pointer;
+                                .red{
+                                    color: $warna-pendukung6 !important;
+                                }
+                            }
+                            .dalamproses1{
+                                margin-right: 5px;
+                                background-color: transparent;
+                                width: 100%;
+                                color: $warna-pendukung3;
+                                cursor: pointer;
+                                .red{
+                                    color: $warna-pendukung6 !important;
+                                }
+                                .yellow{
+                                    color: $warna-pendukung8 !important;
+                                }
+                            }
+                            i{
+                                margin-left: 5px;
+                                font-size: 16px;
+                                color: $warna-pendukung6;
+                            }
+                            #yellow{
+                                color: $warna-pendukung8;
+                            }
+                            #green{
+                                color: $warna-pendukung3;
+                            }
+                            &:hover{
+                                background-color: transparent;
+                                border: 1px solid $warna-pendukung;
+                                cursor: pointer;
+                                transition: all .3s ease;
+                            }
+                        }
+                    }
+                }
+                }
+            }
+        }
+    }

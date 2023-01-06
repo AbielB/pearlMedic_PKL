@@ -27,37 +27,172 @@
                     }
                 }
                 .isikeranjang{
+                    margin-top: 50px;
+                    // background-color: crimson;
                     width: 100%;
+                    height: 60vh;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
-                    margin-top: 20px;
-                    // background-color: aqua;
-                    table{
-                        border: 1px solid $warna-light;
-                        border-radius: 20px;
-                        border-collapse: collapse;
-                        background-color: $warna-pendukung4;
-                        tr{
-                            th{
-                                // border: 1px solid $warna-pendukung1;
-                                padding-left: 50px;
-                                padding-right: 50px;
-                                padding-top: 5px;
-                                padding-bottom: 5px;
-                                font-family: 'Lora' serif;
+                    .isikeranjang-top{
+                        // background-color: aqua;
+                        display: grid;
+                        grid-template-columns: 50% 50%;
+                        gap: 3rem;
+                        margin-bottom: 25px;
+                        .keranjang{
+                            // background-color: aqua;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            text-align: center;
+                            // border: 1px solid $warna-pendukung1;
+                            table{
+                                background-color: $warna-pendukung;
+                                padding: 10px 15px;
+                                border-radius: 10px;
+                                box-shadow: 0 0 10px rgba(0,0,0,.1);
+                                .head{
+                                    border: 1px solid $warna-pendukung1;
+
+                                    th{
+                                        padding: 10px 25px;
+                                        color: $warna-pendukung1;
+                                        font-size: 14px;
+                                        font-weight: 600;
+                                        i{
+                                            margin-left: 7px;
+                                        }
+                                    }
+                                }
+                                tr{
+                                    border: 1px solid $warna-pendukung1;
+                                    td{
+                                        padding: 6px 25px;
+                                        color: $warna-dark;
+                                        font-size: 14px;
+                                        font-weight: 500;
+                                        font-family: lora,serif;
+                                    }
+                                }
+                            }
+                        }
+                        .statuskeranjang{
+                            background-color: $warna-pendukung;
+                            width: 85%;
+                            border-radius: 10px;
+                            padding: 10px 15px;
+                            box-shadow: 0 0 10px rgba(0,0,0,.1);
+                            h3{
+                                font-size: 16px;
+                                font-weight: 600;
+                                color: $warna-pendukung1;
+                                margin-top: 10px;
+                            }
+                            p{
+                                font-size: 14px;
                                 font-weight: 500;
                                 color: $warna-dark;
-                            }    
-                            td{
-                                color: $warna-dark;
-                                justify-content: center;
+                                margin-bottom: 35px;
+                                margin-top: 5px;
+                            }
+                            .statuskeranjang1{
+                                background-color: $warna-light;
+                                width: 100%;
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
                                 align-items: center;
-                                padding-left: 50px;
-                                padding-right: 50px;
-                                padding-top: 5px;
-                                padding-bottom: 5px;
+                                padding: 10px 15px;
+                                border-radius: 10px;
+                                transition: all .3s ease-in-out;
+                                border: none;
+                                &:hover{
+                                    background-color: transparent;
+                                    border: 1px solid $warna-pendukung1;
+                                    select{
+                                        color: $warna-pendukung1;
+                                    }
+                                }
+                                select{
+                                    background-color: transparent;
+                                    width: 100%;
+                                    cursor: pointer;
+                                    color: $warna-pendukung1;
+                                    outline: none;
+                                }
+                                i{
+                                    color: $warna-dark;
+                                }
+                            }
+                        }
+                    }
+                    .isikeranjang-bottom{
+                        background-color: $warna-pendukung;
+                        width: 80% !important;
+                        border-radius: 10px;
+                        padding: 10px 15px;
+                        box-shadow: 0 0 10px rgba(0,0,0,.1);
+                        h3{
+                            font-size: 18px;
+                            font-weight: 600;
+                            color: $warna-pendukung1;
+                            margin-top: 10px;
+                            margin-bottom: 20px;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+                            i{
+                                margin-left: 10px;
+                                font-size: 16px;
+                            }
+                        }
+                        .total{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding-left: 50px;
+                            padding-right: 50px;
+                            p{
+                                font-size: 15px;
+                                font-weight: 500;
+                                color: $warna-dark;
+                            }
+                        }
+                        .estimasi{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding-left: 50px;
+                            padding-right: 50px;
+                            margin-top: 20px;
+                            p{
+                                font-size: 15px;
+                                font-weight: 500;
+                                color: $warna-dark;
+                            }
+                            .date{
+                                // background: crimson;
+                                margin-top: -10px;
+                                margin-right: -20px;
+                                input[type="date"]{
+                                    background-color: $warna-light;
+                                    padding: 10px 15px;
+                                    width: 100%;
+                                    border-radius: 10px;
+                                    cursor: pointer;
+                                    color: $warna-pendukung1;
+                                    outline: none;
+                                    border: none;
+                                    font-size: 15px;
+                                    font-weight: 500;
+                                    color: $warna-dark;
+                                }
                             }
                         }
                     }
