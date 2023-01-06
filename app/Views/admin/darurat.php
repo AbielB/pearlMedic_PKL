@@ -77,63 +77,53 @@
             <!-- Layanan Terbaru -->
             <div class="orderterbaru">
                 <h2>Pesanan Darurat Terbaru </h2>
-                <div class="search">
-                    <input type="text" name="search" id="search" placeholder="Cari Pesanan....">
-                    <button type="submit" name="submit" id="submit"><i class="fa-solid fa-search"></i></button>
-                </div>
+                <form action="" method="GET">
+                    <div class="search">
+
+                        <input type="text" name="search" id="search" placeholder="Cari Nama Perusahaan....">
+                        <button type="submit" name="submit" id="submit"><i class="fa-solid fa-search"></i></button>
+
+                    </div>
+                </form>
                 <table>
                     <thead>
                         <tr>
                             <th>Nama Perusahaan</th>
-                            <th>Urgensi</th>
-                            <th>Jumlah Pasien</th>
-                            <th>Status</th>
-                            <th></th>
+                            <th>Lokasi</th>
+                            <th>Deskripsi</th>
+                            <th>Tanggal Pelaporan</th>
+                            <th>status</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        foreach ($rowDarurat as $d) {
+                        ?>
                         <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Kecelakaan Di tempat Kerja</td>
-                            <td>50</td>
-                            <td class="red">Belum Dilayani</td>
-                            <td><a href="#">Details</a></td>
+                            <td><?php echo $d->nama_perusahaan; ?></td>
+                            <td><?php echo $d->lokasi; ?></td>
+                            <td style="max-width: 400px"><?php echo $d->deskripsi; ?></td>
+                            <td><?php echo $d->tanggal_pelaporan; ?></td>
+                            <td>
+                                <select name="status" id="status"
+                                    onchange="statusDarurat(<?php echo $d->id_darurat ?>,this.value)">
+                                    <!-- if status = 1 selected -->
+                                    <option value="1" <?php if ($d->status == 1) {
+                                                                echo "selected";
+                                                            } ?>>Belum Dilayani</option>
+                                    <!-- if status = 2 selected -->
+                                    <option value="2" <?php if ($d->status == 2) {
+                                                                echo "selected";
+                                                            } ?>>Dalam Proses</option>
+                                    <!-- if status = 3 selected -->
+                                    <option value="3" <?php if ($d->status == 3) {
+                                                                echo "selected";
+                                                            } ?>>Selesai</option>
+                                </select>
+                            </td>
                         </tr>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Kecelakaan Di tempat Kerja</td>
-                            <td>50</td>
-                            <td class="yellow">Dalam Proses</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Kecelakaan Di tempat Kerja</td>
-                            <td>50</td>
-                            <td class="green">Sudah Dilayani</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Pemesanan Obat Darurat</td>
-                            <td>50</td>
-                            <td class="red">Belum Dilayani</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Pemesanan Obat Darurat</td>
-                            <td>50</td>
-                            <td class="yellow">Dalam Proses</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Pemesanan Obat Darurat</td>
-                            <td>50</td>
-                            <td class="green">Sudah Dilayani</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
+                        <?php } ?>
+
                     </tbody>
                 </table>
             </div>
@@ -163,6 +153,23 @@
     <!-- BAGIAN KANAN MAIN MENU / DETAILS MENU -->
 
     <script src="./data.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript">
+    function statusDarurat(id, status) {
+        $.ajax({
+            url: "<?= base_url('admin/AjaxDarurat') ?>",
+            type: "POST",
+            data: {
+                id: id,
+                status: status
+            },
+            success: function(data) {
+                alert("Status Berhasil Diubah");
+            }
+        });
+        console.log(id, status)
+    }
+    </script>
 </body>
 
 </html>

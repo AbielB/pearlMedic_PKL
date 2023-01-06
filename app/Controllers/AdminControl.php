@@ -58,11 +58,18 @@ class AdminControl extends BaseController
         if ($role != 'admin') {
             return redirect()->to('/');
         }
-        //select all from tb_medical join tb_perusahaan where id = id
+
+        //select all from tb_medical join tb_perusahaan where id = id and nama_perusahaan like %search%
         $db = \Config\Database::connect();
         $builder = $db->table('tb_medical');
         $builder->select('tb_medical.id_checkup, tb_medical.lokasi, tb_medical.jumlah, tb_medical.status, tb_perusahaan.nama_perusahaan');
         $builder->join('tb_perusahaan', 'tb_medical.id= tb_perusahaan.id');
+
+        if (isset($_GET['search'])) {
+            $search = $_GET['search'];
+            $builder->like('tb_perusahaan.nama_perusahaan', $search);
+        }
+
         //sort by status
         $builder->orderBy('tb_medical.status', 'ASC');
         $query = $builder->get();
@@ -98,9 +105,27 @@ class AdminControl extends BaseController
         if ($role != 'admin') {
             return redirect()->to('/');
         }
+        //select all from tb_darurat join tb_perusahaan where id = id
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_darurat');
+        $builder->select('tb_darurat.id_darurat, tb_darurat.lokasi, tb_darurat.deskripsi, tb_darurat.tanggal_pelaporan, tb_darurat.status, tb_perusahaan.nama_perusahaan');
+        $builder->join('tb_perusahaan', 'tb_darurat.id= tb_perusahaan.id');
+
+        //if search is set then get search
+        if (isset($_GET['search'])) {
+            $search = $_GET['search'];
+            $builder->like('tb_perusahaan.nama_perusahaan', $search);
+        }
+
+        //sort by status
+        $builder->orderBy('tb_darurat.status', 'ASC');
+        $query = $builder->get();
+        $rowDarurat = $query->getResult();
+
         $name = $session->get('nama');
         $data = [
             'name' => $name,
+            'rowDarurat' => $rowDarurat
         ];
         return view('admin/darurat', $data);
     }

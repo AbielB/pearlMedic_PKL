@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Link Favicon -->
-    <link rel="shortcut icon" href="./img/logo/pearlmedic.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo base_url("img/logo/pearlmedic.png"); ?>" type="image/x-icon">
     <!-- END Link Favicon -->
-    <!-- Link CSS -->
-    <link rel="stylesheet" href="./css/style.min.css?v=<?php echo time(); ?>">
+    <!-- CSS Links -->
+    <link rel="stylesheet" href=" <?php echo base_url("css/style.min.css?v=" . time()); ?>">
     <!-- END Link CSS -->
     <!-- Box Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
@@ -26,7 +26,7 @@
         <div class="adminmenu">
             <div class="top">
                 <div class="logo">
-                    <img src="./img/logo/pearlmedic2.png" alt="" width="10%">
+                    <img src="../img/logo/pearlmedic2.png" alt="" width="10%">
                     <h2><span>Pearl</span> Medic</h2>
                 </div>
                 <div class="close" id="close-btn">
@@ -34,36 +34,31 @@
                 </div>
             </div>
             <div class="sidebar">
-                <a href="index.php">
-                    <i class="fa-solid fa-house"></i>
+                <a href="/admin">
+                    <i class="fa-solid fa-house" id="span"></i>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="medical.php">
+                <a href="/admin/LayananMedical">
                     <i class="fa-solid fa-notes-medical"></i>
                     <h3>Layanan Medical</h3>
                 </a>
-                <a href="obat.php">
-                    <i class="fa-solid fa-capsules" id="span"></i>
+                <a href="/admin/LayananObat" id="paragraph-change">
+                    <i class="fa-solid fa-capsules"></i>
                     <h3>Layanan Obat</h3>
                 </a>
-                <a href="darurat.php">
+                <a href="/admin/LayananDarurat">
                     <i class="fa-solid fa-truck-medical"></i>
                     <h3>Layanan Darurat</h3>
                 </a>
-                <a href="vaksin.php" class="active">
+                <a href="/admin/LayananVaksin" class="active">
                     <i class="fa-solid fa-syringe"></i>
                     <h3>Layanan Vaksin</h3>
                 </a>
-                <a href="dataperusahaan.php">
+                <a href="/admin/DataPerusahaan">
                     <i class="fa-solid fa-city"></i>
                     <h3>Data Perusahaan</h3>
                 </a>
-                <!-- <a href="pesan.php">
-                    <i class="fa-solid fa-envelope"></i>
-                    <h3>Pesan</h3>
-                    <p class="message-count">12</p>
-                </a> -->
-                <a href="login.php">
+                <a href="/admin/Logout">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <h3>Logout</h3>
                 </a>
@@ -156,7 +151,7 @@
                 </div> -->
                 <div class="profile">
                     <div class="info">
-                        <p>Hallo, <span>Hanif</span> </p>
+                        <p>Hallo, <span><?php echo $name ?></span> </p>
                         <p class="text-muted">Admin</p>
                     </div>
                     <div class="profile-photo">
