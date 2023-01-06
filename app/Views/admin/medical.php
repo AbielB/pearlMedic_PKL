@@ -70,9 +70,64 @@
         <!-- END ADMIN MENU SECTION -->
         <!-- MAIN MENU SECTION -->
         <main id="mainmenu">
-            <h1><span>Layanan </span> Check Up</h1>
+            <h1><span>Layanan </span> Medical Check Up</h1>
             <div class="date">
                 <input type="date" name="date" id="date">
+            </div>
+
+            <div class="orderterbaru">
+                <h2>Pesanan Medical Check Up Terbaru </h2>
+                <form method="get">
+                    <div class="search">
+                        <input type="text" name="search" id="search" placeholder="Cari Nama Perusahaan....">
+                        <button type="submit" name="submit" id="submit"><i class="fa-solid fa-search"></i></button>
+                    </div>
+                </form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nama Perusahaan</th>
+                            <th>Lokasi</th>
+                            <th>Jumlah Orang</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($rowMedical as $m) {
+                            if ($m->status == 1) {
+                                $color = "red";
+                            } else if ($m->status == 2) {
+                                $color = "yellow";
+                            } else {
+                                $color = "green";
+                            }
+                        ?>
+                        <tr>
+                            <td><?= $m->nama_perusahaan; ?></td>
+                            <td><?= $m->lokasi; ?></td>
+                            <td><?= $m->jumlah; ?></td>
+                            <!-- select status-->
+                            <td>
+                                <select name="status" id="status" class="status"
+                                    onchange="statusMedical(<?php echo $m->id_checkup; ?>, this.value)">
+                                    <option value=" 1" <?php if ($m->status == 1) {
+                                                                echo "selected";
+                                                            } ?>>Belum Dilayani</option>
+                                    <option value="2" <?php if ($m->status == 2) {
+                                                                echo "selected";
+                                                            } ?>>Dalam Proses</option>
+                                    <option value="3" <?php if ($m->status == 3) {
+                                                                echo "selected";
+                                                            } ?>>Sudah Dilayani</option>
+                                </select>
+                        </tr>
+                        <?php } ?>
+
+                    </tbody>
+
+                </table>
             </div>
         </main>
         <!-- END MAIN MENU SECTION -->
@@ -98,6 +153,24 @@
     <!-- BAGIAN KANAN MAIN MENU / DETAILS MENU -->
 
     <script src="./data.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script>
+    //ajax
+    function statusMedical(id, status) {
+        $.ajax({
+            url: "<?= base_url('admin/AjaxMedical') ?>",
+            type: "POST",
+            data: {
+                id: id,
+                status: status
+            },
+            success: function(data) {
+                alert("Status Berhasil Diubah");
+            }
+        });
+        console.log(id, status);
+    }
+    </script>
 </body>
 
 </html>

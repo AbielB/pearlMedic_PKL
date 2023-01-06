@@ -74,6 +74,71 @@
             <div class="date">
                 <input type="date" name="date" id="date">
             </div>
+            <!-- Layanan Terbaru -->
+            <div class="orderterbaru">
+                <h2>Pesanan Darurat Terbaru </h2>
+                <div class="search">
+                    <input type="text" name="search" id="search" placeholder="Cari Pesanan....">
+                    <button type="submit" name="submit" id="submit"><i class="fa-solid fa-search"></i></button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nama Perusahaan</th>
+                            <th>Urgensi</th>
+                            <th>Jumlah Pasien</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Petronas Nasional Berhad</td>
+                            <td>Kecelakaan Di tempat Kerja</td>
+                            <td>50</td>
+                            <td class="red">Belum Dilayani</td>
+                            <td><a href="#">Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Petronas Nasional Berhad</td>
+                            <td>Kecelakaan Di tempat Kerja</td>
+                            <td>50</td>
+                            <td class="yellow">Dalam Proses</td>
+                            <td><a href="#">Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Petronas Nasional Berhad</td>
+                            <td>Kecelakaan Di tempat Kerja</td>
+                            <td>50</td>
+                            <td class="green">Sudah Dilayani</td>
+                            <td><a href="#">Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Petronas Nasional Berhad</td>
+                            <td>Pemesanan Obat Darurat</td>
+                            <td>50</td>
+                            <td class="red">Belum Dilayani</td>
+                            <td><a href="#">Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Petronas Nasional Berhad</td>
+                            <td>Pemesanan Obat Darurat</td>
+                            <td>50</td>
+                            <td class="yellow">Dalam Proses</td>
+                            <td><a href="#">Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Petronas Nasional Berhad</td>
+                            <td>Pemesanan Obat Darurat</td>
+                            <td>50</td>
+                            <td class="green">Sudah Dilayani</td>
+                            <td><a href="#">Details</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- END Layanan Terbaru -->
+            <br>
         </main>
         <!-- END MAIN MENU SECTION -->
         <!-- BAGIAN KANAN MAIN MENU / DETAILS MENU -->

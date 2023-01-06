@@ -58,10 +58,20 @@ class AdminControl extends BaseController
         if ($role != 'admin') {
             return redirect()->to('/');
         }
+        //select all from tb_medical join tb_perusahaan where id = id
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_medical');
+        $builder->select('tb_medical.id_checkup, tb_medical.lokasi, tb_medical.jumlah, tb_medical.status, tb_perusahaan.nama_perusahaan');
+        $builder->join('tb_perusahaan', 'tb_medical.id= tb_perusahaan.id');
+        //sort by status
+        $builder->orderBy('tb_medical.status', 'ASC');
+        $query = $builder->get();
+        $rowMedical = $query->getResult();
 
         $name = $session->get('nama');
         $data = [
-            'name' => $name
+            'name' => $name,
+            'rowMedical' => $rowMedical
         ];
         return view('admin/medical', $data);
     }
