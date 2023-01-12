@@ -88,6 +88,7 @@
                         <tr>
                             <th>Nama Perusahaan</th>
                             <th>Lokasi</th>
+                            <th>Tanggal</th>
                             <th>Jumlah Orang</th>
                             <th>Status</th>
                             <th></th>
@@ -107,6 +108,7 @@
                         <tr>
                             <td><?= $m->nama_perusahaan; ?></td>
                             <td><?= $m->lokasi; ?></td>
+                            <td><?= $m->tanggal_pelaksanaan; ?></td>
                             <td><?= $m->jumlah; ?></td>
                             <!-- select status-->
                             <td>

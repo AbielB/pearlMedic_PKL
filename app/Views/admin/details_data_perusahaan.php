@@ -88,6 +88,19 @@
                     $bidang = $rowDetails[0]->bidang;
                     $alamat = $rowDetails[0]->alamat;
                     $deskripsi = $rowDetails[0]->deskripsi;
+                    $status = $rowDetails[0]->status;
+
+                    if ($status == 1) {
+                        $buttonText = "Nonaktifkan Akun";
+                        $hText = "Apakah Anda Yakin Ingin Menonaktifkan Akun?";
+                        $pText = "Akun yang sudah dinonaktifkan dapat di aktifkan kembali.";
+                        $namaStatus = "Aktif";
+                    } else {
+                        $buttonText = "Aktifkan Akun";
+                        $hText = "Apakah Anda Yakin Ingin Mengaktifkan Akun?";
+                        $pText = "Akun yang sudah diaktifkan dapat di nonaktifkan kembali.";
+                        $namaStatus = "Non Aktif";
+                    }
                     echo '<div class="profilperusahaan_info">
                     <div class="profilperusahaan_info_text">
                         <h3>Nama Perusahaan</h3>
@@ -106,6 +119,10 @@
                         <h3>Email</h3>
                         <p>' . $email . '</p>
                     </div>
+                    <div class="profilperusahaan_info_text">
+                        <h3>Status</h3>
+                        <p>' . $namaStatus . '</p>
+                    </div>
                 </div>
                 
                 <div class="profilperusahaan_info_text grid">
@@ -115,12 +132,167 @@
                 '; ?>
 
 
+
                     <div class="editdelete_profil">
                         <a href="/admin/EditDataPerusahaan?id=<?php echo $id ?>" class="btn btn-primary edit"><i
                                 class="fa-solid fa-user-pen"></i>Edit
                             Profil</a>
-                        <a href="#" class="btn btn-danger hapus"><i class="fa-solid fa-trash"></i>Hapus Akun</a>
+                        <button type="button" class="btn btn-danger hapus" onclick="openPopup()"><i
+                                class="fa-solid fa-trash"></i><?php echo $buttonText ?></button>
                     </div>
+                    <div class="popup" id="popup">
+                        <i class="fa-solid fa-trash-can"></i>
+                        <h2><?php echo $hText ?></h2>
+                        <p><?php echo $pText ?></p>
+                        <!-- hidden input id -->
+
+                        <button type="submit" name="edit" id="edit"
+                            onclick="changeStatusAkun(<?php echo $id ?>,<?php echo $status ?>)">Ya</button>
+                        <button type="submit" onclick="closePopup()">Batalkan</button>
+                    </div>
+                    <style>
+                    #mainmenu .popup.open-popup {
+                        top: 90%;
+                    }
+                    </style>
+                </div>
+                <div class="orderterbaru">
+                    <h2>Histori Pelayanan <i class="fa-solid fa-file-medical"></i></h2>
+                    <h3>Pembelian Obat<i class="fa-solid fa-pills"></i></h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama Pelayanan</th>
+                                <th>Jenis Obat</th>
+                                <th><i class="fa-solid fa-cart-shopping yellow"></i></th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pembelian Obat</td>
+                                <td>Paracetamol</td>
+                                <td><a href="keranjangobathistori.php" class="yellow">Lihat Keranjang</a></td>
+                                <td class="red">Belum Dilayani</td>
+                            </tr>
+                            <tr>
+                                <td>Pembelian Obat</td>
+                                <td>Paracetamol</td>
+                                <td><a href="keranjangobathistori.php" class="yellow">Lihat Keranjang</a></td>
+                                <td class="green">Sudah Dilayani</td>
+                            <tr>
+                                <td>Pembelian Obat</td>
+                                <td>Paracetamol</td>
+                                <td><a href="keranjangobathistori.php" class="yellow">Lihat Keranjang</a></td>
+                                <td class="yellow">Dalam Proses</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="orderterbaru">
+                    <h3>Medical Check Up<i class="fa-solid fa-stethoscope"></i></h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tanggal Pelaksanaan</th>
+                                <th>Lokasi</th>
+                                <th>Jumlah Orang</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach ($rowMedical as $medical) {
+                                if ($medical->status == 0) {
+                                    $color = "red";
+                                    $status = "Belum Dilayani";
+                                } else if ($medical->status == 1) {
+                                    $color = "yellow";
+                                    $status = "Dalam Proses";
+                                } else {
+                                    $color = "green";
+                                    $status = "Sudah Dilayani";
+                                }  ?>
+
+                            <tr>
+                                <td><?= $medical->tanggal_pelaksanaan ?></td>
+                                <td><?= $medical->lokasi ?></td>
+                                <td><?= $medical->jumlah ?></td>
+                                <td class="<?= $color ?>">Belum Dilayani</td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="orderterbaru">
+                    <h3>Layanan Darurat<i class="fa-solid fa-truck-medical"></i></h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama Pelayanan</th>
+                                <th>Urgensi</th>
+                                <th>Jumlah Pasien</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pembelian Obat</td>
+                                <td>Kecelakaan Karyawan</td>
+                                <td>50 Orang</td>
+                                <td class="green">Sudah Dilayani</td>
+                            </tr>
+                            <tr>
+                                <td>Pembelian Obat</td>
+                                <td>Kecelakaan Karyawan</td>
+                                <td>50 Orang</td>
+                                <td class="red">Belum Dilayani</td>
+                            </tr>
+                            <tr>
+                                <td>Pembelian Obat</td>
+                                <td>Kecelakaan Karyawan</td>
+                                <td>50 Orang</td>
+                                <td class="yellow">Dalam Proses</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="orderterbaru">
+                    <h3>Vaksinasi<i class="fa-solid fa-syringe"></i></h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama Pelayanan</th>
+                                <th>Jenis Vaksin</th>
+                                <th>Jumlah Orang</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pembelian Obat</td>
+                                <td>Covid-19</td>
+                                <td>50 Orang</td>
+                                <td class="green">Sudah Dilayani</td>
+                            </tr>
+                            <tr>
+                                <td>Pembelian Obat</td>
+                                <td>Covid-19</td>
+                                <td>50 Orang</td>
+                                <td class="yellow">Dalam Proses</td>
+                            </tr>
+                            <tr>
+                                <td>Pembelian Obat</td>
+                                <td>Covid-19</td>
+                                <td>50 Orang</td>
+                                <td class="red">Belum Dilayani</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </main>
@@ -147,7 +319,28 @@
     <!-- BAGIAN KANAN MAIN MENU / DETAILS MENU -->
 
 
-    <script src="./data.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/popup.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script>
+    //ajax change status
+    function changeStatusAkun(id, status) {
+
+        $.ajax({
+            url: "<?= base_url('admin/AjaxAkun') ?>",
+            type: "POST",
+            data: {
+                id: id,
+                status: status
+            },
+            success: function(data) {
+                alert("status akun berhasil diubah")
+                location.reload();
+            }
+        });
+        console.log(id, status);
+    }
+    </script>
 </body>
 
 </html>

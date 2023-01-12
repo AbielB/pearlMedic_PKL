@@ -105,7 +105,7 @@ class AdminControl extends BaseController
         //select all from tb_medical join tb_perusahaan where id = id and nama_perusahaan like %search%
         $db = \Config\Database::connect();
         $builder = $db->table('tb_medical');
-        $builder->select('tb_medical.id_checkup, tb_medical.lokasi, tb_medical.jumlah, tb_medical.status, tb_perusahaan.nama_perusahaan');
+        $builder->select('tb_medical.id_checkup, tb_medical.lokasi, tb_medical.tanggal_pelaksanaan, tb_medical.jumlah, tb_medical.status, tb_perusahaan.nama_perusahaan');
         $builder->join('tb_perusahaan', 'tb_medical.id= tb_perusahaan.id');
 
         if (isset($_GET['search'])) {
@@ -206,9 +206,10 @@ class AdminControl extends BaseController
             $query = $builder->get();
             $rowPerusahaan = $query->getResult();
         } else {
-            //query select all from tb_perusahaan
+            //query select all from tb_perusahaan, sort by status
             $db = \Config\Database::connect();
             $builder = $db->table('tb_perusahaan');
+            $builder->orderBy('status', 'ASC');
             $query = $builder->get();
             $rowPerusahaan = $query->getResult();
         }
@@ -250,10 +251,26 @@ class AdminControl extends BaseController
             return redirect()->to('/admin/dataperusahaan');
         }
 
+        //select all from tb_medical
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_medical');
+        $builder->where('id', $id);
+        $query = $builder->get();
+        $rowMedical = $query->getResult();
+
+        //select all from tb_darurat
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_darurat');
+        $builder->where('id', $id);
+        $query = $builder->get();
+        $rowDarurat = $query->getResult();
+
         $name = $session->get('nama');
         $data = [
             'name' => $name,
             'rowDetails' => $rowDetails,
+            'rowMedical' => $rowMedical,
+            'rowDarurat' => $rowDarurat,
             'id' => $id
         ];
         return view('admin/details_data_perusahaan', $data);

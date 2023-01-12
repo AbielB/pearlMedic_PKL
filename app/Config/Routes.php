@@ -51,6 +51,7 @@ $routes->post('/admin/PostEdit', 'AdminControl::PostEdit');
 $routes->post('/admin/BuatPerusahaan', 'AdminControl::BuatPerusahaan');
 $routes->post('/admin/AjaxMedical', 'Ajax::Medical');
 $routes->post('/admin/AjaxDarurat', 'Ajax::Darurat');
+$routes->post('/admin/AjaxAkun', 'Ajax::Akun');
 
 $routes->post('/login', 'Home::login');
 $routes->get('/pages', 'Pages::index');

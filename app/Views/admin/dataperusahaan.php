@@ -90,6 +90,7 @@
                             <th>Nama Perusahaan</th>
                             <th>Bidang</th>
                             <th>Email</th>
+                            <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -103,11 +104,18 @@
                                 $id = $row->id;
                                 $bidang = $row->bidang;
                                 $email = $row->email;
+                                $status = $row->status;
+                                if ($status == 1) {
+                                    $status = "Aktif";
+                                } else {
+                                    $status = "Non Aktif";
+                                }
                                 echo '<tr>
                             <td>' . $i . '</td>
                             <td>' . $namaPerusahaan . '</td>
                             <td>' . $bidang . '</td>
                             <td>' . $email . '</td>
+                            <td>' . $status . '</td>
                             <td><a href="/admin/DetailsDataPerusahaan?id=' . $id . '" class="yellow">Detail Akun</a></td>
                         </tr>
                         ';
