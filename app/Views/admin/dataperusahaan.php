@@ -71,9 +71,7 @@
         <!-- MAIN MENU SECTION -->
         <main id="mainmenu" class="full">
             <h1><span>Data Akun </span>Perusahaan</h1>
-            <div class="date">
-                <input type="date" name="date" id="date">
-            </div>
+
             <!-- Layanan Terbaru -->
             <div class="orderterbaru">
                 <!-- <h2>Data Akun Perusahaan </h2> -->

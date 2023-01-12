@@ -72,9 +72,7 @@
         <main id="mainmenu" class="full">
             <h1><span>Data Akun </span>Perusahaan</h1>
             <h3 class="path"><a href="/admin/DataPerusahaan">Data Perusahaan</a> / <span>Detail Akun</span> </h3>
-            <div class="date">
-                <input type="date" name="date" id="date">
-            </div>
+
             <div class="profilperusahaan">
                 <h2>Profil Akun Perusahaan Mitra</h2>
                 <div class="wrapper">
@@ -95,11 +93,15 @@
                         $hText = "Apakah Anda Yakin Ingin Menonaktifkan Akun?";
                         $pText = "Akun yang sudah dinonaktifkan dapat di aktifkan kembali.";
                         $namaStatus = "Aktif";
+                        $btn = "hapus";
+                        $icon = '<i class="fa-solid fa-trash-can"></i>';
                     } else {
                         $buttonText = "Aktifkan Akun";
                         $hText = "Apakah Anda Yakin Ingin Mengaktifkan Akun?";
                         $pText = "Akun yang sudah diaktifkan dapat di nonaktifkan kembali.";
                         $namaStatus = "Non Aktif";
+                        $btn = "edit";
+                        $icon = '';
                     }
                     echo '<div class="profilperusahaan_info">
                     <div class="profilperusahaan_info_text">
@@ -137,14 +139,13 @@
                         <a href="/admin/EditDataPerusahaan?id=<?php echo $id ?>" class="btn btn-primary edit"><i
                                 class="fa-solid fa-user-pen"></i>Edit
                             Profil</a>
-                        <button type="button" class="btn btn-danger hapus" onclick="openPopup()"><i
-                                class="fa-solid fa-trash"></i><?php echo $buttonText ?></button>
+                        <button type="button" class="btn btn-success <?= $btn ?>"
+                            onclick="openPopup()"><?php echo $buttonText ?></button>
                     </div>
                     <div class="popup" id="popup">
-                        <i class="fa-solid fa-trash-can"></i>
+                        <?= $icon ?>
                         <h2><?php echo $hText ?></h2>
                         <p><?php echo $pText ?></p>
-                        <!-- hidden input id -->
 
                         <button type="submit" name="edit" id="edit"
                             onclick="changeStatusAkun(<?php echo $id ?>,<?php echo $status ?>)">Ya</button>
@@ -152,7 +153,7 @@
                     </div>
                     <style>
                     #mainmenu .popup.open-popup {
-                        top: 90%;
+                        top: 60%;
                     }
                     </style>
                 </div>
@@ -205,10 +206,10 @@
                         <tbody>
                             <?php
                             foreach ($rowMedical as $medical) {
-                                if ($medical->status == 0) {
+                                if ($medical->status == 1) {
                                     $color = "red";
                                     $status = "Belum Dilayani";
-                                } else if ($medical->status == 1) {
+                                } else if ($medical->status == 2) {
                                     $color = "yellow";
                                     $status = "Dalam Proses";
                                 } else {
@@ -232,31 +233,32 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Nama Pelayanan</th>
-                                <th>Urgensi</th>
-                                <th>Jumlah Pasien</th>
+                                <th>Tanggal Pelaporan</th>
+                                <th>Lokasi</th>
+                                <th>Jumlah Korban</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                            foreach ($rowDarurat as $darurat) {
+                                if ($darurat->status == 1) {
+                                    $color = "red";
+                                    $status = "Belum Dilayani";
+                                } else if ($medical->status == 2) {
+                                    $color = "yellow";
+                                    $status = "Dalam Proses";
+                                } else {
+                                    $color = "green";
+                                    $status = "Sudah Dilayani";
+                                } ?>
                             <tr>
-                                <td>Pembelian Obat</td>
-                                <td>Kecelakaan Karyawan</td>
-                                <td>50 Orang</td>
-                                <td class="green">Sudah Dilayani</td>
+                                <td><?= $darurat->tanggal_pelaporan ?></td>
+                                <td><?= $darurat->lokasi ?></td>
+                                <td><?= $darurat->jumlah ?></td>
+                                <td class="<?= $color ?>"><?= $status ?></td>
                             </tr>
-                            <tr>
-                                <td>Pembelian Obat</td>
-                                <td>Kecelakaan Karyawan</td>
-                                <td>50 Orang</td>
-                                <td class="red">Belum Dilayani</td>
-                            </tr>
-                            <tr>
-                                <td>Pembelian Obat</td>
-                                <td>Kecelakaan Karyawan</td>
-                                <td>50 Orang</td>
-                                <td class="yellow">Dalam Proses</td>
-                            </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

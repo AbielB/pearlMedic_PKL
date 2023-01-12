@@ -75,9 +75,7 @@
         <main id="mainmenu" class="full">
             <h1><span>Layanan </span>Pembelian Obat</h1>
             <h3 class="path"><a href="obat.php">Layanan Obat</a> / <span>Isi Keranjang</span> </h3>
-            <div class="date">
-                <input type="date" name="date" id="date">
-            </div>
+
             <div class="profilperusahaan">
                 <h2>Profil Akun Perusahaan Mitra</h2>
                 <div class="container_popup">

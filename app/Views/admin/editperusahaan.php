@@ -74,9 +74,7 @@
             <h3 class="path"><a href="dataperusahaan.php">Data Perusahaan</a> / <a
                     href="details_data_perusahaan.php">Detail Akun</a> / <span>Edit Profil</span>
             </h3>
-            <div class="date">
-                <input type="date" name="date" id="date">
-            </div>
+
             <div class="profilperusahaan">
                 <h2>Edit Profil Akun Perusahaan Mitra</h2>
                 <div class="wrapper">

@@ -71,9 +71,7 @@
         <!-- MAIN MENU SECTION -->
         <main id="mainmenu">
             <h1><span>Layanan </span> Medical Check Up</h1>
-            <div class="date">
-                <input type="date" name="date" id="date">
-            </div>
+
 
             <div class="orderterbaru">
                 <h2>Pesanan Medical Check Up Terbaru </h2>

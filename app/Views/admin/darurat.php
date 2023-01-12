@@ -71,9 +71,7 @@
         <!-- MAIN MENU SECTION -->
         <main id="mainmenu">
             <h1><span>Layanan </span> Darurat</h1>
-            <div class="date">
-                <input type="date" name="date" id="date">
-            </div>
+
             <!-- Layanan Terbaru -->
             <div class="orderterbaru">
                 <h2>Pesanan Darurat Terbaru </h2>
