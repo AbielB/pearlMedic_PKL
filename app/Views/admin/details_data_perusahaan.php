@@ -93,6 +93,7 @@
                         <h3>Nama Perusahaan</h3>
                         <p>' . $namaPerusahaan . '</p>
                     </div>
+                    
                     <div class="profilperusahaan_info_text">
                         <h3>Bidang</h3>
                         <p>' . $bidang . '</p>
@@ -106,10 +107,13 @@
                         <p>' . $email . '</p>
                     </div>
                 </div>
+                
                 <div class="profilperusahaan_info_text grid">
                     <h3>Deskripsi Perusahaan</h3>
                     <p>' . $deskripsi . '</p>
-                </div>'; ?>
+                </div>
+                '; ?>
+
 
                     <div class="editdelete_profil">
                         <a href="/admin/EditDataPerusahaan?id=<?php echo $id ?>" class="btn btn-primary edit"><i
@@ -135,66 +139,6 @@
                     <div class="info">
                         <p>Hallo, <span><?php echo $name ?></span> </p>
                         <p class="text-muted">Admin</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bottom">
-                <div class="akunperusahaan">
-                    <h2>Akun Perusahaan Aktif</h2>
-                    <div class="item online">
-                        <div class="icon">
-                            <i class="fa-solid fa-building-user"></i>
-                        </div>
-                        <div class="right">
-                            <div class="info">
-                                <h3>Petronas Nasional Berhad</h3>
-                                <p class="text-muted">Status : Aktif </p>
-                            </div>
-                            <a href="#" class="red">Details</a>
-                        </div>
-                    </div>
-                    <div class="item online">
-                        <div class="icon">
-                            <i class="fa-solid fa-building-user"></i>
-                        </div>
-                        <div class="right">
-                            <div class="info">
-                                <h3>Petronas Nasional Berhad</h3>
-                                <p class="text-muted">Status : Aktif </p>
-                            </div>
-                            <a href="#" class="red">Details</a>
-                        </div>
-                    </div>
-                    <div class="item online">
-                        <div class="icon">
-                            <i class="fa-solid fa-building-user"></i>
-                        </div>
-                        <div class="right">
-                            <div class="info">
-                                <h3>Petronas Nasional Berhad</h3>
-                                <p class="text-muted">Status : Aktif </p>
-                            </div>
-                            <a href="#" class="red">Details</a>
-                        </div>
-                    </div>
-                    <div class="item online">
-                        <div class="icon">
-                            <i class="fa-solid fa-building-user"></i>
-                        </div>
-                        <div class="right">
-                            <div class="info">
-                                <h3>Petronas Nasional Berhad</h3>
-                                <p class="text-muted">Status : Aktif </p>
-                            </div>
-                            <a href="#" class="red">Details</a>
-                        </div>
-                    </div>
-                    <div class="item selengkapnya">
-                        <div class="selengkapnya1">
-                            <i class="fa-solid fa-building-circle-arrow-right"></i>
-                            <h3><a href="dataperusahaan.php">Lihat Selengkapnya</a></h3>
-                        </div>
                     </div>
                 </div>
             </div>

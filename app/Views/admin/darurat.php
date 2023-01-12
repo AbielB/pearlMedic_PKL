@@ -90,7 +90,9 @@
                         <tr>
                             <th>Nama Perusahaan</th>
                             <th>Lokasi</th>
+                            <th>RS Tujuan</th>
                             <th>Deskripsi</th>
+                            <th>Jumlah Orang</th>
                             <th>Tanggal Pelaporan</th>
                             <th>status</th>
                         </tr>
@@ -102,7 +104,9 @@
                         <tr>
                             <td><?php echo $d->nama_perusahaan; ?></td>
                             <td><?php echo $d->lokasi; ?></td>
-                            <td style="max-width: 400px"><?php echo $d->deskripsi; ?></td>
+                            <td><?php echo $d->rs_tujuan; ?></td>
+                            <td style="max-width: 300px"><?php echo $d->deskripsi; ?></td>
+                            <td><?php echo $d->jumlah; ?></td>
                             <td><?php echo $d->tanggal_pelaporan; ?></td>
                             <td>
                                 <select name="status" id="status"

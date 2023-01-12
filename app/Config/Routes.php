@@ -45,6 +45,8 @@ $routes->get('/admin/DataPerusahaan', 'AdminControl::DataPerusahaan');
 $routes->get('/admin/DetailsDataPerusahaan', 'AdminControl::DetailsDataPerusahaan');
 $routes->get('/admin/EditDataPerusahaan', 'AdminControl::EditDataPerusahaan');
 $routes->get('/admin/Logout', 'AdminControl::Logout');
+$routes->get('/admin/Keranjang', 'AdminControl::Keranjang');
+
 $routes->post('/admin/PostEdit', 'AdminControl::PostEdit');
 $routes->post('/admin/BuatPerusahaan', 'AdminControl::BuatPerusahaan');
 $routes->post('/admin/AjaxMedical', 'Ajax::Medical');

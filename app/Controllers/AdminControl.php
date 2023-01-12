@@ -151,7 +151,7 @@ class AdminControl extends BaseController
         //select all from tb_darurat join tb_perusahaan where id = id
         $db = \Config\Database::connect();
         $builder = $db->table('tb_darurat');
-        $builder->select('tb_darurat.id_darurat, tb_darurat.lokasi, tb_darurat.deskripsi, tb_darurat.tanggal_pelaporan, tb_darurat.status, tb_perusahaan.nama_perusahaan');
+        $builder->select('tb_darurat.id_darurat, tb_darurat.lokasi, tb_darurat.jumlah, tb_darurat.rs_tujuan, tb_darurat.deskripsi, tb_darurat.tanggal_pelaporan, tb_darurat.status, tb_perusahaan.nama_perusahaan');
         $builder->join('tb_perusahaan', 'tb_darurat.id= tb_perusahaan.id');
 
         //if search is set then get search
@@ -405,5 +405,10 @@ class AdminControl extends BaseController
             ];
             return view('admin/DataPerusahaan', $data);
         }
+    }
+
+    public function Keranjang()
+    {
+        return view('admin/keranjangobat');
     }
 }

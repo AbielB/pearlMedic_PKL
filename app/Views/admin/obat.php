@@ -65,7 +65,6 @@
             </div>
         </div>
 
-        <!-- END ADMIN MENU SECTION -->
         <!-- MAIN MENU SECTION -->
         <main id="mainmenu">
             <h1><span>Layanan </span> Pembelian Obat</h1>
@@ -74,7 +73,7 @@
             </div>
             <!-- Layanan Terbaru -->
             <div class="orderterbaru">
-                <h2>Pesanan Obat Terbaru </h2>
+                <h2>Pesanan Obat Terbaru <span>* Belum Dilayani</span> </h2>
                 <div class="search">
                     <input type="text" name="search" id="search" placeholder="Cari Pesanan Obat....">
                     <button type="submit" name="submit" id="submit"><i class="fa-solid fa-search"></i></button>
@@ -86,7 +85,7 @@
                             <th>Jenis Obat</th>
                             <th>Jumlah</th>
                             <th>Status</th>
-                            <th><i class="fa-solid fa-cart-shopping red"></i></th>
+                            <th><i class="fa-solid fa-cart-shopping yellow"></i></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -94,43 +93,257 @@
                             <td>Petronas Nasional Berhad</td>
                             <td>Obat Cair</td>
                             <td>50</td>
-                            <td class="red">Belum Dilayani</td>
-                            <td><a href="keranjangobat.php" class="red">Lihat Keranjang </a></td>
+                            <td>
+                                <div class="status">
+                                    <select name="status" id="status" required>
+                                        <option selected>
+                                            <span class="red">Belum Dilayani</span>
+                                        </option>
+                                        <option value="1" class="yellow">Dalam Proses</option>
+                                        <option value="2" class="green">Sudah Dilayani</option>
+                                    </select>
+                                    <i class="fa-solid fa-file-pen"></i>
+                                </div>
+                            </td>
+                            <td><a href="keranjangobat.php" class="yellow">Lihat Keranjang </a></td>
                         </tr>
                         <tr>
                             <td>Petronas Nasional Berhad</td>
                             <td>Obat Cair</td>
                             <td>50</td>
-                            <td class="yellow">Dalam Proses</td>
-                            <td><a href="keranjangobat.php" class="red">Lihat Keranjang </a></td>
+                            <td>
+                                <div class="status">
+                                    <select name="status" id="status" required>
+                                        <option selected>
+                                            <span class="red">Belum Dilayani</span>
+                                        </option>
+                                        <option value="1" class="yellow">Dalam Proses</option>
+                                        <option value="2" class="green">Sudah Dilayani</option>
+                                    </select>
+                                    <i class="fa-solid fa-file-pen"></i>
+                                </div>
+                            </td>
+                            <td><a href="keranjangobat.php" class="yellow">Lihat Keranjang </a></td>
                         </tr>
                         <tr>
                             <td>Petronas Nasional Berhad</td>
                             <td>Obat Cair</td>
                             <td>50</td>
-                            <td class="green">Sudah Dilayani</td>
-                            <td><a href="keranjangobat.php" class="red">Lihat Keranjang </a></td>
+                            <td>
+                                <div class="status">
+                                    <select name="status" id="status" required>
+                                        <option selected>
+                                            <span class="red">Belum Dilayani</span>
+                                        </option>
+                                        <option value="1" class="yellow">Dalam Proses</option>
+                                        <option value="2" class="green">Sudah Dilayani</option>
+                                    </select>
+                                    <i class="fa-solid fa-file-pen"></i>
+                                </div>
+                            </td>
+                            <td><a href="keranjangobat.php" class="yellow">Lihat Keranjang </a></td>
                         </tr>
                         <tr>
                             <td>Petronas Nasional Berhad</td>
                             <td>Obat Cair</td>
                             <td>50</td>
-                            <td class="red">Belum Dilayani</td>
-                            <td><a href="keranjangobat.php" class="red">Lihat Keranjang </a></td>
+                            <td>
+                                <div class="status">
+                                    <select name="status" id="status" required>
+                                        <option selected>
+                                            <span class="red">Belum Dilayani</span>
+                                        </option>
+                                        <option value="1" class="yellow">Dalam Proses</option>
+                                        <option value="2" class="green">Sudah Dilayani</option>
+                                    </select>
+                                    <i class="fa-solid fa-file-pen"></i>
+                                </div>
+                            </td>
+                            <td><a href="keranjangobat.php" class="yellow">Lihat Keranjang </a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="orderterbaru">
+                <h2>Pesanan Obat Terbaru <span class="yellow">* Dalam Proses Pelayanan</span> </h2>
+                <div class="search">
+                    <input type="text" name="search" id="search" placeholder="Cari Pesanan Obat....">
+                    <button type="submit" name="submit" id="submit"><i class="fa-solid fa-search"></i></button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nama Perusahaan</th>
+                            <th>Jenis Obat</th>
+                            <th>Jumlah</th>
+                            <th>Status</th>
+                            <th><i class="fa-solid fa-cart-shopping yellow"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Petronas Nasional Berhad</td>
+                            <td>Obat Cair</td>
+                            <td>50</td>
+                            <td>
+                                <div class="status">
+                                    <select class="dalamproses" name="status" id="status" required>
+                                        <option selected>
+                                            <span class="yellow">Dalam Proses</span>
+                                        </option>
+                                        <option value="1" class="red">Belum Dilayani</option>
+                                        <option value="2" class="green">Sudah Dilayani</option>
+                                    </select>
+                                    <i class="fa-solid fa-file-pen" id="yellow"></i>
+                                </div>
+                            </td>
+                            <td><a href="keranjangobat.php" class="yellow">Lihat Keranjang </a></td>
                         </tr>
                         <tr>
                             <td>Petronas Nasional Berhad</td>
                             <td>Obat Cair</td>
                             <td>50</td>
-                            <td class="yellow">Dalam Proses</td>
-                            <td><a href="keranjangobat.php" class="red">Lihat Keranjang </a></td>
+                            <td>
+                                <div class="status">
+                                    <select class="dalamproses" name="status" id="status" required>
+                                        <option selected>
+                                            <span class="yellow">Dalam Proses</span>
+                                        </option>
+                                        <option value="1" class="red">Belum Dilayani</option>
+                                        <option value="2" class="green">Sudah Dilayani</option>
+                                    </select>
+                                    <i class="fa-solid fa-file-pen" id="yellow"></i>
+                                </div>
+                            </td>
+                            <td><a href="keranjangobat.php" class="yellow">Lihat Keranjang </a></td>
                         </tr>
                         <tr>
                             <td>Petronas Nasional Berhad</td>
                             <td>Obat Cair</td>
                             <td>50</td>
-                            <td class="green">Sudah Dilayani</td>
-                            <td><a href="keranjangobat.php" class="red">Lihat Keranjang </a></td>
+                            <td>
+                                <div class="status">
+                                    <select class="dalamproses" name="status" id="status" required>
+                                        <option selected>
+                                            <span class="yellow">Dalam Proses</span>
+                                        </option>
+                                        <option value="1" class="red">Belum Dilayani</option>
+                                        <option value="2" class="green">Sudah Dilayani</option>
+                                    </select>
+                                    <i class="fa-solid fa-file-pen" id="yellow"></i>
+                                </div>
+                            </td>
+                            <td><a href="keranjangobat.php" class="yellow">Lihat Keranjang </a></td>
+                        </tr>
+                        <tr>
+                            <td>Petronas Nasional Berhad</td>
+                            <td>Obat Cair</td>
+                            <td>50</td>
+                            <td>
+                                <div class="status">
+                                    <select class="dalamproses" name="status" id="status" required>
+                                        <option selected>
+                                            <span class="yellow">Dalam Proses</span>
+                                        </option>
+                                        <option value="1" class="red">Belum Dilayani</option>
+                                        <option value="2" class="green">Sudah Dilayani</option>
+                                    </select>
+                                    <i class="fa-solid fa-file-pen" id="yellow"></i>
+                                </div>
+                            </td>
+                            <td><a href="keranjangobat.php" class="yellow">Lihat Keranjang </a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="orderterbaru">
+                <h2>Pesanan Obat Terbaru <span class="green">* Sudah Dilayani</span> </h2>
+                <div class="search">
+                    <input type="text" name="search" id="search" placeholder="Cari Pesanan Obat....">
+                    <button type="submit" name="submit" id="submit"><i class="fa-solid fa-search"></i></button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nama Perusahaan</th>
+                            <th>Jenis Obat</th>
+                            <th>Jumlah</th>
+                            <th>Status</th>
+                            <th><i class="fa-solid fa-cart-shopping yellow"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Petronas Nasional Berhad</td>
+                            <td>Obat Cair</td>
+                            <td>50</td>
+                            <td>
+                                <div class="status">
+                                    <select class="dalamproses1" name="status" id="status" required>
+                                        <option selected>
+                                            <span class="yellow">Sudah Dilayani</span>
+                                        </option>
+                                        <option value="1" class="red">Belum Dilayani</option>
+                                        <option value="2" class="yellow">Dalam Proses</option>
+                                    </select>
+                                    <i class="fa-solid fa-file-pen" id="green"></i>
+                                </div>
+                            </td>
+                            <td><a href="keranjangobat.php" class="yellow">Lihat Keranjang </a></td>
+                        </tr>
+                        <tr>
+                            <td>Petronas Nasional Berhad</td>
+                            <td>Obat Cair</td>
+                            <td>50</td>
+                            <td>
+                                <div class="status">
+                                    <select class="dalamproses1" name="status" id="status" required>
+                                        <option selected>
+                                            <span class="yellow">Sudah Dilayani</span>
+                                        </option>
+                                        <option value="1" class="red">Belum Dilayani</option>
+                                        <option value="2" class="yellow">Dalam Proses</option>
+                                    </select>
+                                    <i class="fa-solid fa-file-pen" id="green"></i>
+                                </div>
+                            </td>
+                            <td><a href="keranjangobat.php" class="yellow">Lihat Keranjang </a></td>
+                        </tr>
+                        <tr>
+                            <td>Petronas Nasional Berhad</td>
+                            <td>Obat Cair</td>
+                            <td>50</td>
+                            <td>
+                                <div class="status">
+                                    <select class="dalamproses1" name="status" id="status" required>
+                                        <option selected>
+                                            <span class="yellow">Sudah Dilayani</span>
+                                        </option>
+                                        <option value="1" class="red">Belum Dilayani</option>
+                                        <option value="2" class="yellow">Dalam Proses</option>
+                                    </select>
+                                    <i class="fa-solid fa-file-pen" id="green"></i>
+                                </div>
+                            </td>
+                            <td><a href="keranjangobat.php" class="yellow">Lihat Keranjang </a></td>
+                        </tr>
+                        <tr>
+                            <td>Petronas Nasional Berhad</td>
+                            <td>Obat Cair</td>
+                            <td>50</td>
+                            <td>
+                                <div class="status">
+                                    <select class="dalamproses1" name="status" id="status" required>
+                                        <option selected>
+                                            <span class="yellow">Sudah Dilayani</span>
+                                        </option>
+                                        <option value="1" class="red">Belum Dilayani</option>
+                                        <option value="2" class="yellow">Dalam Proses</option>
+                                    </select>
+                                    <i class="fa-solid fa-file-pen" id="green"></i>
+                                </div>
+                            </td>
+                            <td><a href="keranjangobat.php" class="yellow">Lihat Keranjang </a></td>
                         </tr>
                     </tbody>
                 </table>
