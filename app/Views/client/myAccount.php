@@ -106,14 +106,10 @@
                                 <p><?= $email ?></p>
                             </div>
                             <div class="profileacc-info">
-                                <h3>Status</h3>
-                                <?php
-                                if ($status == 1) {
-                                    echo "<p>Aktif</p>";
-                                } else {
-                                    echo "<p>Non Aktif</p>";
-                                } ?>
+                                <h3>Nomor Telpon</h3>
+                                <p><?= $no_telp ?></p>
                             </div>
+
                         </div>
                         <div class="profileacc-wrapper-aninfo">
                             <div class="profileacc-info-desc">

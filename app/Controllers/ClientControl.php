@@ -40,6 +40,7 @@ class ClientControl extends BaseController
                     'status' => $row->status,
                     'password' => $row->password,
                     'deskripsi' => $row->deskripsi,
+                    'no_telp' => $row->no_telp,
                 ];
                 return view('client/myAccount', $data);
             } else {
@@ -77,6 +78,8 @@ class ClientControl extends BaseController
             $row = $query->getRow();
             //put data
             if (isset($row)) {
+                //get flashdata if exist
+
                 $data = [
                     'nama_perusahaan' => $row->nama_perusahaan,
                     'alamat' => $row->alamat,
@@ -85,6 +88,14 @@ class ClientControl extends BaseController
                     'status' => $row->status,
                     'password' => $row->password,
                     'deskripsi' => $row->deskripsi,
+                    'no_telp' => $row->no_telp,
+                    'error_nama' => '',
+                    'error_alamat' => '',
+                    'error_email' => '',
+                    'error_bidang' => '',
+                    'error_password' => '',
+                    'error_deskripsi' => '',
+                    'error_notelp' => '',
                 ];
                 return view('client/editProfile', $data);
             } else {
@@ -94,6 +105,132 @@ class ClientControl extends BaseController
                 ];
                 return view('client/editProfile', $data);
             }
+        } else {
+            return view('/');
+        }
+    }
+
+    public function postEdit()
+    {
+        //check if role = client
+        $session = session();
+        $role = $session->get('role');
+        if ($role == 'client') {
+            //select all from tb_perusahaan where id = session id
+            $id = $session->get('id');
+            $db = \Config\Database::connect();
+            $builder = $db->table('tb_perusahaan');
+            $builder->where('id', $id);
+            $query = $builder->get();
+            $row = $query->getRow();
+            //get all data from form
+            $nama_perusahaan = $this->request->getVar('nama_perusahaan');
+            $alamat = $this->request->getVar('alamat');
+            $email = $this->request->getVar('email');
+            $bidang = $this->request->getVar('bidang');
+            $password = $this->request->getVar('password');
+            $deskripsi = $this->request->getVar('deskripsi');
+            $no_telp = $this->request->getVar('no_telp');
+
+            //validation
+            $valid = true;
+            $error_nama = '';
+            $error_alamat = '';
+            $error_email = '';
+            $error_bidang = '';
+            $error_password = '';
+            $error_deskripsi = '';
+            $error_notelp = '';
+
+            if ($nama_perusahaan == null) {
+                $valid = false;
+                $error_nama = 'Nama Perusahaan tidak boleh kosong';
+            }
+            //nama_perusahaan can only contain letters, number, comma, dot, and whitespace
+            if (!preg_match("/^[a-zA-Z0-9,. ]*$/", $nama_perusahaan)) {
+                $valid = false;
+                $error_nama = 'Nama Perusahaan hanya boleh mengandung huruf, angka, titik, koma, dan spasi';
+            }
+            if ($alamat == null) {
+                $valid = false;
+                $error_alamat = 'Alamat tidak boleh kosong';
+            }
+            //email validation
+            if ($email == null) {
+                $valid = false;
+                $error_email = 'Email tidak boleh kosong';
+            }
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $valid = false;
+                $error_email = 'Email tidak valid';
+            }
+            if ($bidang == null) {
+                $valid = false;
+                $error_bidang = 'Bidang tidak boleh kosong';
+            }
+            if ($password == null) {
+                $valid = false;
+                $error_password = 'Password tidak boleh kosong';
+            }
+            //password has to be at least 8 characters
+            if (strlen($password) < 8) {
+                $valid = false;
+                $error_password = 'Password harus lebih dari 8 karakter';
+            }
+            if ($no_telp == null) {
+                $valid = false;
+                $error_notelp = 'Nomor Telepon tidak boleh kosong';
+            }
+            //no_telp can only contain numbers
+            if (!preg_match("/^[0-9]*$/", $no_telp)) {
+                $valid = false;
+                $error_notelp = 'Nomor Telepon hanya boleh mengandung angka';
+            }
+            if ($deskripsi == null) {
+                $valid = false;
+                $error_deskripsi = 'Deskripsi tidak boleh kosong';
+            }
+            //if validation is false then show error
+            if ($valid == false) {
+                $data = [
+                    'nama_perusahaan' => $row->nama_perusahaan,
+                    'alamat' => $row->alamat,
+                    'email' => $row->email,
+                    'bidang' => $row->bidang,
+                    'status' => $row->status,
+                    'password' => $row->password,
+                    'deskripsi' => $row->deskripsi,
+                    'no_telp' => $row->no_telp,
+                    'error_nama' => $error_nama,
+                    'error_alamat' => $error_alamat,
+                    'error_email' => $error_email,
+                    'error_bidang' => $error_bidang,
+                    'error_password' => $error_password,
+                    'error_deskripsi' => $error_deskripsi,
+                    'error_notelp' => $error_notelp,
+                ];
+                //send data to view
+                return view('client/editProfile', $data);
+            }
+
+            //get id from session
+            $id = $session->get('id');
+            //update data
+            $db = \Config\Database::connect();
+            $builder = $db->table('tb_perusahaan');
+            $builder->where('id', $id);
+            $builder->set('nama_perusahaan', $nama_perusahaan);
+            $builder->set('alamat', $alamat);
+            $builder->set('email', $email);
+            $builder->set('bidang', $bidang);
+            $builder->set('password', $password);
+            $builder->set('deskripsi', $deskripsi);
+            $builder->set('no_telp', $no_telp);
+            $builder->update();
+            //change session nama_perusahaan to new nama_perusahaan
+            $session->set('nama_perusahaan', $nama_perusahaan);
+            //redirect to myAccount
+            return redirect()->to('/client/myAccount');
         } else {
             return view('/');
         }

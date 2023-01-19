@@ -24,6 +24,14 @@
     <!-- Link AOS Library -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- END Link AOS Library -->
+    <style>
+    #error {
+        color: red;
+        font-size: 1.2em;
+        width: 100% !important;
+        margin-top: 0.4em;
+    }
+    </style>
 </head>
 
 <body>
@@ -87,81 +95,127 @@
                         <i class="fa-solid fa-circle-user"></i>
                     </div>
                     <div class="profileacc-wrapper-all">
-                        <form action="" class="form-editprofile" id="form_edit">
+                        <form action="/client/postEdit" class="form-editprofile" id="form_edit" method="post">
+                            <?= csrf_field(); ?>
                             <div class="profileacc-wrapper-info">
                                 <div class="profileacc-info">
                                     <h3>Nama Perusahaan</h3>
                                     <div class="inputprofile">
                                         <input type="text" value="<?= $nama_perusahaan; ?>"
-                                            placeholder="Silahkan isi nama perusahaan..." id="namaperusahaan"
-                                            name="namaperusahaan" />
+                                            placeholder="Silahkan isi nama perusahaan..." id="nama_perusahaan"
+                                            name="nama_perusahaan" />
                                         <i class="fa-solid fa-pen"></i>
                                     </div>
-                                    <p class="display" id="namaperusahaanerror"></p>
+                                    <h2 id="error">
+                                        <?= $error_nama ?>
+                                    </h2>
                                 </div>
-                                <div class="profileacc-info">
-                                    <h3>Username Akun</h3>
-                                    <div class="inputprofile">
-                                        <input type="text" value="Petronas3008" placeholder="Silahkan isi username..."
-                                            id="editusername" name="editusername" />
-                                        <i class="fa-solid fa-pen"></i>
-                                    </div>
-                                    <p class="display" id="editusernameerror"></p>
-                                </div>
+
+
                                 <div class="profileacc-info">
                                     <h3>Bidang</h3>
                                     <div class="inputprofile">
-                                        <input type="text" value="Perusahaan Minyak dan Gas"
-                                            placeholder="Silahkan isi Bidang..." id="bidang" name="bidang" />
+                                        <!-- select bidang-->
+                                        <?php
+                                        //switch case bidang selected
+                                        switch ($bidang) {
+                                            case 'Tambang/Minyak':
+                                                echo '<select name="bidang" id="bidang">
+                                                <option value="Tambang/Minyak" selected>Tambang/Minyak</option>
+                                                <option value="Energi">Energi</option>
+                                                <option value="Kesehatan">Kesehatan</option>
+                                                <option value="Transportasi">Transportasi</option>
+                                                <option value="Lainnya">Lainnya</option>
+                                            </select>';
+                                                break;
+                                            case 'Energi':
+                                                echo '<select name="bidang" id="bidang">
+                                                <option value="Tambang/Minyak">Tambang/Minyak</option>
+                                                <option value="Energi" selected>Energi</option>
+                                                <option value="Kesehatan">Kesehatan</option>
+                                                <option value="Transportasi">Transportasi</option>
+                                                <option value="Lainnya">Lainnya</option>
+                                            </select>';
+                                                break;
+                                            case 'Kesehatan':
+                                                echo '<select name="bidang" id="bidang">
+                                                <option value="Tambang/Minyak">Tambang/Minyak</option>
+                                                <option value="Energi">Energi</option>
+                                                <option value="Kesehatan" selected>Kesehatan</option>
+                                                <option value="Transportasi">Transportasi</option>
+                                                <option value="Lainnya">Lainnya</option>
+                                            </select>';
+                                                break;
+                                            case 'Transportasi':
+                                                echo '<select name="bidang" id="bidang">
+                                                <option value="Tambang/Minyak">Tambang/Minyak</option>
+                                                <option value="Energi">Energi</option>
+                                                <option value="Kesehatan">Kesehatan</option>
+                                                <option value="Transportasi" selected>Transportasi</option>
+                                                <option value="Lainnya">Lainnya</option>
+                                            </select>';
+                                                break;
+                                            case 'Lainnya':
+                                                echo '<select name="bidang" id="bidang">
+                                                <option value="Tambang/Minyak">Tambang/Minyak</option>
+                                                <option value="Energi">Energi</option>
+                                                <option value="Kesehatan">Kesehatan</option>
+                                                <option value="Transportasi">Transportasi</option>
+                                                <option value="Lainnya" selected>Lainnya</option>
+                                            </select>';
+                                                break;
+                                            default:
+                                                echo '<select name="bidang" id="bidang">
+                                                <option value="Tambang/Minyak">Tambang/Minyak</option>
+                                                <option value="Energi">Energi</option>
+                                                <option value="Kesehatan">Kesehatan</option>
+                                                <option value="Transportasi">Transportasi</option>
+                                                <option value="Lainnya">Lainnya</option>
+                                            </select>';
+                                                break;
+                                        }
+                                        ?>
+
                                         <i class="fa-solid fa-pen"></i>
                                     </div>
                                     <p class="display" id="bidangerror"></p>
                                 </div>
-                                <div class="profileacc-info">
-                                    <h3>Provinsi</h3>
-                                    <div class="inputprofile">
-                                        <input type="text" value="Jawa Timur" placeholder="Silahkan isi Provinsi..."
-                                            id="provinsi" name="provinsi" />
-                                        <i class="fa-solid fa-pen"></i>
-                                    </div>
-                                    <p class="display" id="provinsierror"></p>
-                                </div>
-                                <div class="profileacc-info">
-                                    <h3>Kota</h3>
-                                    <div class="inputprofile">
-                                        <input type="text" value="Madura" placeholder="Silahkan isi Kota..." id="kota"
-                                            name="kota" />
-                                        <i class="fa-solid fa-pen"></i>
-                                    </div>
-                                    <p class="display" id="kotaerror"></p>
-                                </div>
+
                                 <div class="profileacc-info">
                                     <h3>Alamat Lengkap</h3>
                                     <div class="inputprofile">
-                                        <input type="text"
-                                            value="Jalan Sultan Ismal, Kota Madura, Jawa Timur, Indonesia"
-                                            placeholder="Silahkan isi Alamat..." id="alamat" name="alamat" />
+                                        <input type="text" value="<?= $alamat; ?>" placeholder="Silahkan isi Alamat..."
+                                            id="alamat" name="alamat" />
                                         <i class="fa-solid fa-pen"></i>
                                     </div>
-                                    <p class="display" id="alamaterror"></p>
+                                    <p id="error"><?= $error_alamat ?></p>
                                 </div>
                                 <div class="profileacc-info">
                                     <h3>Nomor Telepon</h3>
                                     <div class="inputprofile">
-                                        <input type="text" value="081234567890" placeholder="Silahkan isi No Telp..."
-                                            id="telpon" name="telpon" />
+                                        <input type="text" value="<?= $no_telp ?>" placeholder="Silahkan isi No Telp..."
+                                            id="no_telp" name="no_telp" />
                                         <i class="fa-solid fa-pen"></i>
                                     </div>
-                                    <p class="display" id="telponerror"></p>
+                                    <p id="error"><?= $error_notelp ?></p>
                                 </div>
                                 <div class="profileacc-info">
                                     <h3>Email</h3>
                                     <div class="inputprofile">
-                                        <input type="text" value="Petronas3008@gmail.com"
+                                        <input type="text" value="<?= $email ?>"
                                             placeholder="Silahkan isi Alamat Email..." id="email" name="email" />
                                         <i class="fa-solid fa-pen"></i>
                                     </div>
-                                    <p class="display" id="emailerror"></p>
+                                    <p id="error"><?= $error_email ?></p>
+                                </div>
+                                <div class="profileacc-info">
+                                    <h3>Password</h3>
+                                    <div class="inputprofile">
+                                        <input type="text" value="<?= $password ?>"
+                                            placeholder="Silahkan isi Password..." id="password" name="password" />
+                                        <i class="fa-solid fa-pen"></i>
+                                    </div>
+                                    <p id="error"><?= $error_password ?></p>
                                 </div>
                             </div>
                             <div class="profileacc-wrapper-aninfo">
@@ -169,10 +223,10 @@
                                     <h3>Deskripsi Perusahaan</h3>
                                     <div class="inputprofile">
                                         <textarea name="deskripsi" id="deskripsi" cols="30" rows="10"
-                                            class="textarea"></textarea>
+                                            class="textarea"><?= $deskripsi ?></textarea>
                                         <!-- <i class="fa-solid fa-pen"></i> -->
                                     </div>
-                                    <p class="display" id="deskripsierror"></p>
+                                    <p id="error"><?= $error_deskripsi ?></p>
                                 </div>
                                 <div class="buttonchoice">
                                     <div class="profilebutton">
@@ -284,14 +338,12 @@
     <!-- END Swiper JS -->
     <script src="../client_edit/scriptsjs/aos.js"></script>
     <script src="../client_edit/scriptsjs/data.js"></script>
-    <script src="../client_edit/scriptsjs/validasiedit.js"></script>
     <script src="../client_edit/scriptsjs/swiper.js"></script>
     <script>
     // isi value di textarea
     var textarea = document.getElementById("deskripsi");
 
-    textarea.value =
-        `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique harum sunt qui facere recusandae nisi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi officiis unde magni saepe amet voluptatibus tempora quo esse! Adipisci, dolores.`;
+
     // textarea color and font
     textarea.style.color = "#2D2B27";
     //   textarea value margin top
