@@ -61,6 +61,7 @@ $routes->get('/client', 'ClientControl::index');
 $routes->get('/client/logout', 'ClientControl::logout');
 $routes->get('/client/myAccount', 'ClientControl::myAccount');
 $routes->get('/client/editProfile', 'ClientControl::editProfile');
+$routes->get('/client/history', 'ClientControl::history');
 
 $routes->post('/client/postEdit', 'ClientControl::postEdit');
 $routes->get('/client/postEdit', 'ClientControl::editProfile');

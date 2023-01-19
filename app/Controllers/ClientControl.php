@@ -13,7 +13,7 @@ class ClientControl extends BaseController
             //move to client page
             return view('client/index');
         } else {
-
+            //redirect to login page
             return view('/');
         }
     }
@@ -231,6 +231,37 @@ class ClientControl extends BaseController
             $session->set('nama_perusahaan', $nama_perusahaan);
             //redirect to myAccount
             return redirect()->to('/client/myAccount');
+        } else {
+            return view('/');
+        }
+    }
+
+    public function history()
+    {
+        // check if role = client
+        $session = session();
+        $role = $session->get('role');
+        if ($role == 'client') {
+            //get all data from tb_medical where id = session id
+            $id = $session->get('id');
+            $db = \Config\Database::connect();
+            $builder = $db->table('tb_medical');
+            $builder->where('id', $id);
+            $query = $builder->get();
+
+            //get all data from tb_darurat where id = session id
+            $id = $session->get('id');
+            $db = \Config\Database::connect();
+            $builder = $db->table('tb_darurat');
+            $builder->where('id', $id);
+            $query2 = $builder->get();
+
+            $data = [
+                'medical' => $query->getResult(),
+                'darurat' => $query2->getResult(),
+            ];
+            //send data to view
+            return view('client/history', $data);
         } else {
             return view('/');
         }
