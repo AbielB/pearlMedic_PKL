@@ -36,7 +36,7 @@
         <div class="container">
             <div class="nav_company">
                 <img src="img/logo/pearlmedic2.png" alt="logopearlmedic" style="width: 55px;">
-                <a href="index.php" class="nav-logo">
+                <a href="/" class="nav-logo">
                     <h2>Pearl Medic</h2>
                 </a>
             </div>
@@ -56,7 +56,7 @@
             <h1>Login Admin</h1>
             <ul>
                 <li>
-                    <form action="/login" method="post" id="form_login">
+                    <form action="/loginAdmin" method="post" id="form_login">
                         <?= csrf_field(); ?>
                         <div class="form-group">
                             <i class="fas fa-user"></i>

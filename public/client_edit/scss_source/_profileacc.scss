@@ -1,0 +1,273 @@
+.profilecontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    .content1{
+        width: 50%;
+        margin-top: 150px;
+        margin-bottom: 150px;
+        .photouser{
+            font-size: 150px;
+            color: $warna-utama5;
+        }
+        .profileacc-wrapper-all{
+            background-color: $warna-utama8;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding: 25px 50px;
+            margin-top: -75px;
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
+        .profileacc-wrapper-info{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 50px;
+            .profileacc-info{
+                // background-color: aqua;
+                h3{
+                    font-size: 16px;
+                    color: $warna-utama5;
+                    margin-bottom: 10px;
+                }
+                p{
+                    font-size: 12px;
+                    color: $warna-dark;
+                }
+            }
+        }
+        .profileacc-wrapper-aninfo{
+            // background-color: aqua;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            h3{
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+            p{
+                font-size: 12px;
+                color: $warna-dark;
+            }
+            .profilebutton{
+                margin-top: 30px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                .btn-profile{
+                    background-color: transparent;
+                    padding: 10px 20px;
+                    border-radius: 50px;
+                    border: 1px solid $warna-utama5;
+                    justify-content: center;
+                    align-items: baseline;
+                    a{
+                        font-size: 14px;
+                        color: $warna-utama5;
+                        font-weight: 500;
+                        i{
+                            margin-right: 5px;
+                            color: $warna-utama3;
+                        }
+                    }
+                    button{
+                        font-size: 14px;
+                        color: $warna-utama5;
+                        font-weight: 500;
+                        background: transparent;
+                        i{
+                            margin-right: 5px;
+                            color: $warna-utama3;
+                        }
+                    }
+                    &:hover{
+                        background-color: $warna-utama5;
+                        a{
+                            color: $warna-utama3;
+                        }
+                        i{
+                            color: $warna-light;
+                        }
+                        button{
+                            color: $warna-utama3;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    }
+}
+
+.form-editprofile{
+    .profileacc-info{
+        width: 100%;
+        .inputprofile{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: $warna-light;
+            padding: 10px 15px;
+            border-radius: 10px;
+            input{
+                width: 100%;
+                background-color: transparent;
+            }
+            i{
+                margin-left: 5px;
+                color: $warna-utama3
+            }
+        }
+    }
+    .profileacc-wrapper-aninfo{
+        .profileacc-info-desc{
+            .inputprofile{
+                textarea{
+                    width: 100%;
+                    resize: vertical;
+                    background-color: $warna-light;
+                    padding: 10px 15px;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1130px){
+    .profilecontainer{
+        .content1{
+            width: 60%;
+        }
+    }
+}
+
+@media only screen and (max-width: 930px){
+    .profilecontainer{
+        .content1{
+            width: 70%;
+        }
+    }
+}
+@media only screen and (max-width: 800px){
+    .profilecontainer{
+        .content1{
+            width: 80%;
+        }
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .profilecontainer{
+        .content1{
+            width: 90%;
+        }
+    }
+}
+@media only screen and (max-width: 622px){
+    .profilecontainer{
+        .content1{
+            .profileacc-wrapper-all{
+                padding: 25px 20px;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 556px){
+    .profilecontainer{
+        .content1{
+            .profileacc-wrapper-all{
+                padding: 10px 5px;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 556px){
+    .profilecontainer{
+        .content1{
+            .profileacc-wrapper-all{
+                .profileacc-wrapper-info{
+                    .profileacc-info{
+                        h3{
+                            font-size: 14px;
+                        }
+                        p{
+                            font-size: 10px;
+                        }
+                    }
+                }
+                .profileacc-wrapper-aninfo{
+                    .profileacc-info-desc{
+                        h3{
+                            font-size: 14px;
+                        }
+                        p{
+                            font-size: 10px;
+                        }
+                    }
+                    .buttonchoice{
+                        .profilebutton{
+                            gap: 1rem;
+                            .btn-profile{
+                                a{
+                                    font-size: 12px;
+                                }
+                                button{
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 458px){
+    .profilecontainer{
+        .content1{
+            .profileacc-wrapper-all{
+                .profileacc-wrapper-info{
+                    grid-template-columns: 1fr;
+                    margin-top: 80px;
+                    .profileacc-info{
+                        h3{
+                            font-size: 14px;
+                        }
+                        p{
+                            font-size: 10px;
+                        }
+                    }
+                }
+                .profileacc-wrapper-aninfo{
+                    .profileacc-info-desc{
+                        h3{
+                            font-size: 14px;
+                        }
+                        p{
+                            font-size: 10px;
+                        }
+                    }
+                    .buttonchoice{
+                        .profilebutton{
+                            display: grid;
+                            gap: 1rem;
+                            .btn-profile{
+                                a{
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+

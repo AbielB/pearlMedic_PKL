@@ -47,15 +47,24 @@ $routes->get('/admin/EditDataPerusahaan', 'AdminControl::EditDataPerusahaan');
 $routes->get('/admin/Logout', 'AdminControl::Logout');
 $routes->get('/admin/Keranjang', 'AdminControl::Keranjang');
 
+$routes->post('/loginAdmin', 'Home::loginAdmin');
 $routes->post('/admin/PostEdit', 'AdminControl::PostEdit');
 $routes->post('/admin/BuatPerusahaan', 'AdminControl::BuatPerusahaan');
 $routes->post('/admin/AjaxMedical', 'Ajax::Medical');
 $routes->post('/admin/AjaxDarurat', 'Ajax::Darurat');
 $routes->post('/admin/AjaxAkun', 'Ajax::Akun');
 
-$routes->post('/login', 'Home::login');
-$routes->get('/pages', 'Pages::index');
-$routes->get('/pages/about', 'Pages::about');
+$routes->get('/indexAdmin', 'Home::indexAdmin');
+
+$routes->post('/loginClient', 'Home::loginClient');
+$routes->get('/client', 'ClientControl::index');
+$routes->get('/client/logout', 'ClientControl::logout');
+$routes->get('/client/myAccount', 'ClientControl::myAccount');
+$routes->get('/client/editProfile', 'ClientControl::editProfile');
+
+
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

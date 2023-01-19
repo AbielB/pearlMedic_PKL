@@ -1,0 +1,144 @@
+.riwayatcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .content2{
+        width: 100%;
+        // background-color: aqua;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 160px;
+        margin-bottom: 60px;
+        .judulcontent2{
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: $warna-utama5;
+            margin-bottom: 5rem;
+            h3{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-transform: uppercase;
+                color: $warna-light;
+                i{
+                    margin-right: 5px;
+                    color: $warna-utama3;
+                }
+            }
+        }
+        .histori-wrapper{
+            width: 90%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            .histori-info{
+                display: inline-block;
+                height: 100%;
+                .nama-pelayanan{
+                    font-size: 16px;
+                    color: $warna-utama5;
+                    margin-bottom: 10px;
+                    h4{
+                        font-size: 16px;
+                        color: $warna-light;
+                        i{
+                            margin-right: 5px;
+                            color: $warna-utama3;
+                        }
+                    }
+                }
+                .searchbar{
+                    background-color: $warna-light;
+                    margin-bottom: 10px;
+                    border-radius: 10px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 5px 10px;
+                    input{
+                        width: 100%;
+                        padding: 3px 8px;
+                        background-color: transparent;
+                    }
+                }
+                table{
+                    background: $warna-dark;
+                    width: 100%;
+                    border-radius: $border-radius-1;
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                    text-align: center;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    thead{
+                        th{
+                            color: $warna-utama8;
+                            font-size: 14px;
+                        }
+                    }
+                    tbody{
+                        tr{
+                            td{
+                                padding-top: 20px;
+                                padding-bottom: 20px;
+                                height: 2.8rem;
+                                border-bottom: .3px solid $warna-light;
+                                color: $warna-light;
+                                font-size: 12px;
+                                a{
+                                    color: $warna-light;
+                                }
+                            }
+                            .red{
+                                color: $warna-pendukung3;
+                            }
+                            .yellow{
+                                color: $warna-pendukung2;
+                            }
+                            .green{
+                                color: $warna-pendukung1;
+                            }
+                        }
+                        &:last-child {
+                            border: none;
+                        }
+                        td a:hover{
+                            color: $warna-pendukung2;
+                            transition: all .3s ease;
+                            text-decoration: underline;
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width:800px){
+    .riwayatcontainer{
+        .content2{
+            .judulcontent2{
+                margin-bottom: 3rem;
+            }
+            .histori-wrapper{
+                grid-template-columns: 1fr;
+                .histori-info{
+                    .nama-pelayanan{
+                        margin-bottom: 5px;
+                    }
+                    .searchbar{
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

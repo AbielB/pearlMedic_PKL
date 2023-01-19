@@ -1,0 +1,255 @@
+.footer{
+    background-color: $warna-utama5;
+    // border-top: 1px solid $warna-utama2;
+    padding: 50px 50px;
+    .footer_wrapper{
+        display: grid;
+        grid-template-columns: 25% 25% 17% 33%;
+        gap: 2rem;
+        // margin-bottom: 0px;
+        .footer1{
+            .nama_toko{
+                // font-size: 1.5rem;
+                color: $warna-light;
+                // margin-bottom: 5px;
+                display: flex;
+                flex-direction: row;
+                justify-content: first baseline;
+                align-items: center;
+                margin-bottom: 5px;
+                h3{
+                    font-size: 2.5rem;
+                    color: $warna-light;
+                    // margin-bottom: 5px;
+                    margin-top: -5px;
+                }
+                i{
+                    font-size: 2.6rem;
+                    color: $warna-utama2;
+                }
+                a{
+                    p{
+                        color: $warna-light;
+                        margin-top: 20px;
+                        font-size: 20px;
+                    }
+                }
+            }
+            p{
+                font-size: 1.5rem;
+                color: $warna-utama2;
+                margin-bottom: 20px;
+            }
+            .footer1_flex{
+                display: flex;
+                flex-direction: row;
+                justify-content: first baseline;
+                align-items: center;
+                gap: 1rem;
+
+                i{
+                    font-size: 16px;
+                    background-color: transparent;
+                    padding: 10px 12px;
+                    border-radius: 50%;
+                    border: 1px solid $warna-utama2;
+                    color: $warna-utama2;
+                    &:hover{
+                        border: 1px solid $warna-utama3;
+                        color: $warna-utama3;
+                        transition: all 0.3s ease-in-out;
+                    }
+                }
+            }
+        }
+        .footer2{
+            h3{
+                font-size: 2rem;
+                color: $warna-light;
+                margin-bottom: 15px;
+            }
+            ul{
+                li{
+                    margin-bottom: 20px;
+                    font-size: 14px;
+                    list-style-type: none;
+                    a{
+                        color: $warna-utama2;
+
+                        &:hover{
+                            color: $warna-utama3;
+                            transition: all 0.2s ease-in-out;
+                        }
+                        
+                    }
+                }
+            }
+        }
+        .footer3{
+            h3{
+                font-size: 2rem;
+                color: $warna-light;
+                margin-bottom: 15px;
+            }
+            ul{
+                li{
+                    margin-bottom: 20px;
+                    font-size: 14px;
+                    list-style-type: none;
+                    a{
+                        color: $warna-utama2;
+                        &:hover{
+                            color: $warna-utama3;
+                            transition: all 0.2s ease-in-out;
+                        }
+                        i{
+                            margin-left: 3px;
+                            color: $warna-utama2;
+                        }
+                    }
+                }
+            }
+        }
+        .footer4{
+            // background-color: aqua;
+            // padding-right: 300px;
+            h3{
+                font-size: 2rem;
+                color: $warna-light;
+                margin-bottom: 15px;
+            }
+            ul{
+                li{
+                    margin-bottom: 20px;
+                    font-size: 14px;
+                    list-style-type: none;
+                    color: $warna-utama2;
+                        &:hover{
+                            color: $warna-utama3;
+                            transition: all 0.2s ease-in-out;
+                        }
+                        i{
+                            margin-right: 5px;
+                            color: $warna-utama2;
+                        }
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 845px){
+    .footer{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        // padding: 0px 0px;
+        .footer_wrapper{
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-content: center;
+            align-items: center;
+            .footer1{
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                text-align: left;
+                gap: 15rem;
+                margin-bottom: 20px;
+                .flex-rowww{
+                    // margin-top: 30px;
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+            .footer2{
+                h3{
+                    font-size: 3rem;
+                }
+                ul{
+                    li{
+                        a{
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+            .footer3{
+                h3{
+                    font-size: 3rem;
+                }
+                ul{
+                    li{
+                        a{
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+            .footer4{
+                h3{
+                    font-size: 3rem;
+                }
+                ul{
+                    li{
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 581px){
+    .footer{
+        // padding: 0px 0px;
+        .footer_wrapper{
+            .footer1{
+                display: grid;
+                justify-content: first baseline;
+                align-items: flex-start;
+                margin-left: 20px;
+                .footer1_flex{
+                    margin-top: -130px;
+                }
+                margin-bottom: -70px;
+            }
+            .footer2{
+                h3{
+                    font-size: 2rem;
+                }
+                ul{
+                    li{
+                        a{
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+            .footer3{
+                h3{
+                    font-size: 2rem;
+                }
+                ul{
+                    li{
+                        a{
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+            .footer4{
+                h3{
+                    font-size: 2rem;
+                }
+                ul{
+                    li{
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}

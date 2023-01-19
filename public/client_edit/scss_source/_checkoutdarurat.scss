@@ -1,0 +1,235 @@
+.konfirmasicontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // width: 100%;
+    .content5{
+        margin-top: 150px;
+        margin-bottom: 100px;
+        width: 50% !important;
+        height: 100%;
+        background-color: $warna-dark;
+        border-radius: 5px;
+        .judulcheckout{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            .sukses-info{
+                font-size: 16px;
+                padding: 10px 10px;
+            }
+            h3{
+                font-size: 35px;
+                // margin-bottom: 5px;
+                color: $warna-utama3;
+                // width: 35%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-top: 20px;
+            }
+            p{
+                // background-color: $warna-dark;
+                font-size: 20px;
+                color: $warna-light;
+                // width: 35%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-bottom: 20px;
+            }
+        }
+        .checkout-wrapper{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: -20px;
+            // background-color: $warna-dark;
+            // padding: 20px 20px;
+            margin-top: 0px;
+            // border-radius: 10px;
+            height: 100%;
+            // width: 50%;
+            // margin-left: 350px;
+            .checkout-wrapper-info1{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                // background-color: $warna-dark;
+                gap: 5rem;
+                padding: 20px 20px;
+                margin-top: 20px;
+                // border-top-left-radius: 10px;
+                // border-top-right-radius: 10px;
+                width: 100%;
+                text-align: center;
+                .checkout-wrapper-info{
+                    justify-content: center;
+                    align-items: center;
+                    h3{
+                        font-size: 16px;
+                        color: $warna-utama3;
+                        margin-bottom: 5px;
+                        font-weight: 500;
+                    }
+                    p{
+                        font-size: 12px;
+                        color: $warna-light;
+
+                    }
+                }
+            }
+            .checkout-wrapper-deskripsi{
+                // width: 38.9%;
+                padding: 20px 20px;
+                // background-color: $warna-dark;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                h3{
+                    font-size: 16px;
+                    color: $warna-utama3;
+                    margin-bottom: 5px;
+                    font-weight: 500;
+                }
+                p{
+                    font-size: 12px;
+                    color: $warna-light;
+                    margin-bottom: 20px;
+                }
+                .fa-check-to-slot{
+                    font-size: 150px;
+                    margin-top: -10px;
+                    margin-bottom: 20px;
+                    color: $warna-utama3;
+                }
+                .konfirmasibutton{
+                    // width: 100%;
+                    button{
+                        border: 1px solid $warna-utama3 !important;
+                        width: 90%;
+                        background-color: transparent;
+                        color: $warna-light;
+                        font-size: 16px;
+                        font-weight: 500;
+                        padding: 10px 10px;
+                        border-radius: 10px;
+                        border: none;
+                        margin-bottom: 20px;
+                        cursor: pointer;
+                        i{
+                            margin-right: 10px;
+                            color: $warna-utama3;
+                        }
+                        &:hover{
+                            background-color: $warna-utama3;
+                            color: $warna-dark;
+                            i{
+                                color: $warna-dark;
+                            }
+                        }
+                    }
+                    a{
+                        button{
+                            border: 1px solid $warna-utama3 !important;
+                            width: 90%;
+                            background-color: transparent;
+                            color: $warna-light;
+                            font-size: 16px;
+                            font-weight: 500;
+                            padding: 10px 10px;
+                            border-radius: 10px;
+                            border: none;
+                            margin-bottom: 20px;
+                            cursor: pointer;
+                            i{
+                                margin-right: 10px;
+                                color: $warna-utama3;
+                            }
+                            &:hover{
+                                background-color: $warna-utama3;
+                                color: $warna-dark;
+                                i{
+                                    color: $warna-dark;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 1050px){
+    .konfirmasicontainer{
+        .content5{
+            width: 60% !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 860px){
+    .konfirmasicontainer{
+        .content5{
+            width: 70% !important;
+        }
+    }
+}
+@media only screen and (max-width: 670px){
+    .konfirmasicontainer{
+        .content5{
+            width: 80% !important;
+            .judulcheckout{
+                h3{
+                    font-size: 30px;
+                }
+                p{
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 510px){
+    .konfirmasicontainer{
+        .content5{
+            width: 90% !important;
+            .judulcheckout{
+                h3{
+                    font-size: 30px;
+                }
+                p{
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 451px){
+    .konfirmasicontainer{
+        .content5{
+            width: 90% !important;
+            .judulcheckout{
+                h3{
+                    font-size: 30px;
+                }
+                p{
+                    font-size: 15px;
+                }
+            }
+            .checkout-wrapper{
+                .checkout-wrapper-info1{
+                    grid-template-columns: 1fr;
+                    gap: 3rem;
+                }
+            }
+        }
+    }
+}
