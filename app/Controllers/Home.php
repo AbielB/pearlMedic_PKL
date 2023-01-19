@@ -22,7 +22,19 @@ class Home extends BaseController
     }
     public function indexAdmin()
     {
-        return view('admin/login');
+        //gte error
+        $error = session()->getFlashdata('error');
+        //if error is not null then show error
+        if ($error != null) {
+            $data = [
+                'error' => $error
+            ];
+        } else {
+            $data = [
+                'error' => ''
+            ];
+        }
+        return view('admin/login', $data);
     }
     public function loginAdmin()
     {
@@ -47,7 +59,11 @@ class Home extends BaseController
             //move to admin page
             return redirect()->to('/admin');
         } else {
-            return redirect()->to('/');
+            //error = username or password is wrong
+            $error = "*Username atau Password Salah";
+            //send error to login page
+            session()->setFlashdata('error', $error);
+            return redirect()->to('/indexAdmin');
         }
     }
 
@@ -67,6 +83,13 @@ class Home extends BaseController
         $row = $query->getRow();
 
         if (isset($row)) {
+            //if status != 1, error = akun tidak aktif
+            if ($row->status != 1) {
+                $error = "*Akun tidak aktif";
+                //send error to login page
+                session()->setFlashdata('error', $error);
+                return redirect()->to('/');
+            }
             $session = session();
             $session->set('nama', $row->nama_perusahaan);
             $session->set('password', $row->password);
@@ -76,8 +99,10 @@ class Home extends BaseController
             //move to client page
             return redirect()->to('/client');
         } else {
-            $error = "Username atau Password Salah";
-            return redirect()->to('/')->with('error', $error);
+            $error = "*Username atau Password Salah";
+            //send error to login page
+            session()->setFlashdata('error', $error);
+            return redirect()->to('/');
         }
     }
 }

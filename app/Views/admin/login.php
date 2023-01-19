@@ -28,6 +28,13 @@
     <!-- LINK FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <!-- END LINK FONT AWESOME -->
+    <style>
+    #validasi_nama {
+        color: red;
+        font-size: 1em;
+        width: 100% !important;
+    }
+    </style>
 </head>
 
 <body>
@@ -61,8 +68,8 @@
                         <div class="form-group">
                             <i class="fas fa-user"></i>
                             <input type="text" name="username" id="username" placeholder="Username">
-                            <p id="validasi_nama"></p>
                         </div>
+                        <p id="validasi_nama"><?= $error ?></p>
                         <div class="form-group">
                             <i class="fas fa-lock"></i>
                             <input type="password" name="password" id="password" placeholder="Password">

@@ -30,12 +30,12 @@
     <!-- NAVIGATION BAR SECTION -->
     <nav class="navigation_bar" id="navbar_color">
         <div id="menu-btn" class="fas fa-bars"></div>
-        <a href="/client_edit" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png"
-                alt="" id="gambar1">
+        <a href="/client" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png" alt=""
+                id="gambar1">
             <p>Pearl Medic</p>
         </a>
         <div class="navbar">
-            <a href="/client_edit" class="hidup" data-aos="fade-left">Home</a>
+            <a href="/client" class="hidup" data-aos="fade-left">Home</a>
             <a href="#layanans" data-aos="fade-left" class="menu-button">Layanan<i
                     class="fa-solid fa-chevron-down"></i></a>
             <div class="menu_dropdown">
@@ -75,7 +75,7 @@
     <div class="popup" id="popup">
         <i class="fa-solid fa-right-from-bracket"></i>
         <h2>Anda Yakin Ingin Log Out?</h2>
-        <a href="02login.html"><button type="button" class="btn-remove">
+        <a href="/client/logout"><button type="button" class="btn-remove">
                 Ya
             </button></a>
         <a href="#"><button type="button" onclick="closePopup()" class="btn-remove">

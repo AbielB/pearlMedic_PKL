@@ -73,7 +73,7 @@
     <div class="popup" id="popup">
         <i class="fa-solid fa-right-from-bracket"></i>
         <h2>Anda Yakin Ingin Log Out?</h2>
-        <a href="02login.html"><button type="button" class="btn-remove">Ya</button></a>
+        <a href="/client/logout"><button type="button" class="btn-remove">Ya</button></a>
         <a href="#"><button type="button" onclick="closePopup()" class="btn-remove">
                 Batal
             </button></a>
@@ -92,7 +92,7 @@
                                 <div class="profileacc-info">
                                     <h3>Nama Perusahaan</h3>
                                     <div class="inputprofile">
-                                        <input type="text" value="Petronas Nasional Berhad"
+                                        <input type="text" value="<?= $nama_perusahaan; ?>"
                                             placeholder="Silahkan isi nama perusahaan..." id="namaperusahaan"
                                             name="namaperusahaan" />
                                         <i class="fa-solid fa-pen"></i>
@@ -218,7 +218,7 @@
             <div class="footer1">
                 <div class="flex-rowww">
                     <div class="nama_toko">
-                        <a href="#" class="logo"><img src="/image/logo/pearlmedic2.png" alt="" />
+                        <a href="#" class="logo"><img src="../client_edit/image/logo/pearlmedic2.png" alt="" />
                             <p>Pearl Medic</p>
                         </a>
                     </div>
@@ -273,7 +273,7 @@
     <!-- END FOOTER SECTION -->
     <!-- Loader Section -->
     <div class="loader-container">
-        <img src="image/assets/laptop.gif" alt="" />
+        <img src="../client_edit/image/assets/laptop.gif" alt="" />
     </div>
     <!-- End Loader Section -->
     <!-- aos script -->

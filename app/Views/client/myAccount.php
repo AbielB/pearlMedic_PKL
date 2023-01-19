@@ -73,7 +73,7 @@
     <div class="popup" id="popup">
         <i class="fa-solid fa-right-from-bracket"></i>
         <h2>Anda Yakin Ingin Log Out?</h2>
-        <a href="02login.html"><button type="button" class="btn-remove">Ya</button></a>
+        <a href="/client/logout"><button type="button" class="btn-remove">Ya</button></a>
         <a href="#"><button type="button" onclick="closePopup()" class="btn-remove">
                 Batal
             </button></a>
@@ -104,6 +104,15 @@
                             <div class="profileacc-info">
                                 <h3>Email</h3>
                                 <p><?= $email ?></p>
+                            </div>
+                            <div class="profileacc-info">
+                                <h3>Status</h3>
+                                <?php
+                                if ($status == 1) {
+                                    echo "<p>Aktif</p>";
+                                } else {
+                                    echo "<p>Non Aktif</p>";
+                                } ?>
                             </div>
                         </div>
                         <div class="profileacc-wrapper-aninfo">

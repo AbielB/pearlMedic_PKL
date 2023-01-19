@@ -35,6 +35,12 @@
         margin-top: 1em;
         font-weight: bold;
     }
+
+    #error {
+        color: red;
+        font-size: 1.3em;
+        width: 100% !important;
+    }
     </style>
 </head>
 
@@ -42,9 +48,9 @@
     <!-- NAVIGATION BAR SECTION -->
     <nav class="navigation_bar logins" id="navbar_color">
         <div id="menu-btn" class="fas fa-bars"></div>
-        <img src="../client/image/logo/pearlmedic2.png" alt="" />
-        <p>Pearl Medic</p>
-
+        <a href="/" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png" alt="" />
+            <p>Pearl Medic</p>
+        </a>
         <h3>
             <i class="fa-solid fa-right-to-bracket"></i>Login <span>Account</span>
         </h3>
@@ -54,7 +60,7 @@
     <section class="home swiper" id="home">
         <div class="swiper-wrapper">
             <div class="container swiper-slide">
-                <img src="./client_edit/image/assets/doctor1.jpg" alt="" />
+                <img src="../client_edit/image/assets/doctor1.jpg" alt="" />
                 <div class="content" data-aos="fade-up">
                     <div class="login">
                         <!-- <h3>Login <span>Account</span></h3> -->
@@ -66,7 +72,7 @@
                                     <i class="fa-solid fa-user"></i>
                                     <input type="text" placeholder="Email..." name="email" id="username" />
                                 </div>
-                                <p id="usernameerror" class="display1"><?= $error ?></p>
+                                <p id="error"><?= $error ?></p>
                                 <div class="logininput" id="logininput">
                                     <i class="fa-solid fa-lock"></i>
                                     <input type="password" placeholder="Password..." name="password" id="password" />
