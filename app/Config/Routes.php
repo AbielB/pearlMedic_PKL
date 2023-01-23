@@ -62,8 +62,11 @@ $routes->get('/client/logout', 'ClientControl::logout');
 $routes->get('/client/myAccount', 'ClientControl::myAccount');
 $routes->get('/client/editProfile', 'ClientControl::editProfile');
 $routes->get('/client/history', 'ClientControl::history');
+$routes->get('/client/medicalcheckup', 'ClientControl::medicalcheckup');
+$routes->get('/client/suksesMedical', 'ClientControl::suksesMedical');
 
 $routes->post('/client/postEdit', 'ClientControl::postEdit');
+$routes->post('/client/checkoutMedical', 'ClientControl::checkoutMedical');
 $routes->get('/client/postEdit', 'ClientControl::editProfile');
 
 

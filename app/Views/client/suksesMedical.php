@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pearl Medic || Home</title>
+    <title>Pearl Medic || Check Up</title>
     <!-- Link Favicon -->
     <link rel="shortcut icon" href="../client_edit/image/logo/pearlmedic.png" type="image/x-icon" />
     <!-- END Link Favicon -->
@@ -60,12 +60,11 @@
                 <i class="fa-solid fa-chevron-down"></i>
             </div>
             <div class="profiledropdown">
-                <a href="/client/myAccount" data-aos="fade-left">My Account<i class="fa-solid fa-user-tie"></i></a>
-                <a href="/client/editProfile" data-aos="fade-left">Edit Profile<i class="fa-solid fa-user-pen"></i></a>
+                <a href="/client/MyAccount" data-aos="fade-left">My Account<i class="fa-solid fa-user-tie"></i></a>
+                <a href="/client/EditProfile" data-aos="fade-left">Edit Profile<i class="fa-solid fa-user-pen"></i></a>
                 <a href="/client/history" data-aos="fade-left">History<i class="fa-solid fa-money-check"></i></a>
                 <button data-aos="fade-left" onclick="openPopup()">Logout<i
                         class="fa-solid fa-right-from-bracket"></i></button>
-
             </div>
         </div>
     </nav>
@@ -83,25 +82,27 @@
     </div>
     <section class="home swiper" id="home">
         <div class="swiper-wrapper">
-            <div class="container swiper-slide">
-                <img src="../client_edit/image/assets/doctor3.jpg" alt="" />
-                <div class="content" data-aos="fade-up">
-                    <h3>PT Mutiara Medical Services</h3>
-                    <h1>Where Wellness Meet Our Care</h1>
-                    <p>
-                        Pearl Medic menyediakan layanan medis perusahaan dengan "Human Touch" sebagai Budaya Perusahaan
-                        dan juga integritas dan profesionalisme sebagai nilai-nilainya, untuk menjawab kebutuhan klien
-                        mereka. Dengan terus mendengarkan dan memahami kebutuhan klien, Pearl Medic dapat memberikan
-                        solusi yang fleksibel dan inovatif melalui program unggulan dalam Layanan Medis Komprehensif.
-                    </p>
-                    <br />
-                    <div class="flex_info">
-                        <a href="/client/medicalcheckup" class="btn">Medical Check Up<i
-                                class="fa-solid fa-stethoscope"></i></a>
-                        <a href="12vaksinasi.html" class="btn">Vaksinasi<i class="fa-solid fa-syringe"></i></a>
-                        <a href="11obat.html" class="btn">Pembelian Obat-Obatan<i class="fa-solid fa-pills"></i></a>
-                        <a href="07darurat.html" class="btn" id="darurat">Pelayanan Darurat<i
-                                class="fa-solid fa-truck-medical"></i></a>
+            <div class="container swiper-slide konfirmasicontainer">
+                <img src="../client_edit/image/assets/checkup2.jpg" alt="" />
+                <div class="content5">
+                    <div class="judulcheckout">
+                        <h3 class="sukses">Pemesanan Berhasil</h3>
+                        <br>
+                        <p class="sukses-info">Pemesanan pelayanan Medical Check Up telah berhasil dilakukan, mohon
+                            tunggu balasan dari petugas kami.</p>
+                    </div>
+                    <div class="checkout-wrapper">
+                        <!-- <i class="fa-solid fa-file-lines"></i> -->
+
+                        <div class="checkout-wrapper-deskripsi">
+                            <i class="fa-solid fa-check-to-slot"></i>
+                            <div class="konfirmasibutton">
+                                <a href="/client/history"><button><i class="fa-solid fa-money-check"></i>Histori
+                                        Pelayanan</button></a>
+                                <a href="/client"><button><i class="fa-solid fa-house-chimney"></i>Halaman
+                                        Utama</button></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -135,7 +136,7 @@
                 <div class="icons">
                     <i class="fa-solid fa-envelope"></i>
                 </div>
-                <p>bdm@pearl-medic.com</p>
+                <p>hiroshipatiroi@pearl-medic.com</p>
             </div>
             <div class="contact-menu">
                 <div class="icons">
@@ -181,7 +182,7 @@
                     <li><a href="#home">Layanan Kami</a></li>
                     <li><a href="#contacts">Contact</a></li>
                     <li><a href="#">Keranjang<i class="fa-solid fa-cart-shopping"></i></a></li>
-                    <li><a href="03profileacc.html">Profile</a></li>
+                    <li><a href="/client/MyAccount">Profile</a></li>
                 </ul>
             </div>
             <div class="footer4">
@@ -189,7 +190,7 @@
                 <ul>
                     <li><i class="fa-solid fa-map-marker-alt"></i> Jl. M.T Haryono, Jakarta Selatan</li>
                     <li><i class="fa-solid fa-phone"></i> 021-29386426</li>
-                    <li><i class="fa-solid fa-envelope"></i> bdm@pearl-medic.com</li>
+                    <li><i class="fa-solid fa-envelope"></i> hiroshipatiroi@pearl-medic.com</li>
                     <!-- clock icon -->
                     <li><i class="fa-solid fa-clock"></i>08:00am - 18.00am</li>
                 </ul>
@@ -198,8 +199,6 @@
         </div>
     </section>
     <!-- END FOOTER SECTION -->
-
-
     <!-- Loader Section -->
     <div class="loader-container">
         <img src="../client_edit/image/assets/laptop.gif" alt="">
@@ -214,31 +213,6 @@
     <script src="../client_edit/scriptsjs/aos.js"></script>
     <script src="../client_edit/scriptsjs/data.js"></script>
     <script src="../client_edit/scriptsjs/swiper.js"></script>
-    <script>
-    let popup = document.getElementById("popup");
-
-    function openPopup() {
-        popup.classList.add("open-popup");
-    }
-
-    function closePopup() {
-        popup.classList.remove("open-popup");
-    }
-
-    // background popup
-    let container_popup = document.querySelector(".container_popup");
-    let btn_popup = document.querySelector(".btn_popup");
-
-    btn_popup.addEventListener("click", function() {
-        container_popup.classList.add("active");
-    });
-
-    // close popup
-    let btn_remove = document.querySelector(".btn-remove");
-    btn_remove.addEventListener("click", function() {
-        container_popup.classList.remove("active");
-    });
-    </script>
 </body>
 </body>
 

@@ -266,4 +266,126 @@ class ClientControl extends BaseController
             return view('/');
         }
     }
+
+    public function medicalcheckup()
+    {
+        //check role
+        $session = session();
+        $role = $session->get('role');
+        if ($role == 'client') {
+            //if flashdata error exist then show flashdata
+            if (session()->has('error')) {
+                $error_jumlah = session()->getFlashdata('jumlah');
+                $error_tanggal = session()->getFlashdata('tanggal');
+                $error_lokasi = session()->getFlashdata('lokasi');
+                $data = [
+                    'error_jumlah' => $error_jumlah,
+                    'error_tanggal' => $error_tanggal,
+                    'error_lokasi' => $error_lokasi,
+                ];
+                return view('client/medical', $data);
+            } else {
+                return view('client/medical');
+            }
+        } else {
+            return view('/');
+        }
+    }
+
+    public function checkoutMedical()
+    {
+        //check role
+        $session = session();
+        $role = $session->get('role');
+        if ($role != 'client') {
+            return view('/');
+        }
+        //validation
+        if (!$this->validate([
+            'jumlah' => [
+                //required and cant be lower than 1
+                'rules' => 'required|greater_than[0]',
+                'errors' => [
+                    'required' => '* Jumlah tidak boleh kosong',
+                    'greater_than' => '* Jumlah tidak boleh kurang dari 1'
+                ]
+            ],
+            'lokasi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '* Lokasi tidak boleh kosong'
+                ]
+            ],
+            'tanggal' => [
+                //has to be in the future
+                'rules' => 'required|future_date',
+                'errors' => [
+                    'required' => '* Tanggal tidak boleh kosong',
+                    'future_date' => '* Tanggal tidak boleh kurang dari hari ini'
+                ]
+            ],
+        ])) {
+            $validation = \Config\Services::validation();
+            $errors = array(
+                'error' => 'true',
+                'jumlah' => $validation->getError('jumlah'),
+                'lokasi' => $validation->getError('lokasi'),
+                'tanggal' => $validation->getError('tanggal'),
+            );
+            //send flash data to medicalcheckup
+            $session->setFlashdata($errors);
+            return redirect()->to('/client/medicalcheckup');
+        }
+        // if validation is true then send data to view
+        $tanggal = $this->request->getVar('tanggal');
+        //split tanggal to dd-mm-yyyy
+        $tanggal2 = explode("-", $tanggal);
+        $tanggal2 = $tanggal2[2] . "-" . $tanggal2[1] . "-" . $tanggal2[0];
+        //get today date
+        $today = date("Y-m-d");
+        //split today to dd-mm-yyyy
+        $today = explode("-", $today);
+        $today = $today[2] . "-" . $today[1] . "-" . $today[0];
+        $data = [
+            'jumlah' => $this->request->getVar('jumlah'),
+            'lokasi' => $this->request->getVar('lokasi'),
+            'tanggal' => $tanggal,
+            'tanggal2' => $tanggal2,
+            'today' => $today,
+        ];
+        //send flashdata
+        $session->setFlashdata($data);
+        return view('client/checkoutMedical', $data);
+    }
+
+    public function suksesMedical()
+    {
+        //get role
+        $session = session();
+        $role = $session->get('role');
+        if ($role != 'client') {
+            return view('/');
+        }
+        //get flashdata
+        $data = $session->getFlashdata();
+        //get data->jumlah, data->lokasi, data->tanggal
+        $jumlah = $data['jumlah'];
+        $lokasi = $data['lokasi'];
+        $tanggal = $data['tanggal'];
+        //insert into tb_medical
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_medical');
+        $builder->set('id', $session->get('id'));
+        $builder->set('jumlah', $jumlah);
+        $builder->set('lokasi', $lokasi);
+        $builder->set('tanggal_pelaksanaan', $tanggal);
+        $builder->set('status', 1);
+        $builder->insert();
+        //if insert success then view suksesMedical
+        if ($builder) {
+            return view('client/suksesMedical');
+        } else {
+            return view('client/medical');
+        }
+    }
 }
