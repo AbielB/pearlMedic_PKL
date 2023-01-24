@@ -42,11 +42,11 @@
                 <div class="dropdown_content">
                     <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i
                             class="fa-solid fa-stethoscope"></i></a>
-                    <a href="12vaksinasi.html" data-aos="fade-left" class="menu-isi">Vaksinasi<i
+                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i
                             class="fa-solid fa-syringe"></i></a>
                     <a href="11obat.html" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i
                             class="fa-solid fa-pills"></i></a>
-                    <a href="07darurat.html" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i
+                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i
                             class="fa-solid fa-truck-medical"></i></a>
                 </div>
             </div>
@@ -98,9 +98,9 @@
                     <div class="flex_info">
                         <a href="/client/medicalcheckup" class="btn">Medical Check Up<i
                                 class="fa-solid fa-stethoscope"></i></a>
-                        <a href="12vaksinasi.html" class="btn">Vaksinasi<i class="fa-solid fa-syringe"></i></a>
+                        <a href="/client/vaksin" class="btn">Vaksinasi<i class="fa-solid fa-syringe"></i></a>
                         <a href="11obat.html" class="btn">Pembelian Obat-Obatan<i class="fa-solid fa-pills"></i></a>
-                        <a href="07darurat.html" class="btn" id="darurat">Pelayanan Darurat<i
+                        <a href="/client/darurat" class="btn" id="darurat">Pelayanan Darurat<i
                                 class="fa-solid fa-truck-medical"></i></a>
                     </div>
                 </div>
@@ -169,9 +169,9 @@
                 <h3>Layanan Kami</h3>
                 <ul>
                     <li><a href="/client/medicalcheckup">Medical Check Up</a></li>
-                    <li><a href="12vaksinasi.html">Vaksinasi</a></li>
+                    <li><a href="/client/vaksin">Vaksinasi</a></li>
                     <li><a href="11obat.html">Pembelian Obat</a></li>
-                    <li><a href="07darurat.html">Layanan Darurat</a></li>
+                    <li><a href="/client/darurat">Layanan Darurat</a></li>
                 </ul>
             </div>
             <div class="footer3">

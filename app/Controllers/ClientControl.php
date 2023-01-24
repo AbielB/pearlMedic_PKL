@@ -14,7 +14,7 @@ class ClientControl extends BaseController
             return view('client/index');
         } else {
             //redirect to login page
-            return view('/');
+            return redirect()->to('/');
         }
     }
     public function myAccount()
@@ -52,7 +52,7 @@ class ClientControl extends BaseController
             }
         } else {
             //if role is not client then redirect to login page
-            return view('/');
+            return redirect()->to('/');
         }
     }
     public function logout()
@@ -106,7 +106,7 @@ class ClientControl extends BaseController
                 return view('client/editProfile', $data);
             }
         } else {
-            return view('/');
+            return redirect()->to('/');
         }
     }
 
@@ -232,7 +232,7 @@ class ClientControl extends BaseController
             //redirect to myAccount
             return redirect()->to('/client/myAccount');
         } else {
-            return view('/');
+            return redirect()->to('/');
         }
     }
 
@@ -263,7 +263,7 @@ class ClientControl extends BaseController
             //send data to view
             return view('client/history', $data);
         } else {
-            return view('/');
+            return redirect()->to('/');
         }
     }
 
@@ -288,7 +288,7 @@ class ClientControl extends BaseController
                 return view('client/medical');
             }
         } else {
-            return view('/');
+            return redirect()->to('/');
         }
     }
 
@@ -298,7 +298,7 @@ class ClientControl extends BaseController
         $session = session();
         $role = $session->get('role');
         if ($role != 'client') {
-            return view('/');
+            return redirect()->to('/');
         }
         //validation
         if (!$this->validate([
@@ -364,7 +364,7 @@ class ClientControl extends BaseController
         $session = session();
         $role = $session->get('role');
         if ($role != 'client') {
-            return view('/');
+            return redirect()->to('/');
         }
         //get flashdata
         $data = $session->getFlashdata();
@@ -386,6 +386,292 @@ class ClientControl extends BaseController
             return view('client/suksesMedical');
         } else {
             return view('client/medical');
+        }
+    }
+
+    public function darurat()
+    {
+        //check role
+        $session = session();
+        $role = $session->get('role');
+        if ($role == 'client') {
+            //get flashdata
+            $data = $session->getFlashdata();
+            //if flashdata error exist then show flashdata
+            if (session()->has('error')) {
+                $error_deskripsi = session()->getFlashdata('deskripsi');
+                $error_lokasi = session()->getFlashdata('lokasi');
+                $error_rs_tujuan = session()->getFlashdata('rs_tujuan');
+                $error_jumlah = session()->getFlashdata('jumlah');
+                $data = [
+                    'error_deskripsi' => $error_deskripsi,
+                    'error_lokasi' => $error_lokasi,
+                    'error_rs_tujuan' => $error_rs_tujuan,
+                    'error_jumlah' => $error_jumlah,
+                ];
+                return view('client/darurat', $data);
+            } else {
+                return view('client/darurat');
+            }
+        } else {
+            //redirect to /
+            return redirect()->to('/');
+        }
+    }
+
+    public function checkoutDarurat()
+    {
+        //check role
+        $session = session();
+        $role = $session->get('role');
+        if ($role != 'client') {
+            return redirect()->to('/');
+        }
+        //get data from form
+        $deskripsi = $this->request->getVar('deskripsi');
+        $lokasi = $this->request->getVar('lokasi');
+        $rs_tujuan = $this->request->getVar('rs_tujuan');
+        $jumlah = $this->request->getVar('jumlah');
+        $tambahan = $this->request->getVar('tambahan');
+        $tanggal_pelaporan = date("Y-m-d");
+        //validation
+        if (!$this->validate([
+            'deskripsi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '* Deskripsi tidak boleh kosong'
+                ]
+            ],
+            'lokasi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '* Lokasi tidak boleh kosong'
+                ]
+            ],
+            'jumlah' => [
+                'rules' => 'required|greater_than[0]',
+                'errors' => [
+                    'required' => '* Jumlah tidak boleh kosong',
+                    'greater_than' => '* Jumlah tidak boleh kurang dari 1'
+                ]
+            ],
+        ])) {
+            $validation = \Config\Services::validation();
+            $errors = array(
+                'error' => 'true',
+                'deskripsi' => $validation->getError('deskripsi'),
+                'lokasi' => $validation->getError('lokasi'),
+                'jumlah' => $validation->getError('jumlah'),
+            );
+            //send flashdata to darurat
+            $session->setFlashdata($errors);
+            return redirect()->to('/client/darurat');
+        }
+        if ($rs_tujuan == null) {
+            $rs_tujuan = 'Dipilih oleh pearl medic';
+        }
+        //if validation is true then send data to view
+        $data = [
+            'deskripsi' => $deskripsi,
+            'lokasi' => $lokasi,
+            'rs_tujuan' => $rs_tujuan,
+            'jumlah' => $jumlah,
+            'tambahan' => $tambahan,
+            'tanggal_pelaporan' => $tanggal_pelaporan,
+        ];
+        //send flashdata
+        $session->setFlashdata($data);
+        return view('client/checkoutDarurat', $data);
+    }
+
+    public function suksesDarurat()
+    {
+        //check role
+        $session = session();
+        $role = $session->get('role');
+        if ($role != 'client') {
+            return redirect()->to('/');
+        }
+        //check if flashdata exist
+        if (session()->has('deskripsi')) {
+            //get flashdata
+            $data = $session->getFlashdata();
+            //get data->deskripsi, data->lokasi, data->rs_tujuan, data->jumlah, data->tambahan, data->tanggal_pelaporan
+            $deskripsi = $data['deskripsi'];
+            $lokasi = $data['lokasi'];
+            $rs_tujuan = $data['rs_tujuan'];
+            $jumlah = $data['jumlah'];
+            $tambahan = $data['tambahan'];
+            $tanggal_pelaporan = $data['tanggal_pelaporan'];
+            //insert into tb_darurat
+            $db = \Config\Database::connect();
+            $builder = $db->table('tb_darurat');
+            $builder->set('id', $session->get('id'));
+            $builder->set('deskripsi', $deskripsi);
+            $builder->set('lokasi', $lokasi);
+            $builder->set('rs_tujuan', $rs_tujuan);
+            $builder->set('jumlah', $jumlah);
+            $builder->set('tambahan', $tambahan);
+            $builder->set('tanggal_pelaporan', $tanggal_pelaporan);
+            $builder->set('status', 1);
+            $builder->insert();
+            //if insert success then view suksesDarurat
+            if ($builder) {
+                return view('client/suksesDarurat');
+            } else {
+                return view('client/darurat');
+            }
+        } else {
+            return redirect()->to('/client/darurat');
+        }
+    }
+    public function vaksin()
+    {
+        //check role
+        $session = session();
+        $role = $session->get('role');
+        if ($role != 'client') {
+            return redirect()->to('/');
+        }
+
+        //select all from tb_vaksin
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_vaksin');
+        $builder->select('*');
+        $builder->orderBy('id_vaksin', 'DESC');
+        $query = $builder->get();
+        //if flashdata exist then send flashdata to view
+        if (session()->has('error')) {
+            $error_lokasi = session()->getFlashdata('lokasi');
+            $error_jumlah = session()->getFlashdata('jumlah');
+            $error_tanggal_pelaksanaan = session()->getFlashdata('tanggal_pelaksanaan');
+            $error_vaksin = session()->getFlashdata('vaksin');
+            $data = [
+                'error_lokasi' => $error_lokasi,
+                'error_jumlah' => $error_jumlah,
+                'error_tanggal_pelaksanaan' => $error_tanggal_pelaksanaan,
+                'error_vaksin' => $error_vaksin,
+                'vaksin' => $query->getResultArray(),
+            ];
+        } else {
+            $data = [
+                'vaksin' => $query->getResultArray(),
+            ];
+        }
+
+        return view('client/vaksin', $data);
+    }
+
+    public function checkoutVaksin()
+    {
+        //check role
+        $session = session();
+        $role = $session->get('role');
+        if ($role != 'client') {
+            return redirect()->to('/');
+        }
+        //get data from form
+        $vaksin = $this->request->getVar('vaksin');
+        $jumlah = $this->request->getVar('jumlah');
+        $tanggal_pelaksanaan = $this->request->getVar('tanggal_pelaksanaan');
+        $lokasi = $this->request->getVar('lokasi');
+        if ($vaksin == 'vaksinlain') {
+            $vaksin = $this->request->getVar('lainnya');
+        }
+
+        //validation
+        if (!$this->validate([
+            'vaksin' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '* Vaksin tidak boleh kosong'
+                ]
+            ],
+            'jumlah' => [
+                'rules' => 'required|greater_than[0]',
+                'errors' => [
+                    'required' => '* Jumlah tidak boleh kosong',
+                    'greater_than' => '* Jumlah tidak boleh kurang dari 1'
+                ]
+            ],
+            'tanggal_pelaksanaan' => [
+                'rules' => 'required|future_date',
+                'errors' => [
+                    'required' => '* Tanggal pelaksanaan tidak boleh kosong',
+                    'future_date' => '* Tanggal pelaksanaan tidak boleh kurang dari hari ini'
+                ]
+            ],
+            'lokasi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '* Lokasi tidak boleh kosong'
+                ]
+            ],
+        ])) {
+            $validation = \Config\Services::validation();
+            if ($vaksin == '') {
+                $error_vaksin = '* Vaksin tidak boleh kosong';
+            } else {
+                $error_vaksin = $validation->getError('vaksin');
+            }
+            $errors = array(
+                'error' => 'true',
+                'vaksin' => $error_vaksin,
+                'jumlah' => $validation->getError('jumlah'),
+                'tanggal_pelaksanaan' => $validation->getError('tanggal_pelaksanaan'),
+                'lokasi' => $validation->getError('lokasi'),
+            );
+
+            //send flashdata to vaksin
+            $session->setFlashdata($errors);
+            return redirect()->to('/client/vaksin');
+        }
+        //if validation is true then send data to view
+
+        $data = [
+            'vaksin' => $vaksin,
+            'jumlah' => $jumlah,
+            'tanggal_pelaksanaan' => $tanggal_pelaksanaan,
+            'lokasi' => $lokasi,
+        ];
+        //send flashdata
+        $session->setFlashdata($data);
+        return view('client/checkoutVaksin', $data);
+    }
+
+    public function suksesVaksin()
+    {
+        //check role
+        $session = session();
+        $role = $session->get('role');
+        if ($role != 'client') {
+            return redirect()->to('/');
+        }
+        //check if flashdata exist
+        if (session()->has('vaksin')) {
+            //get data from flashdata
+            $vaksin = session()->getFlashdata('vaksin');
+            $jumlah = session()->getFlashdata('jumlah');
+            $tanggal_pelaksanaan = session()->getFlashdata('tanggal_pelaksanaan');
+            $lokasi = session()->getFlashdata('lokasi');
+            //insert data to tb_vaksin
+            $db = \Config\Database::connect();
+            $builder = $db->table('tb_ordervaksin');
+            $builder->set('id', $session->get('id'));
+            $builder->set('nama_vaksin', $vaksin);
+            $builder->set('jumlah', $jumlah);
+            $builder->set('tanggal_pelaksanaan', $tanggal_pelaksanaan);
+            $builder->set('lokasi', $lokasi);
+            $builder->set('status', 1);
+            $builder->insert();
+            //if insert success then view suksesVaksin
+            if ($builder) {
+                return view('client/suksesVaksin');
+            } else {
+                return redirect()->to('/client/vaksin');
+            }
+        } else {
+            return redirect()->to('/client/vaksin');
         }
     }
 }

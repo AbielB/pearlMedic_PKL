@@ -1,0 +1,329 @@
+.detailriwayatkeranjangcontainer{
+    .content3{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        margin-top: 160px;
+        margin-bottom: 60px;
+        .judulriwayatkeranjang{
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: $warna-light;
+            margin-bottom: 5rem;
+            i{
+                margin-right: 10px;
+                color: $warna-utama3;
+            }
+        }
+        .riwayatkeranjang-wrapper{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            width: 90%;
+            .riwayatkeranjang-info{
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                .judultabelkeranjang{
+                    font-size: 16px;
+                    color: $warna-light;
+                    margin-bottom: 10px;
+                    i{
+                        margin-right: 5px;
+                        color: $warna-utama3; 
+                    }
+                }
+                .tabelkeranjang{
+                    table{
+                        background: $warna-dark;
+                        width: 100%;
+                        border-radius: $border-radius-1;
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+                        text-align: center;
+                        padding-left: 20px;
+                        padding-right: 20px;
+                        thead{
+                            th{
+                                color: $warna-utama8;
+                                font-size: 14px;
+                                i{
+                                    margin-left: 5px;
+                                    color: $warna-utama3;
+                                }
+                            }
+                        }
+                        tbody{
+                            tr{
+                                td{
+                                    padding-top: 20px;
+                                    padding-bottom: 20px;
+                                    height: 2.8rem;
+                                    border-bottom: .3px solid $warna-light;
+                                    color: $warna-light;
+                                    font-size: 12px;
+                                    a{
+                                        color: $warna-light;
+                                    }
+                                }
+                                .red{
+                                    color: $warna-pendukung3;
+                                }
+                                .yellow{
+                                    color: $warna-pendukung2;
+                                }
+                                .green{
+                                    color: $warna-pendukung1;
+                                }
+                            }
+                            &:last-child {
+                                border: none;
+                            }
+                            td a:hover{
+                                color: $warna-pendukung2;
+                                transition: all .3s ease;
+                                text-decoration: underline;
+                                
+                            }
+                        }
+                    }
+                }
+                .riwayatkeranjang-info-wrapper{
+                    background: $warna-dark;
+                    width: 100%;
+                    border-radius: $border-radius-1;
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                    // text-align: center;
+                    padding-left: 50px;
+                    padding-right: 50px;
+                    h3{
+                        font-size: 14px;
+                        color: $warna-light;
+                        margin-bottom: 10px;
+                        font-weight: 500;
+                    }
+                    p{
+                        font-size: 14px;
+                        color: $warna-light;
+                        margin-bottom: 10px;
+                        font-weight: 500;
+                    }
+                    .statusriwayatkeranjang{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 20px;
+                        p{
+                            background-color: #252525;
+                            padding: 7px 10px;
+                            border-radius: $border-radius-1;
+                        }
+                    }
+                    .totalbelanja{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 20px;
+                    }
+                    .tanggalpemesanan{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 20px;
+                    }
+                    .tanggalbarangsampai{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 50px;
+                    }
+                    .alamatpengiriman{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        margin-top: -20px;
+                        margin-bottom: 50px;
+                        text-align: center;
+                    }
+                    .tombolkembali{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 10px 20px;
+                        border-radius: 50px;
+                        background-color: $warna-utama5;
+                        border: none;
+                        
+                        a{
+                            background-color: transparent;
+                            width: 100%;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+                            color: $warna-light;
+                            font-size: 16px;
+                            i{
+                                margin-right: 10px;
+                                color: $warna-utama3;
+                            }
+                        }
+                        &:hover{
+                            transition: all .3s ease;
+                            background-color: transparent;
+                            border: 1px solid $warna-utama3;
+                            a{
+                                color: $warna-utama3;
+                                i{
+                                    color: $warna-light;
+                                }
+                            }
+                            
+                    }
+                }
+                }
+            }
+        }
+    }
+}
+
+
+
+@media only screen and (max-width: 771px){
+    .detailriwayatkeranjangcontainer{
+        .content3{
+            .riwayatkeranjang-wrapper{
+                // grid-template-columns: 1fr;
+                .riwayatkeranjang-info{
+                    .tabelkeranjang{
+                        table{
+                            thead{
+                                th{
+                                    font-size: 12px;
+                                }
+                            }
+                            tbody{
+                                tr{
+                                    td{
+                                        font-size: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .riwayatkeranjang-info-wrapper{
+                        padding-left: 20px;
+                        padding-right: 20px;
+                        h3{
+                            font-size: 12px;
+                        }
+                        p{
+                            font-size: 12px;
+                        }
+                        .statusriwayatkeranjang{
+                            p{
+                                font-size: 12px;
+                            }
+                        }
+                        .totalbelanja{
+                            p{
+                                font-size: 12px;
+                            }
+                        }
+                        .tanggalpemesanan{
+                            p{
+                                font-size: 12px;
+                            }
+                        }
+                        .tanggalbarangsampai{
+                            p{
+                                font-size: 12px;
+                            }
+                        }
+                        .tombolkembali{
+                            padding: 10px 20px;
+                            a{
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 580px){
+    .detailriwayatkeranjangcontainer{
+        .content3{
+            .riwayatkeranjang-wrapper{
+                grid-template-columns: 1fr;
+                .riwayatkeranjang-info{
+                    .tabelkeranjang{
+                        table{
+                            thead{
+                                th{
+                                    font-size: 12px;
+                                }
+                            }
+                            tbody{
+                                tr{
+                                    td{
+                                        font-size: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .riwayatkeranjang-info-wrapper{
+                        padding-left: 20px;
+                        padding-right: 20px;
+                        h3{
+                            font-size: 12px;
+                        }
+                        p{
+                            font-size: 12px;
+                        }
+                        .statusriwayatkeranjang{
+                            p{
+                                font-size: 12px;
+                            }
+                        }
+                        .totalbelanja{
+                            p{
+                                font-size: 12px;
+                            }
+                        }
+                        .tanggalpemesanan{
+                            p{
+                                font-size: 12px;
+                            }
+                        }
+                        .tanggalbarangsampai{
+                            p{
+                                font-size: 12px;
+                            }
+                        }
+                        .tombolkembali{
+                            padding: 10px 20px;
+                            a{
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pearl Medic || Check Up</title>
+    <title>Pearl Medic || Darurat</title>
     <!-- Link Favicon -->
     <link rel="shortcut icon" href="../client_edit/image/logo/pearlmedic.png" type="image/x-icon" />
     <!-- END Link Favicon -->
@@ -25,10 +25,10 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- END Link AOS Library -->
     <style>
-        #error {
-            color: red;
-            font-size: 1.5em;
-        }
+    #error {
+        color: red;
+        font-size: 1.5em;
+    }
     </style>
 </head>
 
@@ -36,18 +36,24 @@
     <!-- NAVIGATION BAR SECTION -->
     <nav class="navigation_bar" id="navbar_color">
         <div id="menu-btn" class="fas fa-bars"></div>
-        <a href="/client" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png" alt="" id="gambar1">
+        <a href="/client" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png" alt=""
+                id="gambar1">
             <p>Pearl Medic</p>
         </a>
         <div class="navbar">
             <a href="/client" class="hidup" data-aos="fade-left">Home</a>
-            <a href="#layanans" data-aos="fade-left" class="menu-button">Layanan<i class="fa-solid fa-chevron-down"></i></a>
+            <a href="#layanans" data-aos="fade-left" class="menu-button">Layanan<i
+                    class="fa-solid fa-chevron-down"></i></a>
             <div class="menu_dropdown">
                 <div class="dropdown_content">
-                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i class="fa-solid fa-stethoscope"></i></a>
-                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i class="fa-solid fa-syringe"></i></a>
-                    <a href="11obat.html" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i class="fa-solid fa-pills"></i></a>
-                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i class="fa-solid fa-truck-medical"></i></a>
+                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i
+                            class="fa-solid fa-stethoscope"></i></a>
+                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i
+                            class="fa-solid fa-syringe"></i></a>
+                    <a href="11obat.html" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i
+                            class="fa-solid fa-pills"></i></a>
+                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i
+                            class="fa-solid fa-truck-medical"></i></a>
                 </div>
             </div>
             <a href="#contacts" data-aos="fade-left">Kontak Kami</a>
@@ -60,10 +66,11 @@
                 <i class="fa-solid fa-chevron-down"></i>
             </div>
             <div class="profiledropdown">
-                <a href="/client/myAccount" data-aos="fade-left">My Account<i class="fa-solid fa-user-tie"></i></a>
+                <a href="/client/MyAccount" data-aos="fade-left">My Account<i class="fa-solid fa-user-tie"></i></a>
                 <a href="/client/EditProfile" data-aos="fade-left">Edit Profile<i class="fa-solid fa-user-pen"></i></a>
                 <a href="/client/history" data-aos="fade-left">History<i class="fa-solid fa-money-check"></i></a>
-                <button data-aos="fade-left" onclick="openPopup()">Logout<i class="fa-solid fa-right-from-bracket"></i></button>
+                <button data-aos="fade-left" onclick="openPopup()">Logout<i
+                        class="fa-solid fa-right-from-bracket"></i></button>
             </div>
         </div>
     </nav>
@@ -82,77 +89,91 @@
     <section class="home swiper" id="home">
         <div class="swiper-wrapper">
             <div class="container swiper-slide daruratcontainer">
-                <img src="../client_edit/image/assets/checkup2.jpg" alt="" />
+                <img src="../client_edit/image/assets/darurat02.jpg" alt="" />
                 <div class="content4">
                     <div class="left-darurat" data-aos="fade-right">
-                        <h3>Medical Check Up <i class="fa-solid fa-stethoscope"></i></h3>
-                        <p>Pelayanan Medical Check Up adalah pelayanan pemeriksaan kesehatan karyawan yang bisa
-                            dilakukan secara rutin. pemeriksaan ini mencakup pemeriksaan tekanan
-                            darah, gula darah, kolesterol, dan lain-lain.
-                        </p>
+                        <h3>Pelayanan Darurat <i class="fa-solid fa-truck-medical"></i></h3>
+                        <p>Pelayanan Darurat adalah pelayanan yang melayani kejadian-kejadian darurat yang terjadi di
+                            suatu tempat, seperti kecelakaan karyawan, pembelian obat darurat,dan lain-lain</p>
                     </div>
                     <div class="right-darurat" data-aos="fade-left">
                         <!-- <h3>Form Pelayanan Darurat</h3> -->
                         <div class="right-darurat-wrapper">
                             <?php
-                            //if not isset error_jumlah, error_lokasi, error_tanggal, = null
-                            if (!isset($error_jumlah)) {
-                                $error_jumlah = null;
-                            }
-                            if (!isset($error_lokasi)) {
-                                $error_lokasi = null;
-                            }
-                            if (!isset($error_tanggal)) {
-                                $error_tanggal = null;
-                            }
-
+                            //if not isset error_deskripsi, error_deskripsi = null
+                            $error_deskripsi = isset($error_deskripsi) ? $error_deskripsi : null;
+                            $error_lokasi = isset($error_lokasi) ? $error_lokasi : null;
+                            $error_jumlah = isset($error_jumlah) ? $error_jumlah : null;
                             ?>
-                            <form action="/client/checkoutMedical" class="form-darurat" id="form-checkup" method="post">
+                            <form action="/client/checkoutDarurat" class="form-darurat" id="form-darurat" method="post">
                                 <?= csrf_field(); ?>
-                                <i class="fa-solid fa-user-doctor"></i>
+                                <i class="fa-solid fa-user-nurse"></i>
                                 <div class="form-darurat-info">
-                                    <i class="fa-solid fa-users-line"></i>
-                                    <input type="number" placeholder="Jumlah Pasien..." id="jumlahpasien" name="jumlah">
+                                    <i class="fa-solid fa-notes-medical"></i>
+                                    <input type="text" placeholder="Isi Kejadian Darurat..." id="kejadiandarurat"
+                                        name="deskripsi">
                                 </div>
-                                <div class="space" style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
-                                    <p id="error">
-                                        <?= $error_jumlah ?></p>
+                                <div class="space"
+                                    style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
+                                    <p id="error"><?= $error_deskripsi ?></p>
                                     <!-- <p>hai</p> -->
                                 </div>
                                 <br>
                                 <div class="form-darurat-info">
                                     <i class="fa-solid fa-map-location-dot"></i>
-                                    <input type="text" placeholder="Lokasi Pelaksanaan..." id="lokasicheckup" name="lokasi">
+                                    <input type="text" placeholder="Lokasi Kejadian Darurat..." id="lokasidarurat"
+                                        name="lokasi">
                                 </div>
-                                <div class="space" style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
+                                <div class="space"
+                                    style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
                                     <p id="error"><?= $error_lokasi ?></p>
-                                    <!-- <p>hai</p> -->
+
                                 </div>
                                 <br>
-                                <h3 class="tgl">Tanggal Pelaksanaan</h3>
                                 <div class="form-darurat-info">
-                                    <i class="fa-solid fa-calendar-days"></i>
-                                    <input type="date" placeholder="Tanggal Pelaksanaan..." id="tanggalpelaksanaan" name="tanggal">
+                                    <i class="fa-solid fa-hospital"></i>
+                                    <input type="text" placeholder="Rumah Sakit Rujukan..." name="rs_tujuan">
                                 </div>
-                                <div class="space" style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
-                                    <p id="error"><?= $error_tanggal ?></p>
+                                <div class="space"
+                                    style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
+                                    <p id="error"></p>
+
+                                </div>
+                                <br>
+
+                                <div class="form-darurat-info">
+                                    <i class="fa-solid fa-users-line"></i>
+                                    <input type="number" placeholder="Jumlah Pasien Terlibat..." id="pasiendarurat"
+                                        name="jumlah">
+                                </div>
+                                <div class="space"
+                                    style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
+                                    <p id="error"><?= $error_jumlah ?></p>
                                     <!-- <p>hai</p> -->
                                 </div>
                                 <br>
-                                <!-- <div class="form-darurat-info">
-                            <i class="fa-solid fa-users-line"></i>
-                            <input type="text" placeholder="Jumlah Pasien Terlibat...">
-                        </div>
-                        <div class="deskripsitambahan" id="deskripsitambahan">
-                          <div class="deskripsitambahanjudul">
-                            <i class="fa-solid fa-file-medical"></i>
-                            <h3>Deskripsi Tambahan</h3>
-                          </div>
-                            <textarea name="deskripsi" id="deskripsitambahan" cols="30" rows="10" >
+                                <div class="deskripsitambahan" id="deskripsitambahan">
+                                    <div class="deskripsitambahanjudul">
+                                        <i class="fa-solid fa-file-medical"></i>
+                                        <h3>Deskripsi Tambahan (Opsional)</h3>
+                                    </div>
+                                    <br>
+                                    <textarea name="tambahan" id="deskripsitambahan" cols="30" rows="10"
+                                        class="textarea-darurat" style="padding-top: 5px; padding-left: 5px;">
                             </textarea>
-                        </div> -->
+                                </div>
+                                <div class="space"
+                                    style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
+                                    <p class="display" id="deskripsitambahanerror"></p>
+                                    <!-- <p>hai</p> -->
+                                </div>
+                                <br>
                                 <div class="submit-darurat">
                                     <button type="submit">Pesan Layanan</button>
+                                </div>
+                                <div class="keterangan">
+                                    <p>Ket: Rumah sakit rujukan bisa dikosongkan jika ingin menerima rekomendasi dari
+                                        kami</p>
                                 </div>
                             </form>
                         </div>
@@ -231,11 +252,11 @@
             <div class="footer3">
                 <h3>Menu</h3>
                 <ul>
-                    <li><a href="/client">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="#home">Layanan Kami</a></li>
                     <li><a href="#contacts">Contact</a></li>
                     <li><a href="#">Keranjang<i class="fa-solid fa-cart-shopping"></i></a></li>
-                    <li><a href="/client/myAccount">Profile</a></li>
+                    <li><a href="/client/MyAccount">Profile</a></li>
                 </ul>
             </div>
             <div class="footer4">

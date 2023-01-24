@@ -64,9 +64,15 @@ $routes->get('/client/editProfile', 'ClientControl::editProfile');
 $routes->get('/client/history', 'ClientControl::history');
 $routes->get('/client/medicalcheckup', 'ClientControl::medicalcheckup');
 $routes->get('/client/suksesMedical', 'ClientControl::suksesMedical');
+$routes->get('/client/suksesDarurat', 'ClientControl::suksesDarurat');
+$routes->get('/client/darurat', 'ClientControl::darurat');
+$routes->get('/client/vaksin', 'ClientControl::vaksin');
+$routes->get('/client/suksesVaksin', 'ClientControl::suksesVaksin');
 
 $routes->post('/client/postEdit', 'ClientControl::postEdit');
 $routes->post('/client/checkoutMedical', 'ClientControl::checkoutMedical');
+$routes->post('/client/checkoutDarurat', 'ClientControl::checkoutDarurat');
+$routes->post('/client/checkoutVaksin', 'ClientControl::checkoutVaksin');
 $routes->get('/client/postEdit', 'ClientControl::editProfile');
 
 

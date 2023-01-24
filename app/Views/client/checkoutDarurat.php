@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pearl Medic || Check Up</title>
+    <title>Pearl Medic || Darurat</title>
     <!-- Link Favicon -->
     <link rel="shortcut icon" href="../client_edit/image/logo/pearlmedic.png" type="image/x-icon" />
     <!-- END Link Favicon -->
@@ -24,30 +24,24 @@
     <!-- Link AOS Library -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- END Link AOS Library -->
-    <style>
-        #error {
-            color: red;
-            font-size: 1.5em;
-        }
-    </style>
 </head>
 
 <body>
     <!-- NAVIGATION BAR SECTION -->
     <nav class="navigation_bar" id="navbar_color">
         <div id="menu-btn" class="fas fa-bars"></div>
-        <a href="/client" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png" alt="" id="gambar1">
+        <a href="01index.html" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png" alt="" id="gambar1">
             <p>Pearl Medic</p>
         </a>
         <div class="navbar">
-            <a href="/client" class="hidup" data-aos="fade-left">Home</a>
+            <a href="01index.html" class="hidup" data-aos="fade-left">Home</a>
             <a href="#layanans" data-aos="fade-left" class="menu-button">Layanan<i class="fa-solid fa-chevron-down"></i></a>
             <div class="menu_dropdown">
                 <div class="dropdown_content">
-                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i class="fa-solid fa-stethoscope"></i></a>
+                    <a href="10checkup.html" data-aos="fade-left" class="menu-isi">Medical Check Up<i class="fa-solid fa-stethoscope"></i></a>
                     <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i class="fa-solid fa-syringe"></i></a>
                     <a href="11obat.html" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i class="fa-solid fa-pills"></i></a>
-                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i class="fa-solid fa-truck-medical"></i></a>
+                    <a href="07darurat.html" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i class="fa-solid fa-truck-medical"></i></a>
                 </div>
             </div>
             <a href="#contacts" data-aos="fade-left">Kontak Kami</a>
@@ -60,9 +54,9 @@
                 <i class="fa-solid fa-chevron-down"></i>
             </div>
             <div class="profiledropdown">
-                <a href="/client/myAccount" data-aos="fade-left">My Account<i class="fa-solid fa-user-tie"></i></a>
-                <a href="/client/EditProfile" data-aos="fade-left">Edit Profile<i class="fa-solid fa-user-pen"></i></a>
-                <a href="/client/history" data-aos="fade-left">History<i class="fa-solid fa-money-check"></i></a>
+                <a href="03profileacc.html" data-aos="fade-left">My Account<i class="fa-solid fa-user-tie"></i></a>
+                <a href="04editprofileacc.html" data-aos="fade-left">Edit Profile<i class="fa-solid fa-user-pen"></i></a>
+                <a href="05riwayat.html" data-aos="fade-left">History<i class="fa-solid fa-money-check"></i></a>
                 <button data-aos="fade-left" onclick="openPopup()">Logout<i class="fa-solid fa-right-from-bracket"></i></button>
             </div>
         </div>
@@ -72,89 +66,68 @@
     <div class="popup" id="popup">
         <i class="fa-solid fa-right-from-bracket"></i>
         <h2>Anda Yakin Ingin Log Out?</h2>
-        <a href="/client/logout"><button type="button" class="btn-remove">
+        <a href="02login.html"><button type="button" class="btn-remove">
                 Ya
             </button></a>
         <a href="#"><button type="button" onclick="closePopup()" class="btn-remove">
                 Batal
             </button></a>
     </div>
+    <div class="popupedit" id="popupedit">
+        <i class="fa-solid fa-envelopes-bulk"></i>
+        <h2>Kirim Pesanan Pelayanan?</h2>
+        <p>Harap Cek Terlebih Dahulu segala informasi yang dimasukkan ke dalam form, data yang sudah dikirim tak dapat
+            diubah</p>
+        <a href="/client/suksesDarurat"><button type="button" class="btn-removeedit">Ya</button></a>
+        <a href="#"><button type="button" onclick="closePopupedit()" class="btn-removeedit">
+                Batal
+            </button></a>
+    </div>
     <section class="home swiper" id="home">
         <div class="swiper-wrapper">
-            <div class="container swiper-slide daruratcontainer">
-                <img src="../client_edit/image/assets/checkup2.jpg" alt="" />
-                <div class="content4">
-                    <div class="left-darurat" data-aos="fade-right">
-                        <h3>Medical Check Up <i class="fa-solid fa-stethoscope"></i></h3>
-                        <p>Pelayanan Medical Check Up adalah pelayanan pemeriksaan kesehatan karyawan yang bisa
-                            dilakukan secara rutin. pemeriksaan ini mencakup pemeriksaan tekanan
-                            darah, gula darah, kolesterol, dan lain-lain.
-                        </p>
+            <div class="container swiper-slide konfirmasicontainer">
+                <img src="../client_edit/image/assets/darurat02.jpg" alt="" />
+                <div class="content5">
+                    <div class="judulcheckout">
+                        <h3>Konfirmasi Pelayanan</h3>
+                        <p>Informasi pemesanan pelayanan darurat</p>
                     </div>
-                    <div class="right-darurat" data-aos="fade-left">
-                        <!-- <h3>Form Pelayanan Darurat</h3> -->
-                        <div class="right-darurat-wrapper">
-                            <?php
-                            //if not isset error_jumlah, error_lokasi, error_tanggal, = null
-                            if (!isset($error_jumlah)) {
-                                $error_jumlah = null;
-                            }
-                            if (!isset($error_lokasi)) {
-                                $error_lokasi = null;
-                            }
-                            if (!isset($error_tanggal)) {
-                                $error_tanggal = null;
-                            }
+                    <?php
+                    //$tanggal_pelaporan explode("-", $tanggal_pelaporan);
+                    $tanggal_pelaporan = date("d-m-Y", strtotime($tanggal_pelaporan));
 
-                            ?>
-                            <form action="/client/checkoutMedical" class="form-darurat" id="form-checkup" method="post">
-                                <?= csrf_field(); ?>
-                                <i class="fa-solid fa-user-doctor"></i>
-                                <div class="form-darurat-info">
-                                    <i class="fa-solid fa-users-line"></i>
-                                    <input type="number" placeholder="Jumlah Pasien..." id="jumlahpasien" name="jumlah">
-                                </div>
-                                <div class="space" style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
-                                    <p id="error">
-                                        <?= $error_jumlah ?></p>
-                                    <!-- <p>hai</p> -->
-                                </div>
-                                <br>
-                                <div class="form-darurat-info">
-                                    <i class="fa-solid fa-map-location-dot"></i>
-                                    <input type="text" placeholder="Lokasi Pelaksanaan..." id="lokasicheckup" name="lokasi">
-                                </div>
-                                <div class="space" style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
-                                    <p id="error"><?= $error_lokasi ?></p>
-                                    <!-- <p>hai</p> -->
-                                </div>
-                                <br>
-                                <h3 class="tgl">Tanggal Pelaksanaan</h3>
-                                <div class="form-darurat-info">
-                                    <i class="fa-solid fa-calendar-days"></i>
-                                    <input type="date" placeholder="Tanggal Pelaksanaan..." id="tanggalpelaksanaan" name="tanggal">
-                                </div>
-                                <div class="space" style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
-                                    <p id="error"><?= $error_tanggal ?></p>
-                                    <!-- <p>hai</p> -->
-                                </div>
-                                <br>
-                                <!-- <div class="form-darurat-info">
-                            <i class="fa-solid fa-users-line"></i>
-                            <input type="text" placeholder="Jumlah Pasien Terlibat...">
+                    ?>
+                    <div class="checkout-wrapper">
+                        <!-- <i class="fa-solid fa-file-lines"></i> -->
+                        <div class="checkout-wrapper-info1">
+                            <div class="checkout-wrapper-info">
+                                <h3>Kejadian Darurat</h3>
+                                <p><?= $deskripsi ?></p>
+                            </div>
+                            <div class="checkout-wrapper-info">
+                                <h3>Lokasi Kejadian Darurat</h3>
+                                <p><?= $lokasi ?></p>
+                            </div>
+                            <div class="checkout-wrapper-info">
+                                <h3>Rumah Sakit Rujukan</h3>
+                                <p><?= $rs_tujuan ?></p>
+                            </div>
+                            <div class="checkout-wrapper-info">
+                                <h3>Jumlah Pasien Terlibat</h3>
+                                <p><?= $jumlah ?> Orang</p>
+                            </div>
                         </div>
-                        <div class="deskripsitambahan" id="deskripsitambahan">
-                          <div class="deskripsitambahanjudul">
-                            <i class="fa-solid fa-file-medical"></i>
+                        <div class="checkout-wrapper-deskripsi">
                             <h3>Deskripsi Tambahan</h3>
-                          </div>
-                            <textarea name="deskripsi" id="deskripsitambahan" cols="30" rows="10" >
-                            </textarea>
-                        </div> -->
-                                <div class="submit-darurat">
-                                    <button type="submit">Pesan Layanan</button>
-                                </div>
-                            </form>
+                            <p><?= $tambahan ?></p>
+                            <h3>Tanggal Pemesanan</h3>
+                            <p><?= $tanggal_pelaporan ?></p>
+                            <div class="konfirmasibutton">
+                                <button type="button" onclick="openPopupedit()">
+                                    <i class="fa-regular fa-circle-check"></i>Konfirmasi Pesanan
+                                </button>
+                                <a href="07darurat.html"><button><i class="fa-solid fa-angles-left"></i>Kembali</button></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -206,7 +179,7 @@
             <div class="footer1">
                 <div class="flex-rowww">
                     <div class="nama_toko">
-                        <a href="#" class="logo"><img src="/image/logo/pearlmedic2.png" alt="">
+                        <a href="#" class="logo"><img src="../client_edit/image/logo/pearlmedic2.png" alt="">
                             <p>Pearl Medic</p>
                         </a>
                     </div>
@@ -222,20 +195,20 @@
             <div class="footer2">
                 <h3>Layanan Kami</h3>
                 <ul>
-                    <li><a href="/client/medicalcheckup">Medical Check Up</a></li>
+                    <li><a href="10checkup.html">Medical Check Up</a></li>
                     <li><a href="/client/vaksin">Vaksinasi</a></li>
                     <li><a href="11obat.html">Pembelian Obat</a></li>
-                    <li><a href="/client/darurat">Layanan Darurat</a></li>
+                    <li><a href="07darurat.html">Layanan Darurat</a></li>
                 </ul>
             </div>
             <div class="footer3">
                 <h3>Menu</h3>
                 <ul>
-                    <li><a href="/client">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="#home">Layanan Kami</a></li>
                     <li><a href="#contacts">Contact</a></li>
                     <li><a href="#">Keranjang<i class="fa-solid fa-cart-shopping"></i></a></li>
-                    <li><a href="/client/myAccount">Profile</a></li>
+                    <li><a href="03profileacc.html">Profile</a></li>
                 </ul>
             </div>
             <div class="footer4">
@@ -266,6 +239,32 @@
     <script src="../client_edit/scriptsjs/aos.js"></script>
     <script src="../client_edit/scriptsjs/data.js"></script>
     <script src="../client_edit/scriptsjs/swiper.js"></script>
+    <script>
+        // pop up edit
+        let popupedit = document.getElementById("popupedit");
+
+        function openPopupedit() {
+            popupedit.classList.add("open-popup");
+        }
+
+        function closePopupedit() {
+            popupedit.classList.remove("open-popup");
+        }
+
+        // background popup
+        // let container_popup = document.querySelector(".container_popup");
+        let btn_popupedit = document.querySelector(".btn_popupedit");
+
+        btn_popup.addEventListener("click", function() {
+            container_popup.classList.add("active");
+        });
+
+        // close popup
+        let btn_removeedit = document.querySelector(".btn-removeedit");
+        btn_remove.addEventListener("click", function() {
+            container_popup.classList.remove("active");
+        });
+    </script>
 </body>
 </body>
 
