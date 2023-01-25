@@ -25,10 +25,10 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- END Link AOS Library -->
     <style>
-    #error {
-        color: red;
-        font-size: 1.5em;
-    }
+        #error {
+            color: red;
+            font-size: 1.5em;
+        }
     </style>
 </head>
 
@@ -36,24 +36,18 @@
     <!-- NAVIGATION BAR SECTION -->
     <nav class="navigation_bar" id="navbar_color">
         <div id="menu-btn" class="fas fa-bars"></div>
-        <a href="01index.html" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png"
-                alt="" id="gambar1">
+        <a href="01index.html" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png" alt="" id="gambar1">
             <p>Pearl Medic</p>
         </a>
         <div class="navbar">
             <a href="01index.html" class="hidup" data-aos="fade-left">Home</a>
-            <a href="#layanans" data-aos="fade-left" class="menu-button">Layanan<i
-                    class="fa-solid fa-chevron-down"></i></a>
+            <a href="#layanans" data-aos="fade-left" class="menu-button">Layanan<i class="fa-solid fa-chevron-down"></i></a>
             <div class="menu_dropdown">
                 <div class="dropdown_content">
-                    <a href="10checkup.html" data-aos="fade-left" class="menu-isi">Medical Check Up<i
-                            class="fa-solid fa-stethoscope"></i></a>
-                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i
-                            class="fa-solid fa-syringe"></i></a>
-                    <a href="11obat.html" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i
-                            class="fa-solid fa-pills"></i></a>
-                    <a href="07darurat.html" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i
-                            class="fa-solid fa-truck-medical"></i></a>
+                    <a href="10checkup.html" data-aos="fade-left" class="menu-isi">Medical Check Up<i class="fa-solid fa-stethoscope"></i></a>
+                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i class="fa-solid fa-syringe"></i></a>
+                    <a href="/client/obat" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i class="fa-solid fa-pills"></i></a>
+                    <a href="07darurat.html" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i class="fa-solid fa-truck-medical"></i></a>
                 </div>
             </div>
             <a href="#contacts" data-aos="fade-left">Kontak Kami</a>
@@ -67,11 +61,9 @@
             </div>
             <div class="profiledropdown">
                 <a href="03profileacc.html" data-aos="fade-left">My Account<i class="fa-solid fa-user-tie"></i></a>
-                <a href="04editprofileacc.html" data-aos="fade-left">Edit Profile<i
-                        class="fa-solid fa-user-pen"></i></a>
+                <a href="04editprofileacc.html" data-aos="fade-left">Edit Profile<i class="fa-solid fa-user-pen"></i></a>
                 <a href="05riwayat.html" data-aos="fade-left">History<i class="fa-solid fa-money-check"></i></a>
-                <button data-aos="fade-left" onclick="openPopup()">Logout<i
-                        class="fa-solid fa-right-from-bracket"></i></button>
+                <button data-aos="fade-left" onclick="openPopup()">Logout<i class="fa-solid fa-right-from-bracket"></i></button>
             </div>
         </div>
     </nav>
@@ -110,27 +102,23 @@
                             $error_tanggal_pelaksanaan = isset($error_tanggal_pelaksanaan) ? $error_tanggal_pelaksanaan : null;
 
                             ?>
-                            <form action="/client/checkoutVaksin" class="form-darurat" id="form-vaksinasi"
-                                method="post">
+                            <form action="/client/checkoutVaksin" class="form-darurat" id="form-vaksinasi" method="post">
                                 <?= csrf_field(); ?>
                                 <i class="fa-solid fa-hospital-user"></i>
                                 <div class="form-darurat-info">
                                     <i class="fa-solid fa-users-line"></i>
                                     <input type="text" placeholder="Jumlah Pasien..." id="pasienvaksin" name="jumlah">
                                 </div>
-                                <div class="space"
-                                    style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
+                                <div class="space" style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
                                     <p id="error"><?= $error_jumlah ?></p>
                                     <!-- <p>hai</p> -->
                                 </div>
                                 <br>
                                 <div class="form-darurat-info">
                                     <i class="fa-solid fa-map-location-dot"></i>
-                                    <input type="text" placeholder="Lokasi Pelaksanaan..." id="lokasivaksin"
-                                        name="lokasi">
+                                    <input type="text" placeholder="Lokasi Pelaksanaan..." id="lokasivaksin" name="lokasi">
                                 </div>
-                                <div class="space"
-                                    style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
+                                <div class="space" style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
                                     <p id="error"><?= $error_lokasi ?></p>
                                     <!-- <p>hai</p> -->
                                 </div>
@@ -155,8 +143,7 @@
                                         </div>
                                     </select>
                                 </div>
-                                <div class="space"
-                                    style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
+                                <div class="space" style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
                                     <p id="error"><?= $error_vaksin ?></p>
                                     <!-- <p>hai</p> -->
                                 </div>
@@ -166,25 +153,23 @@
                                     <input type="text" placeholder="Jenis Vaksin..." id="jenisvaksin" name="lainnya">
                                 </div>
                                 <script>
-                                let jenisvaksin = document.getElementById('jenisvaksin');
-                                let optionvaksinlain = document.getElementById('vaksin');
-                                // if option vaksin lainnya is selected, jenisvaksin will be visible
-                                optionvaksinlain.addEventListener('change', function() {
-                                    if (optionvaksinlain.value == 'vaksinlain') {
-                                        jenisvaksin.style.visibility = 'visible';
-                                    } else {
-                                        jenisvaksin.style.visibility = 'hidden';
-                                    }
-                                })
+                                    let jenisvaksin = document.getElementById('jenisvaksin');
+                                    let optionvaksinlain = document.getElementById('vaksin');
+                                    // if option vaksin lainnya is selected, jenisvaksin will be visible
+                                    optionvaksinlain.addEventListener('change', function() {
+                                        if (optionvaksinlain.value == 'vaksinlain') {
+                                            jenisvaksin.style.visibility = 'visible';
+                                        } else {
+                                            jenisvaksin.style.visibility = 'hidden';
+                                        }
+                                    })
                                 </script>
                                 <h3 class="tgl">Tanggal Pelaksanaan</h3>
                                 <div class="form-darurat-info">
                                     <i class="fa-solid fa-calendar-days"></i>
-                                    <input type="date" placeholder="Tanggal Pelaksanaan..." id="tanggalvaksin"
-                                        name="tanggal_pelaksanaan">
+                                    <input type="date" placeholder="Tanggal Pelaksanaan..." id="tanggalvaksin" name="tanggal_pelaksanaan">
                                 </div>
-                                <div class="space"
-                                    style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
+                                <div class="space" style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
                                     <p id="error"><?= $error_tanggal_pelaksanaan ?></p>
                                     <!-- <p>hai</p> -->
                                 </div>
@@ -274,7 +259,7 @@
                 <ul>
                     <li><a href="10checkup.html">Medical Check Up</a></li>
                     <li><a href="/client/vaksin">Vaksinasi</a></li>
-                    <li><a href="11obat.html">Pembelian Obat</a></li>
+                    <li><a href="/client/obat">Pembelian Obat</a></li>
                     <li><a href="07darurat.html">Layanan Darurat</a></li>
                 </ul>
             </div>

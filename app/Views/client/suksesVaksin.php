@@ -30,24 +30,18 @@
     <!-- NAVIGATION BAR SECTION -->
     <nav class="navigation_bar" id="navbar_color">
         <div id="menu-btn" class="fas fa-bars"></div>
-        <a href="01index.html" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png"
-                alt="" id="gambar1">
+        <a href="01index.html" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png" alt="" id="gambar1">
             <p>Pearl Medic</p>
         </a>
         <div class="navbar">
             <a href="01index.html" class="hidup" data-aos="fade-left">Home</a>
-            <a href="#layanans" data-aos="fade-left" class="menu-button">Layanan<i
-                    class="fa-solid fa-chevron-down"></i></a>
+            <a href="#layanans" data-aos="fade-left" class="menu-button">Layanan<i class="fa-solid fa-chevron-down"></i></a>
             <div class="menu_dropdown">
                 <div class="dropdown_content">
-                    <a href="10checkup.html" data-aos="fade-left" class="menu-isi">Medical Check Up<i
-                            class="fa-solid fa-stethoscope"></i></a>
-                    <a href="12vaksinasi.html" data-aos="fade-left" class="menu-isi">Vaksinasi<i
-                            class="fa-solid fa-syringe"></i></a>
-                    <a href="11obat.html" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i
-                            class="fa-solid fa-pills"></i></a>
-                    <a href="07darurat.html" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i
-                            class="fa-solid fa-truck-medical"></i></a>
+                    <a href="10checkup.html" data-aos="fade-left" class="menu-isi">Medical Check Up<i class="fa-solid fa-stethoscope"></i></a>
+                    <a href="12vaksinasi.html" data-aos="fade-left" class="menu-isi">Vaksinasi<i class="fa-solid fa-syringe"></i></a>
+                    <a href="/client/obat" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i class="fa-solid fa-pills"></i></a>
+                    <a href="07darurat.html" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i class="fa-solid fa-truck-medical"></i></a>
                 </div>
             </div>
             <a href="#contacts" data-aos="fade-left">Kontak Kami</a>
@@ -61,11 +55,9 @@
             </div>
             <div class="profiledropdown">
                 <a href="03profileacc.html" data-aos="fade-left">My Account<i class="fa-solid fa-user-tie"></i></a>
-                <a href="04editprofileacc.html" data-aos="fade-left">Edit Profile<i
-                        class="fa-solid fa-user-pen"></i></a>
+                <a href="04editprofileacc.html" data-aos="fade-left">Edit Profile<i class="fa-solid fa-user-pen"></i></a>
                 <a href="05riwayat.html" data-aos="fade-left">History<i class="fa-solid fa-money-check"></i></a>
-                <button data-aos="fade-left" onclick="openPopup()">Logout<i
-                        class="fa-solid fa-right-from-bracket"></i></button>
+                <button data-aos="fade-left" onclick="openPopup()">Logout<i class="fa-solid fa-right-from-bracket"></i></button>
             </div>
         </div>
     </nav>
@@ -172,7 +164,7 @@
                 <ul>
                     <li><a href="10checkup.html">Medical Check Up</a></li>
                     <li><a href="12vaksinasi.html">Vaksinasi</a></li>
-                    <li><a href="11obat.html">Pembelian Obat</a></li>
+                    <li><a href="/client/obat">Pembelian Obat</a></li>
                     <li><a href="07darurat.html">Layanan Darurat</a></li>
                 </ul>
             </div>

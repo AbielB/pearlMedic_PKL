@@ -104,7 +104,7 @@
     justify-content: center;
 
 }
-.popup, .popupedit{
+.popup, .popupedit, .popupsukses, .popuphapus{
     width: 550px;
     height: 450px;
     background: $warna-utama5;
@@ -133,25 +133,25 @@
     position: fixed !important;
 
 }
-.popup i, .popupedit i{
+.popup i, .popupedit i, .popupsukses i, .popuphapus i{
     font-size: 120px;
     color: $warna-utama3;
     margin-top: 30px;
     margin-bottom: 30px;
 }
-.popup h2, .popupedit h2{
+.popup h2, .popupedit h2, .popupsukses h2, .popuphapus h2{
     font-size: 25px;
     // text-transform: uppercase;
     color: $warna-light;
     margin-bottom: 30px;
 }
-.popup p, .popupedit p{
+.popup p, .popupedit p, .popupsukses p, .popuphapus p{
     font-size: 14px;
     margin-bottom: 50px;
     color: $warna-light;
 }
 
-.popup button, .popupedit button{
+.popup button, .popupedit button, .popupsukses button, .popuphapus button{
     padding: 10px 10px;
     border: none;
     background-color: transparent;
@@ -163,7 +163,7 @@
     cursor: pointer;
     margin-bottom: 5px;
 }
-.popup button:hover , .popupedit button:hover{
+.popup button:hover , .popupedit button:hover,  .popupsukses button:hover, .popuphapus button:hover{
     cursor: pointer;
     color: $warna-dark;
     background-color: $warna-utama3;
@@ -311,28 +311,28 @@ nav.scrolled{
 }
 
 @media (max-width:700px){
-    .popup, .popupedit{
+    .popup, .popupedit, .popupsukses, .popuphapus{
         width: 450px;
     } 
 }
 @media (max-width:500px){
-    .popup, .popupedit{
+    .popup, .popupedit, .popupsukses, .popuphapus{
         width: 350px;
     } 
 }
 @media (max-width:400px){
-    .popup, .popupedit{
+    .popup, .popupedit, .popupsukses, .popuphapus{
         width: 300px;
         height: 450px;
         
     } 
-    .popup i, .popupedit i{
+    .popup i, .popupedit i, .popupsukses i, .popuphapus i{
         font-size: 80px;
         color: $warna-utama3;
         margin-top: 30px;
         margin-bottom: 30px;
     }
-    .popup h2, .popupedit h2{
+    .popup h2, .popupedit h2, .popupsukses h2, .popuphapus h2{
         font-size: 20px;
         // text-transform: uppercase;
         color: $warna-light;

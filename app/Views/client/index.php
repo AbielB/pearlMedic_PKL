@@ -30,24 +30,18 @@
     <!-- NAVIGATION BAR SECTION -->
     <nav class="navigation_bar" id="navbar_color">
         <div id="menu-btn" class="fas fa-bars"></div>
-        <a href="/client" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png" alt=""
-                id="gambar1">
+        <a href="/client" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png" alt="" id="gambar1">
             <p>Pearl Medic</p>
         </a>
         <div class="navbar">
             <a href="/client" class="hidup" data-aos="fade-left">Home</a>
-            <a href="#layanans" data-aos="fade-left" class="menu-button">Layanan<i
-                    class="fa-solid fa-chevron-down"></i></a>
+            <a href="#layanans" data-aos="fade-left" class="menu-button">Layanan<i class="fa-solid fa-chevron-down"></i></a>
             <div class="menu_dropdown">
                 <div class="dropdown_content">
-                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i
-                            class="fa-solid fa-stethoscope"></i></a>
-                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i
-                            class="fa-solid fa-syringe"></i></a>
-                    <a href="11obat.html" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i
-                            class="fa-solid fa-pills"></i></a>
-                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i
-                            class="fa-solid fa-truck-medical"></i></a>
+                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i class="fa-solid fa-stethoscope"></i></a>
+                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i class="fa-solid fa-syringe"></i></a>
+                    <a href="/client/obat" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i class="fa-solid fa-pills"></i></a>
+                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i class="fa-solid fa-truck-medical"></i></a>
                 </div>
             </div>
             <a href="#contacts" data-aos="fade-left">Kontak Kami</a>
@@ -63,8 +57,7 @@
                 <a href="/client/myAccount" data-aos="fade-left">My Account<i class="fa-solid fa-user-tie"></i></a>
                 <a href="/client/editProfile" data-aos="fade-left">Edit Profile<i class="fa-solid fa-user-pen"></i></a>
                 <a href="/client/history" data-aos="fade-left">History<i class="fa-solid fa-money-check"></i></a>
-                <button data-aos="fade-left" onclick="openPopup()">Logout<i
-                        class="fa-solid fa-right-from-bracket"></i></button>
+                <button data-aos="fade-left" onclick="openPopup()">Logout<i class="fa-solid fa-right-from-bracket"></i></button>
 
             </div>
         </div>
@@ -96,12 +89,10 @@
                     </p>
                     <br />
                     <div class="flex_info">
-                        <a href="/client/medicalcheckup" class="btn">Medical Check Up<i
-                                class="fa-solid fa-stethoscope"></i></a>
+                        <a href="/client/medicalcheckup" class="btn">Medical Check Up<i class="fa-solid fa-stethoscope"></i></a>
                         <a href="/client/vaksin" class="btn">Vaksinasi<i class="fa-solid fa-syringe"></i></a>
-                        <a href="11obat.html" class="btn">Pembelian Obat-Obatan<i class="fa-solid fa-pills"></i></a>
-                        <a href="/client/darurat" class="btn" id="darurat">Pelayanan Darurat<i
-                                class="fa-solid fa-truck-medical"></i></a>
+                        <a href="/client/obat" class="btn">Pembelian Obat-Obatan<i class="fa-solid fa-pills"></i></a>
+                        <a href="/client/darurat" class="btn" id="darurat">Pelayanan Darurat<i class="fa-solid fa-truck-medical"></i></a>
                     </div>
                 </div>
             </div>
@@ -170,7 +161,7 @@
                 <ul>
                     <li><a href="/client/medicalcheckup">Medical Check Up</a></li>
                     <li><a href="/client/vaksin">Vaksinasi</a></li>
-                    <li><a href="11obat.html">Pembelian Obat</a></li>
+                    <li><a href="/client/obat">Pembelian Obat</a></li>
                     <li><a href="/client/darurat">Layanan Darurat</a></li>
                 </ul>
             </div>
@@ -215,29 +206,29 @@
     <script src="../client_edit/scriptsjs/data.js"></script>
     <script src="../client_edit/scriptsjs/swiper.js"></script>
     <script>
-    let popup = document.getElementById("popup");
+        let popup = document.getElementById("popup");
 
-    function openPopup() {
-        popup.classList.add("open-popup");
-    }
+        function openPopup() {
+            popup.classList.add("open-popup");
+        }
 
-    function closePopup() {
-        popup.classList.remove("open-popup");
-    }
+        function closePopup() {
+            popup.classList.remove("open-popup");
+        }
 
-    // background popup
-    let container_popup = document.querySelector(".container_popup");
-    let btn_popup = document.querySelector(".btn_popup");
+        // background popup
+        let container_popup = document.querySelector(".container_popup");
+        let btn_popup = document.querySelector(".btn_popup");
 
-    btn_popup.addEventListener("click", function() {
-        container_popup.classList.add("active");
-    });
+        btn_popup.addEventListener("click", function() {
+            container_popup.classList.add("active");
+        });
 
-    // close popup
-    let btn_remove = document.querySelector(".btn-remove");
-    btn_remove.addEventListener("click", function() {
-        container_popup.classList.remove("active");
-    });
+        // close popup
+        let btn_remove = document.querySelector(".btn-remove");
+        btn_remove.addEventListener("click", function() {
+            container_popup.classList.remove("active");
+        });
     </script>
 </body>
 </body>

@@ -674,4 +674,97 @@ class ClientControl extends BaseController
             return redirect()->to('/client/vaksin');
         }
     }
+
+    public function obat()
+    {
+        //get role
+        $session = session();
+        $role = $session->get('role');
+        if ($role != 'client') {
+            return redirect()->to('/');
+        }
+        //check tb_keranjang, if not exist id_keranjang where id = session id and status = 1, insert into tb_keranjang id= session id and status = 1
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_keranjang');
+        $builder->select('id_keranjang');
+        $builder->where('id', $session->get('id'));
+        $builder->where('status', 1);
+        $query = $builder->get();
+        $result = $query->getResultArray();
+        if (empty($result)) {
+            $builder->set('id', $session->get('id'));
+            $builder->set('status', 1);
+            $builder->insert();
+        }
+        //get id_keranjang where id = session id and status = 1
+        $builder->select('id_keranjang');
+        $builder->where('id', $session->get('id'));
+        $builder->where('status', 1);
+        $query = $builder->get();
+        $result = $query->getResultArray();
+        $id_keranjang = $result[0]['id_keranjang'];
+        //if isset search, $search = search, else $search = ''
+        if (isset($_GET['search'])) {
+            $search = $_GET['search'];
+        } else {
+            $search = '';
+        }
+        //get data from tb_obat only 13 data
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_obat');
+        $builder->select('id_obat, nama_obat');
+        //if exist get search, query where name like search
+        if (isset($_GET['search'])) {
+            $search = $_GET['search'];
+            $builder->like('nama_obat', $search);
+        }
+        //if not isset sort, show 1st to 31th data
+        if (!isset($_GET['sort'])) {
+            $builder->limit(31);
+        }
+        //if isset sort = 2, show 32nd to 62nd data
+        if (isset($_GET['sort']) && $_GET['sort'] == 2) {
+            $builder->limit(31, 31);
+        }
+        //if isset sort = 3, show 63rd to 93rd data
+        if (isset($_GET['sort']) && $_GET['sort'] == 3) {
+            $builder->limit(31, 62);
+        }
+        //repeat until sort = 10
+        if (isset($_GET['sort']) && $_GET['sort'] == 4) {
+            $builder->limit(31, 93);
+        }
+        if (isset($_GET['sort']) && $_GET['sort'] == 5) {
+            $builder->limit(31, 124);
+        }
+        if (isset($_GET['sort']) && $_GET['sort'] == 6) {
+            $builder->limit(31, 155);
+        }
+        if (isset($_GET['sort']) && $_GET['sort'] == 7) {
+            $builder->limit(31, 186);
+        }
+        if (isset($_GET['sort']) && $_GET['sort'] == 8) {
+            $builder->limit(31, 217);
+        }
+        if (isset($_GET['sort']) && $_GET['sort'] == 9) {
+            $builder->limit(31, 248);
+        }
+        if (isset($_GET['sort']) && $_GET['sort'] == 10) {
+            $builder->limit(31, 279);
+        }
+
+        $query = $builder->get();
+
+        //send data to view
+        $data = [
+            'obat' => $query->getResultArray(),
+            'search' => $search,
+        ];
+        return view('client/obat', $data);
+    }
+
+    public function suksesObat()
+    {
+        return view('client/suksesObat');
+    }
 }

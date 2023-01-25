@@ -68,6 +68,9 @@ $routes->get('/client/suksesDarurat', 'ClientControl::suksesDarurat');
 $routes->get('/client/darurat', 'ClientControl::darurat');
 $routes->get('/client/vaksin', 'ClientControl::vaksin');
 $routes->get('/client/suksesVaksin', 'ClientControl::suksesVaksin');
+$routes->get('/client/obat', 'ClientControl::obat');
+$routes->get('/client/obat', 'ClientControl::obat');
+$routes->get('/client/suksesObat', 'ClientControl::suksesObat');
 
 $routes->post('/client/postEdit', 'ClientControl::postEdit');
 $routes->post('/client/checkoutMedical', 'ClientControl::checkoutMedical');

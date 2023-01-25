@@ -25,10 +25,10 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- END Link AOS Library -->
     <style>
-    #error {
-        color: red;
-        font-size: 1.5em;
-    }
+        #error {
+            color: red;
+            font-size: 1.5em;
+        }
     </style>
 </head>
 
@@ -36,24 +36,18 @@
     <!-- NAVIGATION BAR SECTION -->
     <nav class="navigation_bar" id="navbar_color">
         <div id="menu-btn" class="fas fa-bars"></div>
-        <a href="/client" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png" alt=""
-                id="gambar1">
+        <a href="/client" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png" alt="" id="gambar1">
             <p>Pearl Medic</p>
         </a>
         <div class="navbar">
             <a href="/client" class="hidup" data-aos="fade-left">Home</a>
-            <a href="#layanans" data-aos="fade-left" class="menu-button">Layanan<i
-                    class="fa-solid fa-chevron-down"></i></a>
+            <a href="#layanans" data-aos="fade-left" class="menu-button">Layanan<i class="fa-solid fa-chevron-down"></i></a>
             <div class="menu_dropdown">
                 <div class="dropdown_content">
-                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i
-                            class="fa-solid fa-stethoscope"></i></a>
-                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i
-                            class="fa-solid fa-syringe"></i></a>
-                    <a href="11obat.html" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i
-                            class="fa-solid fa-pills"></i></a>
-                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i
-                            class="fa-solid fa-truck-medical"></i></a>
+                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i class="fa-solid fa-stethoscope"></i></a>
+                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i class="fa-solid fa-syringe"></i></a>
+                    <a href="/client/obat" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i class="fa-solid fa-pills"></i></a>
+                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i class="fa-solid fa-truck-medical"></i></a>
                 </div>
             </div>
             <a href="#contacts" data-aos="fade-left">Kontak Kami</a>
@@ -69,8 +63,7 @@
                 <a href="/client/MyAccount" data-aos="fade-left">My Account<i class="fa-solid fa-user-tie"></i></a>
                 <a href="/client/EditProfile" data-aos="fade-left">Edit Profile<i class="fa-solid fa-user-pen"></i></a>
                 <a href="/client/history" data-aos="fade-left">History<i class="fa-solid fa-money-check"></i></a>
-                <button data-aos="fade-left" onclick="openPopup()">Logout<i
-                        class="fa-solid fa-right-from-bracket"></i></button>
+                <button data-aos="fade-left" onclick="openPopup()">Logout<i class="fa-solid fa-right-from-bracket"></i></button>
             </div>
         </div>
     </nav>
@@ -110,22 +103,18 @@
                                 <i class="fa-solid fa-user-nurse"></i>
                                 <div class="form-darurat-info">
                                     <i class="fa-solid fa-notes-medical"></i>
-                                    <input type="text" placeholder="Isi Kejadian Darurat..." id="kejadiandarurat"
-                                        name="deskripsi">
+                                    <input type="text" placeholder="Isi Kejadian Darurat..." id="kejadiandarurat" name="deskripsi">
                                 </div>
-                                <div class="space"
-                                    style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
+                                <div class="space" style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
                                     <p id="error"><?= $error_deskripsi ?></p>
                                     <!-- <p>hai</p> -->
                                 </div>
                                 <br>
                                 <div class="form-darurat-info">
                                     <i class="fa-solid fa-map-location-dot"></i>
-                                    <input type="text" placeholder="Lokasi Kejadian Darurat..." id="lokasidarurat"
-                                        name="lokasi">
+                                    <input type="text" placeholder="Lokasi Kejadian Darurat..." id="lokasidarurat" name="lokasi">
                                 </div>
-                                <div class="space"
-                                    style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
+                                <div class="space" style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
                                     <p id="error"><?= $error_lokasi ?></p>
 
                                 </div>
@@ -134,8 +123,7 @@
                                     <i class="fa-solid fa-hospital"></i>
                                     <input type="text" placeholder="Rumah Sakit Rujukan..." name="rs_tujuan">
                                 </div>
-                                <div class="space"
-                                    style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
+                                <div class="space" style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
                                     <p id="error"></p>
 
                                 </div>
@@ -143,11 +131,9 @@
 
                                 <div class="form-darurat-info">
                                     <i class="fa-solid fa-users-line"></i>
-                                    <input type="number" placeholder="Jumlah Pasien Terlibat..." id="pasiendarurat"
-                                        name="jumlah">
+                                    <input type="number" placeholder="Jumlah Pasien Terlibat..." id="pasiendarurat" name="jumlah">
                                 </div>
-                                <div class="space"
-                                    style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
+                                <div class="space" style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
                                     <p id="error"><?= $error_jumlah ?></p>
                                     <!-- <p>hai</p> -->
                                 </div>
@@ -158,12 +144,10 @@
                                         <h3>Deskripsi Tambahan (Opsional)</h3>
                                     </div>
                                     <br>
-                                    <textarea name="tambahan" id="deskripsitambahan" cols="30" rows="10"
-                                        class="textarea-darurat" style="padding-top: 5px; padding-left: 5px;">
+                                    <textarea name="tambahan" id="deskripsitambahan" cols="30" rows="10" class="textarea-darurat" style="padding-top: 5px; padding-left: 5px;">
                             </textarea>
                                 </div>
-                                <div class="space"
-                                    style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
+                                <div class="space" style="background-color: transparent; margin-top: -15px; margin-bottom: 20px;">
                                     <p class="display" id="deskripsitambahanerror"></p>
                                     <!-- <p>hai</p> -->
                                 </div>
@@ -245,7 +229,7 @@
                 <ul>
                     <li><a href="/client/medicalcheckup">Medical Check Up</a></li>
                     <li><a href="/client/vaksin">Vaksinasi</a></li>
-                    <li><a href="11obat.html">Pembelian Obat</a></li>
+                    <li><a href="/client/obat">Pembelian Obat</a></li>
                     <li><a href="/client/darurat">Layanan Darurat</a></li>
                 </ul>
             </div>
