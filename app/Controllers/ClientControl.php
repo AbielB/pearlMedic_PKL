@@ -718,47 +718,35 @@ class ClientControl extends BaseController
             $search = $_GET['search'];
             $builder->like('nama_obat', $search);
         }
-        //if not isset sort, show 1st to 31th data
+        //get number of row
+        $query = $builder->get();
+        $result = $query->getResultArray();
+        $num_rows = count($result);
+        $num_rows = ceil($num_rows / 15);
+        //if not isset sort, show 1st to 15th data
         if (!isset($_GET['sort'])) {
-            $builder->limit(31);
-        }
-        //if isset sort = 2, show 32nd to 62nd data
-        if (isset($_GET['sort']) && $_GET['sort'] == 2) {
-            $builder->limit(31, 31);
-        }
-        //if isset sort = 3, show 63rd to 93rd data
-        if (isset($_GET['sort']) && $_GET['sort'] == 3) {
-            $builder->limit(31, 62);
-        }
-        //repeat until sort = 10
-        if (isset($_GET['sort']) && $_GET['sort'] == 4) {
-            $builder->limit(31, 93);
-        }
-        if (isset($_GET['sort']) && $_GET['sort'] == 5) {
-            $builder->limit(31, 124);
-        }
-        if (isset($_GET['sort']) && $_GET['sort'] == 6) {
-            $builder->limit(31, 155);
-        }
-        if (isset($_GET['sort']) && $_GET['sort'] == 7) {
-            $builder->limit(31, 186);
-        }
-        if (isset($_GET['sort']) && $_GET['sort'] == 8) {
-            $builder->limit(31, 217);
-        }
-        if (isset($_GET['sort']) && $_GET['sort'] == 9) {
-            $builder->limit(31, 248);
-        }
-        if (isset($_GET['sort']) && $_GET['sort'] == 10) {
-            $builder->limit(31, 279);
+            $builder->limit(15);
+        } else {
+            //if isset sort, show 15th data from sort * 15
+            $builder->limit(15, ($_GET['sort'] - 1) * 15);
         }
 
         $query = $builder->get();
+
+        //get all data from tb_isi where id_keranjang = id_keranjang
+        $builder = $db->table('tb_isi');
+        $builder->select('nama_obat, jumlah');
+        $builder->where('id_keranjang', $id_keranjang);
+        $query2 = $builder->get();
+        $result2 = $query2->getResultArray();
 
         //send data to view
         $data = [
             'obat' => $query->getResultArray(),
             'search' => $search,
+            'num_rows' => $num_rows,
+            'id_keranjang' => $id_keranjang,
+            'isi' => $result2,
         ];
         return view('client/obat', $data);
     }
@@ -766,5 +754,35 @@ class ClientControl extends BaseController
     public function suksesObat()
     {
         return view('client/suksesObat');
+    }
+
+    public function tambahObatLain()
+    {
+        //get nama_obat and jumlah from post
+        $nama_obat = $this->request->getPost('nama_obat');
+        $jumlah = $this->request->getPost('jumlah_lain');
+        $id_keranjang = $this->request->getPost('id_keranjang');
+        //check if nama_obat in tb_isi where id_keranjang = id_keranjang
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_isi');
+        $builder->select('nama_obat');
+        $builder->where('id_keranjang', $id_keranjang);
+        $builder->where('nama_obat', $nama_obat);
+        $query = $builder->get();
+        $result = $query->getResultArray();
+        //if exist, update jumlah = jumlah + new jumlah
+        if (!empty($result)) {
+            $builder->set('jumlah', 'jumlah + ' . $jumlah, false);
+            $builder->where('nama_obat', $nama_obat);
+            $builder->update();
+        } else {
+            //if not exist, insert into tb_isi id_keranjang, nama_obat, jumlah
+            $builder->set('id_keranjang', $id_keranjang);
+            $builder->set('nama_obat', $nama_obat);
+            $builder->set('jumlah', $jumlah);
+            $builder->insert();
+        }
+        //if insert success then redirect to client/obat
+        return redirect()->to('/client/obat');
     }
 }

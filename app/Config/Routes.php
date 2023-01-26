@@ -72,11 +72,15 @@ $routes->get('/client/obat', 'ClientControl::obat');
 $routes->get('/client/obat', 'ClientControl::obat');
 $routes->get('/client/suksesObat', 'ClientControl::suksesObat');
 
+
 $routes->post('/client/postEdit', 'ClientControl::postEdit');
 $routes->post('/client/checkoutMedical', 'ClientControl::checkoutMedical');
 $routes->post('/client/checkoutDarurat', 'ClientControl::checkoutDarurat');
 $routes->post('/client/checkoutVaksin', 'ClientControl::checkoutVaksin');
+$routes->post('/client/tambahObatLain', 'ClientControl::tambahObatLain');
 $routes->get('/client/postEdit', 'ClientControl::editProfile');
+$routes->post('/client/ajaxTambahObat', 'Ajax::tambahObat');
+$routes->post('/client/ajaxHapusObat', 'Ajax::hapusObat');
 
 
 

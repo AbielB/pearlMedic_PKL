@@ -51,4 +51,48 @@ class Ajax extends BaseController
             $builder->update();
         }
     }
+
+    public function tambahObat()
+    {
+        // get ajax data id dan jumlah
+        $id = $this->request->getVar('id');
+        $jumlah = $this->request->getVar('jumlah');
+        $id_keranjang = $this->request->getVar('id_keranjang');
+        $nama_obat = $this->request->getVar('nama_obat');
+        //check if nama_obat in tb_isi where id_keranjang = id_keranjang
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_isi');
+        $builder->where('nama_obat', $nama_obat);
+        $builder->where('id_keranjang', $id_keranjang);
+        $row = $builder->get()->getRowArray();
+        //if id_obat in tb_isi where id_keranjang = id_keranjang, update jumlah + old jumlah where id_obat = id_obat
+        if ($row) {
+            $builder = $db->table('tb_isi');
+            $builder->set('jumlah', 'jumlah+' . $jumlah, false);
+            $builder->where('id_obat', $id);
+            $builder->update();
+        } else {
+            //if id_obat not in tb_isi where id_keranjang = id_keranjang, insert id_obat, nama_obat, jumlah, id_keranjang to tb_isi
+            $builder = $db->table('tb_isi');
+            $builder->insert([
+                'id_obat' => $id,
+                'nama_obat' => $nama_obat,
+                'jumlah' => $jumlah,
+                'id_keranjang' => $id_keranjang
+            ]);
+        }
+    }
+
+    public function hapusObat()
+    {
+        //get post data nama_obat and id_keranjang
+        $nama_obat = $this->request->getVar('nama_obat');
+        $id_keranjang = $this->request->getVar('id_keranjang');
+        //delete from tb_isi where nama_obat = nama_obat and id_keranjang = id_keranjang
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_isi');
+        $builder->where('nama_obat', $nama_obat);
+        $builder->where('id_keranjang', $id_keranjang);
+        $builder->delete();
+    }
 }

@@ -136,7 +136,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Obat</th>
-                                        <th>Jumlah</th>
+                                        <th style="width:10%">Jumlah</th>
                                         <th><i class="fa-solid fa-cart-plus"></i></th>
                                     </tr>
                                 </thead>
@@ -145,7 +145,7 @@
                                     //foreach obat
                                     //num = get sort if exist
                                     $num = isset($_GET['sort']) ? $_GET['sort'] : 1;
-                                    $num = ($num - 1) * 32;
+                                    $num = ($num - 1) * 15 + 1;
                                     //if num = 0, num = 1
                                     if ($num == 0) {
                                         $num = 1;
@@ -153,10 +153,10 @@
                                     foreach ($obat as $obat) {
                                         echo "<tr>";
                                         echo "<td>" . $num . "</td>";
-                                        echo "<td>" . $obat['nama_obat'] . "</td>";
+                                        echo "<td id='nama" . $obat['id_obat'] . "'>" . $obat['nama_obat'] . "</td>";
                                         //echo input jumlah
                                         echo "<td><input type='number' name='jumlah' id='" . $obat['id_obat'] . "' placeholder='Jumlah Obat...'></td>";
-                                        echo "<td><button type='button' class='btn-add' onclick='ajaxTambah(" . $obat['id_obat'] . ")'>Tambah <i class='fa-solid fa-plus'></i></button></td>";
+                                        echo "<td><button type='button' class='btn-add' onclick='tambahObat(" . $obat['id_obat'] . ")'>Tambah <i class='fa-solid fa-plus'></i></button></td>";
                                         echo "</tr>";
                                         $num = $num + 1;
                                     }
@@ -164,14 +164,19 @@
 
                                 </tbody>
                             </table>
+
                         </div>
                         <div class="pagination">
+
                             <?php
                             //get current link
                             $current_link = $_SERVER['REQUEST_URI'];
                             //if isset get sort, delete from link
                             if (isset($_GET['sort'])) {
+                                $sort = $_GET['sort'];
                                 $current_link = str_replace('&sort=' . $_GET['sort'], '', $current_link);
+                            } else {
+                                $sort = 1;
                             }
                             //remove any &
                             $current_link = str_replace('&&', '&', $current_link);
@@ -183,35 +188,40 @@
                             else {
                                 $current_link .= '?';
                             }
+                            $start_rows = $sort - 1;
+                            //if start_rows < 1, start_rows = 1
+                            if ($start_rows < 1) {
+                                $start_rows = 1;
+                            }
+                            $end_rows = $start_rows + 7;
+                            if ($end_rows > $num_rows) {
+                                $end_rows = $num_rows;
+                            }
+
+                            echo '<a href="' . $current_link . '">&laquo;</a>';
+                            //for loop 1 to num_rows, echo a href
+                            for ($i = $start_rows; $i <= $end_rows; $i++) {
+                                echo "<a href='" . $current_link . "sort=" . $i . "' id='color" . $i . "'>" . $i . "</a>";
+                            }
+                            echo '<a href="' . $current_link . 'sort=' . $num_rows . '">&raquo;</a>';
                             ?>
-                            <a href="<?= $current_link ?>" class="yellow">1</a>
-                            <a href="<?= $current_link . 'sort=2' ?>">2</a>
-                            <a href="<?= $current_link . 'sort=3' ?>">3</a>
-                            <a href="<?= $current_link . 'sort=4' ?>">4</a>
-                            <a href="<?= $current_link . 'sort=5' ?>">5</a>
-                            <a href="<?= $current_link . 'sort=6' ?>">6</a>
-                            <a href="<?= $current_link . 'sort=7' ?>">7</a>
-                            <a href="<?= $current_link . 'sort=8' ?>">8</a>
-                            <a href="<?= $current_link . 'sort=9' ?>">9</a>
-                            <a href="<?= $current_link . 'sort=10' ?>">10</a>
                         </div>
                         <div class="formtambahobat">
-                            <form action="" class="formtambahobat1">
+                            <form action="/client/tambahObatLain" class="formtambahobat1" method="post">
                                 <h3>Obat yang dicari tak ada di tabel?</h3>
                                 <p>silahkan pesan obat melalui form dibawah ini </p>
                                 <div class="form_tambah">
                                     <i class="fa-solid fa-tablets"></i>
-                                    <input type="text" name="namaobat" id="namaobat" placeholder="Isi Nama Obat...">
+                                    <input type="text" name="nama_obat" id="namaobat" placeholder="Isi Nama Obat...">
                                 </div>
-                                <div class="form_tambah">
-                                    <i class="fa-solid fa-file-prescription"></i>
-                                    <input type="text" name="kemasan" id="kemasan"
-                                        placeholder="Isi Kemasan Obat... (tablet,botol,dll)">
-                                </div>
+
                                 <div class="form_tambah">
                                     <i class="fa-solid fa-arrow-down-wide-short"></i>
-                                    <input type="number" name="jumlah" id="jumlah_lain" placeholder="Isi Jumlah Obat">
+                                    <input type="number" name="jumlah_lain" id="jumlah_lain"
+                                        placeholder="Isi Jumlah Obat">
                                 </div>
+                                <!-- hidden input id_keranjang -->
+                                <input type="hidden" name="id_keranjang" value="<?= $id_keranjang ?>">
                                 <button type="submit" class="form_tambah_button">
                                     <i class="fa-solid fa-cart-plus"></i>
                                     Tambahkan
@@ -274,21 +284,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>TAWON M GOSOK EE 60ML</td>
-                        <td>2 Buah</td>
-                        <td><button type="button">Hapus <i class="fa-solid fa-trash-can"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>TAWON M GOSOK EE 60ML</td>
-                        <td>2 Buah</td>
-                        <td><button type="button">Hapus <i class="fa-solid fa-trash-can"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>TAWON M GOSOK EE 60ML</td>
-                        <td>2 Buah</td>
-                        <td><button type="button">Hapus <i class="fa-solid fa-trash-can"></i></button></td>
-                    </tr>
+                    <?php
+                    //foreach isi, echo tr td
+                    foreach ($isi as $key => $value) {
+                        echo "<tr>";
+                        echo "<td>" . $value['nama_obat'] . "</td>";
+                        echo "<td>" . $value['jumlah'] . " Buah</td>";
+                        echo "<td><button type='button' onclick = 'hapus(\"" . $value['nama_obat'] . "\")'>Hapus <i class='fa-solid fa-trash-can'></i></button></td>";
+                        echo "</tr>";
+                    }
+                    ?>
+
                 </tbody>
             </table>
         </div>
@@ -377,8 +383,11 @@
     <script src="../client_edit/scriptsjs/aos.js"></script>
     <script src="../client_edit/scriptsjs/data.js"></script>
     <script src="../client_edit/scriptsjs/swiper.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
     let popup = document.getElementById("popup");
+
+
 
     function openPopup() {
         popup.classList.add("open-popup");
@@ -434,25 +443,12 @@
     let popupsukses = document.getElementById("popupsukses");
 
     function openPopupsukses() {
-        //get element by id jumlah
-        var jumlah = document.getElementById("jumlah").value;
-        //ajax to /ajax/keranjang
-        $.ajax({
-            url: "<?= base_url('client/AjaxObat') ?>",
-            type: "POST",
-            data: {
-                id: id,
-                jumlah: jumlah,
-            },
-            success: function(data) {
-                alert("Status Berhasil Diubah");
-            }
-        });
         popupsukses.classList.add("open-popup");
     }
 
     function closePopupsukses() {
-        popupsukses.classList.remove("open-popup");
+        //refresh
+        location.reload();
     }
     </script>
     <script>
@@ -486,6 +482,97 @@
         //redirect to /client/obat?search=keyword
         let keyword = document.getElementById('search_obat').value;
         window.location.href = '/client/obat?search=' + keyword;
+    }
+    </script>
+
+    <!--  Ajax  -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript">
+    function tambahlain() {
+        jumlah = document.getElementById('jumlah_lain').value;
+        nama_obat = document.getElementById('nama_obat').value;
+        //if jumlah = 0 or null, alert
+        if (jumlah == 0 || jumlah == null) {
+            alert("Jumlah Tidak Boleh Kosong");
+            return;
+        }
+        //if nama_obat = null, alert
+        if (nama_obat == null) {
+            alert("Nama Obat Tidak Boleh Kosong");
+            return;
+        }
+        id_keranjang = <?= $id_keranjang ?>;
+        //ajax
+        $.ajax({
+            url: '<?= base_url('/client/ajaxTambahObat') ?>',
+            type: 'POST',
+            data: {
+                id: 0,
+                id_keranjang: id_keranjang,
+                jumlah: jumlah,
+                nama_obat: nama_obat
+            },
+            success: function(data) {
+                //if success, alert
+                alert("Berhasil Ditambahkan");
+                //refresh
+                location.reload();
+            }
+        });
+    }
+    //get element by id color + id
+    <?php
+        //if not isset get sort, set default sort = 1
+        if (!isset($_GET['sort'])) {
+            $_GET['sort'] = 1;
+        }
+        ?>
+    document.getElementById('color' + <?= $_GET['sort'] ?>).style.color = '#bd6133';
+
+
+    function tambahObat(id) {
+        jumlah = document.getElementById(id).value;
+        nama_obat = document.getElementById('nama' + id).innerHTML;
+        //if jumlah = 0 or null, alert
+        if (jumlah == 0 || jumlah == null) {
+            alert("Jumlah Tidak Boleh Kosong");
+            return;
+        }
+        id_keranjang = <?= $id_keranjang ?>;
+        console.log(id, id_keranjang, jumlah, nama_obat)
+        //ajax request to /client/tambahObat
+        $.ajax({
+            url: '<?= base_url('/client/ajaxTambahObat') ?>',
+            type: 'POST',
+            data: {
+                id: id,
+                id_keranjang: id_keranjang,
+                jumlah: jumlah,
+                nama_obat: nama_obat
+            },
+            success: function(data) {
+                //openpopupsekses
+                openPopupsukses();
+            }
+        });
+
+    }
+
+    function hapus(nama_obat) {
+        id_keranjang = <?= $id_keranjang ?>;
+        console.log("clicked")
+        $.ajax({
+            url: '<?= base_url('/client/ajaxHapusObat') ?>',
+            type: 'POST',
+            data: {
+                nama_obat: nama_obat,
+                id_keranjang: id_keranjang
+            },
+            success: function(data) {
+                //if success, refresh
+                location.reload();
+            }
+        });
     }
     </script>
 </body>
