@@ -256,9 +256,25 @@ class ClientControl extends BaseController
             $builder->where('id', $id);
             $query2 = $builder->get();
 
+            //get all data from tb_keranjang where id = session id
+            $id = $session->get('id');
+            $db = \Config\Database::connect();
+            $builder = $db->table('tb_keranjang');
+            $builder->where('id', $id);
+            $query3 = $builder->get();
+
+            //get all data from tb_ordervaksin where id = session id
+            $id = $session->get('id');
+            $db = \Config\Database::connect();
+            $builder = $db->table('tb_ordervaksin');
+            $builder->where('id', $id);
+            $query4 = $builder->get();
+
             $data = [
                 'medical' => $query->getResult(),
                 'darurat' => $query2->getResult(),
+                'keranjang' => $query3->getResult(),
+                'ordervaksin' => $query4->getResult(),
             ];
             //send data to view
             return view('client/history', $data);
@@ -703,6 +719,9 @@ class ClientControl extends BaseController
         $query = $builder->get();
         $result = $query->getResultArray();
         $id_keranjang = $result[0]['id_keranjang'];
+        //set session keranjang
+        $session->set('keranjang', $id_keranjang);
+
         //if isset search, $search = search, else $search = ''
         if (isset($_GET['search'])) {
             $search = $_GET['search'];

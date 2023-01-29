@@ -47,7 +47,7 @@
             <a href="#" data-aos="fade-left" class="menu-button">Layanan<i class="fa-solid fa-chevron-down"></i></a>
             <div class="menu_dropdown">
                 <div class="dropdown_content">
-                    <a href="10checkup.html" data-aos="fade-left" class="menu-isi">Medical Check Up<i class="fa-solid fa-stethoscope"></i></a>
+                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i class="fa-solid fa-stethoscope"></i></a>
                     <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i class="fa-solid fa-syringe"></i></a>
                     <a href="/client/obat" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i class="fa-solid fa-pills"></i></a>
                     <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i class="fa-solid fa-truck-medical"></i></a>
@@ -65,7 +65,7 @@
             <div class="profiledropdown">
                 <a href="/client/myAccount" data-aos="fade-left">My Account<i class="fa-solid fa-user-tie"></i></a>
                 <a href="/client/editProfile" data-aos="fade-left">Edit Profile<i class="fa-solid fa-user-pen"></i></a>
-                <a href="05riwayat.html" data-aos="fade-left">History<i class="fa-solid fa-money-check"></i></a>
+                <a href="/client/history" data-aos="fade-left">History<i class="fa-solid fa-money-check"></i></a>
                 <button data-aos="fade-left" onclick="openPopup()">
                     Logout<i class="fa-solid fa-right-from-bracket"></i>
                 </button>
@@ -275,7 +275,7 @@
             <div class="footer2">
                 <h3>Layanan Kami</h3>
                 <ul>
-                    <li><a href="10checkup.html">Medical Check Up</a></li>
+                    <li><a href="/client/medicalcheckup">Medical Check Up</a></li>
                     <li><a href="/client/vaksin">Vaksinasi</a></li>
                     <li><a href="/client/obat">Pembelian Obat</a></li>
                     <li><a href="/client/darurat">Layanan Darurat</a></li>

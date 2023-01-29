@@ -7,9 +7,9 @@ use to test your application. Those details can be found in the documentation.
 
 ## Resources
 
-* [CodeIgniter 4 User Guide on Testing](https://codeigniter4.github.io/userguide/testing/index.html)
-* [PHPUnit docs](https://phpunit.de/documentation.html)
-* [Any tutorials on Unit testing in CI4?](https://forum.codeigniter.com/showthread.php?tid=81830)
+- [CodeIgniter 4 User Guide on Testing](https://codeigniter4.github.io/userguide/testing//client)
+- [PHPUnit docs](https://phpunit.de/documentation.html)
+- [Any tutorials on Unit testing in CI4?](https://forum.codeigniter.com/showthread.php?tid=81830)
 
 ## Requirements
 
@@ -76,25 +76,26 @@ It is collected in two formats: a simple text file that provides an overview as 
 as a comprehensive collection of HTML files that show the status of every line of code in the project.
 
 The text file can be found at **tests/coverage.txt**.
-The HTML files can be viewed by opening **tests/coverage/index.html** in your favorite browser.
+The HTML files can be viewed by opening **tests/coverage//client** in your favorite browser.
 
 ## PHPUnit XML Configuration
 
-The repository has a ``phpunit.xml.dist`` file in the project root that's used for
+The repository has a `phpunit.xml.dist` file in the project root that's used for
 PHPUnit configuration. This is used to provide a default configuration if you
 do not have your own configuration file in the project root.
 
-The normal practice would be to copy ``phpunit.xml.dist`` to ``phpunit.xml``
+The normal practice would be to copy `phpunit.xml.dist` to `phpunit.xml`
 (which is git ignored), and to tailor it as you see fit.
 For instance, you might wish to exclude database tests, or automatically generate
 HTML code coverage reports.
 
 ## Test Cases
 
-Every test needs a *test case*, or class that your tests extend. CodeIgniter 4
+Every test needs a _test case_, or class that your tests extend. CodeIgniter 4
 provides a few that you may use directly:
-* `CodeIgniter\Test\CIUnitTestCase` - for basic tests with no other service needs
-* `CodeIgniter\Test\DatabaseTestTrait` - for tests that need database access
+
+- `CodeIgniter\Test\CIUnitTestCase` - for basic tests with no other service needs
+- `CodeIgniter\Test\DatabaseTestTrait` - for tests that need database access
 
 Most of the time you will want to write your own test cases to hold functions and services
 common to your test suites.

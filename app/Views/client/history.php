@@ -39,7 +39,7 @@
             <a href="#" data-aos="fade-left" class="menu-button">Layanan<i class="fa-solid fa-chevron-down"></i></a>
             <div class="menu_dropdown">
                 <div class="dropdown_content">
-                    <a href="10checkup.html" data-aos="fade-left" class="menu-isi">Medical Check Up<i class="fa-solid fa-stethoscope"></i></a>
+                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i class="fa-solid fa-stethoscope"></i></a>
                     <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i class="fa-solid fa-syringe"></i></a>
                     <a href="/client/obat" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i class="fa-solid fa-pills"></i></a>
                     <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i class="fa-solid fa-truck-medical"></i></a>
@@ -99,59 +99,49 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>Tanggal Pemesanan</th>
-                                            <th>Total Obat</th>
-                                            <th>Status</th>
-                                            <th><i class="fa-solid fa-cart-shopping"></i></th>
+                                            <?php
+                                            //if keranjang kosong
+                                            if (!empty($keranjang)) {
+                                            ?>
+                                                <th>No</th>
+                                                <th>Tanggal Pemesanan</th>
+                                                <th>Alamat</th>
+                                                <th>Status</th>
+                                                <th><i class="fa-solid fa-cart-shopping"></i></th>
+                                            <?php
+                                            }
+                                            ?>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="yellow">1</td>
-                                            <td>23-08-2022</td>
-                                            <td>50 Buah</td>
-                                            <td class="red">Belum Dilayani</td>
-                                            <td>
-                                                <a href="06detailriwayatkeranjang.html">Detail Keranjang</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="yellow">2</td>
-                                            <td>21-03-2022</td>
-                                            <td>30 Buah</td>
-                                            <td class="yellow">Dalam Proses</td>
-                                            <td>
-                                                <a href="06detailriwayatkeranjang.html">Detail Keranjang</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="yellow">3</td>
-                                            <td>22-05-2022</td>
-                                            <td>40 Buah</td>
-                                            <td class="green">Sudah Dilayani</td>
-                                            <td>
-                                                <a href="06detailriwayatkeranjang.html">Detail Keranjang</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="yellow">4</td>
-                                            <td>22-05-2022</td>
-                                            <td>40 Buah</td>
-                                            <td class="green">Sudah Dilayani</td>
-                                            <td>
-                                                <a href="06detailriwayatkeranjang.html">Detail Keranjang</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="yellow">5</td>
-                                            <td>22-05-2022</td>
-                                            <td>40 Buah</td>
-                                            <td class="green">Sudah Dilayani</td>
-                                            <td>
-                                                <a href="06detailriwayatkeranjang.html">Detail Keranjang</a>
-                                            </td>
-                                        </tr>
+                                        <?php
+                                        $i = 1;
+                                        //foreach keranjang
+                                        foreach ($keranjang as $k) {
+                                            $status = $k->status;
+                                            if ($status == 0) {
+                                                $status = "Belum Dilayani";
+                                                $color = "red";
+                                            } else if ($status == 1) {
+                                                $status = "Dalam Proses";
+                                                $color = "yellow";
+                                            } else if ($status == 2) {
+                                                $status = "Sudah Dilayani";
+                                                $color = "green";
+                                            } else {
+                                                $status = "Dibatalkan";
+                                                $color = "red";
+                                            }
+                                            echo "<tr>";
+                                            echo "<td class='yellow'>" . $i . "</td>";
+                                            echo "<td>" . $k->tanggal_order . "</td>";
+                                            echo "<td>" . $k->alamat . " Buah</td>";
+                                            echo "<td class='" . $color . "'>" . $status . "</td>";
+                                            echo "<td><a href='/client/detailKeranjang?id=" . $k->id_keranjang . "'>Detail Keranjang</a></td>";
+                                            echo "</tr>";
+                                        }
+                                        ?>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -169,13 +159,20 @@
                             <div class="info-pelayanan">
                                 <table>
                                     <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Tanggal Pemesanan</th>
-                                            <th>Total Pasien</th>
-                                            <th>Lokasi</th>
-                                            <th>Status</th>
-                                        </tr>
+                                        <?php
+                                        //if medical is not empty
+                                        if (!empty($medical)) {
+                                        ?>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Tanggal Pemesanan</th>
+                                                <th>Total Pasien</th>
+                                                <th>Lokasi</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        <?php
+                                        }
+                                        ?>
                                     </thead>
                                     <tbody>
                                         <?php
@@ -229,55 +226,53 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>Tanggal Pemesanan</th>
-                                            <th>Total Pasien</th>
-                                            <th>Lokasi</th>
-                                            <th>Jenis Vaksin</th>
-                                            <th>Status</th>
+                                            <?php
+                                            //if vaksin is not empty
+                                            if (!empty($ordervaksin)) { ?>
+                                                <th>No</th>
+                                                <th>Tanggal Pemesanan</th>
+                                                <th>Total Pasien</th>
+                                                <th>Lokasi</th>
+                                                <th>Jenis Vaksin</th>
+                                                <th>Status</th>
+                                            <?php } ?>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="yellow">1</td>
-                                            <td>23-08-2022</td>
-                                            <td>50 Pasien</td>
-                                            <td>Padalarang, Bandung Barat</td>
-                                            <td>Covid-19</td>
-                                            <td class="red">Belum Dilayani</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="yellow">2</td>
-                                            <td>21-03-2022</td>
-                                            <td>30 Pasien</td>
-                                            <td>Padalarang, Bandung Barat</td>
-                                            <td>Covid-19</td>
-                                            <td class="yellow">Dalam Proses</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="yellow">3</td>
-                                            <td>22-05-2022</td>
-                                            <td>40 Pasien</td>
-                                            <td>Padalarang, Bandung Barat</td>
-                                            <td>Covid-19</td>
-                                            <td class="green">Sudah Dilayani</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="yellow">4</td>
-                                            <td>22-05-2022</td>
-                                            <td>40 Pasien</td>
-                                            <td>Padalarang, Bandung Barat</td>
-                                            <td>Covid-19</td>
-                                            <td class="green">Sudah Dilayani</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="yellow">5</td>
-                                            <td>22-05-2022</td>
-                                            <td>40 Pasien</td>
-                                            <td>Padalarang, Bandung Barat</td>
-                                            <td>Covid-19</td>
-                                            <td class="green">Sudah Dilayani</td>
-                                        </tr>
+                                        <?php
+                                        //foreach vaksin get data
+                                        $num = 0;
+                                        foreach ($ordervaksin as $vaksin) {
+                                            //tanggal explode
+                                            $tanggal = date("d-m-Y", strtotime($vaksin->tanggal_pelaksanaan));
+                                            //if status = 1 then belum dilayani
+                                            if ($vaksin->status == 0) {
+                                                $status = "Belum Dilayani";
+                                                $color = "red";
+                                            }
+                                            //if status = 2 then dalam proses
+                                            else if ($vaksin->status == 1) {
+                                                $status = "Dalam Proses";
+                                                $color = "yellow";
+                                            } else if ($vaksin->status == 2) {
+                                                $status = "Sudah Dilayani";
+                                                $color = "green";
+                                            } else {
+                                                $status = "Dibatalkan";
+                                                $color = "red";
+                                            }
+                                            $num = $num + 1;
+                                            echo "<tr>";
+                                            echo "<td class='yellow'>$num</td>";
+                                            echo "<td>$tanggal</td>";
+                                            echo "<td>$vaksin->jumlah</td>";
+                                            echo "<td>$vaksin->lokasi</td>";
+                                            echo "<td>$vaksin->jenis_vaksin</td>";
+                                            echo "<td class='$color'>$status</td>";
+                                            echo "</tr>";
+                                        }
+                                        ?>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -296,12 +291,17 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>Tanggal Pemesanan</th>
-                                            <th>Total Pasien</th>
-                                            <th>Lokasi</th>
-                                            <th>RS Rujukan</th>
-                                            <th>Status</th>
+                                            <?php
+                                            //if darurat is not empty
+                                            if (!empty($darurat)) {
+                                            ?>
+                                                <th>No</th>
+                                                <th>Tanggal Pemesanan</th>
+                                                <th>Total Pasien</th>
+                                                <th>Lokasi</th>
+                                                <th>RS Rujukan</th>
+                                                <th>Status</th>
+                                            <?php } ?>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -376,7 +376,7 @@
             <div class="footer2">
                 <h3>Layanan Kami</h3>
                 <ul>
-                    <li><a href="10checkup.html">Medical Check Up</a></li>
+                    <li><a href="/client/medicalcheckup">Medical Check Up</a></li>
                     <li><a href="/client/vaksin">Vaksinasi</a></li>
                     <li><a href="/client/obat">Pembelian Obat</a></li>
                     <li><a href="/client/darurat">Layanan Darurat</a></li>

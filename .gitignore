@@ -49,16 +49,16 @@ Vagrantfile
 # Temporary Files
 #-------------------------
 writable/cache/*
-!writable/cache/index.html
+!writable/cache//client
 
 writable/logs/*
-!writable/logs/index.html
+!writable/logs//client
 
 writable/session/*
-!writable/session/index.html
+!writable/session//client
 
 writable/uploads/*
-!writable/uploads/index.html
+!writable/uploads//client
 
 writable/debugbar/*
 

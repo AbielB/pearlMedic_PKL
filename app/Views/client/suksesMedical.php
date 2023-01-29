@@ -171,7 +171,7 @@
             <div class="footer3">
                 <h3>Menu</h3>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/client">Home</a></li>
                     <li><a href="#home">Layanan Kami</a></li>
                     <li><a href="#contacts">Contact</a></li>
                     <li><a href="#">Keranjang<i class="fa-solid fa-cart-shopping"></i></a></li>
