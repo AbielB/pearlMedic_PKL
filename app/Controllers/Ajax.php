@@ -95,4 +95,22 @@ class Ajax extends BaseController
         $builder->where('id_keranjang', $id_keranjang);
         $builder->delete();
     }
+
+    public function pesanObat()
+    {
+        //get post data id_keranjang and alamat
+        $id_keranjang = $this->request->getVar('id_keranjang');
+        $alamat = $this->request->getVar('alamat');
+        //update tb_keranjang.status = 2 where id_keranjang = id_keranjang and alamat = alamat and set tanggal_order = today
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_keranjang');
+        $builder->set('status', 2);
+        $builder->set('tanggal_order', date('Y-m-d'));
+        $builder->set('alamat', $alamat);
+        $builder->where('id_keranjang', $id_keranjang);
+        $builder->update();
+        //set session keranjang = null
+        $session =  session();
+        $session->set('keranjang', null);
+    }
 }

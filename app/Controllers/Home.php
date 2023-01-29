@@ -56,6 +56,7 @@ class Home extends BaseController
             $session->set('nama', $row->nama);
             //set session role to admin
             $session->set('role', 'admin');
+
             //move to admin page
             return redirect()->to('/admin');
         } else {
@@ -94,6 +95,19 @@ class Home extends BaseController
             $session->set('nama', $row->nama_perusahaan);
             $session->set('password', $row->password);
             $session->set('id', $row->id);
+            //select from tb_keranjang where id=id and status = 1
+            $builder = $db->table('tb_keranjang');
+            $builder->where('id', $row->id);
+            $builder->where('status', 1);
+            $query = $builder->get();
+            $row = $query->getRow();
+            //if row is not null then set session keranjang, else session keranjang = null
+            if (isset($row)) {
+                $session->set('keranjang', $row->id_keranjang);
+            } else {
+                $session->set('keranjang', null);
+            }
+
             //set session role to client
             $session->set('role', 'client');
             //move to client page

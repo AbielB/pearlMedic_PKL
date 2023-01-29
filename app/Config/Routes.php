@@ -70,7 +70,7 @@ $routes->get('/client/vaksin', 'ClientControl::vaksin');
 $routes->get('/client/suksesVaksin', 'ClientControl::suksesVaksin');
 $routes->get('/client/obat', 'ClientControl::obat');
 $routes->get('/client/obat', 'ClientControl::obat');
-$routes->get('/client/suksesObat', 'ClientControl::suksesObat');
+$routes->get('/client/keranjang', 'ClientControl::keranjang');
 
 
 $routes->post('/client/postEdit', 'ClientControl::postEdit');
@@ -81,7 +81,7 @@ $routes->post('/client/tambahObatLain', 'ClientControl::tambahObatLain');
 $routes->get('/client/postEdit', 'ClientControl::editProfile');
 $routes->post('/client/ajaxTambahObat', 'Ajax::tambahObat');
 $routes->post('/client/ajaxHapusObat', 'Ajax::hapusObat');
-
+$routes->post('/client/ajaxPesanObat', 'Ajax::pesanObat');
 
 
 

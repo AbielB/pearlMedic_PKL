@@ -785,4 +785,43 @@ class ClientControl extends BaseController
         //if insert success then redirect to client/obat
         return redirect()->to('/client/obat');
     }
+
+    public function keranjang()
+    {
+        //get role
+        $session = session();
+        $role = $session->get('role');
+        if ($role != 'client') {
+            return redirect()->to('/');
+        }
+        //select all data from tb_isi where id_keranjang = sesion keranjang
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_isi');
+        $builder->select('nama_obat, jumlah');
+        $builder->where('id_keranjang', $session->get('keranjang'));
+        $query = $builder->get();
+        $result = $query->getResultArray();
+        $total = 0;
+        //if exist $keranjang_exist = true, else $keranjang_exist = false
+        if (!empty($result)) {
+            $keranjang_exist = true;
+            $text = 'Pastikan Obat yang dipilih sesuai dengan kebutuhan dan rekomendasi dokter kami';
+            //foreach item, add all jumlah
+            foreach ($result as $item) {
+                $total += $item['jumlah'];
+            }
+        } else {
+            $keranjang_exist = false;
+            $text = 'Keranjang anda kosong, silahkan pilih obat terlebih dahulu';
+        }
+        //send data to view
+        $data = [
+            'isi' => $result,
+            'keranjang_exist' => $keranjang_exist,
+            'text' => $text,
+            'total' => $total,
+            'id_keranjang' => $session->get('keranjang'),
+        ];
+        return view('client/keranjang', $data);
+    }
 }
