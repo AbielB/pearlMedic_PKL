@@ -30,24 +30,18 @@
     <!-- NAVIGATION BAR SECTION -->
     <nav class="navigation_bar" id="navbar_color">
         <div id="menu-btn" class="fas fa-bars"></div>
-        <a href="/client" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png" alt=""
-                id="gambar1">
+        <a href="/client" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png" alt="" id="gambar1">
             <p>Pearl Medic</p>
         </a>
         <div class="navbar">
             <a href="/client" class="hidup" data-aos="fade-left">Home</a>
-            <a href="#layanans" data-aos="fade-left" class="menu-button">Layanan<i
-                    class="fa-solid fa-chevron-down"></i></a>
+            <a href="#layanans" data-aos="fade-left" class="menu-button">Layanan<i class="fa-solid fa-chevron-down"></i></a>
             <div class="menu_dropdown">
                 <div class="dropdown_content">
-                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i
-                            class="fa-solid fa-stethoscope"></i></a>
-                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i
-                            class="fa-solid fa-syringe"></i></a>
-                    <a href="/client/obat" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i
-                            class="fa-solid fa-pills"></i></a>
-                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i
-                            class="fa-solid fa-truck-medical"></i></a>
+                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i class="fa-solid fa-stethoscope"></i></a>
+                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i class="fa-solid fa-syringe"></i></a>
+                    <a href="/client/obat" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i class="fa-solid fa-pills"></i></a>
+                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i class="fa-solid fa-truck-medical"></i></a>
                 </div>
             </div>
             <a href="#contacts" data-aos="fade-left">Kontak Kami</a>
@@ -63,8 +57,7 @@
                 <a href="/client/myAccount" data-aos="fade-left">My Account<i class="fa-solid fa-user-tie"></i></a>
                 <a href="/client/editProfile" data-aos="fade-left">Edit Profile<i class="fa-solid fa-user-pen"></i></a>
                 <a href="/client/history" data-aos="fade-left">History<i class="fa-solid fa-money-check"></i></a>
-                <button data-aos="fade-left" onclick="openPopup()">Logout<i
-                        class="fa-solid fa-right-from-bracket"></i></button>
+                <button data-aos="fade-left" onclick="openPopup()">Logout<i class="fa-solid fa-right-from-bracket"></i></button>
 
             </div>
         </div>
@@ -98,8 +91,7 @@
         <form action="" class="form-jumlah-obat">
             <p style="margin-bottom: 5px;">Silahkan Masukkan Jumlah Obat Yang Ingin Dipesan</p>
             <input type="number" name="jumlah" id="jumlah" placeholder="Jumlah Obat...">
-            <a href="#" onclick="closePopupedit()"><button type="button" class="btn-removeedit"
-                    onclick="openPopupsukses()">Ya</button></a>
+            <a href="#" onclick="closePopupedit()"><button type="button" class="btn-removeedit" onclick="openPopupsukses()">Ya</button></a>
         </form>
         <a href="#"><button type="button" onclick="closePopupedit()" class="btn-removeedit">
                 Batal
@@ -128,28 +120,28 @@
                     </div>
                     <br>
                     <?php if ($keranjang_exist) { ?>
-                    <div class="riwayatkeranjang-wrapper" id="riwayatkeranjanginfo">
-                        <div class="riwayatkeranjang-info">
+                        <div class="riwayatkeranjang-wrapper" id="riwayatkeranjanginfo">
+                            <div class="riwayatkeranjang-info">
 
-                            <div class="judultabelkeranjang">
-                                <i class="fa-solid fa-pills"></i>Product Obat-Obatan
-                            </div>
-                            <div class="tabelkeranjang">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>
-                                                Nama Product Obat<i class="fa-solid fa-pills"></i>
-                                            </th>
-                                            <th>
-                                                Jumlah<i class="fa-solid fa-arrow-down-wide-short"></i>
-                                            </th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
+                                <div class="judultabelkeranjang">
+                                    <i class="fa-solid fa-pills"></i>Product Obat-Obatan
+                                </div>
+                                <div class="tabelkeranjang">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>
+                                                    Nama Product Obat<i class="fa-solid fa-pills"></i>
+                                                </th>
+                                                <th>
+                                                    Jumlah<i class="fa-solid fa-arrow-down-wide-short"></i>
+                                                </th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
                                             $i = 1;
                                             foreach ($isi as $item) {
                                                 echo "<tr>";
@@ -163,46 +155,44 @@
 
                                             ?>
 
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
-                        <div class="riwayatkeranjang-info">
-                            <div class="judultabelkeranjang">
-                                <i class="fa-regular fa-id-card"></i>Status Keranjang
-                            </div>
-                            <div class="riwayatkeranjang-info-wrapper">
-                                <!-- <div class="statusriwayatkeranjang">
+                            <div class="riwayatkeranjang-info">
+                                <div class="judultabelkeranjang">
+                                    <i class="fa-regular fa-id-card"></i>Status Keranjang
+                                </div>
+                                <div class="riwayatkeranjang-info-wrapper">
+                                    <!-- <div class="statusriwayatkeranjang">
                           <h3>Status Pelayanan</h3>
                           <p class="green">Sudah Dilayani</p>
                       </div> -->
-                                <div class="totalbelanja">
-                                    <h3>Total Belanja</h3>
-                                    <p><?= $total ?> Buah</p>
+                                    <div class="totalbelanja">
+                                        <h3>Total Belanja</h3>
+                                        <p><?= $total ?> Buah</p>
+                                    </div>
+
+                                    <div class="alamatpengiriman">
+                                        <h3 class="yellow">Alamat Pengiriman</h3>
+                                        <form action="" class="alamatform">
+                                            <div class="form-group-alamat">
+                                                <i class="fa-solid fa-map-location-dot"></i>
+                                                <input type="text" name="alamat" id="alamat" placeholder="Alamat Lengkap...">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tombolkembali">
+                                        <a href="#" onclick="openPopuphapus()"> <i class="fa-regular fa-circle-check"></i>Konfirmasi Pesanan</a>
+                                    </div>
+                                    <br>
+                                    <div class="tombolkembali">
+                                        <a href="/client/obat"><i class="fa-solid fa-angles-left"></i>Kembali</a>
+                                    </div>
                                 </div>
 
-                                <div class="alamatpengiriman">
-                                    <h3 class="yellow">Alamat Pengiriman</h3>
-                                    <form action="" class="alamatform">
-                                        <div class="form-group-alamat">
-                                            <i class="fa-solid fa-map-location-dot"></i>
-                                            <input type="text" name="alamat" id="alamat"
-                                                placeholder="Alamat Lengkap...">
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="tombolkembali">
-                                    <a href="#" onclick="openPopuphapus()"> <i
-                                            class="fa-regular fa-circle-check"></i>Konfirmasi Pesanan</a>
-                                </div>
-                                <br>
-                                <div class="tombolkembali">
-                                    <a href="/client/obat"><i class="fa-solid fa-angles-left"></i>Kembali</a>
-                                </div>
                             </div>
-
                         </div>
-                    </div>
                     <?php } ?>
                 </div>
             </div>
@@ -319,144 +309,144 @@
     <script src="../client_edit/scriptsjs/swiper.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script type="text/javascript">
-    let popup = document.getElementById("popup");
+        let popup = document.getElementById("popup");
 
-    function openPopup() {
-        popup.classList.add("open-popup");
-    }
+        function openPopup() {
+            popup.classList.add("open-popup");
+        }
 
-    function closePopup() {
-        popup.classList.remove("open-popup");
-    }
+        function closePopup() {
+            popup.classList.remove("open-popup");
+        }
 
-    // background popup
-    let container_popup = document.querySelector(".container_popup");
-    let btn_popup = document.querySelector(".btn_popup");
+        // background popup
+        let container_popup = document.querySelector(".container_popup");
+        let btn_popup = document.querySelector(".btn_popup");
 
-    btn_popup.addEventListener("click", function() {
-        container_popup.classList.add("active");
-    });
+        btn_popup.addEventListener("click", function() {
+            container_popup.classList.add("active");
+        });
 
-    // close popup
-    let btn_remove = document.querySelector(".btn-remove");
-    btn_remove.addEventListener("click", function() {
-        container_popup.classList.remove("active");
-    });
+        // close popup
+        let btn_remove = document.querySelector(".btn-remove");
+        btn_remove.addEventListener("click", function() {
+            container_popup.classList.remove("active");
+        });
     </script>
     <script>
-    // pop up edit
-    let popupedit = document.getElementById("popupedit");
+        // pop up edit
+        let popupedit = document.getElementById("popupedit");
 
-    function openPopupedit() {
-        popupedit.classList.add("open-popup");
-    }
+        function openPopupedit() {
+            popupedit.classList.add("open-popup");
+        }
 
-    function closePopupedit() {
-        popupedit.classList.remove("open-popup");
-    }
+        function closePopupedit() {
+            popupedit.classList.remove("open-popup");
+        }
 
-    // background popup
-    // let container_popup = document.querySelector(".container_popup");
-    let btn_popupedit = document.querySelector(".btn_popupedit");
+        // background popup
+        // let container_popup = document.querySelector(".container_popup");
+        let btn_popupedit = document.querySelector(".btn_popupedit");
 
-    btn_popup.addEventListener("click", function() {
-        container_popup.classList.add("active");
-    });
+        btn_popup.addEventListener("click", function() {
+            container_popup.classList.add("active");
+        });
 
-    // close popup
-    let btn_removeedit = document.querySelector(".btn-removeedit");
-    btn_remove.addEventListener("click", function() {
-        container_popup.classList.remove("active");
-    });
+        // close popup
+        let btn_removeedit = document.querySelector(".btn-removeedit");
+        btn_remove.addEventListener("click", function() {
+            container_popup.classList.remove("active");
+        });
     </script>
 
     <script>
-    // pop up edit
-    let popupsukses = document.getElementById("popupsukses");
+        // pop up edit
+        let popupsukses = document.getElementById("popupsukses");
 
-    function openPopupsukses(nama_obat) {
-        popupsukses.classList.add("open-popup");
-        //button add event listener
-        const hapusBtn = document.getElementById('hapusBtn');
-        hapusBtn.addEventListener('click', function() {
-            hapusObat(nama_obat);
-        });
-    }
+        function openPopupsukses(nama_obat) {
+            popupsukses.classList.add("open-popup");
+            //button add event listener
+            const hapusBtn = document.getElementById('hapusBtn');
+            hapusBtn.addEventListener('click', function() {
+                hapusObat(nama_obat);
+            });
+        }
 
-    function hapusObat(nama_obat) {
-        //ajax delete
-        $.ajax({
-            url: '<?= base_url('/client/ajaxHapusObat') ?>',
-            type: 'POST',
-            data: {
-                nama_obat: nama_obat,
-                id_keranjang: <?= $id_keranjang ?>,
-            },
-            success: function(data) {
-                //refresh
-                location.reload();
-            }
-        });
-    }
+        function hapusObat(nama_obat) {
+            //ajax delete
+            $.ajax({
+                url: '<?= base_url('/client/ajaxHapusObat') ?>',
+                type: 'POST',
+                data: {
+                    nama_obat: nama_obat,
+                    id_keranjang: <?= $id_keranjang ?>,
+                },
+                success: function(data) {
+                    //refresh
+                    location.reload();
+                }
+            });
+        }
 
-    function closePopupsukses() {
-        popupsukses.classList.remove("open-popup");
-    }
+        function closePopupsukses() {
+            popupsukses.classList.remove("open-popup");
+        }
     </script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script>
-    // pop up edit
-    let popuphapus = document.getElementById("popuphapus");
+        // pop up edit
+        let popuphapus = document.getElementById("popuphapus");
 
-    function openPopuphapus() {
-        //get element by id alamat value
-        var alamat = document.getElementById("alamat").value;
-        //if empty alamat, show alert
-        if (alamat == "") {
-            alert("Alamat tidak boleh kosong");
-            return false;
-        }
-        popuphapus.classList.add("open-popup");
-        const pesanBtn = document.getElementById('pesanBtn');
-        pesanBtn.addEventListener('click', function() {
-            pesanObat(alamat);
-        });
-    }
-
-    function pesanObat(alamat) {
-        //ajax delete
-        $.ajax({
-            url: '<?= base_url('/client/ajaxPesanObat') ?>',
-            type: 'POST',
-            data: {
-                id_keranjang: <?= $id_keranjang ?>,
-                alamat: alamat,
-            },
-            success: function(data) {
-                //go to client/history
-                window.location.href = "<?= base_url('/client/history') ?>";
+        function openPopuphapus() {
+            //get element by id alamat value
+            var alamat = document.getElementById("alamat").value;
+            //if empty alamat, show alert
+            if (alamat == "") {
+                alert("Alamat tidak boleh kosong");
+                return false;
             }
-        });
-    }
+            popuphapus.classList.add("open-popup");
+            const pesanBtn = document.getElementById('pesanBtn');
+            pesanBtn.addEventListener('click', function() {
+                pesanObat(alamat);
+            });
+        }
 
-    function closePopuphapus() {
-        popuphapus.classList.remove("open-popup");
-    }
+        function pesanObat(alamat) {
+            //ajax delete
+            $.ajax({
+                url: '<?= base_url('/client/ajaxPesanObat') ?>',
+                type: 'POST',
+                data: {
+                    id_keranjang: <?= $id_keranjang ?>,
+                    alamat: alamat,
+                },
+                success: function(data) {
+                    //go to client/history
+                    window.location.href = "<?= base_url('/client/history') ?>";
+                }
+            });
+        }
+
+        function closePopuphapus() {
+            popuphapus.classList.remove("open-popup");
+        }
     </script>
 
     <script>
-    let tabelkeranjangsmnt = document.getElementById('tabelkeranjangsmnt');
-    let konfirmasicart = document.querySelector('.konfirmasicart');
-    let cart = document.querySelector('.cart');
+        let tabelkeranjangsmnt = document.getElementById('tabelkeranjangsmnt');
+        let konfirmasicart = document.querySelector('.konfirmasicart');
+        let cart = document.querySelector('.cart');
 
-    cart.addEventListener('mouseover', function() {
-        tabelkeranjangsmnt.style.visibility = 'visible';
-        konfirmasicart.style.visibility = 'visible';
-    });
-    cart.addEventListener('click', function() {
-        tabelkeranjangsmnt.style.visibility = 'hidden';
-        konfirmasicart.style.visibility = 'hidden';
-    });
+        cart.addEventListener('mouseover', function() {
+            tabelkeranjangsmnt.style.visibility = 'visible';
+            konfirmasicart.style.visibility = 'visible';
+        });
+        cart.addEventListener('click', function() {
+            tabelkeranjangsmnt.style.visibility = 'hidden';
+            konfirmasicart.style.visibility = 'hidden';
+        });
     </script>
 </body>
 </body>

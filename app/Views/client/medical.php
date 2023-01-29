@@ -61,7 +61,7 @@
             </div>
             <div class="profiledropdown">
                 <a href="/client/myAccount" data-aos="fade-left">My Account<i class="fa-solid fa-user-tie"></i></a>
-                <a href="/client/EditProfile" data-aos="fade-left">Edit Profile<i class="fa-solid fa-user-pen"></i></a>
+                <a href="/client/editProfile" data-aos="fade-left">Edit Profile<i class="fa-solid fa-user-pen"></i></a>
                 <a href="/client/history" data-aos="fade-left">History<i class="fa-solid fa-money-check"></i></a>
                 <button data-aos="fade-left" onclick="openPopup()">Logout<i class="fa-solid fa-right-from-bracket"></i></button>
             </div>

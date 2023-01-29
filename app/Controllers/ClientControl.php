@@ -395,7 +395,7 @@ class ClientControl extends BaseController
         $builder->set('jumlah', $jumlah);
         $builder->set('lokasi', $lokasi);
         $builder->set('tanggal_pelaksanaan', $tanggal);
-        $builder->set('status', 1);
+        $builder->set('status', 0);
         $builder->insert();
         //if insert success then view suksesMedical
         if ($builder) {
@@ -529,7 +529,7 @@ class ClientControl extends BaseController
             $builder->set('jumlah', $jumlah);
             $builder->set('tambahan', $tambahan);
             $builder->set('tanggal_pelaporan', $tanggal_pelaporan);
-            $builder->set('status', 1);
+            $builder->set('status', 0);
             $builder->insert();
             //if insert success then view suksesDarurat
             if ($builder) {
@@ -678,7 +678,7 @@ class ClientControl extends BaseController
             $builder->set('jumlah', $jumlah);
             $builder->set('tanggal_pelaksanaan', $tanggal_pelaksanaan);
             $builder->set('lokasi', $lokasi);
-            $builder->set('status', 1);
+            $builder->set('status', 0);
             $builder->insert();
             //if insert success then view suksesVaksin
             if ($builder) {
@@ -704,18 +704,18 @@ class ClientControl extends BaseController
         $builder = $db->table('tb_keranjang');
         $builder->select('id_keranjang');
         $builder->where('id', $session->get('id'));
-        $builder->where('status', 1);
+        $builder->where('status', 0);
         $query = $builder->get();
         $result = $query->getResultArray();
         if (empty($result)) {
             $builder->set('id', $session->get('id'));
-            $builder->set('status', 1);
+            $builder->set('status', 0);
             $builder->insert();
         }
         //get id_keranjang where id = session id and status = 1
         $builder->select('id_keranjang');
         $builder->where('id', $session->get('id'));
-        $builder->where('status', 1);
+        $builder->where('status', 0);
         $query = $builder->get();
         $result = $query->getResultArray();
         $id_keranjang = $result[0]['id_keranjang'];
@@ -842,5 +842,78 @@ class ClientControl extends BaseController
             'id_keranjang' => $session->get('keranjang'),
         ];
         return view('client/keranjang', $data);
+    }
+
+    public function detailKeranjang()
+    {
+        //get role
+        $session = session();
+        $role = $session->get('role');
+        if ($role != 'client') {
+            return redirect()->to('/');
+        }
+        //get id_keranjang method get
+        $id_keranjang = $this->request->getGet('id_keranjang');
+        //if id_keranjang not exist, redirect to client/history
+        if (!isset($id_keranjang)) {
+            return redirect()->to('/client/history');
+        }
+        //select from tb_keranjang where id_keranjang = id_keranjang and id = session id
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_keranjang');
+        $builder->select('id_keranjang, tanggal_order, status, alamat');
+        $builder->where('id_keranjang', $id_keranjang);
+        $builder->where('id', $session->get('id'));
+        $query = $builder->get();
+        $result = $query->getResultArray();
+        //if not exist, redirect to client/history
+        if (empty($result)) {
+            return redirect()->to('/client/history');
+        }
+
+        //get result alamat, status, tanggal_order
+        $result = $result[0];
+        $status = $result['status'];
+        $tanggal_order = $result['tanggal_order'];
+        $alamat = $result['alamat'];
+        if ($status == 0) {
+            $color = "red";
+            $status = "Belum Dilayani";
+        } else if ($status == 1) {
+            $status = "Belum Dilayani";
+            $color = "red";
+        } else if ($status == 2) {
+            $status = "Dalam Proses";
+            $color = "yellow";
+        } else if ($status == 3) {
+            $status = "Sudah Dilayani";
+            $color = "green";
+        } else {
+            $status = "Dibatalkan";
+            $color = "red";
+        }
+        //select from tb_isi where id_keranjang = id_keranjang
+        $builder = $db->table('tb_isi');
+        $builder->select('nama_obat, jumlah');
+        $builder->where('id_keranjang', $id_keranjang);
+        $query2 = $builder->get();
+        $result2 = $query2->getResultArray();
+
+        //add all jumlah
+        $total = 0;
+        foreach ($result2 as $item) {
+            $total += $item['jumlah'];
+        }
+        //send data to view
+        $data = [
+            'tb_keranjang' => $result,
+            'isi' => $result2,
+            'total' => $total,
+            'status' => $status,
+            'tanggal_order' => $tanggal_order,
+            'alamat' => $alamat,
+            'color' => $color,
+        ];
+        return view('client/detailKeranjang', $data);
     }
 }

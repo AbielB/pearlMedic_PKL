@@ -98,7 +98,7 @@ class Home extends BaseController
             //select from tb_keranjang where id=id and status = 1
             $builder = $db->table('tb_keranjang');
             $builder->where('id', $row->id);
-            $builder->where('status', 1);
+            $builder->where('status', 0);
             $query = $builder->get();
             $row = $query->getRow();
             //if row is not null then set session keranjang, else session keranjang = null

@@ -120,12 +120,15 @@
                                         foreach ($keranjang as $k) {
                                             $status = $k->status;
                                             if ($status == 0) {
-                                                $status = "Belum Dilayani";
+                                                $status = "Belum Dipesan";
                                                 $color = "red";
                                             } else if ($status == 1) {
+                                                $status = "Belum Dilayani";
+                                                $color = "red";
+                                            } else if ($status == 2) {
                                                 $status = "Dalam Proses";
                                                 $color = "yellow";
-                                            } else if ($status == 2) {
+                                            } else if ($status == 3) {
                                                 $status = "Sudah Dilayani";
                                                 $color = "green";
                                             } else {
@@ -135,9 +138,9 @@
                                             echo "<tr>";
                                             echo "<td class='yellow'>" . $i . "</td>";
                                             echo "<td>" . $k->tanggal_order . "</td>";
-                                            echo "<td>" . $k->alamat . " Buah</td>";
+                                            echo "<td>" . $k->alamat . " </td>";
                                             echo "<td class='" . $color . "'>" . $status . "</td>";
-                                            echo "<td><a href='/client/detailKeranjang?id=" . $k->id_keranjang . "'>Detail Keranjang</a></td>";
+                                            echo "<td><a href='/client/detailKeranjang?id_keranjang=" . $k->id_keranjang . "'>Detail Keranjang</a></td>";
                                             echo "</tr>";
                                         }
                                         ?>
@@ -267,7 +270,7 @@
                                             echo "<td>$tanggal</td>";
                                             echo "<td>$vaksin->jumlah</td>";
                                             echo "<td>$vaksin->lokasi</td>";
-                                            echo "<td>$vaksin->jenis_vaksin</td>";
+                                            echo "<td>$vaksin->nama_vaksin</td>";
                                             echo "<td class='$color'>$status</td>";
                                             echo "</tr>";
                                         }

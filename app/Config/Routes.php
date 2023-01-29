@@ -71,6 +71,7 @@ $routes->get('/client/suksesVaksin', 'ClientControl::suksesVaksin');
 $routes->get('/client/obat', 'ClientControl::obat');
 $routes->get('/client/obat', 'ClientControl::obat');
 $routes->get('/client/keranjang', 'ClientControl::keranjang');
+$routes->get('/client/detailKeranjang', 'ClientControl::detailKeranjang');
 
 
 $routes->post('/client/postEdit', 'ClientControl::postEdit');

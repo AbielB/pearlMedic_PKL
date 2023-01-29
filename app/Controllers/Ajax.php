@@ -104,7 +104,7 @@ class Ajax extends BaseController
         //update tb_keranjang.status = 2 where id_keranjang = id_keranjang and alamat = alamat and set tanggal_order = today
         $db = \Config\Database::connect();
         $builder = $db->table('tb_keranjang');
-        $builder->set('status', 2);
+        $builder->set('status', 1);
         $builder->set('tanggal_order', date('Y-m-d'));
         $builder->set('alamat', $alamat);
         $builder->where('id_keranjang', $id_keranjang);
