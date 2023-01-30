@@ -112,7 +112,8 @@
                 <!-- Layanan Terbaru -->
                 <div class="orderterbaru">
 
-                    <h2 id="pelayananDarurat"><a href="/admin/LayananDarurat"><span>Pelayanan Darurat </span></a></h2>
+                    <h2 id="pelayananDarurat"><a href="/admin/LayananDarurat"><span>Pelayanan Darurat Belum
+                                Dilayani</span></a></h2>
 
                     <table>
                         <thead>

@@ -46,6 +46,7 @@ $routes->get('/admin/DetailsDataPerusahaan', 'AdminControl::DetailsDataPerusahaa
 $routes->get('/admin/EditDataPerusahaan', 'AdminControl::EditDataPerusahaan');
 $routes->get('/admin/Logout', 'AdminControl::Logout');
 $routes->get('/admin/Keranjang', 'AdminControl::Keranjang');
+$routes->get('/admin/StockVaksin', 'AdminControl::StockVaksin');
 
 $routes->post('/loginAdmin', 'Home::loginAdmin');
 $routes->post('/admin/PostEdit', 'AdminControl::PostEdit');
@@ -55,6 +56,7 @@ $routes->post('/admin/AjaxDarurat', 'Ajax::Darurat');
 $routes->post('/admin/AjaxAkun', 'Ajax::Akun');
 $routes->post('/admin/AjaxKeranjang', 'Ajax::Keranjang');
 $routes->post('/admin/AjaxTanggalPengiriman', 'Ajax::TanggalPengiriman');
+$routes->post('/admin/AjaxVaksin', 'Ajax::Vaksin');
 
 $routes->get('/indexAdmin', 'Home::indexAdmin');
 

@@ -55,7 +55,9 @@ class AdminControl extends BaseController
 
         //get number of row from tb_darurat where status = 1
         $builder = $db->table('tb_darurat');
-        $builder->where('status', 1);
+        $builder->select('tb_darurat.id_darurat, tb_darurat.lokasi, tb_darurat.deskripsi, tb_darurat.tanggal_pelaporan, tb_darurat.status, tb_perusahaan.nama_perusahaan');
+        $builder->join('tb_perusahaan', 'tb_darurat.id= tb_perusahaan.id');
+        $builder->where('tb_darurat.status', 1);
         $query = $builder->get();
         $rowDarurat1 = $query->getResult();
         //get number of rowDarurat1
@@ -73,7 +75,7 @@ class AdminControl extends BaseController
             'date' => $date,
             'name' => $name,
             'rowPerusahaan' => $rowPerusahaan,
-            'rowDarurat' => $rowDarurat,
+            'rowDarurat' => $rowDarurat1,
             'jumlahDarurat' => $jumlahDarurat,
             'jumlahMedical' => $jumlahMedical,
             'tambang' => $tambang,
@@ -222,8 +224,19 @@ class AdminControl extends BaseController
             return redirect()->to('/');
         }
         $name = $session->get('nama');
+        //get all data from tb_ordervaksin join tb_perusahaan where id = id
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_ordervaksin');
+        $builder->select('tb_ordervaksin.id_ordervaksin, tb_ordervaksin.jumlah, tb_ordervaksin.lokasi,  tb_ordervaksin.tanggal_pelaksanaan, tb_ordervaksin.status, tb_ordervaksin.nama_vaksin, tb_perusahaan.nama_perusahaan');
+        $builder->join('tb_perusahaan', 'tb_ordervaksin.id= tb_perusahaan.id');
+        //sort by status asc
+        $builder->orderBy('tb_ordervaksin.status', 'ASC');
+        $query = $builder->get();
+        $rowVaksin = $query->getResult();
+
         $data = [
             'name' => $name,
+            'rowVaksin' => $rowVaksin
         ];
         return view('admin/vaksin', $data);
     }
@@ -515,5 +528,22 @@ class AdminControl extends BaseController
         ];
 
         return view('admin/keranjang', $data);
+    }
+
+    public function StockVaksin()
+    {
+        //get role
+        $session = session();
+        $role = $session->get('role');
+        //if role != admin redirect to home page
+        if ($role != 'admin') {
+            return redirect()->to('/');
+        }
+        //get session name
+        $name = $session->get('nama');
+        $data = [
+            'name' => $name
+        ];
+        return view('admin/StockVaksin');
     }
 }

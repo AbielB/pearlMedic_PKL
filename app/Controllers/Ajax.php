@@ -139,4 +139,17 @@ class Ajax extends BaseController
         $builder->where('id_keranjang', $id_keranjang);
         $builder->update();
     }
+
+    public function Vaksin()
+    {
+        //get post data
+        $id = $this->request->getVar('id_ordervaksin');
+        $status = $this->request->getVar('status');
+        //update tb_vaksin.status = status where id = id
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_ordervaksin');
+        $builder->set('status', $status);
+        $builder->where('id_ordervaksin', $id);
+        $builder->update();
+    }
 }

@@ -82,54 +82,56 @@
                         <tr>
                             <th>Nama Perusahaan</th>
                             <th>Jenis Vaksin</th>
-                            <th>Jumlah Karyawan</th>
+                            <th>Jumlah Pasien</th>
+                            <th>Lokasi</th>
+                            <th>Tanggal Pelaksanaan </th>
                             <th>Status</th>
-                            <th></th>
+
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        foreach ($rowVaksin as $vaksin) {
+                            $selected1 = $vaksin->status == 0 ? "selected" : "";
+                            $selected2 = $vaksin->status == 1 ? "selected" : "";
+                            $selected3 = $vaksin->status == 2 ? "selected" : "";
+                            $selected4 = $vaksin->status == 3 ? "selected" : "";
+                            if ($vaksin->status == 0) {
+                                $color = "red";
+                            } else if ($vaksin->status == 1) {
+                                $color = "yellow";
+                            } else if ($vaksin->status == 2) {
+                                $color = "green";
+                            } else if ($vaksin->status == 3) {
+                                $color = "red";
+                            }
+                        ?>
                         <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Covid-19 Swap</td>
-                            <td>50</td>
-                            <td class="red">Belum Dilayani</td>
-                            <td><a href="#">Details</a></td>
+                            <td><?php echo $vaksin->nama_perusahaan; ?></td>
+                            <td><?php echo $vaksin->nama_vaksin; ?></td>
+                            <td><?php echo $vaksin->jumlah; ?></td>
+                            <td><?php echo $vaksin->lokasi; ?></td>
+                            <td><?php echo $vaksin->tanggal_pelaksanaan; ?></td>
+                            <td>
+                                <option>
+                                    <select name="status" id="status" class="status"
+                                        onchange="ubahStatus(<?= $vaksin->id_ordervaksin ?>,this.value)">
+                                        <option value="0" <?php echo $selected1; ?> class="red">Belum Dilayani
+                                        </option>
+                                        <option value=" 1" <?php echo $selected2; ?> class="yellow">Dalam Proses
+                                        </option>
+                                        <option value=" 2" <?php echo $selected3; ?> class="green">Sudah
+                                            Dilayani</option>
+                                        <option value=" 3" <?php echo $selected4; ?> class="red">Dibatalkan
+                                        </option>
+                                    </select>
+                                </option>
+                            </td>
+
                         </tr>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Covid-19 Swap</td>
-                            <td>50</td>
-                            <td class="yellow">Dalam Proses</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Covid-19 Swap</td>
-                            <td>50</td>
-                            <td class="green">Sudah Dilayani</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Influenza</td>
-                            <td>50</td>
-                            <td class="red">Belum Dilayani</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Influenza</td>
-                            <td>50</td>
-                            <td class="yellow">Dalam Proses</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Petronas Nasional Berhad</td>
-                            <td>Influenza</td>
-                            <td>50</td>
-                            <td class="green">Sudah Dilayani</td>
-                            <td><a href="#">Details</a></td>
-                        </tr>
+                        <?php }
+                        ?>
+
                     </tbody>
                 </table>
             </div>
@@ -138,7 +140,7 @@
         </main>
         <!-- END MAIN MENU SECTION -->
         <!-- BAGIAN KANAN MAIN MENU / DETAILS MENU -->
-        <div class="right">
+        <div class=" right">
             <div class="top">
                 <button id="menu-btn">
                     <i class="fa-solid fa-bars"></i>
@@ -164,7 +166,7 @@
                         <h3>Stock Inventory</h3>
                     </div>
                     <div class="bottom-button">
-                        <a href="stockvaksin.php">Lihat Stock Vaksin</a>
+                        <a href="StockVaksin">Lihat Stock Vaksin</a>
                     </div>
                 </div>
 
@@ -212,6 +214,24 @@
         </div>
 
         <script src="./data.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script>
+        function ubahStatus(id_ordervaksin, status) {
+            console.log(id_ordervaksin, status)
+            //ajax
+            $.ajax({
+                url: "<?= base_url('admin/AjaxVaksin') ?>",
+                type: 'POST',
+                data: {
+                    id_ordervaksin: id_ordervaksin,
+                    status: status
+                },
+                success: function(data) {
+                    alert("sukses mengubah status keranjang");
+                }
+            });
+        }
+        </script>
 </body>
 
 </html>
