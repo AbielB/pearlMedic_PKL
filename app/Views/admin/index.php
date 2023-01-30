@@ -39,7 +39,7 @@
         <div class="adminmenu">
             <div class="top">
                 <div class="logo">
-                    <img src="./img/logo/pearlmedic2.png" alt="" width="10%">
+                    <img src="../img/logo/pearlmedic2.png" alt="" width="10%">
                     <h2 id="color-change"><span>Pearl</span> Medic</h2>
                 </div>
                 <div class="close" id="close-btn">

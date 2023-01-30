@@ -158,101 +158,16 @@
                 </div>
             </div>
             <div class="bottom">
-                <div class="akunperusahaan">
-                    <h2>Jenis Vaksinasi</h2>
-                    <div class="item online grid obat_item">
-                        <h1>Kategori Vaksin</h1>
-                        <div class="kategoriobat_wrapper">
-                            <div class="obatinfo">
-                                <a href="#">Influenza</a>
-                            </div>
-                            <div class="obaticon">
-                                <i class="fa-solid fa-viruses"></i>
-                            </div>
-                        </div>
-                        <div class="kategoriobat_wrapper">
-                            <div class="obatinfo">
-                                <a href="#">Tdap</a>
-                            </div>
-                            <div class="obaticon">
-                                <i class="fa-solid fa-virus"></i>
-                            </div>
-                        </div>
-                        <div class="kategoriobat_wrapper">
-                            <div class="obatinfo">
-                                <a href="#">Hepatitis A dan B</a>
-                            </div>
-                            <div class="obaticon">
-                                <i class="fa-solid fa-heart-pulse"></i>
-                            </div>
-                        </div>
-                        <div class="kategoriobat_wrapper">
-                            <div class="obatinfo">
-                                <a href="#">HPV</a>
-                            </div>
-                            <div class="obaticon">
-                                <i class="fa-solid fa-lungs"></i>
-                            </div>
-                        </div>
-                        <div class="kategoriobat_wrapper">
-                            <div class="obatinfo">
-                                <a href="#">Pneumokokus</a>
-                            </div>
-                            <div class="obaticon">
-                                <i class="fa-solid fa-vial-virus"></i>
-                            </div>
-                        </div>
-                        <div class="kategoriobat_wrapper">
-                            <div class="obatinfo">
-                                <a href="#">Measles and Rubella</a>
-                            </div>
-                            <div class="obaticon">
-                                <i class="fa-solid fa-baby"></i>
-                            </div>
-                        </div>
-                        <div class="kategoriobat_wrapper">
-                            <div class="obatinfo">
-                                <a href="#">BCG</a>
-                            </div>
-                            <div class="obaticon">
-                                <i class="fa-solid fa-virus-slash"></i>
-                            </div>
-                        </div>
-                        <div class="kategoriobat_wrapper">
-                            <div class="obatinfo">
-                                <a href="#">Cacar Air</a>
-                            </div>
-                            <div class="obaticon">
-                                <i class="fa-solid fa-hand-dots"></i>
-                            </div>
-                        </div>
-                        <div class="kategoriobat_wrapper">
-                            <div class="obatinfo">
-                                <a href="#">Herpes Zoster</a>
-                            </div>
-                            <div class="obaticon">
-                                <i class="fa-solid fa-flask-vial"></i>
-                            </div>
-                        </div>
-                        <div class="kategoriobat_wrapper">
-                            <div class="obatinfo">
-                                <a href="#">Covid-19</a>
-                            </div>
-                            <div class="obaticon">
-                                <i class="fa-solid fa-virus-covid"></i>
-                            </div>
-                        </div>
-                        <div class="kategoriobat_wrapper">
-                            <div class="obatinfo">
-                                <a href="#">Covid-19 Booster</a>
-                            </div>
-                            <div class="obaticon">
-                                <i class="fa-solid fa-syringe"></i>
-                            </div>
-                        </div>
+                <div class="bottom-wrapper">
+                    <div class="bottom-judul">
+                        <i class="fa-solid fa-syringe"></i>
+                        <h3>Stock Inventory</h3>
                     </div>
-                    <br>
+                    <div class="bottom-button">
+                        <a href="stockvaksin.php">Lihat Stock Vaksin</a>
+                    </div>
                 </div>
+
             </div>
             <!-- <div class="details">
                 <h2>Details Pesanan Obat</h2>

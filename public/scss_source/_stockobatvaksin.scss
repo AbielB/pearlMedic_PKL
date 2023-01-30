@@ -1,0 +1,227 @@
+.content-obat-table{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    background-color: transparent;
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        // border: 1px solid $warna-pendukung2;
+        background-color: $warna-light;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        thead{
+            tr{
+                th{
+                    padding: 15px 0;
+                    // border-bottom: 1px solid $warna-dark;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: $warna-light;
+                    background-color: $warna-pendukung1;
+                }
+            }
+        }
+        tbody{
+            tr{
+                td{
+                    padding: 10px 0;
+                    // border-bottom: 1px solid $warna-pendukung2;
+                    font-size: 12px;
+                    font-weight: 400;
+                    color: $warna-dark;
+                    button{
+                        padding: 5px 10px;
+                        background-color: $warna-pendukung5;
+                        border: 1px solid $warna-pendukung5;
+                        border-radius: 5px;
+                        font-size: 12px;
+                        font-weight: 600;
+                        width: 80%;
+                        color: $warna-dark;
+                        cursor: pointer;
+                        &:hover{
+                            background-color: transparent;
+                            border: 1px solid $warna-pendukung6;
+                            color: $warna-pendukung6;
+                            transition: all .3s ease;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    gap: 1rem;
+    margin-top: 30px;
+        a{
+            background-color: $warna-pendukung1;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 12px;
+            color: $warna-light;
+            i{
+                color: $warna-pendukung5;
+                margin-left: 5px;
+            }
+            &:hover{
+                cursor: pointer;
+                background: transparent;
+                border: 1px solid $warna-dark;
+                color: $warna-dark;
+                transition: all .3s ease;
+            }
+        }
+}
+
+.formtambahobat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    // box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+    h3{
+        font-size: 20px;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        color: $warna-dark;
+    }
+    p{
+        font-size: 16px;
+        margin-bottom: 2rem;
+        text-transform: capitalize;
+        color: $warna-dark;
+    }
+    .formtambahobat1{
+        width: 70%;
+        background-color: $warna-light;
+        margin-bottom: 50px;
+        padding: 20px 50px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        .form_tambah{
+            background-color: $warna-light;
+            display: flex;
+            border: 1px solid $warna-pendukung1;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            text-align: center;
+            padding: 5px 10px;
+            margin-bottom: 10px;
+            border-radius: 50px;
+            i{
+                color: $warna-pendukung1;
+                margin-right: 10px;
+                background-color: transparent;
+            }
+            input{
+                width: 100%;
+                padding: 5px 10px;
+                background-color: transparent;
+            }
+            &:hover{
+                border: 1px solid $warna-dark;
+                transition: all .3s ease;
+            }
+        }
+        .form_tambah_button{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            padding: 5px 10px;
+            margin-top: 50px;
+            background-color: transparent;
+            border: 1px solid $warna-pendukung1;
+            color: $warna-dark;
+            &:hover{
+                cursor: pointer;
+                background-color: $warna-pendukung5;
+                border: 1px solid $warna-pendukung5;
+                color: $warna-dark;
+                transition: all .3s ease;
+            }                    
+        }
+    }
+}
+
+.popup, .popupedit, .popupsukses, .popuphapus{
+    width: 550px;
+    height: 450px;
+    background: $warna-pendukung1;
+    border: 2px solid $warna-dark;
+    border-radius: 6px;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,-50%)scale(0.1);
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    // position: fixed !important;
+    
+}
+.open-popupedit{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%)scale(1);
+    z-index: 999;
+    position: fixed !important;
+
+}
+.popup i, .popupedit i, .popupsukses i, .popuphapus i{
+    font-size: 120px;
+    color: $warna-pendukung5;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.popup h2, .popupedit h2, .popupsukses h2, .popuphapus h2{
+    font-size: 25px;
+    // text-transform: uppercase;
+    color: $warna-light;
+    margin-bottom: 10px;
+}
+.popup p, .popupedit p, .popupsukses p, .popuphapus p{
+    font-size: 14px;
+    margin-bottom: 40px;
+    color: $warna-light;
+}
+
+.popup button, .popupedit button, .popupsukses button, .popuphapus button{
+    padding: 10px 10px;
+    border: none;
+    background-color: transparent;
+    width: 50%;
+    color: $warna-dark;
+    border: 1px solid $warna-pendukung5;
+    background-color: $warna-pendukung5;
+    font-size: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+.popup button:hover , .popupedit button:hover,  .popupsukses button:hover, .popuphapus button:hover{
+    cursor: pointer;
+    color: $warna-dark;
+    border: 1px solid $warna-pendukung5;
+    background-color: transparent;
+    transition: .3s all ease-in-out;
+}

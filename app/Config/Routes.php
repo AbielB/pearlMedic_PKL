@@ -53,6 +53,8 @@ $routes->post('/admin/BuatPerusahaan', 'AdminControl::BuatPerusahaan');
 $routes->post('/admin/AjaxMedical', 'Ajax::Medical');
 $routes->post('/admin/AjaxDarurat', 'Ajax::Darurat');
 $routes->post('/admin/AjaxAkun', 'Ajax::Akun');
+$routes->post('/admin/AjaxKeranjang', 'Ajax::Keranjang');
+$routes->post('/admin/AjaxTanggalPengiriman', 'Ajax::TanggalPengiriman');
 
 $routes->get('/indexAdmin', 'Home::indexAdmin');
 

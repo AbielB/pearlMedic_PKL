@@ -39,3 +39,56 @@
         color: $warna-pendukung1;
     }
 }
+
+.bottom{
+    .bottom-wrapper{
+        background-color: $warna-putih;
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 10px 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        .bottom-judul{
+            font-weight: 600;
+            color: $warna-dark;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            h3{
+                font-size: 20px;
+            }
+            i{
+                font-size: 20px;
+                margin-right: 10px;
+                color: $warna-pendukung6;
+            }
+        }
+        .bottom-button{
+            margin-top: 20px;
+            background-color: $warna-pendukung5;
+            padding: 5px 10px;
+            width: 100%;
+            font-size: 14px;
+            border-radius: 10px;
+            border: 1px solid $warna-pendukung5;
+            a{
+                color: $warna-dark;
+            }
+            &:hover{
+                background-color: $warna-pendukung6;
+                border: 1px solid $warna-pendukung6;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                a{
+                    color: $warna-putih;
+                }
+            }
+        }
+    }
+}

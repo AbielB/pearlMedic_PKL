@@ -135,8 +135,49 @@ class AdminControl extends BaseController
             return redirect()->to('/');
         }
         $name = $session->get('nama');
+        //get all from tb_keranjang where status = 0 join tb_perusahaan where id = id
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_keranjang');
+        $builder->select('tb_keranjang.id_keranjang, tb_keranjang.status, tb_keranjang.tanggal_order, tb_perusahaan.nama_perusahaan');
+        $builder->join('tb_perusahaan', 'tb_keranjang.id= tb_perusahaan.id');
+        //where status = 0
+        $builder->where('tb_keranjang.status', 1);
+        $query = $builder->get();
+        $rowKeranjang0 = $query->getResult();
+
+        //get all from tb_keranjang where status = 1 join tb_perusahaan where id = id
+        $builder = $db->table('tb_keranjang');
+        $builder->select('tb_keranjang.id_keranjang, tb_keranjang.status, tb_keranjang.tanggal_order, tb_perusahaan.nama_perusahaan');
+        $builder->join('tb_perusahaan', 'tb_keranjang.id= tb_perusahaan.id');
+        //where status = 1
+        $builder->where('tb_keranjang.status', 2);
+        $query = $builder->get();
+        $rowKeranjang1 = $query->getResult();
+
+        //get all from tb_keranjang where status = 2 join tb_perusahaan where id = id
+        $builder = $db->table('tb_keranjang');
+        $builder->select('tb_keranjang.id_keranjang, tb_keranjang.status, tb_keranjang.tanggal_order, tb_perusahaan.nama_perusahaan');
+        $builder->join('tb_perusahaan', 'tb_keranjang.id= tb_perusahaan.id');
+        //where status = 2
+        $builder->where('tb_keranjang.status', 3);
+        $query = $builder->get();
+        $rowKeranjang2 = $query->getResult();
+
+        //get all from tb_keranjang where status = 4 join tb_perusahaan where id = id
+        $builder = $db->table('tb_keranjang');
+        $builder->select('tb_keranjang.id_keranjang, tb_keranjang.status, tb_keranjang.tanggal_order, tb_perusahaan.nama_perusahaan');
+        $builder->join('tb_perusahaan', 'tb_keranjang.id= tb_perusahaan.id');
+        //where status = 4
+        $builder->where('tb_keranjang.status', 4);
+        $query = $builder->get();
+        $rowKeranjang4 = $query->getResult();
+
         $data = [
             'name' => $name,
+            'rowKeranjang0' => $rowKeranjang0,
+            'rowKeranjang1' => $rowKeranjang1,
+            'rowKeranjang2' => $rowKeranjang2,
+            'rowKeranjang4' => $rowKeranjang4
         ];
         return view('admin/obat', $data);
     }
@@ -426,6 +467,53 @@ class AdminControl extends BaseController
 
     public function Keranjang()
     {
-        return view('admin/keranjangobat');
+        //get role 
+        $session = session();
+        $role = $session->get('role');
+        //if role != admin redirect to home page
+        if ($role != 'admin') {
+            return redirect()->to('/');
+        }
+        //get session name
+        $name = $session->get('nama');
+
+        //get id_keranjang
+        $id_keranjang = $this->request->getVar('id_keranjang');
+        //if empty redirect to /admin/LayananObat
+        if (empty($id_keranjang)) {
+            return redirect()->to('/admin/LayananObat');
+        }
+        //select all from tb_keranjang where id_keranjang = $id_keranjang join tb_perusahaan where id = id
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_keranjang');
+        $builder->select('tb_keranjang.id_keranjang, tb_keranjang.id, tb_keranjang.alamat, tb_keranjang.tanggal_order, tb_keranjang.tanggal_pengiriman, tb_keranjang.status, tb_perusahaan.nama_perusahaan');
+        $builder->join('tb_perusahaan', 'tb_keranjang.id = tb_perusahaan.id');
+        $builder->where('tb_keranjang.id_keranjang', $id_keranjang);
+        $query = $builder->get();
+        $rowKeranjang = $query->getResult();
+
+        //select all from tb_isi where id_keranjang = id_keranjang
+        $builder = $db->table('tb_isi');
+        $builder->select('tb_isi.id_obat, tb_isi.jumlah, tb_isi.nama_obat, tb_isi.jumlah');
+        $builder->where('tb_isi.id_keranjang', $id_keranjang);
+        $query = $builder->get();
+        $rowIsi = $query->getResult();
+
+        //get total amount of jumlah
+        $total = 0;
+        foreach ($rowIsi as $isi) {
+            $total += $isi->jumlah;
+        }
+
+        //data to view
+        $data = [
+            'name' => $name,
+            'rowKeranjang' => $rowKeranjang,
+            'rowIsi' => $rowIsi,
+            'total' => $total,
+            'id_keranjang' => $id_keranjang
+        ];
+
+        return view('admin/keranjang', $data);
     }
 }

@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Admin || Pearl Medic</title>
     <!-- Link Favicon -->
-    <link rel="shortcut icon" href="<?php echo base_url("img/logo/pearlmedic.png"); ?>" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logo/pearlmedic.png" type="image/x-icon">
     <!-- END Link Favicon -->
     <!-- CSS Links -->
     <link rel="stylesheet" href=" <?php echo base_url("css/style.min.css?v=" . time()); ?>">

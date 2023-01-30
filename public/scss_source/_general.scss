@@ -52,6 +52,13 @@ main{
     // background: $warna-pendukung1;
     grid-template-columns: 14rem auto 12rem;
 }
+.container-3{
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    // background: $warna-pendukung1;
+    grid-template-columns: 14rem auto 20rem;
+}
 img{
     display: block;
     width: 100%;
@@ -107,4 +114,34 @@ section{
 }
 .green{
     color: $warna-pendukung3 !important;
+}
+
+
+.search{
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+    input{
+        padding: 10px 20px;
+        width: 100%;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+    input::placeholder{
+        color: $warna-dark;
+        font-size: 13px;
+        font-weight: 500;
+    }
+    button{
+        padding: 5px 15px;
+        width: 100px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        cursor: pointer;
+        &:hover{
+            background-color: $warna-pendukung1;
+            color: $warna-putih;
+            transition: all .3s ease;
+        }
+    }
 }

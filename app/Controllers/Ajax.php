@@ -113,4 +113,30 @@ class Ajax extends BaseController
         $session =  session();
         $session->set('keranjang', null);
     }
+
+    public function Keranjang()
+    {
+        //get post data
+        $id_keranjang = $this->request->getVar('id');
+        $status = $this->request->getVar('status');
+        //update tb_keranjang.status = status where id_keranjang = id_keranjang
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_keranjang');
+        $builder->set('status', $status);
+        $builder->where('id_keranjang', $id_keranjang);
+        $builder->update();
+    }
+
+    public function TanggalPengiriman()
+    {
+        //get post id_keranjang and tanggal 
+        $id_keranjang = $this->request->getVar('id');
+        $tanggal_pengiriman = $this->request->getVar('tanggal_pengiriman');
+        //update tb_keranjang.tanggal_pengiriman = tanggal where id_keranjang = id_keranjang
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_keranjang');
+        $builder->set('tanggal_pengiriman', $tanggal_pengiriman);
+        $builder->where('id_keranjang', $id_keranjang);
+        $builder->update();
+    }
 }
