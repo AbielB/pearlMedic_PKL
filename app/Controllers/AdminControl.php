@@ -275,6 +275,7 @@ class AdminControl extends BaseController
             'error_alamat' => '',
             'error_bidang' => '',
             'error_email' => '',
+            'error_no_telp' => '',
             'error_deskripsi' => ''
         ];
         return view('admin/dataperusahaan', $data);
@@ -309,6 +310,7 @@ class AdminControl extends BaseController
         $db = \Config\Database::connect();
         $builder = $db->table('tb_medical');
         $builder->where('id', $id);
+        $builder->orderBy('status', 'ASC');
         $query = $builder->get();
         $rowMedical = $query->getResult();
 
@@ -316,8 +318,25 @@ class AdminControl extends BaseController
         $db = \Config\Database::connect();
         $builder = $db->table('tb_darurat');
         $builder->where('id', $id);
+        $builder->orderBy('status', 'ASC');
         $query = $builder->get();
         $rowDarurat = $query->getResult();
+
+        //select all from tb_vaksin where id = id sort by status asc
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_ordervaksin');
+        $builder->where('id', $id);
+        $builder->orderBy('status', 'ASC');
+        $query = $builder->get();
+        $rowVaksin = $query->getResult();
+
+        //select all from tb_keranjang where id = id sort by status asc
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_keranjang');
+        $builder->where('id', $id);
+        $builder->orderBy('status', 'ASC');
+        $query = $builder->get();
+        $rowKeranjang = $query->getResult();
 
         $name = $session->get('nama');
         $data = [
@@ -325,6 +344,8 @@ class AdminControl extends BaseController
             'rowDetails' => $rowDetails,
             'rowMedical' => $rowMedical,
             'rowDarurat' => $rowDarurat,
+            'rowVaksin' => $rowVaksin,
+            'rowKeranjang' => $rowKeranjang,
             'id' => $id
         ];
         return view('admin/details_data_perusahaan', $data);
@@ -370,6 +391,7 @@ class AdminControl extends BaseController
         $alamat = $this->request->getVar('alamat');
         $bidang = $this->request->getVar('bidang');
         $email = $this->request->getVar('email');
+        $no_telp = $this->request->getVar('no_telp');
         $deskripsi = $this->request->getVar('deskripsi');
         $id = $this->request->getVar('id');
 
@@ -382,6 +404,7 @@ class AdminControl extends BaseController
             'alamat' => $alamat,
             'bidang' => $bidang,
             'email' => $email,
+            'no_telp' => $no_telp,
             'deskripsi' => $deskripsi
         ];
         //redirect to data perusahaan page id = $id
@@ -398,12 +421,14 @@ class AdminControl extends BaseController
         $error_alamat = '';
         $error_bidang = '';
         $error_email = '';
+        $error_no_telp = '';
         $error_deskripsi = '';
 
         $namaPerusahaan = $this->request->getVar('nama_perusahaan');
         $alamat = $this->request->getVar('alamat');
         $bidang = $this->request->getVar('bidang');
         $email = $this->request->getVar('email');
+        $no_hp = $this->request->getVar('no_hp');
         $deskripsi = $this->request->getVar('deskripsi');
         $valid = true;
         //validation
@@ -425,6 +450,18 @@ class AdminControl extends BaseController
         if (empty($email)) {
             $error_email = "Email tidak boleh kosong";
             $valid = false;
+        }
+
+        if (empty($no_hp)) {
+            $error_hp = "Nomor HP tidak boleh kosong";
+            $valid = false;
+        }
+        //if no_hp not number $error_hp = "Nomor HP harus angka"
+        if (!empty($no_hp)) {
+            if (!is_numeric($no_hp)) {
+                $error_hp = "Nomor HP harus angka";
+                $valid = false;
+            }
         }
         //validation email format
         if (!empty($email)) {
@@ -460,6 +497,7 @@ class AdminControl extends BaseController
                 'alamat' => $alamat,
                 'bidang' => $bidang,
                 'email' => $email,
+                'no_telp' => $no_hp,
                 'deskripsi' => $deskripsi
             ];
             $builder->insert($data);
@@ -472,6 +510,7 @@ class AdminControl extends BaseController
                 'error_alamat' => $error_alamat,
                 'error_bidang' => $error_bidang,
                 'error_email' => $error_email,
+                'error_no_telp' => $error_hp,
                 'error_deskripsi' => $error_deskripsi
             ];
             return view('admin/DataPerusahaan', $data);

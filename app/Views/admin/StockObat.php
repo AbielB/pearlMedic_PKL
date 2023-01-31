@@ -19,10 +19,10 @@
     <!-- END LINK FONT AWESOME -->
     <title>Admin || Pearl Medic</title>
     <style>
-    #batalBtn {
-        /* transform translate y 20% */
-        transform: translateY(-60%) !important;
-    }
+        #batalBtn {
+            /* transform translate y 20% */
+            transform: translateY(-60%) !important;
+        }
     </style>
 </head>
 
@@ -98,8 +98,7 @@
                 <div class="container_popup" style="background-color: transparent;">
                     <form action="" method="get">
                         <div class="search">
-                            <input type="text" name="search" id="search" placeholder="Cari  Obat...."
-                                value="<?= $search ?>">
+                            <input type="text" name="search" id="search" placeholder="Cari  Obat...." value="<?= $search ?>">
                             <button type=" submit" name="submit" id="submit"><i class="fa-solid fa-search"></i></button>
                         </div>
                     </form>
@@ -162,12 +161,10 @@
                 </div> -->
                 <div class="profile">
                     <div class="info">
-                        <p>Hallo, <span>Hanif</span> </p>
+                        <p>Hallo, <span><?php echo $name ?></span> </p>
                         <p class="text-muted">Admin</p>
                     </div>
-                    <div class="profile-photo">
-                        <img src="./img/assets/fotocandid3.png" alt="">
-                    </div>
+
                 </div>
             </div>
 
@@ -239,47 +236,47 @@
     <script src="popup.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script>
-    // pop up edit
-    let popupedit = document.getElementById("popupedit");
+        // pop up edit
+        let popupedit = document.getElementById("popupedit");
 
-    function openPopupedit(id_obat) {
-        popupedit.classList.add("open-popupedit");
-        let suksesHapusObat = document.getElementById("suksesHapusObat");
-        //add event listener
-        suksesHapusObat.addEventListener("click", function() {
-            //ajax
-            $.ajax({
-                url: "<?= base_url('admin/HapusStockObat') ?>",
-                type: 'POST',
-                data: {
-                    id_obat: id_obat,
-                },
-                success: function(data) {
-                    alert("sukses menghapus obat");
-                    location.reload();
-                }
+        function openPopupedit(id_obat) {
+            popupedit.classList.add("open-popupedit");
+            let suksesHapusObat = document.getElementById("suksesHapusObat");
+            //add event listener
+            suksesHapusObat.addEventListener("click", function() {
+                //ajax
+                $.ajax({
+                    url: "<?= base_url('admin/HapusStockObat') ?>",
+                    type: 'POST',
+                    data: {
+                        id_obat: id_obat,
+                    },
+                    success: function(data) {
+                        alert("sukses menghapus obat");
+                        location.reload();
+                    }
+                });
+                popupedit.classList.remove("open-popupedit");
             });
+        }
+
+        function closePopupedit() {
             popupedit.classList.remove("open-popupedit");
+        }
+
+        // background popup
+        // let container_popup = document.querySelector(".container_popup");
+        let btn_popupedit = document.querySelector(".btn_popupedit");
+
+        btn_popup.addEventListener("click", function() {
+            container_popup.classList.add("active");
         });
-    }
 
-    function closePopupedit() {
-        popupedit.classList.remove("open-popupedit");
-    }
-
-    // background popup
-    // let container_popup = document.querySelector(".container_popup");
-    let btn_popupedit = document.querySelector(".btn_popupedit");
-
-    btn_popup.addEventListener("click", function() {
-        container_popup.classList.add("active");
-    });
-
-    // close popup
-    let btn_removeedit = document.querySelector(".btn-removeedit");
-    btn_remove.addEventListener("click", function() {
-        container_popup.classList.remove("active");
-    });
+        // close popup
+        let btn_removeedit = document.querySelector(".btn-removeedit");
+        btn_remove.addEventListener("click", function() {
+            container_popup.classList.remove("active");
+        });
     </script>
 </body>
 

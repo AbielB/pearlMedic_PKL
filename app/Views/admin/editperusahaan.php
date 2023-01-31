@@ -71,7 +71,8 @@
         <!-- MAIN MENU SECTION -->
         <main id="mainmenu" class="full">
             <h1><span>Data Akun </span>Perusahaan</h1>
-            <h3 class="path"><a href="/admin/DataPerusahaan">Data Perusahaan</a> / <a href="details_data_perusahaan.php">Detail Akun</a> / <span>Edit Profil</span>
+            <h3 class="path"><a href="/admin/DataPerusahaan">Data Perusahaan</a> / <a
+                    href="details_data_perusahaan.php">Detail Akun</a> / <span>Edit Profil</span>
             </h3>
 
             <div class="profilperusahaan">
@@ -87,6 +88,7 @@
                             <?php
                             $namaPerusahaan = $rowDetails[0]->nama_perusahaan;
                             $email = $rowDetails[0]->email;
+                            $no_telp = $rowDetails[0]->no_telp;
                             $tambang = '';
                             $energi = '';
                             $kesehatan = '';
@@ -141,6 +143,14 @@
                         <div class="input_wrapper">
                             <input type="text" name="email" id="email" required value="' . $email . '"
                                 placeholder="Masukan Email...">
+                            <i class="fa-solid fa-user-pen"></i>
+                        </div>
+                    </div>
+                    <div class="profilperusahaan_info_text">
+                        <h3>Nomor Telpon</h3>
+                        <div class="input_wrapper">
+                            <input type="text" name="no_telp" id="email" required value="' . $no_telp . '"
+                                placeholder="Masukan Nomor Telpon...">
                             <i class="fa-solid fa-user-pen"></i>
                         </div>
                     </div>
@@ -247,13 +257,13 @@
 
     <script src="./data.js"></script>
     <script>
-        // isi value di textarea
-        var textarea = document.getElementById('deskripsi textarea_perusahaan');
+    // isi value di textarea
+    var textarea = document.getElementById('deskripsi textarea_perusahaan');
 
 
-        // textarea color and font
-        textarea.style.color = '#9F8772';
-        textarea.style.fontFamily = 'Lora', 'serif';
+    // textarea color and font
+    textarea.style.color = '#9F8772';
+    textarea.style.fontFamily = 'Lora', 'serif';
     </script>
 </body>
 

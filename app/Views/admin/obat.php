@@ -256,9 +256,7 @@
                         <p>Hallo, <span><?= $name ?></span> </p>
                         <p class="text-muted">Admin</p>
                     </div>
-                    <div class="profile-photo">
-                        <img src="./img/assets/fotocandid3.png" alt="">
-                    </div>
+
                 </div>
             </div>
             <div class="bottom">

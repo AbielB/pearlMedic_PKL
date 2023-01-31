@@ -182,12 +182,10 @@
                 </div> -->
                 <div class="profile">
                     <div class="info">
-                        <p>Hallo, <span>Hanif</span> </p>
+                        <p>Hallo, <span><?php echo $name ?></span> </p>
                         <p class="text-muted">Admin</p>
                     </div>
-                    <div class="profile-photo">
-                        <img src="./img/assets/fotocandid3.png" alt="">
-                    </div>
+
                 </div>
             </div>
 

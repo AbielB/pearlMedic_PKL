@@ -112,15 +112,18 @@
                             <td>
                                 <select name="status" id="status" class="status"
                                     onchange="statusMedical(<?php echo $m->id_checkup; ?>, this.value)">
-                                    <option value=" 1" <?php if ($m->status == 1) {
+                                    <option value="0" <?php if ($m->status == 0) {
                                                                 echo "selected";
                                                             } ?>>Belum Dilayani</option>
-                                    <option value="2" <?php if ($m->status == 2) {
+                                    <option value="1" <?php if ($m->status == 1) {
                                                                 echo "selected";
                                                             } ?>>Dalam Proses</option>
-                                    <option value="3" <?php if ($m->status == 3) {
+                                    <option value="2" <?php if ($m->status == 2) {
                                                                 echo "selected";
                                                             } ?>>Sudah Dilayani</option>
+                                    <option value="3" <?php if ($m->status == 3) {
+                                                                echo "selected";
+                                                            } ?>>Dibatalkan</option>
                                 </select>
                         </tr>
                         <?php } ?>

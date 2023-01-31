@@ -85,6 +85,7 @@
                     $email = $rowDetails[0]->email;
                     $bidang = $rowDetails[0]->bidang;
                     $alamat = $rowDetails[0]->alamat;
+                    $no_telp = $rowDetails[0]->no_telp;
                     $deskripsi = $rowDetails[0]->deskripsi;
                     $status = $rowDetails[0]->status;
 
@@ -120,6 +121,10 @@
                     <div class="profilperusahaan_info_text">
                         <h3>Email</h3>
                         <p>' . $email . '</p>
+                    </div>
+                    <div class="profilperusahaan_info_text">
+                        <h3>Nomor Telpon</h3>
+                        <p>' . $no_telp . '</p>
                     </div>
                     <div class="profilperusahaan_info_text">
                         <h3>Status</h3>
@@ -164,30 +169,43 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Nama Pelayanan</th>
-                                <th>Jenis Obat</th>
+                                <th>Alamat</th>
+                                <th>Tanggal Order</th>
                                 <th><i class="fa-solid fa-cart-shopping yellow"></i></th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Pembelian Obat</td>
-                                <td>Paracetamol</td>
-                                <td><a href="keranjangobathistori.php" class="yellow">Lihat Keranjang</a></td>
-                                <td class="red">Belum Dilayani</td>
-                            </tr>
-                            <tr>
-                                <td>Pembelian Obat</td>
-                                <td>Paracetamol</td>
-                                <td><a href="keranjangobathistori.php" class="yellow">Lihat Keranjang</a></td>
-                                <td class="green">Sudah Dilayani</td>
-                            <tr>
-                                <td>Pembelian Obat</td>
-                                <td>Paracetamol</td>
-                                <td><a href="keranjangobathistori.php" class="yellow">Lihat Keranjang</a></td>
-                                <td class="yellow">Dalam Proses</td>
-                            </tr>
+                            <?php
+                            foreach ($rowKeranjang as $row) {
+                                $idKeranjang = $row->id_keranjang;
+                                $alamat = $row->alamat;
+                                $tanggal = $row->tanggal_order;
+                                $status = $row->status;
+                                if ($status == 1) {
+                                    $namaStatus = "Belum Dilayani";
+                                    $class = "red";
+                                } else if ($status == 2) {
+                                    $namaStatus = "Dalam Proses";
+                                    $class = "yellow";
+                                } else if ($status == 3) {
+                                    $namaStatus = "Sudah Dilayani";
+                                    $class = "green";
+                                } else if ($status == 4) {
+                                    $namaStatus = "Ditolak";
+                                    $class = "red";
+                                } else {
+                                    $namaStatus = "Belum Dipesan";
+                                    $class = "red";
+                                }
+                                echo '<tr>
+                                <td>' . $alamat . '</td>
+                                <td>' . $tanggal . '</td>
+                                <td><a href="/admin/Keranjang?id_keranjang=' . $idKeranjang . '" class="yellow">Lihat Keranjang</a></td>
+                                <td class="' . $class . '">' . $namaStatus . '</td>';
+                            }
+                            ?>
+
                         </tbody>
                     </table>
                 </div>
@@ -206,16 +224,19 @@
                         <tbody>
                             <?php
                             foreach ($rowMedical as $medical) {
-                                if ($medical->status == 1) {
+                                if ($medical->status == 0) {
                                     $color = "red";
                                     $status = "Belum Dilayani";
-                                } else if ($medical->status == 2) {
+                                } else if ($medical->status == 1) {
                                     $color = "yellow";
                                     $status = "Dalam Proses";
-                                } else {
+                                } else if ($medical->status == 2) {
                                     $color = "green";
                                     $status = "Sudah Dilayani";
-                                }  ?>
+                                } else {
+                                    $color = "red";
+                                    $status = "Ditolak";
+                                } ?>
 
                             <tr>
                                 <td><?= $medical->tanggal_pelaksanaan ?></td>
@@ -242,15 +263,18 @@
                         <tbody>
                             <?php
                             foreach ($rowDarurat as $darurat) {
-                                if ($darurat->status == 1) {
+                                if ($darurat->status == 0) {
                                     $color = "red";
                                     $status = "Belum Dilayani";
-                                } else if ($medical->status == 2) {
+                                } else if ($darurat->status == 1) {
                                     $color = "yellow";
                                     $status = "Dalam Proses";
-                                } else {
+                                } else if ($darurat->status == 2) {
                                     $color = "green";
                                     $status = "Sudah Dilayani";
+                                } else {
+                                    $color = "red";
+                                    $status = "Ditolak";
                                 } ?>
                             <tr>
                                 <td><?= $darurat->tanggal_pelaporan ?></td>
@@ -268,31 +292,37 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Nama Pelayanan</th>
                                 <th>Jenis Vaksin</th>
-                                <th>Jumlah Orang</th>
+                                <th>Jumlah Pasien</th>
+                                <th>Lokasi</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Pembelian Obat</td>
-                                <td>Covid-19</td>
-                                <td>50 Orang</td>
-                                <td class="green">Sudah Dilayani</td>
-                            </tr>
-                            <tr>
-                                <td>Pembelian Obat</td>
-                                <td>Covid-19</td>
-                                <td>50 Orang</td>
-                                <td class="yellow">Dalam Proses</td>
-                            </tr>
-                            <tr>
-                                <td>Pembelian Obat</td>
-                                <td>Covid-19</td>
-                                <td>50 Orang</td>
-                                <td class="red">Belum Dilayani</td>
-                            </tr>
+                            <?php
+                            foreach ($rowVaksin as $vaksin) {
+                                if ($vaksin->status == 0) {
+                                    $color = "red";
+                                    $status = "Belum Dilayani";
+                                } else if ($vaksin->status == 1) {
+                                    $color = "yellow";
+                                    $status = "Dalam Proses";
+                                } else if ($vaksin->status == 2) {
+                                    $color = "green";
+                                    $status = "Sudah Dilayani";
+                                } else {
+                                    $color = "red";
+                                    $status = "Ditolak";
+                                }
+
+                                echo '<tr>
+                                <td>' . $vaksin->nama_vaksin . '</td>
+                                <td>' . $vaksin->jumlah . '</td>
+                                <td>' . $vaksin->lokasi . '</td>
+                                <td class="' . $color . '">' . $status . '</td>';
+                            }
+                            ?>
+
                         </tbody>
                     </table>
                 </div>

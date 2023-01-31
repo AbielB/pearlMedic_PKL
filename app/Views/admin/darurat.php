@@ -110,17 +110,20 @@
                                 <select name="status" id="status"
                                     onchange="statusDarurat(<?php echo $d->id_darurat ?>,this.value)">
                                     <!-- if status = 1 selected -->
-                                    <option value="1" <?php if ($d->status == 1) {
+                                    <option value="0" <?php if ($d->status == 0) {
                                                                 echo "selected";
                                                             } ?>>Belum Dilayani</option>
                                     <!-- if status = 2 selected -->
-                                    <option value="2" <?php if ($d->status == 2) {
+                                    <option value="1" <?php if ($d->status == 1) {
                                                                 echo "selected";
                                                             } ?>>Dalam Proses</option>
                                     <!-- if status = 3 selected -->
+                                    <option value="2" <?php if ($d->status == 2) {
+                                                                echo "selected";
+                                                            } ?>>Sudah Dilayani</option>
                                     <option value="3" <?php if ($d->status == 3) {
                                                                 echo "selected";
-                                                            } ?>>Selesai</option>
+                                                            } ?>>Dibatalkan</option>
                                 </select>
                             </td>
                         </tr>

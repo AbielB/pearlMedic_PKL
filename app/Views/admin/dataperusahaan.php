@@ -192,6 +192,16 @@
                                 </div>
                                 <p class="text-danger"><?php echo $error_email ?></p>
                             </div>
+
+                            <div class="form-group">
+                                <label for="no_hp">Nomor Telpon</label>
+                                <div class="form-group-logo">
+                                    <input type="text" name="no_hp" id="email" placeholder="Masukkan Nomor HP...."
+                                        required>
+                                </div>
+                                <p class="text-danger"><?php echo $error_no_telp ?></p>
+                            </div>
+
                             <div class="form-group">
                                 <label for="deskripsi_perusahaan">Deskripsi Perusahaan</label>
                                 <div class="form-group-logo" id="form-group-logo">
