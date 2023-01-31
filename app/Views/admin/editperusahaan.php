@@ -71,8 +71,7 @@
         <!-- MAIN MENU SECTION -->
         <main id="mainmenu" class="full">
             <h1><span>Data Akun </span>Perusahaan</h1>
-            <h3 class="path"><a href="dataperusahaan.php">Data Perusahaan</a> / <a
-                    href="details_data_perusahaan.php">Detail Akun</a> / <span>Edit Profil</span>
+            <h3 class="path"><a href="/admin/DataPerusahaan">Data Perusahaan</a> / <a href="details_data_perusahaan.php">Detail Akun</a> / <span>Edit Profil</span>
             </h3>
 
             <div class="profilperusahaan">
@@ -236,7 +235,7 @@
                     <div class="item selengkapnya">
                         <div class="selengkapnya1">
                             <i class="fa-solid fa-building-circle-arrow-right"></i>
-                            <h3><a href="dataperusahaan.php">Lihat Selengkapnya</a></h3>
+                            <h3><a href="/admin/DataPerusahaan">Lihat Selengkapnya</a></h3>
                         </div>
                     </div>
                 </div>
@@ -248,13 +247,13 @@
 
     <script src="./data.js"></script>
     <script>
-    // isi value di textarea
-    var textarea = document.getElementById('deskripsi textarea_perusahaan');
+        // isi value di textarea
+        var textarea = document.getElementById('deskripsi textarea_perusahaan');
 
 
-    // textarea color and font
-    textarea.style.color = '#9F8772';
-    textarea.style.fontFamily = 'Lora', 'serif';
+        // textarea color and font
+        textarea.style.color = '#9F8772';
+        textarea.style.fontFamily = 'Lora', 'serif';
     </script>
 </body>
 

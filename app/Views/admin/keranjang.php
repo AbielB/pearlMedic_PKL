@@ -34,27 +34,27 @@
                 </div>
             </div>
             <div class="sidebar">
-                <a href="index.php">
+                <a href="/admin">
                     <i class="fa-solid fa-house"></i>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="medical.php">
+                <a href="/admin/LayananMedical">
                     <i class="fa-solid fa-notes-medical"></i>
                     <h3>Layanan Medical</h3>
                 </a>
-                <a href="obat.php" class="active">
+                <a href="/admin/LayananObat" class="active">
                     <i class="fa-solid fa-capsules"></i>
                     <h3>Layanan Obat</h3>
                 </a>
-                <a href="darurat.php">
+                <a href="/admin/LayananDarurat">
                     <i class="fa-solid fa-truck-medical"></i>
                     <h3>Layanan Darurat</h3>
                 </a>
-                <a href="vaksin.php">
+                <a href="/admin/LayananVaksin">
                     <i class="fa-solid fa-syringe"></i>
                     <h3>Layanan Vaksin</h3>
                 </a>
-                <a href="dataperusahaan.php">
+                <a href="/admin/DataPerusahaan">
                     <i class="fa-solid fa-city" id="span"></i>
                     <h3>Data Perusahaan</h3>
                 </a>
@@ -63,7 +63,7 @@
                     <h3>Pesan</h3>
                     <p class="message-count">12</p>
                 </a> -->
-                <a href="login.php">
+                <a href="/admin/logout">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <h3>Logout</h3>
                 </a>
@@ -74,7 +74,7 @@
         <!-- MAIN MENU SECTION -->
         <main id="mainmenu" class="full">
             <h1><span>Layanan </span>Pembelian Obat</h1>
-            <h3 class="path"><a href="obat.php">Layanan Obat</a> / <span>Isi Keranjang</span> </h3>
+            <h3 class="path"><a href="/admin/LayananObat">Layanan Obat</a> / <span>Isi Keranjang</span> </h3>
             <div class="date">
                 <input type="date" name="date" id="date">
             </div>
@@ -141,8 +141,7 @@
                                             }
 
                                             ?>
-                                            <select name="statuskeranjang" id="statuskeranjang"
-                                                onchange="ubahStatus(<?= $id_keranjang ?>, this.value)">
+                                            <select name="statuskeranjang" id="statuskeranjang" onchange="ubahStatus(<?= $id_keranjang ?>, this.value)">
                                                 <option value="1" class="red" <?= $selected1 ?>>Belum Dilayani
                                                 </option>
                                                 <option value="2" class="yellow" <?= $selected2 ?>>Dalam Proses</option>
@@ -165,8 +164,7 @@
                                         <p>Estimasi Pengiriman</p>
                                         <div class="date">
                                             <?php $tanggal_pengiriman = $rowKeranjang[0]->tanggal_pengiriman; ?>
-                                            <input type="date" name="tanggal_pengiriman" id="tanggal_pengiriman"
-                                                value="<?php echo $tanggal_pengiriman; ?>">
+                                            <input type="date" name="tanggal_pengiriman" id="tanggal_pengiriman" value="<?php echo $tanggal_pengiriman; ?>">
                                         </div>
                                     </div>
                                     <div class="alamatkirim">
@@ -181,17 +179,15 @@
                             </div>
                             <br>
                             <div class="editdelete_profil">
-                                <p class="btn btn-primary edit green" onclick="ubahPengiriman()"><i
-                                        class="fa-solid fa-floppy-disk"></i>Simpan
+                                <p class="btn btn-primary edit green" onclick="ubahPengiriman()"><i class="fa-solid fa-floppy-disk"></i>Simpan
                                     Perubahan</p>
-                                <a href="obat.php" class="btn btn-primary edit"><i
-                                        class="fa-solid fa-angles-left"></i>Kembali</a>
+                                <a href="/admin/LayananObat" class="btn btn-primary edit"><i class="fa-solid fa-angles-left"></i>Kembali</a>
                             </div>
                         </div>
                         <style>
-                        #mainmenu .popup.open-popup {
-                            top: 90%;
-                        }
+                            #mainmenu .popup.open-popup {
+                                top: 90%;
+                            }
                         </style>
                     </div>
                 </div>
@@ -228,53 +224,53 @@
     <script src="../scriptjs/data.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script>
-    function ubahStatus(id_keranjang, status) {
-        console.log(id_keranjang, status)
-        //ajax
-        $.ajax({
-            url: "<?= base_url('admin/AjaxKeranjang') ?>",
-            type: 'POST',
-            data: {
-                id: id_keranjang,
-                status: status
-            },
-            success: function(data) {
-                alert("sukses mengubah status keranjang");
-            }
-        });
-    }
-
-    function ubahPengiriman() {
-        var tanggal_pengiriman = document.getElementById("tanggal_pengiriman").value;
-        //if empty date
-        if (tanggal_pengiriman == "") {
-            alert("tanggal pengiriman tidak boleh kosong");
-            return;
+        function ubahStatus(id_keranjang, status) {
+            console.log(id_keranjang, status)
+            //ajax
+            $.ajax({
+                url: "<?= base_url('admin/AjaxKeranjang') ?>",
+                type: 'POST',
+                data: {
+                    id: id_keranjang,
+                    status: status
+                },
+                success: function(data) {
+                    alert("sukses mengubah status keranjang");
+                }
+            });
         }
-        //if date before tanggal_order
-        var tanggal_order = "<?= $rowKeranjang[0]->tanggal_order ?>";
-        if (tanggal_pengiriman < tanggal_order) {
-            alert("tanggal pengiriman tidak boleh kurang dari tanggal order");
-            return;
-        }
-        var id_keranjang = <?= $id_keranjang ?>;
-        console.log(tanggal_pengiriman, id_keranjang)
-        //ajax
-        $.ajax({
-            url: "<?= base_url('admin/AjaxTanggalPengiriman') ?>",
-            type: 'POST',
-            data: {
-                id: id_keranjang,
-                tanggal_pengiriman: tanggal_pengiriman
-            },
-            success: function(data) {
-                alert("sukses mengubah tanggal pengiriman");
-                //redirect to admin/LayananObat
-                window.location.href = "<?= base_url('admin/LayananObat') ?>";
-            }
-        });
 
-    }
+        function ubahPengiriman() {
+            var tanggal_pengiriman = document.getElementById("tanggal_pengiriman").value;
+            //if empty date
+            if (tanggal_pengiriman == "") {
+                alert("tanggal pengiriman tidak boleh kosong");
+                return;
+            }
+            //if date before tanggal_order
+            var tanggal_order = "<?= $rowKeranjang[0]->tanggal_order ?>";
+            if (tanggal_pengiriman < tanggal_order) {
+                alert("tanggal pengiriman tidak boleh kurang dari tanggal order");
+                return;
+            }
+            var id_keranjang = <?= $id_keranjang ?>;
+            console.log(tanggal_pengiriman, id_keranjang)
+            //ajax
+            $.ajax({
+                url: "<?= base_url('admin/AjaxTanggalPengiriman') ?>",
+                type: 'POST',
+                data: {
+                    id: id_keranjang,
+                    tanggal_pengiriman: tanggal_pengiriman
+                },
+                success: function(data) {
+                    alert("sukses mengubah tanggal pengiriman");
+                    //redirect to admin/LayananObat
+                    window.location.href = "<?= base_url('admin/LayananObat') ?>";
+                }
+            });
+
+        }
     </script>
 </body>
 

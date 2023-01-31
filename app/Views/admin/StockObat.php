@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scald=1.0">
     <!-- Link Favicon -->
-    <link rel="shortcut icon" href="<?php echo base_url("img/logo/pearlmedic.png"); ?>" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/logo/pearlmedic.png" type="image/x-icon">
     <!-- END Link Favicon -->
-    <!-- CSS Links -->
-    <link rel="stylesheet" href=" <?php echo base_url("css/style.min.css?v=" . time()); ?>">
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="../css/style.min.css?v=<?php echo time(); ?>">
     <!-- END Link CSS -->
     <!-- Box Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
@@ -19,10 +19,10 @@
     <!-- END LINK FONT AWESOME -->
     <title>Admin || Pearl Medic</title>
     <style>
-        #batalBtn {
-            /* transform translate y 20% */
-            transform: translateY(-60%) !important;
-        }
+    #batalBtn {
+        /* transform translate y 20% */
+        transform: translateY(-60%) !important;
+    }
     </style>
 </head>
 
@@ -48,7 +48,7 @@
                     <i class="fa-solid fa-notes-medical"></i>
                     <h3>Layanan Medical</h3>
                 </a>
-                <a href="/admin/LayananObat">
+                <a href="/admin/LayananObat" class="active">
                     <i class="fa-solid fa-capsules"></i>
                     <h3>Layanan Obat</h3>
                 </a>
@@ -56,7 +56,7 @@
                     <i class="fa-solid fa-truck-medical"></i>
                     <h3>Layanan Darurat</h3>
                 </a>
-                <a href="/admin/LayananVaksin" class="active">
+                <a href="/admin/LayananVaksin">
                     <i class="fa-solid fa-syringe"></i>
                     <h3>Layanan Vaksin</h3>
                 </a>
@@ -79,26 +79,27 @@
         <!-- END ADMIN MENU SECTION -->
         <!-- MAIN MENU SECTION -->
         <main id="mainmenu" class="full">
-            <h1><span>Layanan </span>Vaksinasi</h1>
-            <h3 class="path"><a href="/admin/LayananObat">Layanan Vaksinasi</a> / <span>Stock Vaksin</span> </h3>
+            <h1><span>Layanan </span>Pembelian Obat</h1>
+            <h3 class="path"><a href="/admin/LayananObat">Layanan Obat</a> / <span>Stock Obat</span> </h3>
             <div class="date">
                 <input type="date" name="date" id="date">
             </div>
             <div class="popupedit" id="popupedit">
                 <i class="fa-solid fa-trash-can"></i>
-                <h2>Hapus Vaksin Dari Inventory?</h2>
-                <p>Harap diingat bahwa data vaksin yang telah dihapus tidak bisa dikembalikan</p>
-                <p id="suksesHapusVaksin"><button>Ya</button></p>
-                <a href="#"><button type="button" class="btn-removeedit" id="batalBtn" onclick="closePopupedit()">
+                <h2>Hapus Obat Dari Inventory?</h2>
+                <p>Harap diingat bahwa data obat yang telah dihapus tidak bisa dikembalikan</p>
+                <p id="suksesHapusObat"><button>Ya</button></p>
+                <a href="#"><button type="button" onclick="closePopupedit()" class="btn-removeedit" id="batalBtn">
                         Batal
                     </button></a>
             </div>
             <div class="profilperusahaan">
-                <h2>Stock Inventory Vaksin</h2>
+                <h2>Stock Inventory Obat-Obatan</h2>
                 <div class="container_popup" style="background-color: transparent;">
                     <form action="" method="get">
                         <div class="search">
-                            <input type="text" name="search" id="search" placeholder="Cari  Obat...." value="<?= $search ?>">
+                            <input type="text" name="search" id="search" placeholder="Cari  Obat...."
+                                value="<?= $search ?>">
                             <button type=" submit" name="submit" id="submit"><i class="fa-solid fa-search"></i></button>
                         </div>
                     </form>
@@ -107,24 +108,20 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Vaksin</th>
-                                    <th>Deskripsi Vaksin</th>
+                                    <th>Nama Obat</th>
                                     <th><i class="fa-solid fa-trash-can"></i></th>
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <?php
-                                //foreach $rowVaksin
-                                $num = 1;
-                                foreach ($rowVaksin as $rowVaksin) {
+                                $no = 1;
+                                foreach ($rowObat as $row) {
                                     echo "<tr>";
-                                    echo "<td>" . $num . "</td>";
-                                    echo "<td>" . $rowVaksin->nama_vaksin . "</td>";
-                                    echo "<td>" . $rowVaksin->deskripsi_vaksin . "</td>";
-                                    echo "<td><button type='button' class='btn-add' onclick='openPopupedit(" . $rowVaksin->id_vaksin . " )'>Hapus <i class='fa-solid fa-trash-can'></i></button></td>";
+                                    echo "<td>" . $no . "</td>";
+                                    echo "<td>" . $row->nama_obat . "</td>";
+                                    echo "<td><button type='button' class='btn-add' onclick='openPopupedit(" . $row->id_obat . ")'>Hapus <i class='fa-solid fa-trash-can'></i></button></td>";
                                     echo "</tr>";
-                                    $num = $num + 1;
+                                    $no++;
                                 }
                                 ?>
 
@@ -134,19 +131,15 @@
                     <br><br>
 
                     <div class="formtambahobat">
-                        <form action="/admin/tambahStockVaksin" class="formtambahobat1" method="post">
-                            <h3>Tambah Vaksin Ke Dalam Inventory</h3>
-                            <p>silahkan tambah vaksin ke inventory melalui form dibawah ini </p>
+                        <form action="/admin/tambahStockObat" class="formtambahobat1" method="post">
+                            <h3>Tambah Obat Ke Dalam Inventory</h3>
+                            <p>silahkan tambah obat ke inventory melalui form dibawah ini </p>
                             <div class="form_tambah">
                                 <i class="fa-solid fa-tablets"></i>
-                                <input type="text" name="namaVaksin" id="namavaksin" placeholder="Isi Nama Vaksin...">
+                                <input type="text" name="namaobat" id="namaobat" placeholder="Isi Nama Obat...">
                             </div>
-                            <p class="red"><?= $error_namaVaksin ?></p>
-                            <div class="form_tambah">
-                                <i class="fa-solid fa-arrow-down-wide-short"></i>
-                                <input type="text" name="desc" id="desc" placeholder="Deskripsi singkat vaksin...">
-                            </div>
-                            <p class="red"><?= $error_desc ?></p>
+                            <p class="red"><?= $error_namaObat ?></p>
+
                             <button type="submit" class="form_tambah_button">
                                 <i class="fa-solid fa-plus"></i>
                                 Tambahkan
@@ -172,7 +165,9 @@
                         <p>Hallo, <span>Hanif</span> </p>
                         <p class="text-muted">Admin</p>
                     </div>
-
+                    <div class="profile-photo">
+                        <img src="./img/assets/fotocandid3.png" alt="">
+                    </div>
                 </div>
             </div>
 
@@ -244,48 +239,50 @@
     <script src="popup.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script>
-        // pop up edit
-        let popupedit = document.getElementById("popupedit");
+    // pop up edit
+    let popupedit = document.getElementById("popupedit");
 
-        function openPopupedit(id_vaksin) {
-            popupedit.classList.add("open-popupedit");
-            let suksesHapusVaksin = document.getElementById("suksesHapusVaksin");
-            //add event listener
-            suksesHapusVaksin.addEventListener("click", function() {
-                //ajax
-                $.ajax({
-                    url: "<?= base_url('admin/HapusVaksin') ?>",
-                    type: 'POST',
-                    data: {
-                        id_vaksin: id_vaksin,
-                    },
-                    success: function(data) {
-                        alert("sukses menghapus vaksin");
-                        location.reload();
-                    }
-                });
-                popupedit.classList.remove("open-popupedit");
+    function openPopupedit(id_obat) {
+        popupedit.classList.add("open-popupedit");
+        let suksesHapusObat = document.getElementById("suksesHapusObat");
+        //add event listener
+        suksesHapusObat.addEventListener("click", function() {
+            //ajax
+            $.ajax({
+                url: "<?= base_url('admin/HapusStockObat') ?>",
+                type: 'POST',
+                data: {
+                    id_obat: id_obat,
+                },
+                success: function(data) {
+                    alert("sukses menghapus obat");
+                    location.reload();
+                }
             });
-        }
-
-        function closePopupedit() {
             popupedit.classList.remove("open-popupedit");
-        }
-
-        // background popup
-        // let container_popup = document.querySelector(".container_popup");
-        let btn_popupedit = document.querySelector(".btn_popupedit");
-
-        btn_popup.addEventListener("click", function() {
-            container_popup.classList.add("active");
         });
+    }
 
-        // close popup
-        let btn_removeedit = document.querySelector(".btn-removeedit");
-        btn_remove.addEventListener("click", function() {
-            container_popup.classList.remove("active");
-        });
+    function closePopupedit() {
+        popupedit.classList.remove("open-popupedit");
+    }
+
+    // background popup
+    // let container_popup = document.querySelector(".container_popup");
+    let btn_popupedit = document.querySelector(".btn_popupedit");
+
+    btn_popup.addEventListener("click", function() {
+        container_popup.classList.add("active");
+    });
+
+    // close popup
+    let btn_removeedit = document.querySelector(".btn-removeedit");
+    btn_remove.addEventListener("click", function() {
+        container_popup.classList.remove("active");
+    });
     </script>
 </body>
+
+</html>
 
 </html>

@@ -47,6 +47,7 @@ $routes->get('/admin/EditDataPerusahaan', 'AdminControl::EditDataPerusahaan');
 $routes->get('/admin/Logout', 'AdminControl::Logout');
 $routes->get('/admin/Keranjang', 'AdminControl::Keranjang');
 $routes->get('/admin/StockVaksin', 'AdminControl::StockVaksin');
+$routes->get('/admin/StockObat', 'AdminControl::StockObat');
 
 $routes->post('/loginAdmin', 'Home::loginAdmin');
 $routes->post('/admin/PostEdit', 'AdminControl::PostEdit');
@@ -57,6 +58,10 @@ $routes->post('/admin/AjaxAkun', 'Ajax::Akun');
 $routes->post('/admin/AjaxKeranjang', 'Ajax::Keranjang');
 $routes->post('/admin/AjaxTanggalPengiriman', 'Ajax::TanggalPengiriman');
 $routes->post('/admin/AjaxVaksin', 'Ajax::Vaksin');
+$routes->post('/admin/HapusVaksin', 'Ajax::HapusVaksin');
+$routes->post('/admin/HapusStockObat', 'Ajax::HapusStockObat');
+$routes->post('/admin/tambahStockVaksin', 'AdminControl::tambahStockVaksin');
+$routes->post('/admin/tambahStockObat', 'AdminControl::tambahStockObat');
 
 $routes->get('/indexAdmin', 'Home::indexAdmin');
 

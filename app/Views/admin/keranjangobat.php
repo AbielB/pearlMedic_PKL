@@ -34,27 +34,27 @@
                 </div>
             </div>
             <div class="sidebar">
-                <a href="index.php">
+                <a href="/admin">
                     <i class="fa-solid fa-house"></i>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="medical.php">
+                <a href="/admin/LayananMedical">
                     <i class="fa-solid fa-notes-medical"></i>
                     <h3>Layanan Medical</h3>
                 </a>
-                <a href="obat.php" class="active">
+                <a href="/admin/LayananObat" class="active">
                     <i class="fa-solid fa-capsules"></i>
                     <h3>Layanan Obat</h3>
                 </a>
-                <a href="darurat.php">
+                <a href="/admin/LayananDarurat">
                     <i class="fa-solid fa-truck-medical"></i>
                     <h3>Layanan Darurat</h3>
                 </a>
-                <a href="vaksin.php">
+                <a href="/admin/LayananVaksin">
                     <i class="fa-solid fa-syringe"></i>
                     <h3>Layanan Vaksin</h3>
                 </a>
-                <a href="dataperusahaan.php">
+                <a href="/admin/DataPerusahaan">
                     <i class="fa-solid fa-city" id="span"></i>
                     <h3>Data Perusahaan</h3>
                 </a>
@@ -63,7 +63,7 @@
                     <h3>Pesan</h3>
                     <p class="message-count">12</p>
                 </a> -->
-                <a href="login.php">
+                <a href="/admin/logout">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <h3>Logout</h3>
                 </a>
@@ -74,7 +74,7 @@
         <!-- MAIN MENU SECTION -->
         <main id="mainmenu" class="full">
             <h1><span>Layanan </span>Pembelian Obat</h1>
-            <h3 class="path"><a href="obat.php">Layanan Obat</a> / <span>Isi Keranjang</span> </h3>
+            <h3 class="path"><a href="/admin/LayananObat">Layanan Obat</a> / <span>Isi Keranjang</span> </h3>
 
             <div class="profilperusahaan">
                 <h2>Profil Akun Perusahaan Mitra</h2>
@@ -149,10 +149,8 @@
                                 </table>
                             </div>
                             <div class="editdelete_profil">
-                                <a href="editperusahaan.php" class="btn btn-primary edit"><i
-                                        class="fa-solid fa-user-pen"></i>Terima Pesanan</a>
-                                <button type="button" class="btn btn-danger hapus" onclick="openPopup()"><i
-                                        class="fa-solid fa-trash"></i>Tolak Pesanan</button>
+                                <a href="editperusahaan.php" class="btn btn-primary edit"><i class="fa-solid fa-user-pen"></i>Terima Pesanan</a>
+                                <button type="button" class="btn btn-danger hapus" onclick="openPopup()"><i class="fa-solid fa-trash"></i>Tolak Pesanan</button>
                             </div>
                         </div>
                         <div class="popup" id="popup">
@@ -163,9 +161,9 @@
                             <button type="button" onclick="closePopup()">Batalkan</button>
                         </div>
                         <style>
-                        #mainmenu .popup.open-popup {
-                            top: 90%;
-                        }
+                            #mainmenu .popup.open-popup {
+                                top: 90%;
+                            }
                         </style>
                     </div>
                 </div>
@@ -247,7 +245,7 @@
                     <div class="item selengkapnya">
                         <div class="selengkapnya1">
                             <i class="fa-solid fa-building-circle-arrow-right"></i>
-                            <h3><a href="dataperusahaan.php">Lihat Selengkapnya</a></h3>
+                            <h3><a href="/admin/DataPerusahaan">Lihat Selengkapnya</a></h3>
                         </div>
                     </div>
                 </div>

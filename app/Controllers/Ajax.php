@@ -152,4 +152,26 @@ class Ajax extends BaseController
         $builder->where('id_ordervaksin', $id);
         $builder->update();
     }
+
+    public function HapusVaksin()
+    {
+        //get post data
+        $id = $this->request->getVar('id_vaksin');
+        //delete from tb_ordervaksin where id = id
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_vaksin');
+        $builder->where('id_vaksin', $id);
+        $builder->delete();
+    }
+
+    public function HapusStockObat()
+    {
+        //get post data
+        $id = $this->request->getVar('id_obat');
+        //delete from tb_obat where id = id
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_obat');
+        $builder->where('id_obat', $id);
+        $builder->delete();
+    }
 }

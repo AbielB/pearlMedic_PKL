@@ -541,9 +541,179 @@ class AdminControl extends BaseController
         }
         //get session name
         $name = $session->get('nama');
+
+        //get flashdata
+        $error_namaVaksin = $session->getFlashdata('error_namaVaksin');
+        $error_desc = $session->getFlashdata('error_desc');
+
+        //select all from tb_vaksin
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_vaksin');
+        $query = $builder->get();
+        $rowVaksin = $query->getResult();
+
+        if (empty($error_namaVaksin)) {
+            $error_namaVaksin = "";
+        }
+        if (empty($error_desc)) {
+            $error_desc = "";
+        }
+
+        //get search
+        $search = $this->request->getVar('search');
+        if (!empty($search)) {
+            $builder->like('nama_vaksin', $search);
+            $query = $builder->get();
+            $rowVaksin = $query->getResult();
+        }
+
         $data = [
-            'name' => $name
+            'name' => $name,
+            'rowVaksin' => $rowVaksin,
+            'error_namaVaksin' => $error_namaVaksin,
+            'error_desc' => $error_desc,
+            'search' => $search
         ];
-        return view('admin/StockVaksin');
+        return view('admin/StockVaksin', $data);
+    }
+
+    public function tambahStockVaksin()
+    {
+        //get role
+        $session = session();
+        $role = $session->get('role');
+        //if role != admin redirect to home page
+        if ($role != 'admin') {
+            return redirect()->to('/');
+        }
+        //get session name
+        $name = $session->get('nama');
+
+        //get namavaksin and desc
+        $namaVaksin = $this->request->getVar('namaVaksin');
+        $desc = $this->request->getVar('desc');
+        //validation
+        if (!$this->validate([
+            'namaVaksin' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '* Nama Vaksin tidak boleh kosong'
+                ]
+            ],
+            'desc' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '* Deskripsi tidak boleh kosong'
+                ]
+            ]
+        ])) {
+            $error_namaVaksin = $this->validator->getError('namaVaksin');
+            $error_desc = $this->validator->getError('desc');
+            //return redirect to /admin/StockVaksin
+            $error = [
+                'error_namaVaksin' => $error_namaVaksin,
+                'error_desc' => $error_desc
+            ];
+            //flashdata
+            $session->setFlashdata($error);
+            return redirect()->to('/admin/StockVaksin');
+
+            //if valid insert into tb_vaksin
+        } else {
+            $db = \Config\Database::connect();
+            $builder = $db->table('tb_vaksin');
+            $data = [
+                'nama_vaksin' => $namaVaksin,
+                'deskripsi_vaksin' => $desc
+            ];
+            $builder->insert($data);
+            return redirect()->to('/admin/StockVaksin');
+        }
+    }
+
+    public function StockObat()
+    {
+        //get role
+        $session = session();
+        $role = $session->get('role');
+        //if role != admin redirect to home page
+        if ($role != 'admin') {
+            return redirect()->to('/');
+        }
+        //get session name
+        $name = $session->get('nama');
+
+        //get flashdata
+        $error_namaObat = $session->getFlashdata('error_namaobat');
+
+        //select all from tb_obat
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_obat');
+        $query = $builder->get();
+        $rowObat = $query->getResult();
+
+        if (empty($error_namaObat)) {
+            $error_namaObat = "";
+        }
+
+        //get search
+        $search = $this->request->getVar('search');
+        if (!empty($search)) {
+            $builder->like('nama_obat', $search);
+            $query = $builder->get();
+            $rowObat = $query->getResult();
+        }
+
+        $data = [
+            'name' => $name,
+            'rowObat' => $rowObat,
+            'error_namaObat' => $error_namaObat,
+            'search' => $search
+        ];
+        return view('admin/StockObat', $data);
+    }
+
+    public function tambahStockObat()
+    {
+        //get role
+        $session = session();
+        $role = $session->get('role');
+        //if role != admin redirect to home page
+        if ($role != 'admin') {
+            return redirect()->to('/');
+        }
+        //get session name
+        $name = $session->get('nama');
+
+        //get namaObat and desc
+        $namaObat = $this->request->getVar('namaobat');
+        //validation
+        if (!$this->validate([
+            'namaobat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '* Nama Obat tidak boleh kosong'
+                ]
+            ],
+        ])) {
+            $error_namaObat = $this->validator->getError('namaobat');
+            //return redirect to /admin/StockObat
+            $error = [
+                'error_namaobat' => $error_namaObat,
+            ];
+            //flashdata
+            $session->setFlashdata($error);
+            return redirect()->to('/admin/StockObat');
+
+            //if valid insert into tb_obat
+        } else {
+            $db = \Config\Database::connect();
+            $builder = $db->table('tb_obat');
+            $data = [
+                'nama_obat' => $namaObat,
+            ];
+            $builder->insert($data);
+            return redirect()->to('/admin/StockObat');
+        }
     }
 }

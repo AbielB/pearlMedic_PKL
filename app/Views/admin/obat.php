@@ -268,7 +268,7 @@
                         <h3>Stock Inventory</h3>
                     </div>
                     <div class="bottom-button">
-                        <a href="stockobat.php">Lihat Stock Obat</a>
+                        <a href="/admin/StockObat">Lihat Stock Obat</a>
                     </div>
                 </div>
             </div>
