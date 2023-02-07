@@ -24,6 +24,7 @@
     <!-- Link AOS Library -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- END Link AOS Library -->
+    <link rel="stylesheet" href="../client_edit/css/output.css" />
     <style>
         #error {
             color: red;

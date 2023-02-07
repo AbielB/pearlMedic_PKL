@@ -24,6 +24,7 @@
     <!-- Link AOS Library -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- END Link AOS Library -->
+    <link rel="stylesheet" href="../client_edit/css/output.css" />
 </head>
 
 <body>
@@ -78,7 +79,7 @@
         <div class="swiper-wrapper">
             <div class="container swiper-slide">
                 <img src="../client_edit/image/assets/doctor3.jpg" alt="" />
-                <div class="content" data-aos="fade-up">
+                <div class="content" data-aos="fade-up" id="title">
                     <h3>PT Mutiara Medical Services</h3>
                     <h1>Where Wellness Meet Our Care</h1>
                     <p>

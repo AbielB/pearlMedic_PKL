@@ -24,6 +24,7 @@
     <!-- Link AOS Library -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- END Link AOS Library -->
+    <link rel="stylesheet" href="../client_edit/css/output.css" />
 </head>
 
 <body>
@@ -76,7 +77,7 @@
     </div>
     <section class="home swiper" id="home">
         <div class="swiper-wrapper">
-            <div class="container swiper-slide profilecontainer">
+            <div class="container swiper-slide profilecontainer" id="home2">
                 <img src="../client_edit/image/assets/doctor2.jpg" alt="" />
                 <div class="content1" data-aos="fade-up">
                     <div class="photouser">

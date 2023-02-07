@@ -24,24 +24,7 @@
     <!-- Link AOS Library -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- END Link AOS Library -->
-    <style>
-    #loginadmin {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin-top: 1em;
-        font-weight: bold;
-    }
-
-    #error {
-        color: red;
-        font-size: 1.3em;
-        width: 100% !important;
-    }
-    </style>
+    <link rel="stylesheet" href="../client_edit/css/output.css" />
 </head>
 
 <body>
