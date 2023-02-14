@@ -174,4 +174,15 @@ class Ajax extends BaseController
         $builder->where('id_obat', $id);
         $builder->delete();
     }
+
+    public function hapusAllObat()
+    {
+        //get post data
+        $id_keranjang = $this->request->getVar('id_keranjang');
+        //delete from tb_isi where id_keranjang = id_keranjang
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_isi');
+        $builder->where('id_keranjang', $id_keranjang);
+        $builder->delete();
+    }
 }

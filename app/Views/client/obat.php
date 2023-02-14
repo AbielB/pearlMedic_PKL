@@ -78,9 +78,24 @@
     <div class="popuphapus" id="popuphapus">
         <i class="fa-solid fa-trash-can"></i>
         <h2>Anda Yakin Ingin Menghapus ?</h2>
-        <a href="#"><button type="button" class="btn-remove" onclick="closePopuphapus()">
-                Ya
-            </button></a>
+        <button type="button" class="btn-remove" onclick="hapusAll()">
+            Ya
+        </button>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>
+            function hapusAll() {
+                $.ajax({
+                    url: "/client/hapusAllObat",
+                    type: "POST",
+                    data: {
+                        id_keranjang: <?= $id_keranjang ?>
+                    },
+                    success: function(data) {
+                        location.reload();
+                    }
+                });
+            }
+        </script>
         <a href="#"><button type="button" onclick="closePopuphapus()" class="btn-remove">
                 Batal
             </button></a>
@@ -446,6 +461,7 @@
 
         function openPopuphapus() {
             popuphapus.classList.add("open-popup");
+
         }
 
         function closePopuphapus() {

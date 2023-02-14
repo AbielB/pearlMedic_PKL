@@ -92,6 +92,7 @@ $routes->get('/client/postEdit', 'ClientControl::editProfile');
 $routes->post('/client/ajaxTambahObat', 'Ajax::tambahObat');
 $routes->post('/client/ajaxHapusObat', 'Ajax::hapusObat');
 $routes->post('/client/ajaxPesanObat', 'Ajax::pesanObat');
+$routes->post('/client/hapusAllObat', 'Ajax::hapusAllObat');
 
 
 
