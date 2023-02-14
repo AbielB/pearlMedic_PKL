@@ -744,13 +744,10 @@ class ClientControl extends BaseController
         $num_rows = ceil($num_rows / 15);
         //if not isset sort, show 1st to 15th data
         if (!isset($_GET['sort'])) {
-            $builder->limit(15);
+            $resultArray = array_chunk($result, 15)[0];
         } else {
-            //if isset sort, show 15th data from sort * 15
-            $builder->limit(15, ($_GET['sort'] - 1) * 15);
+            $resultArray = array_chunk($result, 15)[$_GET['sort'] - 1];
         }
-
-        $query = $builder->get();
 
         //get all data from tb_isi where id_keranjang = id_keranjang
         $builder = $db->table('tb_isi');
@@ -761,7 +758,7 @@ class ClientControl extends BaseController
 
         //send data to view
         $data = [
-            'obat' => $query->getResultArray(),
+            'obat' => $resultArray,
             'search' => $search,
             'num_rows' => $num_rows,
             'id_keranjang' => $id_keranjang,

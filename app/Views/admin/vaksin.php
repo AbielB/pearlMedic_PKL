@@ -106,28 +106,29 @@
                                 $color = "red";
                             }
                         ?>
-                            <tr>
-                                <td><?php echo $vaksin->nama_perusahaan; ?></td>
-                                <td><?php echo $vaksin->nama_vaksin; ?></td>
-                                <td><?php echo $vaksin->jumlah; ?></td>
-                                <td><?php echo $vaksin->lokasi; ?></td>
-                                <td><?php echo $vaksin->tanggal_pelaksanaan; ?></td>
-                                <td>
-                                    <option>
-                                        <select name="status" id="status" class="status" onchange="ubahStatus(<?= $vaksin->id_ordervaksin ?>,this.value)">
-                                            <option value="0" <?php echo $selected1; ?> class="red">Belum Dilayani
-                                            </option>
-                                            <option value=" 1" <?php echo $selected2; ?> class="yellow">Dalam Proses
-                                            </option>
-                                            <option value=" 2" <?php echo $selected3; ?> class="green">Sudah
-                                                Dilayani</option>
-                                            <option value=" 3" <?php echo $selected4; ?> class="red">Dibatalkan
-                                            </option>
-                                        </select>
-                                    </option>
-                                </td>
+                        <tr>
+                            <td><?php echo $vaksin->nama_perusahaan; ?></td>
+                            <td><?php echo $vaksin->nama_vaksin; ?></td>
+                            <td><?php echo $vaksin->jumlah; ?></td>
+                            <td><?php echo $vaksin->lokasi; ?></td>
+                            <td><?php echo $vaksin->tanggal_pelaksanaan; ?></td>
+                            <td>
 
-                            </tr>
+                                <select name="status" id="status" class="status"
+                                    onchange="ubahStatus(<?= $vaksin->id_ordervaksin ?>,this.value)">
+                                    <option value="0" <?php echo $selected1; ?> class="red">Belum Dilayani
+                                    </option>
+                                    <option value=" 1" <?php echo $selected2; ?> class="yellow">Dalam Proses
+                                    </option>
+                                    <option value=" 2" <?php echo $selected3; ?> class="green">Sudah
+                                        Dilayani</option>
+                                    <option value=" 3" <?php echo $selected4; ?> class="red">Dibatalkan
+                                    </option>
+                                </select>
+
+                            </td>
+
+                        </tr>
                         <?php }
                         ?>
 
@@ -213,21 +214,21 @@
         <script src="./data.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
         <script>
-            function ubahStatus(id_ordervaksin, status) {
-                console.log(id_ordervaksin, status)
-                //ajax
-                $.ajax({
-                    url: "<?= base_url('admin/AjaxVaksin') ?>",
-                    type: 'POST',
-                    data: {
-                        id_ordervaksin: id_ordervaksin,
-                        status: status
-                    },
-                    success: function(data) {
-                        alert("sukses mengubah status keranjang");
-                    }
-                });
-            }
+        function ubahStatus(id_ordervaksin, status) {
+            console.log(id_ordervaksin, status)
+            //ajax
+            $.ajax({
+                url: "<?= base_url('admin/AjaxVaksin') ?>",
+                type: 'POST',
+                data: {
+                    id_ordervaksin: id_ordervaksin,
+                    status: status
+                },
+                success: function(data) {
+                    alert("sukses mengubah status keranjang");
+                }
+            });
+        }
         </script>
 </body>
 

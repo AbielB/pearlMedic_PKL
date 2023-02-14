@@ -63,7 +63,7 @@
                     <h3>Pesan</h3>
                     <p class="message-count">12</p>
                 </a> -->
-                <a href="/admin/logout">
+                <a href="/admin/Logout">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <h3>Logout</h3>
                 </a>

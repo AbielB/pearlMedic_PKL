@@ -176,10 +176,11 @@
                             <?php
                             //get current link
                             $current_link = $_SERVER['REQUEST_URI'];
-                            //if isset get sort, delete from link
+                            //if isset get sort, delete get sort from link
                             if (isset($_GET['sort'])) {
                                 $sort = $_GET['sort'];
                                 $current_link = str_replace('&sort=' . $_GET['sort'], '', $current_link);
+                                $current_link = str_replace('?sort=' . $_GET['sort'], '', $current_link);
                             } else {
                                 $sort = 1;
                             }
