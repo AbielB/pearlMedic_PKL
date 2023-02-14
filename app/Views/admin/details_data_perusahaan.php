@@ -141,22 +141,25 @@
 
 
                     <div class="editdelete_profil">
-                        <a href="/admin/EditDataPerusahaan?id=<?php echo $id ?>" class="btn btn-primary edit"><i class="fa-solid fa-user-pen"></i>Edit
+                        <a href="/admin/EditDataPerusahaan?id=<?php echo $id ?>" class="btn btn-primary edit"><i
+                                class="fa-solid fa-user-pen"></i>Edit
                             Profil</a>
-                        <button type="button" class="btn btn-success <?= $btn ?>" onclick="openPopup()"><?php echo $buttonText ?></button>
+                        <button type="button" class="btn btn-success <?= $btn ?>"
+                            onclick="openPopup()"><?php echo $buttonText ?></button>
                     </div>
                     <div class="popup" id="popup">
                         <?= $icon ?>
                         <h2><?php echo $hText ?></h2>
                         <p><?php echo $pText ?></p>
 
-                        <button type="submit" name="edit" id="edit" onclick="changeStatusAkun(<?php echo $id ?>,<?php echo $status ?>)">Ya</button>
+                        <button type="submit" name="edit" id="edit"
+                            onclick="changeStatusAkun(<?php echo $id ?>,<?php echo $status ?>)">Ya</button>
                         <button type="submit" onclick="closePopup()">Batalkan</button>
                     </div>
                     <style>
-                        #mainmenu .popup.open-popup {
-                            top: 60%;
-                        }
+                    #mainmenu .popup.open-popup {
+                        top: 60%;
+                    }
                     </style>
                 </div>
                 <div class="orderterbaru">
@@ -235,12 +238,12 @@
                                     $status = "Dibatalkan";
                                 } ?>
 
-                                <tr>
-                                    <td><?= $medical->tanggal_pelaksanaan ?></td>
-                                    <td><?= $medical->lokasi ?></td>
-                                    <td><?= $medical->jumlah ?></td>
-                                    <td class="<?= $color ?>">Belum Dilayani</td>
-                                </tr>
+                            <tr>
+                                <td><?= $medical->tanggal_pelaksanaan ?></td>
+                                <td><?= $medical->lokasi ?></td>
+                                <td><?= $medical->jumlah ?></td>
+                                <td class="<?= $color ?>"><?= $status ?></td>
+                            </tr>
                             <?php } ?>
                         </tbody>
                     </table>
@@ -273,12 +276,12 @@
                                     $color = "red";
                                     $status = "Dibatalkan";
                                 } ?>
-                                <tr>
-                                    <td><?= $darurat->tanggal_pelaporan ?></td>
-                                    <td><?= $darurat->lokasi ?></td>
-                                    <td><?= $darurat->jumlah ?></td>
-                                    <td class="<?= $color ?>"><?= $status ?></td>
-                                </tr>
+                            <tr>
+                                <td><?= $darurat->tanggal_pelaporan ?></td>
+                                <td><?= $darurat->lokasi ?></td>
+                                <td><?= $darurat->jumlah ?></td>
+                                <td class="<?= $color ?>"><?= $status ?></td>
+                            </tr>
                             <?php } ?>
                         </tbody>
                     </table>
@@ -352,23 +355,23 @@
     <script src="../js/popup.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script>
-        //ajax change status
-        function changeStatusAkun(id, status) {
+    //ajax change status
+    function changeStatusAkun(id, status) {
 
-            $.ajax({
-                url: "<?= base_url('admin/AjaxAkun') ?>",
-                type: "POST",
-                data: {
-                    id: id,
-                    status: status
-                },
-                success: function(data) {
-                    alert("status akun berhasil diubah")
-                    location.reload();
-                }
-            });
-            console.log(id, status);
-        }
+        $.ajax({
+            url: "<?= base_url('admin/AjaxAkun') ?>",
+            type: "POST",
+            data: {
+                id: id,
+                status: status
+            },
+            success: function(data) {
+                alert("status akun berhasil diubah")
+                location.reload();
+            }
+        });
+        console.log(id, status);
+    }
     </script>
 </body>
 
