@@ -75,9 +75,7 @@
         <main id="mainmenu" class="full">
             <h1><span>Layanan </span>Pembelian Obat</h1>
             <h3 class="path"><a href="/admin/LayananObat">Layanan Obat</a> / <span>Isi Keranjang</span> </h3>
-            <div class="date">
-                <input type="date" name="date" id="date">
-            </div>
+
             <div class="profilperusahaan">
                 <h2>Keranjang Pelanggan</h2>
                 <div class="container_popup">
@@ -88,7 +86,7 @@
                         </div>
                         <div class="pembungkus">
                             <div class="grid-flex">
-                                <div class="profilperusahaan">
+                                <div class="profilperusahaan profilperusahaanfix">
                                     <h3>Nama Perusahaan</h3>
                                     <p><?= $rowKeranjang[0]->nama_perusahaan ?></p>
                                 </div>
@@ -177,6 +175,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <br>
                             <br>
                             <div class="editdelete_profil">
                                 <p class="btn btn-primary edit green" onclick="ubahPengiriman()"><i class="fa-solid fa-floppy-disk"></i>Simpan
@@ -270,6 +269,36 @@
 
         }
     </script>
+    <style>
+        .grid-flex {
+            display: grid;
+            grid-template-columns: 1fr !important;
+            /* width: 100%; */
+            margin-bottom: 20px;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .profilperusahaanfix {
+            left: 50% !important;
+            /* background-color: aqua; */
+            margin-bottom: 30px;
+            width: 100% !important;
+            text-align: center !important;
+            background: #D8D9CF;
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .isikeranjang-bottom {
+            margin-bottom: 30px;
+        }
+    </style>
 </body>
 
 </html>

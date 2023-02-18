@@ -22,7 +22,7 @@
 
 <body>
     <!-- ADMIN MENU SECTION -->
-    <div class="container">
+    <div class="container-4">
         <div class="adminmenu">
             <div class="top">
                 <div class="logo">
@@ -106,7 +106,7 @@
                             <td style="max-width: 300px"><?php echo $d->deskripsi; ?></td>
                             <td><?php echo $d->jumlah; ?></td>
                             <td><?php echo $d->tanggal_pelaporan; ?></td>
-                            <td>
+                            <td class="status_Darurat">
                                 <select name="status" id="status"
                                     onchange="statusDarurat(<?php echo $d->id_darurat ?>,this.value)">
                                     <!-- if status = 1 selected -->
@@ -175,6 +175,37 @@
         console.log(id, status)
     }
     </script>
+    <style>
+    .container-4 {
+        display: grid;
+        width: 96%;
+        margin: 0 auto;
+        grid-template-columns: 14rem auto 10rem;
+    }
+
+    .profile {
+        margin-right: 30px;
+    }
+
+    .status_Darurat {
+        padding: 10px;
+    }
+
+    .status_Darurat select {
+        /* width: 100%; */
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .status_Darurat select:hover {
+        color: #9F8772;
+        border: 1px solid #9F8772;
+        transition: all 0.3s ease-in-out;
+    }
+    </style>
 </body>
 
 </html>

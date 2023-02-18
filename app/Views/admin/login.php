@@ -28,6 +28,9 @@
     <!-- LINK FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <!-- END LINK FONT AWESOME -->
+    <!-- Link output.css -->
+    <link rel="stylesheet" href="/public/client_edit/css/output.css">
+    <!-- END Link output.css -->
     <style>
     #validasi_nama {
         color: red;
@@ -69,12 +72,12 @@
                             <i class="fas fa-user"></i>
                             <input type="text" name="username" id="username" placeholder="Username">
                         </div>
-                        <p id="validasi_nama"><?= $error ?></p>
                         <div class="form-group">
                             <i class="fas fa-lock"></i>
                             <input type="password" name="password" id="password" placeholder="Password">
-                            <p id="validasi_pass"></p>
                         </div>
+                        <p id="validasi_nama" class="login_fix"><?= $error ?>
+                        </p>
                         <span id="validasi_login" class="display"></span>
                         <div class="form-group1">
                             <i class="fas fa-unlock"></i>
@@ -97,6 +100,12 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: 100vh;
+}
+
+.login_fix {
+    /* background-color: aqua; */
+    width: 100%;
+    text-align: center;
 }
 </style>
 

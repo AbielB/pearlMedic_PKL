@@ -22,7 +22,7 @@
 
 <body>
     <!-- ADMIN MENU SECTION -->
-    <div class="container">
+    <div class="container-2">
         <div class="adminmenu">
             <div class="top">
                 <div class="logo">
@@ -118,7 +118,7 @@
                     <div class="profilperusahaan_info_text">
                         <h3>Bidang</h3>
                         <div class="input_wrapper">
-                        <select name="bidang" id="bidang">
+                        <select name="bidang" id="bidang" class="bidang-select">
                         <option value="Tambang/Minyak" ' . $tambang . '>Tambang/Minyak</option>
                         <option value="Energi" ' . $energi . '>Energi</option>
                         <option value="Kesehatan" ' . $kesehatan . '>Kesehatan</option>
@@ -128,6 +128,21 @@
                             <i class="fa-solid fa-user-pen"></i>
                         </div>
                     </div>
+                    <style>
+                    .bidang-select{
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                        background: none;
+                        outline: none;
+                        font-size: 12px;
+                        color: #000;
+                        padding: 0 1rem;
+                        cursor: pointer;
+                        text-align: left;
+                        color : #9F8772;
+                    }
+                    </style>
                   
                     <div class="profilperusahaan_info_text">
                         <h3>Alamat Lengkap</h3>
@@ -191,7 +206,7 @@
                 </div>
             </div>
 
-            <div class="bottom">
+            <!-- <div class="bottom">
                 <div class="akunperusahaan">
                     <h2>Akun Perusahaan Aktif</h2>
                     <div class="item online">
@@ -249,7 +264,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- BAGIAN KANAN MAIN MENU / DETAILS MENU -->

@@ -17,6 +17,9 @@
     <!-- LINK FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <!-- END LINK FONT AWESOME -->
+    <!-- Link output.css -->
+    <link rel="stylesheet" href="/public/client_edit/css/output.css">
+    <!-- END Link output.css -->
     <title>Admin || Pearl Medic</title>
     <style>
     /*id pelayananDarurat onHover size 110%*/
@@ -83,7 +86,7 @@
         <!-- Title Menu -->
         <main id="mainmenu">
             <h1 id="color-change2"><span>Admin </span> Dashboard</h1>
-            <div class="date">
+            <div class="date date-fix">
                 <h2><?php
                     //seperate the date into year, month, and day
                     $date = explode('-', $date);
@@ -99,22 +102,21 @@
                 <!-- Flow Chart Section -->
                 <div class="gridchart">
                     <div class="flowchart">
-                        <h2>Client Perusahaan</h3>
-                            <div id="piechart" class="charts"></div>
+                        <h2>Client Perusahaan</h2>
+                        <div id="piechart" class="charts"></div>
                     </div>
                     <div class="flowchart">
-                        <h2>Pesanan Layanan Belum Dilayani</h3>
-                            <div id="donutchart" class="charts"></div>
+                        <h2>Pesanan Belum Dilayani</h2>
+                        <div id="donutchart" class="charts"></div>
                     </div>
                 </div>
                 <!-- END Flow Chart Section -->
                 <!-- END Layanan Terbaru -->
                 <!-- Layanan Terbaru -->
-                <div class="orderterbaru">
-
-                    <h2 id="pelayananDarurat"><a href="/admin/LayananDarurat"><span>Pelayanan Darurat Belum
+                <div class="orderterbaru orderindexfix">
+                    <h2 id="pelayananDarurat"><a href="/admin/LayananDarurat"><span>Pelayanan Darurat
+                                Belum
                                 Dilayani</span></a></h2>
-
                     <table>
                         <thead>
                             <tr>
@@ -161,7 +163,7 @@
                     <i class="fa-solid fa-moon" id="black-btn"></i>
                 </div> -->
                 <div class="profile">
-                    <div class="info">
+                    <div class="info info-fix">
                         <p>Hallo, <span><?php echo $name ?></span> </p>
                         <p class="text-muted">Admin</p>
                     </div>
@@ -169,7 +171,7 @@
             </div>
             <div class="bottom">
 
-                <div class="akunperusahaan">
+                <div class="akunperusahaan akunperusahaan-fix">
                     <h2>Akun Perusahaan Aktif</h2>
                     <?php
                     //get rowPerusahaan
@@ -186,8 +188,13 @@
                             <i class="fa-solid fa-building-user"></i>
                         </div>
                         <div class="right">
-                            <div class="info">
+                            <div class="info info-fix">
                                 <h3>' . $namaPerusahaan . '</h3>
+                                <style>
+                                .info-fix h3{
+                                    margin-top: 10px;
+                                }
+                                </style>
                             </div>
                             <a href="/admin/DetailsDataPerusahaan?id=' . $id . '" class="red">Details</a>
                         </div>
@@ -312,6 +319,35 @@
         chart.draw(data, options);
     }
     </script>
+
+
+    <style>
+    .orderindexfix {
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+
+    .orderindexfix h2 a span {
+        font-size: 24px;
+    }
+
+    .date-fix {
+        color: #665A48;
+    }
+
+    .date-fix h2 {
+        font-size: 18px;
+    }
+
+    .akunperusahaan-fix {
+        margin-top: 80px !important;
+        margin-right: 10px;
+    }
+
+    .info-fix {
+        margin-right: 20px;
+    }
+    </style>
 </body>
 
-</html>
+</html>;

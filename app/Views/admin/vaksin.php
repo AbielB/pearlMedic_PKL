@@ -113,7 +113,6 @@
                             <td><?php echo $vaksin->lokasi; ?></td>
                             <td><?php echo $vaksin->tanggal_pelaksanaan; ?></td>
                             <td>
-
                                 <select name="status" id="status" class="status"
                                     onchange="ubahStatus(<?= $vaksin->id_ordervaksin ?>,this.value)">
                                     <option value="0" <?php echo $selected1; ?> class="red">Belum Dilayani
@@ -125,7 +124,6 @@
                                     <option value=" 3" <?php echo $selected4; ?> class="red">Dibatalkan
                                     </option>
                                 </select>
-
                             </td>
 
                         </tr>

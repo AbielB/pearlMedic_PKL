@@ -22,7 +22,7 @@
 
 <body>
     <!-- ADMIN MENU SECTION -->
-    <div class="container">
+    <div class="container-2">
         <div class="adminmenu">
             <div class="top">
                 <div class="logo">
@@ -73,7 +73,7 @@
             <h1><span>Layanan </span> Medical Check Up</h1>
 
 
-            <div class="orderterbaru">
+            <div class="orderterbaru orderterbaru-fix">
                 <h2>Pesanan Medical Check Up Terbaru </h2>
                 <form method="get">
                     <div class="search">
@@ -109,7 +109,7 @@
                             <td><?= $m->tanggal_pelaksanaan; ?></td>
                             <td><?= $m->jumlah; ?></td>
                             <!-- select status-->
-                            <td>
+                            <td class="status_medic">
                                 <select name="status" id="status" class="status"
                                     onchange="statusMedical(<?php echo $m->id_checkup; ?>, this.value)">
                                     <option value="0" <?php if ($m->status == 0) {
@@ -174,6 +174,26 @@
         console.log(id, status);
     }
     </script>
+
+    <style>
+    .orderterbaru-fix {
+        margin-bottom: 50px;
+    }
+
+    .status_medic {
+        /* background-color: aqua; */
+        display: grid;
+        align-items: center;
+        border-bottom: 1px solid transparent !important;
+    }
+
+    .status_medic select {
+        /* border-bottom: 1px solid transparent !important; */
+        text-align: center;
+        margin-bottom: 10px;
+        margin-top: -10px;
+    }
+    </style>
 </body>
 
 </html>

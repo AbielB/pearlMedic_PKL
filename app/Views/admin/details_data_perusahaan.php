@@ -22,7 +22,7 @@
 
 <body>
     <!-- ADMIN MENU SECTION -->
-    <div class="container">
+    <div class="container-2">
         <div class="adminmenu">
             <div class="top">
                 <div class="logo">
@@ -136,6 +136,13 @@
                     <h3>Deskripsi Perusahaan</h3>
                     <p>' . $deskripsi . '</p>
                 </div>
+                <style>
+                    .profilperusahaan_info{
+                        width: 100%;
+                        margin-left: 20px;
+                    }
+                </style>
+                
                 '; ?>
 
 
@@ -192,7 +199,7 @@
                                     $namaStatus = "Sudah Dilayani";
                                     $class = "green";
                                 } else if ($status == 4) {
-                                    $namaStatus = "Dibatalkan";
+                                    $namaStatus = "Ditolak";
                                     $class = "red";
                                 } else {
                                     $namaStatus = "Belum Dipesan";
@@ -235,14 +242,14 @@
                                     $status = "Sudah Dilayani";
                                 } else {
                                     $color = "red";
-                                    $status = "Dibatalkan";
+                                    $status = "Ditolak";
                                 } ?>
 
                             <tr>
                                 <td><?= $medical->tanggal_pelaksanaan ?></td>
                                 <td><?= $medical->lokasi ?></td>
                                 <td><?= $medical->jumlah ?></td>
-                                <td class="<?= $color ?>"><?= $status ?></td>
+                                <td class="<?= $color ?>">Belum Dilayani</td>
                             </tr>
                             <?php } ?>
                         </tbody>
@@ -274,7 +281,7 @@
                                     $status = "Sudah Dilayani";
                                 } else {
                                     $color = "red";
-                                    $status = "Dibatalkan";
+                                    $status = "Ditolak";
                                 } ?>
                             <tr>
                                 <td><?= $darurat->tanggal_pelaporan ?></td>
@@ -312,7 +319,7 @@
                                     $status = "Sudah Dilayani";
                                 } else {
                                     $color = "red";
-                                    $status = "Dibatalkan";
+                                    $status = "Ditolak";
                                 }
 
                                 echo '<tr>
@@ -327,6 +334,7 @@
                     </table>
                 </div>
             </div>
+            <br>
         </main>
         <!-- END MAIN MENU SECTION -->
         <!-- BAGIAN KANAN MAIN MENU / DETAILS MENU -->
@@ -345,6 +353,9 @@
                         <p class="text-muted">Admin</p>
                     </div>
                 </div>
+            </div>
+            <div class="bottom">
+
             </div>
         </div>
     </div>

@@ -40,10 +40,14 @@
             <a href="#" data-aos="fade-left" class="menu-button">Layanan<i class="fa-solid fa-chevron-down"></i></a>
             <div class="menu_dropdown">
                 <div class="dropdown_content">
-                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i class="fa-solid fa-stethoscope"></i></a>
-                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i class="fa-solid fa-syringe"></i></a>
-                    <a href="/client/obat" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i class="fa-solid fa-pills"></i></a>
-                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i class="fa-solid fa-truck-medical"></i></a>
+                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i
+                            class="fa-solid fa-stethoscope"></i></a>
+                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i
+                            class="fa-solid fa-syringe"></i></a>
+                    <a href="/client/obat" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i
+                            class="fa-solid fa-pills"></i></a>
+                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i
+                            class="fa-solid fa-truck-medical"></i></a>
                 </div>
             </div>
             <a href="/client" data-aos="fade-left">Kontak Kami</a>
@@ -86,31 +90,32 @@
                     <div class="profileacc-wrapper-all">
                         <div class="profileacc-wrapper-info">
                             <div class="profileacc-info">
-                                <h3>Nama Perusahaan</h3>
+                                <h3 class="dark">Nama Perusahaan</h3>
                                 <p><?= $nama_perusahaan ?></p>
                             </div>
                             <div class="profileacc-info">
-                                <h3>Bidang</h3>
+                                <h3 class="dark">Bidang</h3>
                                 <p><?= $bidang ?></p>
                             </div>
                             <div class="profileacc-info">
-                                <h3>Alamat Lengkap</h3>
+                                <h3 class="dark">Alamat Lengkap</h3>
                                 <p><?= $alamat ?></p>
                             </div>
 
                             <div class="profileacc-info">
-                                <h3>Email</h3>
+                                <h3 class="dark">Email</h3>
                                 <p><?= $email ?></p>
                             </div>
-                            <div class="profileacc-info">
-                                <h3>Nomor Telpon</h3>
-                                <p><?= $no_telp ?></p>
-                            </div>
+
 
                         </div>
                         <div class="profileacc-wrapper-aninfo">
+                            <div class="profileacc-info-desc telp">
+                                <h3 class="dark">Nomor Telpon</h3>
+                                <p><?= $no_telp ?></p>
+                            </div>
                             <div class="profileacc-info-desc">
-                                <h3>Deskripsi Perusahaan</h3>
+                                <h3 class="dark">Deskripsi Perusahaan</h3>
                                 <p>
                                     <?= $deskripsi ?>
                                 </p>
@@ -145,18 +150,18 @@
             <div class="footer1">
                 <div class="flex-rowww">
                     <div class="nama_toko">
-                        <a href="#" class="logo"><img src="/image/logo/pearlmedic2.png" alt="" />
+                        <a href="#" class="logo"><img src="../client_edit/image/logo/pearlmedic2.png" alt="" />
                             <p>Pearl Medic</p>
                         </a>
                     </div>
                     <p>Where Wellness Meet Our Care</p>
                 </div>
-                <div class="footer1_flex">
+                <!-- <div class="footer1_flex">
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#"><i class="fa-solid fa-phone"></i></a>
                     <a href="#"><i class="fa-solid fa-envelope"></i></a>
                     <a href="#"><i class="fa-solid fa-map-location-dot"></i></a>
-                </div>
+                </div> -->
             </div>
             <div class="footer2">
                 <h3>Layanan Kami</h3>
@@ -212,6 +217,52 @@
     <script src="../client_edit/scriptsjs/aos.js"></script>
     <script src="../client_edit/scriptsjs/data.js"></script>
     <script src="../client_edit/scriptsjs/swiper.js"></script>
+
+
+    <style>
+    .content1 {
+        margin-top: 100px !important;
+    }
+
+    .profileacc-wrapper-all {
+        margin-top: -110px !important;
+    }
+
+    .profileacc-wrapper-all .profileacc-info h3 {
+        font-weight: 600 !important;
+    }
+
+    .profileacc-wrapper-all .profileacc-wrapper-info .profileacc-info p,
+    .profileacc-wrapper-all .profileacc-wrapper-aninfo .profileacc-info-desc p {
+        font-size: 14px !important;
+    }
+
+    .profileacc-wrapper-aninfo .telp {
+        margin-bottom: 20px !important;
+    }
+
+    .profileacc-wrapper-aninfo h3 {
+        font-weight: 600 !important;
+    }
+
+    .dark {
+        color: #2D2B27 !important;
+    }
+
+    .dropdown_content {
+        margin-top: 27px !important;
+    }
+
+    .profiledropdown {
+        margin-top: 240px !important;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .dropdown_content {
+            margin-top: -5px !important;
+        }
+    }
+    </style>
 </body>
 
 </html>

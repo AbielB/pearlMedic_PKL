@@ -55,18 +55,30 @@
                                     <i class="fa-solid fa-user"></i>
                                     <input type="text" placeholder="Email..." name="email" id="username" />
                                 </div>
-                                <p id="error"><?= $error ?></p>
                                 <div class="logininput" id="logininput">
                                     <i class="fa-solid fa-lock"></i>
                                     <input type="password" placeholder="Password..." name="password" id="password" />
                                 </div>
                                 <p id="passworderror" class="display1"></p>
+                                <p id="passerror"><?= $error ?></p>
+
+                                <style>
+                                #passerror {
+                                    color: red;
+                                    font-size: 12px;
+                                    width: 100%;
+                                    /* background-color: aqua; */
+                                    margin-top: 10px;
+                                }
+                                </style>
 
                                 <div class="submitlogin">
                                     <i class="fa-solid fa-right-to-bracket"></i>
                                     <input type="submit" value="Login" />
                                 </div>
-                                <p id="loginadmin"><a href="/indexAdmin" class="admin">Login as Admin</a></p>
+                                <div class="loginanother">
+                                    <p id="loginadmin"><a href="/indexAdmin" class="admin">Login as Admin</a></p>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -90,6 +102,24 @@
     <script src="../client_edit/scriptsjs/aos.js"></script>
     <script src="../client_edit/scriptsjs/data.js"></script>
     <script src="../client_edit/scriptsjs/swiper.js"></script>
+    <style>
+    .loginanother {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    .loginanother #loginadmin {
+        font-size: 16px;
+    }
+
+    .loginanother #loginadmin:hover {
+        color: #f9a826;
+        transition: all 0.3s ease-in-out;
+    }
+    </style>
 </body>
 
 </html>

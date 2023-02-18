@@ -40,10 +40,14 @@
             <a href="#" data-aos="fade-left" class="menu-button">Layanan<i class="fa-solid fa-chevron-down"></i></a>
             <div class="menu_dropdown">
                 <div class="dropdown_content">
-                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i class="fa-solid fa-stethoscope"></i></a>
-                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i class="fa-solid fa-syringe"></i></a>
-                    <a href="/client/obat" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i class="fa-solid fa-pills"></i></a>
-                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i class="fa-solid fa-truck-medical"></i></a>
+                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i
+                            class="fa-solid fa-stethoscope"></i></a>
+                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i
+                            class="fa-solid fa-syringe"></i></a>
+                    <a href="/client/obat" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i
+                            class="fa-solid fa-pills"></i></a>
+                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i
+                            class="fa-solid fa-truck-medical"></i></a>
                 </div>
             </div>
             <a href="/client" data-aos="fade-left">Kontak Kami</a>
@@ -104,11 +108,11 @@
                                             //if keranjang kosong
                                             if (!empty($keranjang)) {
                                             ?>
-                                                <th>No</th>
-                                                <th>Tanggal Pemesanan</th>
-                                                <th>Alamat</th>
-                                                <th>Status</th>
-                                                <th><i class="fa-solid fa-cart-shopping"></i></th>
+                                            <th>No</th>
+                                            <th>Tanggal Pemesanan</th>
+                                            <th>Alamat</th>
+                                            <th>Status</th>
+                                            <th><i class="fa-solid fa-cart-shopping"></i></th>
                                             <?php
                                             }
                                             ?>
@@ -167,13 +171,13 @@
                                         //if medical is not empty
                                         if (!empty($medical)) {
                                         ?>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Tanggal Pemesanan</th>
-                                                <th>Total Pasien</th>
-                                                <th>Lokasi</th>
-                                                <th>Status</th>
-                                            </tr>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Tanggal Pemesanan</th>
+                                            <th>Total Pasien</th>
+                                            <th>Lokasi</th>
+                                            <th>Status</th>
+                                        </tr>
                                         <?php
                                         }
                                         ?>
@@ -233,12 +237,12 @@
                                             <?php
                                             //if vaksin is not empty
                                             if (!empty($ordervaksin)) { ?>
-                                                <th>No</th>
-                                                <th>Tanggal Pemesanan</th>
-                                                <th>Total Pasien</th>
-                                                <th>Lokasi</th>
-                                                <th>Jenis Vaksin</th>
-                                                <th>Status</th>
+                                            <th>No</th>
+                                            <th>Tanggal Pemesanan</th>
+                                            <th>Total Pasien</th>
+                                            <th>Lokasi</th>
+                                            <th>Jenis Vaksin</th>
+                                            <th>Status</th>
                                             <?php } ?>
                                         </tr>
                                     </thead>
@@ -299,12 +303,12 @@
                                             //if darurat is not empty
                                             if (!empty($darurat)) {
                                             ?>
-                                                <th>No</th>
-                                                <th>Tanggal Pemesanan</th>
-                                                <th>Total Pasien</th>
-                                                <th>Lokasi</th>
-                                                <th>RS Rujukan</th>
-                                                <th>Status</th>
+                                            <th>No</th>
+                                            <th>Tanggal Pemesanan</th>
+                                            <th>Total Pasien</th>
+                                            <th>Lokasi</th>
+                                            <th>RS Rujukan</th>
+                                            <th>Status</th>
                                             <?php } ?>
                                         </tr>
                                     </thead>
@@ -370,12 +374,12 @@
                     </div>
                     <p>Where Wellness Meet Our Care</p>
                 </div>
-                <div class="footer1_flex">
+                <!-- <div class="footer1_flex">
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#"><i class="fa-solid fa-phone"></i></a>
                     <a href="#"><i class="fa-solid fa-envelope"></i></a>
                     <a href="#"><i class="fa-solid fa-map-location-dot"></i></a>
-                </div>
+                </div> -->
             </div>
             <div class="footer2">
                 <h3>Layanan Kami</h3>
@@ -431,6 +435,32 @@
     <script src="../client_edit/scriptsjs/aos.js"></script>
     <script src="../client_edit/scriptsjs/data.js"></script>
     <script src="../client_edit/scriptsjs/swiper.js"></script>
+
+
+    <style>
+    .dropdown_content {
+        margin-top: 27px !important;
+    }
+
+    .profiledropdown {
+        margin-top: 240px !important;
+    }
+
+    .info-pelayanan table {
+        padding: 10px !important;
+    }
+
+    .info-pelayanan table tr td,
+    .info-pelayanan table tr th {
+        padding: 10px !important;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .dropdown_content {
+            margin-top: -5px !important;
+        }
+    }
+    </style>
 </body>
 
 </html>

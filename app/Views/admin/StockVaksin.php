@@ -81,9 +81,7 @@
         <main id="mainmenu" class="full">
             <h1><span>Layanan </span>Vaksinasi</h1>
             <h3 class="path"><a href="/admin/LayananObat">Layanan Vaksinasi</a> / <span>Stock Vaksin</span> </h3>
-            <div class="date">
-                <input type="date" name="date" id="date">
-            </div>
+
             <div class="popupedit" id="popupedit">
                 <i class="fa-solid fa-trash-can"></i>
                 <h2>Hapus Vaksin Dari Inventory?</h2>

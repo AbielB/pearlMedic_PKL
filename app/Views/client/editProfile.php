@@ -26,12 +26,12 @@
     <!-- END Link AOS Library -->
     <link rel="stylesheet" href="../client_edit/css/output.css" />
     <style>
-        #error {
-            color: red;
-            font-size: 1.2em;
-            width: 100% !important;
-            margin-top: 0.4em;
-        }
+    #error {
+        color: red;
+        font-size: 1.2em;
+        width: 100% !important;
+        margin-top: 0.4em;
+    }
     </style>
 </head>
 
@@ -48,10 +48,14 @@
             <a href="#" data-aos="fade-left" class="menu-button">Layanan<i class="fa-solid fa-chevron-down"></i></a>
             <div class="menu_dropdown">
                 <div class="dropdown_content">
-                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i class="fa-solid fa-stethoscope"></i></a>
-                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i class="fa-solid fa-syringe"></i></a>
-                    <a href="/client/obat" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i class="fa-solid fa-pills"></i></a>
-                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i class="fa-solid fa-truck-medical"></i></a>
+                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i
+                            class="fa-solid fa-stethoscope"></i></a>
+                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i
+                            class="fa-solid fa-syringe"></i></a>
+                    <a href="/client/obat" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i
+                            class="fa-solid fa-pills"></i></a>
+                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i
+                            class="fa-solid fa-truck-medical"></i></a>
                 </div>
             </div>
             <a href="/client" data-aos="fade-left">Kontak Kami</a>
@@ -98,7 +102,9 @@
                                 <div class="profileacc-info">
                                     <h3>Nama Perusahaan</h3>
                                     <div class="inputprofile">
-                                        <input type="text" value="<?= $nama_perusahaan; ?>" placeholder="Silahkan isi nama perusahaan..." id="nama_perusahaan" name="nama_perusahaan" />
+                                        <input type="text" value="<?= $nama_perusahaan; ?>"
+                                            placeholder="Silahkan isi nama perusahaan..." id="nama_perusahaan"
+                                            name="nama_perusahaan" />
                                         <i class="fa-solid fa-pen"></i>
                                     </div>
                                     <h2 id="error">
@@ -115,13 +121,23 @@
                                         //switch case bidang selected
                                         switch ($bidang) {
                                             case 'Tambang/Minyak':
-                                                echo '<select name="bidang" id="bidang">
+                                                echo '<select name="bidang" id="bidang" class="bidangoption">
                                                 <option value="Tambang/Minyak" selected>Tambang/Minyak</option>
                                                 <option value="Energi">Energi</option>
                                                 <option value="Kesehatan">Kesehatan</option>
                                                 <option value="Transportasi">Transportasi</option>
                                                 <option value="Lainnya">Lainnya</option>
-                                            </select>';
+                                            </select>
+                                            <style>
+                                            .bidangoption{
+                                                width: 100%;
+                                                padding: 5px;
+                                                background: transparent;
+                                                font-size: 14px;
+                                            }
+                                                </style>
+
+                                            ';
                                                 break;
                                             case 'Energi':
                                                 echo '<select name="bidang" id="bidang">
@@ -171,7 +187,7 @@
                                         }
                                         ?>
 
-                                        <i class="fa-solid fa-pen"></i>
+                                        <!-- <i class="fa-solid fa-pen"></i> -->
                                     </div>
                                     <p class="display" id="bidangerror"></p>
                                 </div>
@@ -179,7 +195,8 @@
                                 <div class="profileacc-info">
                                     <h3>Alamat Lengkap</h3>
                                     <div class="inputprofile">
-                                        <input type="text" value="<?= $alamat; ?>" placeholder="Silahkan isi Alamat..." id="alamat" name="alamat" />
+                                        <input type="text" value="<?= $alamat; ?>" placeholder="Silahkan isi Alamat..."
+                                            id="alamat" name="alamat" />
                                         <i class="fa-solid fa-pen"></i>
                                     </div>
                                     <p id="error"><?= $error_alamat ?></p>
@@ -187,7 +204,8 @@
                                 <div class="profileacc-info">
                                     <h3>Nomor Telepon</h3>
                                     <div class="inputprofile">
-                                        <input type="text" value="<?= $no_telp ?>" placeholder="Silahkan isi No Telp..." id="no_telp" name="no_telp" />
+                                        <input type="text" value="<?= $no_telp ?>" placeholder="Silahkan isi No Telp..."
+                                            id="no_telp" name="no_telp" />
                                         <i class="fa-solid fa-pen"></i>
                                     </div>
                                     <p id="error"><?= $error_notelp ?></p>
@@ -195,7 +213,8 @@
                                 <div class="profileacc-info">
                                     <h3>Email</h3>
                                     <div class="inputprofile">
-                                        <input type="text" value="<?= $email ?>" placeholder="Silahkan isi Alamat Email..." id="email" name="email" />
+                                        <input type="text" value="<?= $email ?>"
+                                            placeholder="Silahkan isi Alamat Email..." id="email" name="email" />
                                         <i class="fa-solid fa-pen"></i>
                                     </div>
                                     <p id="error"><?= $error_email ?></p>
@@ -203,7 +222,8 @@
                                 <div class="profileacc-info">
                                     <h3>Password</h3>
                                     <div class="inputprofile">
-                                        <input type="text" value="<?= $password ?>" placeholder="Silahkan isi Password..." id="password" name="password" />
+                                        <input type="text" value="<?= $password ?>"
+                                            placeholder="Silahkan isi Password..." id="password" name="password" />
                                         <i class="fa-solid fa-pen"></i>
                                     </div>
                                     <p id="error"><?= $error_password ?></p>
@@ -213,7 +233,8 @@
                                 <div class="profileacc-info-desc">
                                     <h3>Deskripsi Perusahaan</h3>
                                     <div class="inputprofile">
-                                        <textarea name="deskripsi" id="deskripsi" cols="30" rows="10" class="textarea"><?= $deskripsi ?></textarea>
+                                        <textarea name="deskripsi" id="deskripsi" cols="30" rows="10"
+                                            class="textarea"><?= $deskripsi ?></textarea>
                                         <!-- <i class="fa-solid fa-pen"></i> -->
                                     </div>
                                     <p id="error"><?= $error_deskripsi ?></p>
@@ -236,12 +257,14 @@
                                             <button type="submit" class="btn-removeedit" onclick="closePopupedit()">
                                                 Ya
                                             </button>
-                                            <a href="#" id="ya"><button type="button" onclick="closePopupedit()" class="btn-removeedit">
+                                            <a href="#" id="ya"><button type="button" onclick="closePopupedit()"
+                                                    class="btn-removeedit">
                                                     Batal
                                                 </button></a>
                                         </div>
                                         <div class="kembali btn-profile">
-                                            <a href="/client/myAccount"><i class="fa-solid fa-angles-left"></i>Kembali</a>
+                                            <a href="/client/myAccount"><i
+                                                    class="fa-solid fa-angles-left"></i>Kembali</a>
                                         </div>
                                     </div>
                                 </div>
@@ -266,12 +289,12 @@
                     </div>
                     <p>Where Wellness Meet Our Care</p>
                 </div>
-                <div class="footer1_flex">
+                <!-- <div class="footer1_flex">
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#"><i class="fa-solid fa-phone"></i></a>
                     <a href="#"><i class="fa-solid fa-envelope"></i></a>
                     <a href="#"><i class="fa-solid fa-map-location-dot"></i></a>
-                </div>
+                </div> -->
             </div>
             <div class="footer2">
                 <h3>Layanan Kami</h3>
@@ -328,40 +351,80 @@
     <script src="../client_edit/scriptsjs/data.js"></script>
     <script src="../client_edit/scriptsjs/swiper.js"></script>
     <script>
-        // isi value di textarea
-        var textarea = document.getElementById("deskripsi");
+    // isi value di textarea
+    var textarea = document.getElementById("deskripsi");
 
 
-        // textarea color and font
-        textarea.style.color = "#2D2B27";
-        //   textarea value margin top
-        textarea.style.marginTop = "10px";
-        (textarea.style.fontFamily = "Lora"), "serif";
-        // pop up edit
-        let popupedit = document.getElementById("popupedit");
+    // textarea color and font
+    textarea.style.color = "#2D2B27";
+    //   textarea value margin top
+    textarea.style.marginTop = "10px";
+    (textarea.style.fontFamily = "Lora"), "serif";
+    // pop up edit
+    let popupedit = document.getElementById("popupedit");
 
-        function openPopupedit() {
-            popupedit.classList.add("open-popup");
-        }
+    function openPopupedit() {
+        popupedit.classList.add("open-popup");
+    }
 
-        function closePopupedit() {
-            popupedit.classList.remove("open-popup");
-        }
+    function closePopupedit() {
+        popupedit.classList.remove("open-popup");
+    }
 
-        // background popup
-        // let container_popup = document.querySelector(".container_popup");
-        let btn_popupedit = document.querySelector(".btn_popupedit");
+    // background popup
+    // let container_popup = document.querySelector(".container_popup");
+    let btn_popupedit = document.querySelector(".btn_popupedit");
 
-        btn_popup.addEventListener("click", function() {
-            container_popup.classList.add("active");
-        });
+    btn_popup.addEventListener("click", function() {
+        container_popup.classList.add("active");
+    });
 
-        // close popup
-        let btn_removeedit = document.querySelector(".btn-removeedit");
-        btn_remove.addEventListener("click", function() {
-            container_popup.classList.remove("active");
-        });
+    // close popup
+    let btn_removeedit = document.querySelector(".btn-removeedit");
+    btn_remove.addEventListener("click", function() {
+        container_popup.classList.remove("active");
+    });
     </script>
+
+    <style>
+    .profileacc-wrapper-all {
+        margin-top: -110px !important;
+    }
+
+    .profileacc-wrapper-all .profileacc-info h3 {
+        font-weight: 600 !important;
+    }
+
+    .content1 {
+        margin-top: 100px !important;
+    }
+
+    .profileacc-info .inputprofile input {
+        font-size: 14px !important;
+    }
+
+    .dropdown_content {
+        margin-top: 27px !important;
+    }
+
+    .profiledropdown {
+        margin-top: 240px !important;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .dropdown_content {
+            margin-top: -5px !important;
+        }
+    }
+
+    .profileacc-wrapper-aninfo h3 {
+        font-weight: 600 !important;
+    }
+
+    .profileacc-wrapper-aninfo .inputprofile textarea {
+        font-size: 14px !important;
+    }
+    </style>
 </body>
 
 </html>

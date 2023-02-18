@@ -22,7 +22,7 @@
 
 <body>
     <!-- ADMIN MENU SECTION -->
-    <div class="container-2">
+    <div class="container">
         <div class="adminmenu">
             <div class="top">
                 <div class="logo">
