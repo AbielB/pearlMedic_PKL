@@ -75,14 +75,7 @@
             <!-- Layanan Terbaru -->
             <div class="orderterbaru">
                 <h2>Pesanan Darurat Terbaru </h2>
-                <form action="" method="GET">
-                    <div class="search">
 
-                        <input type="text" name="search" id="search" placeholder="Cari Nama Perusahaan....">
-                        <button type="submit" name="submit" id="submit"><i class="fa-solid fa-search"></i></button>
-
-                    </div>
-                </form>
                 <table>
                     <thead>
                         <tr>

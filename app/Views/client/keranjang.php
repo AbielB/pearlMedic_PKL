@@ -271,7 +271,7 @@
             <div class="footer1">
                 <div class="flex-rowww">
                     <div class="nama_toko">
-                        <a href="#" class="logo"><img src="/image/logo/pearlmedic2.png" alt="">
+                        <a href="#" class="logo"><img src="../client_edit/image/logo/pearlmedic2.png" alt="" />
                             <p>Pearl Medic</p>
                         </a>
                     </div>

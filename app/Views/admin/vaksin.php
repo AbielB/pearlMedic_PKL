@@ -73,10 +73,7 @@
             <!-- Layanan Terbaru -->
             <div class="orderterbaru">
                 <h2>Pesanan Vaksinasi Terbaru </h2>
-                <div class="search">
-                    <input type="text" name="search" id="search" placeholder="Cari Pesanan Vaksin....">
-                    <button type="submit" name="submit" id="submit"><i class="fa-solid fa-search"></i></button>
-                </div>
+
                 <table>
                     <thead>
                         <tr>

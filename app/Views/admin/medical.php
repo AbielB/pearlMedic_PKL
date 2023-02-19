@@ -76,10 +76,7 @@
             <div class="orderterbaru orderterbaru-fix">
                 <h2>Pesanan Medical Check Up Terbaru </h2>
                 <form method="get">
-                    <div class="search">
-                        <input type="text" name="search" id="search" placeholder="Cari Nama Perusahaan....">
-                        <button type="submit" name="submit" id="submit"><i class="fa-solid fa-search"></i></button>
-                    </div>
+
                 </form>
                 <table>
                     <thead>

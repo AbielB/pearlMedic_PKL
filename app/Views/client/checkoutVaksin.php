@@ -31,24 +31,18 @@
     <!-- NAVIGATION BAR SECTION -->
     <nav class="navigation_bar" id="navbar_color">
         <div id="menu-btn" class="fas fa-bars"></div>
-        <a href="/client" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png" alt=""
-                id="gambar1">
+        <a href="/client" class="logo" data-aos="fade-left"><img src="../client_edit/image/logo/pearlmedic2.png" alt="" id="gambar1">
             <p>Pearl Medic</p>
         </a>
         <div class="navbar">
             <a href="/client" class="hidup" data-aos="fade-left">Home</a>
-            <a href="#layanans" data-aos="fade-left" class="menu-button">Layanan<i
-                    class="fa-solid fa-chevron-down"></i></a>
+            <a href="#layanans" data-aos="fade-left" class="menu-button">Layanan<i class="fa-solid fa-chevron-down"></i></a>
             <div class="menu_dropdown">
                 <div class="dropdown_content">
-                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i
-                            class="fa-solid fa-stethoscope"></i></a>
-                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i
-                            class="fa-solid fa-syringe"></i></a>
-                    <a href="/client/obat" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i
-                            class="fa-solid fa-pills"></i></a>
-                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i
-                            class="fa-solid fa-truck-medical"></i></a>
+                    <a href="/client/medicalcheckup" data-aos="fade-left" class="menu-isi">Medical Check Up<i class="fa-solid fa-stethoscope"></i></a>
+                    <a href="/client/vaksin" data-aos="fade-left" class="menu-isi">Vaksinasi<i class="fa-solid fa-syringe"></i></a>
+                    <a href="/client/obat" data-aos="fade-left" class="menu-isi">Pembelian Obat-Obatan<i class="fa-solid fa-pills"></i></a>
+                    <a href="/client/darurat" data-aos="fade-left" class="menu-isi">Pelayanan Darurat<i class="fa-solid fa-truck-medical"></i></a>
                 </div>
             </div>
             <a href="#contacts" data-aos="fade-left">Kontak Kami</a>
@@ -64,8 +58,7 @@
                 <a href="/client/myAccount" data-aos="fade-left">My Account<i class="fa-solid fa-user-tie"></i></a>
                 <a href="/client/editProfile" data-aos="fade-left">Edit Profile<i class="fa-solid fa-user-pen"></i></a>
                 <a href="/client/history" data-aos="fade-left">History<i class="fa-solid fa-money-check"></i></a>
-                <button data-aos="fade-left" onclick="openPopup()">Logout<i
-                        class="fa-solid fa-right-from-bracket"></i></button>
+                <button data-aos="fade-left" onclick="openPopup()">Logout<i class="fa-solid fa-right-from-bracket"></i></button>
             </div>
         </div>
     </nav>
@@ -131,8 +124,7 @@
                                 <button type="button" onclick="openPopupedit()">
                                     <i class="fa-regular fa-circle-check"></i>Konfirmasi Pesanan
                                 </button>
-                                <a href="/client/vaksin"><button><i
-                                            class="fa-solid fa-angles-left"></i>Kembali</button></a>
+                                <a href="/client/vaksin"><button><i class="fa-solid fa-angles-left"></i>Kembali</button></a>
                             </div>
                         </div>
                     </div>
@@ -185,7 +177,7 @@
             <div class="footer1">
                 <div class="flex-rowww">
                     <div class="nama_toko">
-                        <a href="#" class="logo"><img src="/image/logo/pearlmedic2.png" alt="">
+                        <a href="#" class="logo"><img src="../client_edit/image/logo/pearlmedic2.png" alt="" />
                             <p>Pearl Medic</p>
                         </a>
                     </div>
@@ -246,49 +238,49 @@
     <script src="../client_edit/scriptsjs/data.js"></script>
     <script src="../client_edit/scriptsjs/swiper.js"></script>
     <script>
-    // pop up edit
-    let popupedit = document.getElementById("popupedit");
+        // pop up edit
+        let popupedit = document.getElementById("popupedit");
 
-    function openPopupedit() {
-        popupedit.classList.add("open-popup");
-    }
+        function openPopupedit() {
+            popupedit.classList.add("open-popup");
+        }
 
-    function closePopupedit() {
-        popupedit.classList.remove("open-popup");
-    }
+        function closePopupedit() {
+            popupedit.classList.remove("open-popup");
+        }
 
-    // background popup
-    // let container_popup = document.querySelector(".container_popup");
-    let btn_popupedit = document.querySelector(".btn_popupedit");
+        // background popup
+        // let container_popup = document.querySelector(".container_popup");
+        let btn_popupedit = document.querySelector(".btn_popupedit");
 
-    btn_popup.addEventListener("click", function() {
-        container_popup.classList.add("active");
-    });
+        btn_popup.addEventListener("click", function() {
+            container_popup.classList.add("active");
+        });
 
-    // close popup
-    let btn_removeedit = document.querySelector(".btn-removeedit");
-    btn_remove.addEventListener("click", function() {
-        container_popup.classList.remove("active");
-    });
+        // close popup
+        let btn_removeedit = document.querySelector(".btn-removeedit");
+        btn_remove.addEventListener("click", function() {
+            container_popup.classList.remove("active");
+        });
     </script>
     <style>
-    .dropdown_content {
-        margin-top: 27px !important;
-    }
-
-    .profiledropdown {
-        margin-top: 240px !important;
-    }
-
-    @media only screen and (max-width: 768px) {
         .dropdown_content {
-            margin-top: -5px !important;
+            margin-top: 27px !important;
         }
-    }
 
-    .popupedit p {
-        margin-bottom: 5px !important;
-    }
+        .profiledropdown {
+            margin-top: 240px !important;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .dropdown_content {
+                margin-top: -5px !important;
+            }
+        }
+
+        .popupedit p {
+            margin-bottom: 5px !important;
+        }
     </style>
 </body>
 </body>
