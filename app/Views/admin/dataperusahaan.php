@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <!-- END LINK FONT AWESOME -->
     <title>Admin || Pearl Medic</title>
+    <style>
+        .text-danger {
+            color: red !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -152,8 +157,7 @@
                                 <label for="nama_perusahaan">Nama Perusahaan</label>
                                 <div class="form-group-logo">
                                     <i class="fa-solid fa-building-user"></i>
-                                    <input type="text" name="nama_perusahaan" id="nama_perusahaan"
-                                        placeholder="Masukkan Nama Perusahaan..." required>
+                                    <input type="text" name="nama_perusahaan" id="nama_perusahaan" placeholder="Masukkan Nama Perusahaan..." required>
                                 </div>
                                 <p class="text-danger"><?php echo $error_namaPerusahaan ?></p>
                             </div>
@@ -177,8 +181,7 @@
                             <div class="form-group">
                                 <label for="deskripsi_alamat">Alamat Lengkap Perusahaan</label>
                                 <div class="form-group-logo" id="form-group-logo">
-                                    <textarea name="alamat" id="deskripsi_alamat" cols="30" rows="10"
-                                        placeholder="Deskripsikan alamat...." required></textarea>
+                                    <textarea name="alamat" id="deskripsi_alamat" cols="30" rows="10" placeholder="Deskripsikan alamat...." required></textarea>
                                 </div>
                                 <p class="text-danger"><?php echo $error_alamat ?></p>
                             </div>
@@ -187,8 +190,7 @@
                                 <label for="email">Email Perusahaan</label>
                                 <div class="form-group-logo">
                                     <i class="fa-solid fa-envelope"></i>
-                                    <input type="text" name="email" id="email" placeholder="Masukkan Email...."
-                                        required>
+                                    <input type="text" name="email" id="email" placeholder="Masukkan Email...." required>
                                 </div>
                                 <p class="text-danger"><?php echo $error_email ?></p>
                             </div>
@@ -196,8 +198,7 @@
                             <div class="form-group">
                                 <label for="no_hp">Nomor Telpon</label>
                                 <div class="form-group-logo">
-                                    <input type="text" name="no_hp" id="email" placeholder="Masukkan Nomor HP...."
-                                        required>
+                                    <input type="text" name="no_hp" id="email" placeholder="Masukkan Nomor HP...." required>
                                 </div>
                                 <p class="text-danger"><?php echo $error_no_telp ?></p>
                             </div>
@@ -205,8 +206,7 @@
                             <div class="form-group">
                                 <label for="deskripsi_perusahaan">Deskripsi Perusahaan</label>
                                 <div class="form-group-logo" id="form-group-logo">
-                                    <textarea name="deskripsi" id="deskripsi_perusahaan" cols="30" rows="10"
-                                        placeholder="Deskripsikan Perusahaan terkait ...." required></textarea>
+                                    <textarea name="deskripsi" id="deskripsi_perusahaan" cols="30" rows="10" placeholder="Deskripsikan Perusahaan terkait ...." required></textarea>
                                 </div>
                                 <p class="text-danger"><?php echo $error_deskripsi ?></p>
                             </div>

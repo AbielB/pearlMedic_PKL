@@ -421,7 +421,7 @@ class AdminControl extends BaseController
         $error_alamat = '';
         $error_bidang = '';
         $error_email = '';
-        $error_no_telp = '';
+        $error_hp = '';
         $error_deskripsi = '';
 
         $namaPerusahaan = $this->request->getVar('nama_perusahaan');
