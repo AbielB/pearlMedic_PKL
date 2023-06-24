@@ -63,22 +63,22 @@
                                 <p id="passerror"><?= $error ?></p>
 
                                 <style>
-                                #passerror {
-                                    color: red;
-                                    font-size: 12px;
-                                    width: 100%;
-                                    /* background-color: aqua; */
-                                    margin-top: 10px;
-                                }
+                                    #passerror {
+                                        color: red;
+                                        font-size: 12px;
+                                        width: 100%;
+                                        /* background-color: aqua; */
+                                        margin-top: 10px;
+                                    }
                                 </style>
 
                                 <div class="submitlogin">
                                     <i class="fa-solid fa-right-to-bracket"></i>
                                     <input type="submit" value="Login" />
                                 </div>
-                                <div class="loginanother">
+                                <!-- <div class="loginanother">
                                     <p id="loginadmin"><a href="/indexAdmin" class="admin">Login as Admin</a></p>
-                                </div>
+                                </div> -->
                             </form>
                         </div>
                     </div>
@@ -103,22 +103,22 @@
     <script src="../client_edit/scriptsjs/data.js"></script>
     <script src="../client_edit/scriptsjs/swiper.js"></script>
     <style>
-    .loginanother {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 30px;
-        width: 100%;
-    }
+        .loginanother {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            width: 100%;
+        }
 
-    .loginanother #loginadmin {
-        font-size: 16px;
-    }
+        .loginanother #loginadmin {
+            font-size: 16px;
+        }
 
-    .loginanother #loginadmin:hover {
-        color: #f9a826;
-        transition: all 0.3s ease-in-out;
-    }
+        .loginanother #loginadmin:hover {
+            color: #f9a826;
+            transition: all 0.3s ease-in-out;
+        }
     </style>
 </body>
 

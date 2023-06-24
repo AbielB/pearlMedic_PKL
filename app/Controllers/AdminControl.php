@@ -380,7 +380,14 @@ class AdminControl extends BaseController
         $data = [
             'name' => $name,
             'rowDetails' => $rowDetails,
-            'id' => $id
+            'id' => $id,
+            'error_namaPerusahaan' => '',
+            'error_alamat' => '',
+            'error_bidang' => '',
+            'error_email' => '',
+            'error_no_telp' => '',
+            'error_deskripsi' => ''
+
         ];
         return view('admin/editperusahaan', $data);
     }
@@ -394,6 +401,85 @@ class AdminControl extends BaseController
         $no_telp = $this->request->getVar('no_telp');
         $deskripsi = $this->request->getVar('deskripsi');
         $id = $this->request->getVar('id');
+
+        //validation
+        $valid = true;
+        $error_namaPerusahaan = '';
+        $error_alamat = '';
+        $error_bidang = '';
+        $error_email = '';
+        $error_no_telp = '';
+        $error_deskripsi = '';
+
+        if (empty($namaPerusahaan)) {
+            $error_namaPerusahaan = 'Nama Perusahaan tidak boleh kosong';
+            $valid = false;
+        }
+        if (empty($alamat)) {
+            $error_alamat = 'Alamat tidak boleh kosong';
+            $valid = false;
+        }
+        if (empty($bidang)) {
+            $error_bidang = 'Bidang tidak boleh kosong';
+            $valid = false;
+        }
+        if (empty($email)) {
+            $error_email = 'Email tidak boleh kosong';
+            $valid = false;
+        }
+        if (empty($no_telp)) {
+            $error_no_telp = 'No Telp tidak boleh kosong';
+            $valid = false;
+        }
+        if (empty($deskripsi)) {
+            $error_deskripsi = 'Deskripsi tidak boleh kosong';
+            $valid = false;
+        }
+        //if no_telp not numeric then error
+        if (!is_numeric($no_telp)) {
+            $error_no_telp = 'No Telp harus berupa angka';
+            $valid = false;
+        }
+        //if email not valid then error
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $error_email = 'Email tidak valid';
+            $valid = false;
+        }
+        //if email already exist $error_email = "Email sudah terdaftar"
+        $db = \Config\Database::connect();
+        $builder = $db->table('tb_perusahaan');
+        $builder->where('email', $email);
+        //where id != $id
+        $builder->where('id !=', $id);
+        $query = $builder->get();
+        $rowEmail = $query->getResult();
+        if (!empty($rowEmail)) {
+            $error_email = 'Email sudah terdaftar';
+            $valid = false;
+        }
+
+        //if valid false then redirect to edit data perusahaan page
+        if (!$valid) {
+            $session = session();
+            $name = $session->get('nama');
+            $db = \Config\Database::connect();
+            $builder = $db->table('tb_perusahaan');
+            $builder->where('id', $id);
+            $query = $builder->get();
+            $rowDetails = $query->getResult();
+            $data = [
+                'name' => $name,
+                'rowDetails' => $rowDetails,
+                'error_namaPerusahaan' => $error_namaPerusahaan,
+                'error_alamat' => $error_alamat,
+                'error_bidang' => $error_bidang,
+                'error_email' => $error_email,
+                'error_no_telp' => $error_no_telp,
+                'error_deskripsi' => $error_deskripsi,
+                'id' => $id
+            ];
+            return view('admin/editperusahaan', $data);
+        }
 
         //update data in tb_perusahaan where id = $id
         $db = \Config\Database::connect();

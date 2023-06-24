@@ -96,10 +96,10 @@
                                     <i class="fa-solid fa-pills"></i>Pembelian Obat-Obatan
                                 </h4>
                             </div>
-                            <div class="searchbar">
+                            <!-- <div class="searchbar">
                                 <input type="text" placeholder="Cari Histori Pembelian..." />
                                 <i class="fa-solid fa-search"></i>
-                            </div>
+                            </div> -->
                             <div class="info-pelayanan">
                                 <table>
                                     <thead>
@@ -160,10 +160,10 @@
                                     <i class="fa-solid fa-stethoscope"></i>Medical Check Up
                                 </h4>
                             </div>
-                            <div class="searchbar">
+                            <!-- <div class="searchbar">
                                 <input type="text" placeholder="Cari Histori Check Up..." />
                                 <i class="fa-solid fa-search"></i>
-                            </div>
+                            </div> -->
                             <div class="info-pelayanan">
                                 <table>
                                     <thead>
@@ -226,10 +226,10 @@
                             <div class="nama-pelayanan">
                                 <h4><i class="fa-solid fa-syringe"></i>Vaksinasi</h4>
                             </div>
-                            <div class="searchbar">
+                            <!-- <div class="searchbar">
                                 <input type="text" placeholder="Cari Histori Vaksinasi..." />
                                 <i class="fa-solid fa-search"></i>
-                            </div>
+                            </div> -->
                             <div class="info-pelayanan">
                                 <table>
                                     <thead>
@@ -291,10 +291,10 @@
                                     <i class="fa-solid fa-truck-medical"></i>Pelayanan Darurat
                                 </h4>
                             </div>
-                            <div class="searchbar">
+                            <!-- <div class="searchbar">
                                 <input type="text" placeholder="Cari Histori Pelayanan Darurat..." />
                                 <i class="fa-solid fa-search"></i>
-                            </div>
+                            </div> -->
                             <div class="info-pelayanan">
                                 <table>
                                     <thead>

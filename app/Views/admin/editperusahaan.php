@@ -113,6 +113,7 @@
                                 value="' . $namaPerusahaan . '" placeholder="Masukan Nama...">
                             <i class="fa-solid fa-user-pen"></i>
                         </div>
+                        ' . $error_namaPerusahaan . '
                     </div>
                     
                     <div class="profilperusahaan_info_text">
@@ -152,6 +153,9 @@
                                 placeholder="Masukan Alamat...">
                             <i class="fa-solid fa-user-pen"></i>
                         </div>
+                        
+                        ' . $error_alamat . '
+                      
                     </div>
                     <div class="profilperusahaan_info_text">
                         <h3>Email</h3>
@@ -160,6 +164,7 @@
                                 placeholder="Masukan Email...">
                             <i class="fa-solid fa-user-pen"></i>
                         </div>
+                        ' . $error_email . '
                     </div>
                     <div class="profilperusahaan_info_text">
                         <h3>Nomor Telpon</h3>
@@ -168,6 +173,7 @@
                                 placeholder="Masukan Nomor Telpon...">
                             <i class="fa-solid fa-user-pen"></i>
                         </div>
+                        ' . $error_no_telp . '
                     </div>
                 </div>
                 <div class="profilperusahaan_info_text grid">
@@ -176,6 +182,7 @@
                         <textarea name="deskripsi" id="deskripsi textarea_perusahaan" cols="30" rows="10" required
                             placeholder="Isi Deskripsi Perusahaan...">' . $deskripsi . '</textarea>
                     </div>
+                    ' . $error_deskripsi . '
                 </div>'; ?>
 
                             <!--hidden input id-->
